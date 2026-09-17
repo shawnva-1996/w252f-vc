@@ -1,2 +1,7 @@
 .DS_Store
 .vercel
+
+# Added for safety
+node_modules/
+venv/
+.venv/
