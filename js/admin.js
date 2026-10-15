@@ -1,7 +1,7 @@
 // Admin: look after people and songs.
 import { auth } from './firebase.js';
 import { show, esc, toast, header, confirmBox, askText, $ } from './ui.js';
-import { menuButtons, bindMenu } from './main.js';
+import { menuButtons, bindMenu, loading } from './main.js';
 
 async function api(action, body = {}) {
   const token = await auth.currentUser.getIdToken();
@@ -12,7 +12,7 @@ async function api(action, body = {}) {
 }
 
 export async function adminScreen() {
-  show(`<main class="page">${header('Admin', { back: '#/home', right: menuButtons() })}<p class="muted">Loading people…</p></main>`);
+  show(`<main class="page">${header('Admin', { back: '#/home', right: menuButtons() })}${loading('Getting the list of people…')}</main>`);
   bindMenu();
   let users = [];
   try { users = (await api('list')).users; } catch (e) { toast(e.message); }

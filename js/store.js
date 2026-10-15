@@ -42,27 +42,58 @@ export async function ensureProfile(user, name) {
 }
 
 // Saved sets ---------------------------------------------------------
+// Kept in memory (and on this device) so screens open straight away;
+// the internet copy refreshes quietly in the background.
+const setCache = { uid: null, list: null };
+const cacheKey = () => 'sets.' + store.uid;
+const sortSets = l => l.sort((a, b) => (b.updatedMs || 0) - (a.updatedMs || 0));
+function remember(list) {
+  setCache.uid = store.uid; setCache.list = sortSets(list);
+  local.set(cacheKey(), list.map(({ createdAt, ...s }) => s));
+}
+export function cachedSets() {
+  if (setCache.uid === store.uid && setCache.list) return setCache.list;
+  const saved = store.uid && local.get(cacheKey());
+  if (saved) { setCache.uid = store.uid; setCache.list = sortSets(saved); return setCache.list; }
+  return null;
+}
 export async function listSets() {
   const snap = await getDocs(query(collection(db, C.sets), where('ownerUid', '==', store.uid)));
-  return snap.docs.map(d => ({ id: d.id, ...d.data() })).sort((a, b) => (b.updatedMs || 0) - (a.updatedMs || 0));
+  const list = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+  remember(list);
+  return setCache.list;
 }
 export async function getSet(id) {
+  const hit = (cachedSets() || []).find(s => s.id === id);
+  if (hit) return structuredClone(hit);
   const snap = await getDoc(doc(db, C.sets, id));
   return snap.exists() ? { id: snap.id, ...snap.data() } : null;
 }
 export async function createSet(data) {
-  const ref = await addDoc(collection(db, C.sets), { ...data, ownerUid: store.uid, createdAt: serverTimestamp(), updatedMs: Date.now() });
+  const full = { ...data, ownerUid: store.uid, updatedMs: Date.now() };
+  const ref = await addDoc(collection(db, C.sets), { ...full, createdAt: serverTimestamp() });
+  remember([{ id: ref.id, ...full }, ...(cachedSets() || [])]);
   return ref.id;
 }
 export async function updateSet(id, data) {
-  await updateDoc(doc(db, C.sets, id), { ...data, updatedMs: Date.now() });
+  const updatedMs = Date.now();
+  const list = cachedSets();
+  if (list) remember(list.map(s => s.id === id ? { ...s, ...structuredClone(data), updatedMs } : s));
+  await updateDoc(doc(db, C.sets, id), { ...data, updatedMs });
 }
-export const removeSet = id => deleteDoc(doc(db, C.sets, id));
+export async function removeSet(id) {
+  const list = cachedSets();
+  if (list) remember(list.filter(s => s.id !== id));
+  await deleteDoc(doc(db, C.sets, id));
+}
 
 // Uploaded background pictures ----------------------------------------
+let mediaLoaded = null;
 export async function listMedia() {
+  if (mediaLoaded === store.uid) return [...store.media.entries()].map(([id, url]) => ({ id, url }));
   const snap = await getDocs(query(collection(db, C.media), where('ownerUid', '==', store.uid)));
   snap.docs.forEach(d => store.media.set(d.id, d.data().url));
+  mediaLoaded = store.uid;
   return snap.docs.map(d => ({ id: d.id, url: d.data().url }));
 }
 export async function addMedia(url) {

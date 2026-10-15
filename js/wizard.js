@@ -8,7 +8,8 @@ const STEPS = ['place', 'screen', 'praise-count', 'praise-pick', 'worship-count'
 
 function steps(cur) {
   const i = STEPS.indexOf(cur);
-  return `<div class="steps" aria-label="Step ${i + 1} of ${STEPS.length}">${STEPS.map((_, j) => `<i class="${j <= i ? 'on' : ''}"></i>`).join('')}</div>`;
+  return `<div class="steps" aria-hidden="true">${STEPS.map((_, j) => `<i class="${j <= i ? 'on' : ''}"></i>`).join('')}</div>
+    <p class="step-text">Step ${i + 1} of ${STEPS.length}</p>`;
 }
 
 let lib = [];
@@ -106,6 +107,7 @@ function pick(d, cat) {
         <button data-f="all">All songs</button>
       </div>
       <p class="picked" id="picked"></p>
+      <div class="picked-chips" id="chips"></div>
     </div>
     <ul class="song-list" id="list"></ul>
     <p class="small muted center">Can't find it? <a href="#/song/new">Add a new song</a></p>
@@ -119,13 +121,19 @@ function pick(d, cat) {
       const on = d[cat].includes(s.id);
       return `<li><button class="song-row ${on ? 'sel' : ''}" data-id="${s.id}" aria-pressed="${on}">
         <span class="tick" aria-hidden="true">${on ? '✓' : ''}</span>
-        <span class="t"><b>${esc(s.title)}</b><small>${esc(s.artist || '')}${s.key ? ' · Key ' + esc(s.key) : ''}</small></span></button></li>`;
+        <span class="t"><b>${esc(s.title)}</b><small>${[s.artist, s.key && 'Key ' + s.key].filter(Boolean).map(esc).join(' · ')}</small></span></button></li>`;
     }).join('') || '<li class="muted">No songs found.</li>';
-    $('#picked').textContent = `${d[cat].length} of ${need} chosen` + (d[cat].length ? ': ' + d[cat].map(id => getSong(id)?.title).join(', ') : '');
+    const left = need - d[cat].length;
+    $('#picked').textContent = left > 0 ? `${d[cat].length} of ${need} chosen. Tap ${left} more.` : (need === 1 ? 'Chosen. Tap Next.' : `All ${need} chosen. Tap Next.`);
+    $('#chips').innerHTML = d[cat].map(id => `<button data-unpick="${id}" aria-label="Remove ${esc(getSong(id)?.title)}">${esc(getSong(id)?.title)} ✕</button>`).join('');
     $('#next').disabled = d[cat].length !== need;
   };
   $('#q').oninput = render;
   $$('[data-f]').forEach(b => b.onclick = () => { filter = b.dataset.f; $$('[data-f]').forEach(x => x.classList.toggle('on', x === b)); render(); });
+  $('#chips').onclick = e => {
+    const b = e.target.closest('[data-unpick]'); if (!b) return;
+    d[cat].splice(d[cat].indexOf(b.dataset.unpick), 1); saveDraft(); render();
+  };
   $('#list').onclick = e => {
     const b = e.target.closest('[data-id]'); if (!b) return;
     const id = b.dataset.id, arr = d[cat];
@@ -168,6 +176,7 @@ function flow(d, i) {
     ${steps('flow')}
     <p class="lead"><b>${esc(song.title)}</b> <span class="muted">(${i + 1} of ${list.length} · ${list[i].cat})</span></p>
     <p class="small muted">Already set to how we usually sing it. Change it if you like. <span id="count"></span></p>
+    <p class="legend"><span><b>↑</b><b>↓</b>move</span><span><b>⧉</b>sing again</span><span><b>✕</b>take out</span></p>
     <ol class="flow" id="flow"></ol>
     <p class="q">Tap to add a part at the end:</p>
     <div class="chips">

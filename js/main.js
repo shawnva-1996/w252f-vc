@@ -3,7 +3,8 @@ import {
   sendPasswordResetEmail, updateProfile
 } from './firebase.js';
 import { show, esc, toast, header, confirmBox, $ } from './ui.js';
-import { store, local, ensureProfile, listSets, removeSet, newDraft } from './store.js';
+import { store, local, ensureProfile, listSets, cachedSets, removeSet, newDraft, listMedia } from './store.js';
+import { loadLibrary } from './songs.js';
 import { wizard } from './wizard.js';
 import { controlScreen } from './control.js';
 import { tvScreen } from './tv.js';
@@ -11,13 +12,24 @@ import { songEditor, songLibrary } from './editor.js';
 import { adminScreen } from './admin.js';
 
 const params = new URLSearchParams(location.search);
+if (local.get('bigtext')) document.documentElement.classList.add('bigtext');
 let authReady = false;
 let pendingAfterLogin = null;
 
+// Screens that don't need a login show straight away, before Firebase wakes up.
+const firstPage = location.hash.replace(/^#\/?/, '').split('/')[0];
+let shownEarly = false;
+if (!params.get('tv') && ['', 'login'].includes(firstPage)) { shownEarly = true; route(); }
+
 onAuthStateChanged(auth, async user => {
   store.user = user;
-  if (user) ensureProfile(user);
-  if (!authReady) { authReady = true; route(); return; }
+  if (user) {
+    ensureProfile(user);
+    // Get things ready in the background so the next screens open instantly.
+    loadLibrary().catch(() => {});
+    if (local.get('role') !== 'tv') { listSets().catch(() => {}); listMedia().catch(() => {}); }
+  }
+  if (!authReady) { authReady = true; if (!shownEarly || user) route(); return; }
   if (user && pendingAfterLogin) { const to = pendingAfterLogin; pendingAfterLogin = null; go(to); }
 });
 
@@ -80,6 +92,7 @@ function welcome() {
 }
 
 async function doLogout() {
+  if (store.uid) local.del('sets.' + store.uid);
   await signOut(auth);
   store.draft = null;
   toast('You are logged out. See you again soon.');
@@ -146,25 +159,36 @@ function friendly(e) {
 
 // Home: saved sets --------------------------------------------------------
 async function home() {
-  show(`<main class="page">${header('Your song sets', { back: '#/', right: menuButtons() })}<p class="muted">Loading…</p></main>`);
-  bindMenu();
-  let sets = [];
-  try { sets = await listSets(); } catch (e) { console.warn(e); toast('Could not load your sets. Check the internet.'); }
+  const cached = cachedSets();
+  if (cached) drawHome(cached);
+  else show(`<main class="page">${header('Your song sets', { back: '#/', right: menuButtons() })}${loading('Getting your song sets…')}</main>`), bindMenu();
+  let sets;
+  try { sets = await listSets(); }
+  catch (e) { console.warn(e); if (!cached) toast('Could not load your sets. Please check the internet.'); return; }
+  if (!location.hash.startsWith('#/home')) return;
   if (!sets.length) { newDraft(); location.hash = '#/new/place'; return; }
+  if (!cached || JSON.stringify(sets.map(x => [x.id, x.updatedMs])) !== JSON.stringify(cached.map(x => [x.id, x.updatedMs]))) drawHome(sets);
+}
+
+function drawHome(sets) {
+  const first = (store.user?.displayName || '').split(' ')[0];
   show(`<main class="page">
     ${header('Your song sets', { back: '#/', right: menuButtons() })}
-    <p class="lead">Tap a set to start.</p>
+    <p class="lead">${first ? `Hi ${esc(first)}! ` : ''}Tap a set to start.</p>
     <div class="set-list">
       ${sets.map(s => `<div class="set-card">
         <a class="set-open" href="#/set/${s.id}">
-          <b>${esc(s.name || 'Song set')}</b>
-          <span>${(s.songs || []).map(x => esc(x.title)).join(' · ')}</span>
-          <small>${s.place === 'cell' ? 'Home cell group' : 'Suntec'} · ${(s.slides || []).length} slides</small>
+          <span class="play" aria-hidden="true">▶</span>
+          <span class="set-text">
+            <b>${esc(s.name || 'Song set')}</b>
+            <span class="songs">${(s.songs || []).map(x => esc(x.title)).join(' · ')}</span>
+            <small>${s.place === 'cell' ? 'Home cell group' : 'Suntec'} · ${(s.slides || []).length} slides</small>
+          </span>
         </a>
-        <button class="btn ghost small" data-del="${s.id}" aria-label="Remove ${esc(s.name)}">Remove</button>
+        <button class="link danger small" data-del="${s.id}" aria-label="Remove ${esc(s.name)}">Remove</button>
       </div>`).join('')}
     </div>
-    <a class="btn primary big wide" href="#/new/place" id="newset">+ Make a new set</a>
+    <a class="btn primary big wide" href="#/new/place" id="newset">＋ Make a new set</a>
   </main>`);
   bindMenu();
   $('#newset').onclick = () => newDraft();
@@ -174,18 +198,33 @@ async function home() {
   });
 }
 
+export const loading = (msg = 'Loading…') => `<div class="loading" role="status"><span class="spin" aria-hidden="true"></span>${esc(msg)}</div>`;
+
 export function menuButtons() {
   return `<details class="menu"><summary class="btn ghost small" aria-label="Menu">☰ Menu</summary><div class="menu-list">
     <a href="#/home">My song sets</a>
     <a href="#/songs">Song library</a>
     <a href="#/song/new">Add a song</a>
     ${store.isAdmin ? '<a href="#/admin">Admin</a>' : ''}
+    <button class="link" data-bigtext>${document.documentElement.classList.contains('bigtext') ? 'Aa Normal text size' : 'Aa Bigger text'}</button>
     <a href="#/">Switch screen</a>
     <button class="link" data-logout>Log out</button>
   </div></details>`;
 }
 export function bindMenu() {
   document.querySelectorAll('[data-logout]').forEach(b => b.onclick = doLogout);
+  document.querySelectorAll('[data-bigtext]').forEach(b => b.onclick = () => {
+    const on = document.documentElement.classList.toggle('bigtext');
+    local.set('bigtext', on);
+    b.textContent = on ? 'Aa Normal text size' : 'Aa Bigger text';
+    b.closest('details').open = false;
+  });
+  // Close the menu when tapping anywhere else.
+  document.querySelectorAll('details.menu').forEach(d => d.ontoggle = () => {
+    if (!d.open) return;
+    const off = e => { if (!d.contains(e.target)) { d.open = false; document.removeEventListener('click', off, true); } };
+    setTimeout(() => document.addEventListener('click', off, true));
+  });
   document.querySelectorAll('.menu-list a').forEach(a => a.onclick = () => a.closest('details').open = false);
 }
 window.__w252f = { route };

@@ -3,14 +3,14 @@ import { auth } from './firebase.js';
 import { show, esc, toast, header, confirmBox, $, $$ } from './ui.js';
 import { store } from './store.js';
 import { loadLibrary, getSong, saveSong, removeSong, quickParse, slugify, labelFor } from './songs.js';
-import { menuButtons, bindMenu } from './main.js';
+import { menuButtons, bindMenu, loading } from './main.js';
 
 const canEdit = s => store.isAdmin || (s && s.ownerUid && s.ownerUid === store.uid);
 
 export async function songLibrary() {
-  show(`<main class="page">${header('Song library', { back: '#/home', right: menuButtons() })}<p class="muted">Loading songs…</p></main>`);
+  show(`<main class="page">${header('Song library', { back: '#/home', right: menuButtons() })}${loading('Getting the songs…')}</main>`);
   bindMenu();
-  const lib = await loadLibrary(true);
+  const lib = await loadLibrary();
   show(`<main class="page">
     ${header('Song library', { back: '#/home', right: menuButtons() })}
     <div class="sticky-tools">
@@ -129,12 +129,26 @@ function fromParsed(p) {
 
 const b64 = f => new Promise((res, rej) => { const r = new FileReader(); r.onload = () => res(String(r.result).split(',')[1]); r.onerror = rej; r.readAsDataURL(f); });
 
+// The Word / PowerPoint reader only loads when someone adds a song.
+let zipLib = null;
+function loadZip() {
+  if (window.JSZip) return Promise.resolve(window.JSZip);
+  return zipLib ||= new Promise((res, rej) => {
+    const s = document.createElement('script');
+    s.src = 'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js';
+    s.onload = () => res(window.JSZip); s.onerror = () => { zipLib = null; rej(new Error('Could not open that file. Please check the internet.')); };
+    document.head.appendChild(s);
+  });
+}
+
 async function docxText(file) {
+  const JSZip = await loadZip();
   const zip = await JSZip.loadAsync(await file.arrayBuffer());
   const xml = new DOMParser().parseFromString(await zip.file('word/document.xml').async('string'), 'application/xml');
   return [...xml.getElementsByTagName('w:p')].map(p => [...p.getElementsByTagName('w:t')].map(t => t.textContent).join('')).join('\n');
 }
 async function pptxText(file) {
+  const JSZip = await loadZip();
   const zip = await JSZip.loadAsync(await file.arrayBuffer());
   const names = Object.keys(zip.files).filter(n => /^ppt\/slides\/slide\d+\.xml$/.test(n)).sort((a, b) => parseInt(a.match(/\d+/)) - parseInt(b.match(/\d+/)));
   const out = [];

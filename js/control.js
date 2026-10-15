@@ -4,7 +4,8 @@ import { store, getSet, updateSet, listMedia, addMedia, mediaUrl, removeMedia, s
 import { drawSlide, GRADIENTS, PLACES, bgCss } from './render.js';
 import { publish, republish, canCast, startCast } from './live.js';
 import { loadLibrary, getSong, buildSlides } from './songs.js';
-import { menuButtons, bindMenu } from './main.js';
+import { menuButtons, bindMenu, loading } from './main.js';
+import { db, C, doc, getDoc } from './firebase.js';
 
 let S = null;          // the set
 let at = 0, black = false, hidden = false, editing = false;
@@ -12,20 +13,34 @@ let saveTimer = null;
 let keyHandler = null;
 
 export async function controlScreen(id) {
-  show(`<main class="page"><p class="muted">Opening your set…</p></main>`);
+  show(`<main class="page">${loading('Opening your set…')}</main>`);
   S = await getSet(id);
   if (!S) { toast('That set was not found.'); location.hash = '#/home'; return; }
   S.slides = S.slides || [];
   at = Math.min(Number(sessionStorage.getItem('w252f.at.' + id)) || 0, Math.max(0, S.slides.length - 1));
   black = hidden = editing = false;
-  await Promise.all([listMedia().catch(() => []), loadLibrary()]);
-  await resolveMedia();
   layout();
   send();
+  // Pictures and the song library load quietly after the screen is up.
+  loadLibrary().catch(() => {});
+  listMedia().catch(() => []).then(resolveMedia).then(() => { if (S?.id === id && hasImages()) { drawGrid(); refresh(); } });
+  freshen(id);
   if (keyHandler) document.removeEventListener('keydown', keyHandler);
   keyHandler = onKey;
   document.addEventListener('keydown', keyHandler);
   window.addEventListener('hashchange', () => document.removeEventListener('keydown', keyHandler), { once: true });
+}
+
+const hasImages = () => [S.bg, ...S.slides.map(s => s.bg)].some(b => b?.type === 'image');
+
+// If this set was changed on another device, show the newer copy.
+async function freshen(id) {
+  try {
+    const snap = await getDoc(doc(db, C.sets, id));
+    if (!snap.exists() || S?.id !== id || editing) return;
+    const d = snap.data();
+    if ((d.updatedMs || 0) > (S.updatedMs || 0)) { S = { id, ...d, slides: d.slides || [] }; at = Math.min(at, Math.max(0, S.slides.length - 1)); layout(); send(); }
+  } catch {}
 }
 
 async function resolveMedia() {
@@ -35,7 +50,7 @@ async function resolveMedia() {
 
 const bgOf = sl => sl?.bg || S.bg || { type: 'gradient', id: 'forest' };
 const renderBg = b => b?.type === 'image' ? { type: 'image', url: store.media.get(b.mediaId) } : b;
-const bgKey = b => b?.type === 'image' ? 'm:' + b.mediaId : (b?.id || 'forest');
+const bgKey = b => b?.type === 'image' ? (store.media.has(b.mediaId) ? 'm:' + b.mediaId : 'loading') : (b?.id || 'forest');
 const opts = (sl, extra = {}) => ({ place: S.place, showZh: S.showZh !== false, bg: renderBg(bgOf(sl)), ...extra });
 
 function send() {
@@ -66,7 +81,9 @@ function layout() {
     <section class="live-area">
       <div class="now-wrap">
         <div class="lbl">On the TV now <span class="badge" id="state"></span></div>
+        <div class="now-info" id="info"></div>
         <div class="now stage" id="now" aria-label="Slide on the TV now"></div>
+        <button class="status-banner" id="banner" hidden></button>
       </div>
       <div class="next-wrap">
         <div class="lbl">Next</div>
@@ -110,6 +127,12 @@ function refresh() {
   $('#pos').textContent = S.slides.length ? `Slide ${at + 1} of ${S.slides.length}` : 'No slides yet';
   $('#state').textContent = black ? 'Black screen' : hidden ? 'Words hidden' : 'Live';
   $('#state').className = 'badge ' + (black || hidden ? 'warn' : 'ok');
+  const song = sl ? S.songs[sl.song] : null;
+  $('#info').innerHTML = sl ? `${esc(song?.title || '')} <small>· ${esc(sl.label || '')}</small>` : '';
+  const banner = $('#banner');
+  banner.hidden = !(black || hidden);
+  banner.textContent = black ? 'The TV is black now. Tap here to show the words again.' : 'The words are hidden. Tap here to show them again.';
+  banner.onclick = () => { black = hidden = false; refresh(); };
   $('#black').classList.toggle('on', black);
   $('#hide').classList.toggle('on', hidden);
   $('#back').disabled = at <= 0;
