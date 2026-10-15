@@ -20,7 +20,7 @@ export const local = {
 
 export function newDraft() {
   store.draft = {
-    place: local.get('place', 'suntec'), connection: local.get('connection', 'cable'),
+    place: local.get('place', 'suntec'), connection: local.get('connection', 'cable'), lang: local.get('lang', 'both'),
     praiseCount: 1, worshipCount: 2, praise: [], worship: [], flows: {}
   };
   saveDraft();

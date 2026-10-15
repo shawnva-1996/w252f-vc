@@ -2,7 +2,7 @@
 import { show, esc, toast, header, $, $$, today } from './ui.js';
 import { store, local, getDraft, saveDraft, createSet } from './store.js';
 import { loadLibrary, getSong, buildSlides, labelFor } from './songs.js';
-import { drawSlide, PLACES } from './render.js';
+import { drawSlide, PLACES, LANGS } from './render.js';
 
 const STEPS = ['place', 'screen', 'praise-count', 'praise-pick', 'worship-count', 'worship-pick', 'flow', 'save'];
 
@@ -43,9 +43,18 @@ function place(d) {
         <small>${id === 'suntec' ? 'Words at the top, smaller' : 'Words in the middle, bigger'}</small>
       </button>`).join('')}
     </div>
+    <p class="q">Which words should show?</p>
+    <div class="seg big wrap3" id="lang">${LANGS.map(l => `<button data-lang="${l.id}" class="${(d.lang || 'both') === l.id ? 'on' : ''}">${l.name}</button>`).join('')}</div>
     <div class="bar"><a class="btn primary big" href="#/new/screen">Next</a></div>
   </main>`);
-  $$('[data-pv]').forEach(b => drawSlide(b, SAMPLE, { place: b.dataset.pv }));
+  const preview = () => $$('[data-pv]').forEach(b => drawSlide(b, SAMPLE, { place: b.dataset.pv, lang: d.lang || 'both' }));
+  preview();
+  $('#lang').onclick = e => {
+    const b = e.target.closest('[data-lang]'); if (!b) return;
+    d.lang = b.dataset.lang; local.set('lang', d.lang); saveDraft();
+    $$('[data-lang]').forEach(x => x.classList.toggle('on', x === b));
+    preview();
+  };
   $$('[data-place]').forEach(b => b.onclick = () => {
     d.place = b.dataset.place; local.set('place', d.place); saveDraft();
     $$('[data-place]').forEach(x => x.classList.toggle('sel', x === b));
@@ -220,7 +229,7 @@ async function save(d) {
     try {
       const id = await createSet({
         name: $('#name').value.trim() || name, place: d.place, connection: d.connection,
-        showZh: true, bg: { type: 'gradient', id: 'forest' }, songs, slides
+        lang: d.lang || 'both', bg: { type: 'gradient', id: 'forest' }, songs, slides
       });
       store.draft = null; sessionStorage.removeItem('w252f.draft');
       toast('Saved. You can find it again under "Your song sets".');

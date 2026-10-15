@@ -27,7 +27,7 @@ export function tvScreen({ mode }) {
     if (st.t) lastT = st.t;
     last = st;
     wait.hidden = true;
-    drawSlide(screen, st.frame, { place: st.place, showZh: st.showZh, bg: st.bg, black: st.black, hidden: st.hidden });
+    drawSlide(screen, st.frame, { place: st.place, lang: st.lang, showZh: st.showZh, bg: st.bg, black: st.black, hidden: st.hidden });
   };
   if (mode === 'cast') listenCast(onState);
   else stop = listen({ uid: store.uid, local: mode === 'local' }, onState);

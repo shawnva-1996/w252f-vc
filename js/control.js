@@ -1,7 +1,7 @@
 // The laptop "command centre": run the slides, change words, order and backgrounds.
 import { show, esc, toast, header, modal, confirmBox, $, $$ } from './ui.js';
 import { store, getSet, updateSet, listMedia, addMedia, mediaUrl, removeMedia, shrinkImage } from './store.js';
-import { drawSlide, GRADIENTS, PLACES, bgCss } from './render.js';
+import { drawSlide, GRADIENTS, PLACES, LANGS, langOf, bgCss } from './render.js';
 import { publish, republish, canCast, startCast } from './live.js';
 import { loadLibrary, getSong, buildSlides } from './songs.js';
 import { menuButtons, bindMenu, loading } from './main.js';
@@ -51,14 +51,14 @@ async function resolveMedia() {
 const bgOf = sl => sl?.bg || S.bg || { type: 'gradient', id: 'forest' };
 const renderBg = b => b?.type === 'image' ? { type: 'image', url: store.media.get(b.mediaId) } : b;
 const bgKey = b => b?.type === 'image' ? (store.media.has(b.mediaId) ? 'm:' + b.mediaId : 'loading') : (b?.id || 'forest');
-const opts = (sl, extra = {}) => ({ place: S.place, showZh: S.showZh !== false, bg: renderBg(bgOf(sl)), ...extra });
+const opts = (sl, extra = {}) => ({ place: S.place, lang: langOf(S), bg: renderBg(bgOf(sl)), ...extra });
 
 function send() {
   const sl = S.slides[at];
   const b = bgOf(sl);
   publish(store.uid, {
     setId: S.id, index: at, total: S.slides.length, frame: sl ? frameOf(sl) : { kind: 'blank' },
-    black, hidden, place: S.place, showZh: S.showZh !== false, bgKey: bgKey(b), bg: renderBg(b)
+    black, hidden, place: S.place, lang: langOf(S), bgKey: bgKey(b), bg: renderBg(b)
   });
   sessionStorage.setItem('w252f.at.' + S.id, at);
 }
@@ -68,7 +68,7 @@ function persist(msg) {
   clearTimeout(saveTimer);
   saveTimer = setTimeout(async () => {
     try {
-      await updateSet(S.id, { name: S.name, place: S.place, showZh: S.showZh !== false, bg: S.bg, slides: S.slides, songs: S.songs });
+      await updateSet(S.id, { name: S.name, place: S.place, lang: langOf(S), bg: S.bg, slides: S.slides, songs: S.songs });
       if (msg) toast(msg);
     } catch (e) { console.error(e); toast('Could not save the change. Check the internet.'); }
   }, 400);
@@ -298,8 +298,8 @@ async function lookDialog() {
   const p = modal(`<h2>How the words look</h2>
     <div class="lbl">Where are you?</div>
     <div class="seg big">${Object.entries(PLACES).map(([id, pl]) => `<button data-place="${id}" class="${S.place === id ? 'on' : ''}">${pl.name}</button>`).join('')}</div>
-    <div class="lbl">Chinese words</div>
-    <div class="seg big"><button data-zh="1" class="${S.showZh !== false ? 'on' : ''}">Show</button><button data-zh="0" class="${S.showZh === false ? 'on' : ''}">Hide</button></div>
+    <div class="lbl">Which words?</div>
+    <div class="seg big wrap3">${LANGS.map(l => `<button data-lang="${l.id}" class="${langOf(S) === l.id ? 'on' : ''}">${l.name}</button>`).join('')}</div>
     <div class="lbl">Background for all slides</div>
     <div class="bg-row" id="m-bg">
       ${GRADIENTS.map(g => `<button class="bgsw" style="background:${g.css}" data-g="${g.id}" aria-label="${g.name}" title="${g.name}"></button>`).join('')}
@@ -313,7 +313,7 @@ async function lookDialog() {
     const sl = S.slides[at] || { kind: 'lyric', en: ['Your presence is an open door'], zh: [] };
     drawSlide($('#m-pv', w), frameOf(sl), opts({ ...sl, bg: undefined }));
     $$('[data-place]', w).forEach(b => b.classList.toggle('on', b.dataset.place === S.place));
-    $$('[data-zh]', w).forEach(b => b.classList.toggle('on', (b.dataset.zh === '1') === (S.showZh !== false)));
+    $$('[data-lang]', w).forEach(b => b.classList.toggle('on', b.dataset.lang === langOf(S)));
     $$('[data-g]', w).forEach(b => b.classList.toggle('sel', S.bg?.type !== 'image' && S.bg?.id === b.dataset.g));
     $$('[data-m]', w).forEach(b => b.classList.toggle('sel', S.bg?.type === 'image' && S.bg.mediaId === b.dataset.m));
   };
@@ -321,7 +321,7 @@ async function lookDialog() {
   w.addEventListener('click', async e => {
     const b = e.target.closest('button'); if (!b) return;
     if (b.dataset.place) S.place = b.dataset.place;
-    else if (b.dataset.zh) S.showZh = b.dataset.zh === '1';
+    else if (b.dataset.lang) S.lang = b.dataset.lang;
     else if (b.dataset.g) S.bg = { type: 'gradient', id: b.dataset.g };
     else if (b.dataset.m) S.bg = { type: 'image', mediaId: b.dataset.m };
     else if (b.dataset.rmm) {

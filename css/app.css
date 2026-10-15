@@ -255,3 +255,4 @@ body.is-tv { background: #000; overflow: hidden; cursor: none; }
   .flow-row .acts { width: 100%; padding-left: 40px; justify-content: flex-start; gap: 8px; }
   .flow-row .acts .ic { width: 52px; height: 46px; }
 }
+@media (max-width: 560px) { .seg.wrap3 { flex-direction: column; } }

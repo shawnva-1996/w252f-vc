@@ -19,6 +19,14 @@ export const PLACES = {
   cell: { name: 'Home cell group', size: 100, valign: 'center', top: 0 }
 };
 
+export const LANGS = [
+  { id: 'both', name: 'English + Chinese' },
+  { id: 'en', name: 'English only' },
+  { id: 'zh', name: 'Chinese only' }
+];
+// Older sets saved "showZh"; turn that into the new language choice.
+export const langOf = o => o?.lang || (o?.showZh === false ? 'en' : 'both');
+
 export function bgCss(bg) {
   if (!bg) return GRADIENTS[0].css;
   if (bg.type === 'image' && bg.url) return `center / cover no-repeat url("${bg.url}")`;
@@ -31,7 +39,7 @@ const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '
 // frame: { kind: 'lyric'|'title'|'blank', en: [], zh: [], title, artist }
 export function slideHTML(frame, opts = {}) {
   const place = PLACES[opts.place] || PLACES.suntec;
-  const showZh = opts.showZh !== false;
+  const lang = langOf(opts);
   const f = frame || { kind: 'blank' };
   let inner = '';
   if (!opts.hidden && !opts.black) {
@@ -39,8 +47,12 @@ export function slideHTML(frame, opts = {}) {
       inner = `<div class="ln en" style="font-size:${place.size * 1.25}px">${esc(f.title)}</div>` +
         (f.artist ? `<div class="ln sub" style="font-size:${Math.round(place.size * 0.55)}px">${esc(f.artist)}</div>` : '');
     } else if (f.kind !== 'blank') {
-      inner = (f.en || []).filter(Boolean).map(l => `<div class="ln en" style="font-size:${place.size}px">${esc(l)}</div>`).join('');
-      if (showZh) inner += (f.zh || []).filter(Boolean).map(l => `<div class="ln zh" style="font-size:${Math.round(place.size * 0.85)}px">${esc(l)}</div>`).join('');
+      const en = (f.en || []).filter(Boolean), zh = (f.zh || []).filter(Boolean);
+      // If a slide has no words in the chosen language, show what it has rather than nothing.
+      const useEn = lang !== 'zh' || !zh.length, useZh = lang !== 'en' || !en.length;
+      const zhSize = useEn ? Math.round(place.size * 0.85) : place.size;
+      if (useEn) inner += en.map(l => `<div class="ln en" style="font-size:${place.size}px">${esc(l)}</div>`).join('');
+      if (useZh) inner += zh.map(l => `<div class="ln zh" style="font-size:${zhSize}px">${esc(l)}</div>`).join('');
     }
   }
   const bg = opts.black ? '#000' : bgCss(opts.bg);
