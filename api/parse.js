@@ -18,7 +18,7 @@ Rules:
 - If there are no section headings, decide them from repetition (repeated block = chorus).
 - cat: "praise" for upbeat celebration songs, "worship" for slower intimate songs.`;
 
-const MODELS = ['gemini-3.5-flash', 'gemini-2.5-flash'];
+const MODELS = ['gemini-3.5-flash', 'gemini-2.5-flash', 'gemini-3.5-flash-lite', 'gemini-3.1-flash-lite'];
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Not allowed' });
@@ -30,8 +30,8 @@ export default async function handler(req, res) {
   if (file) parts.push({ inline_data: { mime_type: file.mime, data: file.data } });
   const keys = (process.env.GEMINI_KEYS || '').split(',').map(s => s.trim()).filter(Boolean).sort(() => Math.random() - 0.5);
   let lastErr = 'no keys';
-  for (let i = 0; i < Math.min(6, keys.length * MODELS.length); i++) {
-    const key = keys[i % keys.length], model = MODELS[Math.floor(i / keys.length) % MODELS.length];
+  for (let i = 0; i < Math.min(8, keys.length * MODELS.length); i++) {
+    const key = keys[i % keys.length], model = MODELS[i % MODELS.length];
     try {
       const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
         method: 'POST', headers: { 'Content-Type': 'application/json', 'x-goog-api-key': key },
