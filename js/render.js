@@ -66,6 +66,7 @@ export function drawSlide(box, frame, opts = {}) {
   box.innerHTML = slideHTML(frame, opts);
   fit(box);
   fitText(box);
+  if (document.fonts && document.fonts.status !== 'loaded') document.fonts.ready.then(() => fitText(box));
 }
 
 export function fit(box) {
@@ -81,12 +82,25 @@ export function fit(box) {
 function fitText(box) {
   const words = box.querySelector('.words');
   if (!words) return;
-  // Lines wrap (balanced) like PowerPoint; only shrink when the words run off the bottom.
+  // Every lyric line stays on one line. If the longest line is too wide (or the
+  // words run off the bottom), shrink all lines together so they still match.
+  const lines = [...words.querySelectorAll('.ln')];
+  if (!lines.length) return;
+  const maxW = W - 120;
   const maxH = H - 60 - (parseFloat(words.style.paddingTop) || 0);
-  let guard = 0;
-  const blk = words.firstElementChild;
-  while (blk && blk.offsetHeight > maxH && guard++ < 30) {
-    for (const ln of words.querySelectorAll('.ln')) ln.style.fontSize = parseFloat(ln.style.fontSize) * 0.94 + 'px';
+  const base = lines.map(ln => ({ size: parseFloat(ln.style.fontSize), gap: parseFloat(getComputedStyle(ln).letterSpacing) || 0 }));
+  const apply = k => lines.forEach((ln, i) => {
+    ln.style.fontSize = base[i].size * k + 'px';
+    ln.style.letterSpacing = base[i].gap * k + 'px';
+  });
+  let k = 1;
+  for (let pass = 0; pass < 4; pass++) {
+    const widest = Math.max(...lines.map(ln => ln.scrollWidth));
+    const tall = words.firstElementChild.offsetHeight;
+    const f = Math.min(1, maxW / widest, maxH / tall);
+    if (f > 0.995) break;
+    k *= f * 0.99;
+    apply(k);
   }
 }
 

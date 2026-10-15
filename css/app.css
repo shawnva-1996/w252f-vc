@@ -134,7 +134,7 @@ select.input { appearance: auto; }
 .words.center { justify-content: center; }
 .words.top { justify-content: flex-start; }
 .blk { width: 100%; text-align: center; }
-.ln { color: #fff; font-family: 'Helvetica Neue', 'Arimo', Helvetica, Arial, 'PingFang SC', 'Noto Sans SC', sans-serif; font-weight: 700; letter-spacing: 15px; text-shadow: 8px 8px 10px rgb(0 0 0 / .4); text-transform: uppercase; -webkit-text-stroke-width: 0; line-height: 1.22; text-wrap: balance; overflow-wrap: anywhere; }
+.ln { color: #fff; font-family: 'Helvetica Neue', 'Arimo', Helvetica, Arial, 'PingFang SC', 'Noto Sans SC', sans-serif; font-weight: 700; letter-spacing: 15px; text-shadow: 8px 8px 10px rgb(0 0 0 / .4); text-transform: uppercase; -webkit-text-stroke-width: 0; line-height: 1.22; white-space: nowrap; }
 .ln.zh { font-family: 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei', sans-serif; letter-spacing: 10px; margin-top: .15em; }
 .ln.sub { letter-spacing: 8px; opacity: .9; margin-top: .4em; }
 
