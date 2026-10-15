@@ -1,26 +1,13 @@
-# FreeShow Lyrics Converter
+# Worship Slides (chc-vc.vercel.app)
 
-Turns lyric sheets (`.pptx`, `.docx`, `.txt`, or pasted text) into
-[FreeShow](https://freeshow.app)-ready slide text — verses, choruses and
-bridges wrapped in `[BRACKET]` headers, long lines split at a natural pause.
+Turns our song library into lyric slides and shows them on a TV.
+The laptop (or phone) runs the slides; the TV follows.
 
-Static site, no backend, no build step. `.pptx`/`.docx` files are unzipped
-and parsed client-side with [JSZip](https://stuk.github.io/jszip/); nothing
-is ever uploaded anywhere.
+- `index.html`, `css/`, `js/` — the site (no build step)
+- `data/songs.json` — song library, cleaned from the VizStage song folder
+- `api/parse.js` — reads pasted words / files and sorts them into verse, chorus, bridge (Gemini)
+- `api/admin.js` — admin: add people, reset passwords, switch off, remove
+- `firestore.w252f.rules` — the database rules added for this app (the Firebase project is shared with other apps)
 
-This is a browser port of the original Streamlit tool at `Scripts/app.py`
-in the `vc_ai` repo — same parsing/formatting logic, ported to
-`js/parser.js` and `js/extract.js`.
-
-## Run locally
-
-Any static file server works, e.g.:
-
-```
-npx serve .
-```
-
-## Deploy
-
-Deploys as-is to Vercel, Netlify, GitHub Pages, or any static host — there's
-nothing to build.
+Vercel settings needed: `FIREBASE_SERVICE_ACCOUNT` (the service account JSON) and `GEMINI_KEYS` (comma separated).
+Never commit key files. The old lyrics converter lives on the `archive/lyrics-converter` branch.

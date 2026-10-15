@@ -1,119 +1,21 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>FreeShow Lyrics Converter</title>
-<meta name="description" content="Turn pasted lyrics, PPTX slides, or DOCX files into FreeShow-ready bracketed slide text — entirely in your browser." />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2312131c'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle' fill='%23e8a63d'%3E%5B%5D%3C/text%3E%3C/svg%3E" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/style.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b2b1d">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Worship Slides</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f3a26'/%3E%3Cpath d='M18 22h28M18 32h28M24 42h16' stroke='white' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Noto+Sans+SC:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
-
-<div class="grain" aria-hidden="true"></div>
-
-<header class="topbar">
-  <div class="wrap topbar__inner">
-    <span class="brandmark">[<span class="brandmark__dot">•</span>]</span>
-    <span class="brand">FreeShow Converter</span>
-    <a class="topbar__link" href="https://freeshow.app" target="_blank" rel="noopener">What's FreeShow? ↗</a>
-  </div>
-</header>
-
-<main>
-
-  <section class="hero wrap">
-    <p class="eyebrow">[ LYRICS &rarr; SLIDES ]</p>
-    <h1 class="hero__title">
-      Any lyric sheet.<br />
-      <em>One clean FreeShow file.</em>
-    </h1>
-    <p class="hero__sub">
-      Drop in a sermon deck, a Word doc, or just paste the words. This finds your
-      verses, choruses and bridges, wraps them in <code>[BRACKETS]</code>, and
-      splits long lines at a natural breath — the exact format FreeShow expects.
-    </p>
-
-    <div class="demo" aria-hidden="true">
-      <div class="demo__pane">
-        <div class="demo__label">paste.txt</div>
-        <pre class="demo__text" id="demoBefore"></pre>
-      </div>
-      <div class="demo__arrow">&rarr;</div>
-      <div class="demo__pane demo__pane--out">
-        <div class="demo__label">freeshow.txt</div>
-        <pre class="demo__text demo__text--out" id="demoAfter"></pre>
-      </div>
-    </div>
-
-    <a href="#tool" class="btn btn--primary hero__cta">Convert your lyrics</a>
-  </section>
-
-  <section class="tool wrap" id="tool">
-    <p class="eyebrow">[ CONVERT ]</p>
-
-    <div class="tabs" role="tablist">
-      <button class="tab is-active" role="tab" aria-selected="true" data-tab="upload">Upload files</button>
-      <button class="tab" role="tab" aria-selected="false" data-tab="paste">Paste lyrics</button>
-    </div>
-
-    <div class="panel" data-panel="upload" role="tabpanel">
-      <div class="dropzone" id="dropzone" tabindex="0">
-        <p class="dropzone__title">Drag files here, or click to browse</p>
-        <p class="dropzone__hint">.pptx &nbsp;·&nbsp; .docx &nbsp;·&nbsp; .txt &nbsp;— multiple files OK</p>
-        <input type="file" id="fileInput" accept=".pptx,.docx,.txt" multiple hidden />
-      </div>
-      <div id="fileResults" class="results"></div>
-    </div>
-
-    <div class="panel" data-panel="paste" hidden role="tabpanel">
-      <label class="field-label" for="pasteInput">Paste your lyrics</label>
-      <textarea id="pasteInput" class="textarea" rows="10" placeholder="Verse 1
-Amazing grace how sweet the sound
-That saved a wretch like me
-
-Chorus
-..."></textarea>
-
-      <div class="paste-actions">
-        <button class="btn btn--primary" id="pasteDownload" disabled>Download pasted_lyrics_freeshow.txt</button>
-        <span class="hint">Converts as you type</span>
-      </div>
-
-      <div class="output" id="pasteOutputWrap" hidden>
-        <div class="output__label">Preview</div>
-        <pre class="output__text" id="pasteOutput"></pre>
-      </div>
-    </div>
-
-    <p class="privacy">Nothing is uploaded anywhere — every file is read and converted locally in this tab.</p>
-  </section>
-
-  <section class="reference wrap">
-    <p class="eyebrow">[ RECOGNIZED LABELS ]</p>
-    <p class="reference__sub">A line that starts with any of these (alone, or with a number like "Verse 2") becomes a slide header.</p>
-    <ul class="chips">
-      <li>VERSE</li><li>PRE-CHORUS</li><li>CHORUS</li><li>BRIDGE</li>
-      <li>INTRO</li><li>OUTRO</li><li>TAG</li><li>ENDING</li>
-      <li>V1 / V2 / V3</li><li>C1 / C2</li><li>B1 / B2</li>
-    </ul>
-  </section>
-
-</main>
-
-<footer class="footer">
-  <div class="wrap footer__inner">
-    <span>Built for church media teams running FreeShow.</span>
-    <span class="footer__muted">Runs entirely client-side — no server, no storage.</span>
-  </div>
-</footer>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-<script src="js/parser.js"></script>
-<script src="js/extract.js"></script>
-<script src="js/app.js"></script>
+  <div id="app" aria-live="polite"></div>
+  <div id="toast" role="status"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js" defer></script>
+  <script type="module" src="/js/main.js"></script>
 </body>
 </html>

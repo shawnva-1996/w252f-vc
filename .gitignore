@@ -1,7 +1,11 @@
 .DS_Store
 .vercel
-
-# Added for safety
 node_modules/
 venv/
 .venv/
+.env*
+# Never commit keys
+*firebase-adminsdk*.json
+*gemini*pool*.json
+service-account*.json
+.claude/
