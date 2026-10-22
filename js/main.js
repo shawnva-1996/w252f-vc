@@ -1,6 +1,6 @@
 import {
   auth, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut,
-  sendPasswordResetEmail, updateProfile
+  sendPasswordResetEmail, updateProfile, isTv
 } from './firebase.js';
 import { show, esc, toast, header, confirmBox, icon, $ } from './ui.js';
 import { store, local, ensureProfile, listSets, cachedSets, createSet, removeSet, newDraft, listMedia } from './store.js';
@@ -51,7 +51,8 @@ async function route() {
       case 'home': return home();
       case 'new': return wizard(arg, arg2);
       case 'set': return controlScreen(arg);
-      case 'tv': return tvScreen({ mode: 'cloud' });
+      // Reload once so the TV starts with its own live connection (see firebase.js).
+      case 'tv': return isTv ? tvScreen({ mode: 'cloud' }) : location.reload();
       case 'songs': return songLibrary();
       case 'song': return songEditor(arg);
       case 'admin': return store.isAdmin ? adminScreen(arg) : (location.hash = '#/home');

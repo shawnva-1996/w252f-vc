@@ -34,9 +34,11 @@ export function republish(uid) { if (lastState) { lastBgKey = null; publish(uid,
 if (bc) bc.addEventListener('message', e => { if (e.data?.type === 'hello' && lastState) bc.postMessage({ type: 'state', state: lastState }); });
 
 // TV side --------------------------------------------------------------
+// local: a TV window on the same computer (cable). Otherwise the TV follows the
+// account over the internet only, so an old tab on this computer can't get in the way.
 export function listen({ uid, local }, onState) {
   const stops = [];
-  if (bc) {
+  if (bc && local) {
     const h = e => { if (e.data?.type === 'state') onState(e.data.state, 'local'); };
     bc.addEventListener('message', h);
     bc.postMessage({ type: 'hello' });
