@@ -11,6 +11,7 @@ let S = null;          // the set
 let at = 0, black = false, hidden = false, editing = false;
 let saveTimer = null;
 let keyHandler = null;
+let remoteWatch = null;
 
 export async function controlScreen(id) {
   show(`<main class="page">${loading('Opening your set…')}</main>`);
@@ -114,10 +115,20 @@ function layout() {
     ${editing ? `<p class="note">Tap the pencil to change words, the arrows to move, the double square to repeat, and the cross to remove. Changes save by themselves.</p>` : ''}
     <section class="grid" id="grid"></section>
     ${editing ? `<div class="center"><button class="btn ghost" id="addsong">${icon('plus')}Add a song to this set</button></div>` : ''}
+    <nav class="remote" id="remote" aria-label="Slide remote" hidden>
+      <button class="btn" id="r-back" aria-label="Back one slide">${icon('back')}</button>
+      <button class="r-info" id="r-info" aria-label="Go to the top"><b id="r-pos"></b><small id="r-part"></small></button>
+      <button class="btn primary" id="r-fwd" aria-label="Next slide">Next${icon('next')}</button>
+    </nav>
   </main>`, 'page-control');
   bindMenu();
-  $('#back').onclick = () => goTo(at - 1);
-  $('#fwd').onclick = () => goTo(at + 1);
+  $('#back').onclick = $('#r-back').onclick = () => goTo(at - 1);
+  $('#fwd').onclick = $('#r-fwd').onclick = () => goTo(at + 1);
+  $('#r-info').onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+  // When the big Back / Next buttons scroll out of sight, keep a small remote on screen.
+  remoteWatch?.disconnect();
+  remoteWatch = new IntersectionObserver(([e]) => { $('#remote').hidden = e.isIntersecting; }, { threshold: 0.6 });
+  remoteWatch.observe($('.pad'));
   $('#black').onclick = () => { black = !black; if (black) hidden = false; refresh(); };
   $('#hide').onclick = () => { hidden = !hidden; if (hidden) black = false; refresh(); };
   $('#tv').onclick = tvDialog;
@@ -144,8 +155,10 @@ function refresh() {
   banner.onclick = () => { black = hidden = false; refresh(); };
   $('#black').classList.toggle('on', black);
   $('#hide').classList.toggle('on', hidden);
-  $('#back').disabled = at <= 0;
-  $('#fwd').disabled = at >= S.slides.length - 1;
+  $('#back').disabled = $('#r-back').disabled = at <= 0;
+  $('#fwd').disabled = $('#r-fwd').disabled = at >= S.slides.length - 1;
+  $('#r-pos').textContent = S.slides.length ? `${at + 1} / ${S.slides.length}` : '';
+  $('#r-part').textContent = black ? 'Black screen' : hidden ? 'Words hidden' : [song?.title, sl?.label].filter(Boolean).join(' · ');
   $$('.thumb').forEach(t => t.classList.toggle('cur', Number(t.dataset.i) === at));
   send();
 }
