@@ -44,6 +44,7 @@ export function bgCss(bg) {
   // Single quotes: this goes inside a style="…" attribute.
   const url = u => `center / cover no-repeat url('${String(u).replace(/'/g, '%27')}')`;
   if (bg.type === 'image' && bg.url) return url(bg.url);
+  if (bg.type === 'video') return bg.poster ? url(bg.poster) : '#000';
   if (bg.type === 'photo') return url(photoUrl(bg.id));
   const g = GRADIENTS.find(x => x.id === bg.id);
   return g ? g.css : GRADIENTS[0].css;
@@ -106,14 +107,22 @@ export function slideHTML(frame, opts = {}) {
   // On the laptop only: name the music-only parts ("Instrumental", "Spirit") on their blank slides.
   const cue = opts.preview && f.kind === 'blank' && f.label && f.label !== 'Blank' && !opts.black ? `<div class="cue">${esc(f.label)}</div>` : '';
   const bg = opts.black ? '#000' : bgCss(opts.bg);
-  return `<div class="stage-in" style="background:${bg}">
+  // Video backgrounds play behind the words (small previews show a still picture instead).
+  const vid = !opts.black && !opts.still && opts.bg?.type === 'video' && opts.bg.url
+    ? `<video class="bgv" src="${esc(opts.bg.url)}" autoplay muted loop playsinline preload="auto"></video>` : '';
+  return `<div class="stage-in" style="background:${bg}">${vid}
     <div class="words ${place.valign}" style="padding-top:${place.valign === 'top' ? place.top : 0}px"><div class="blk">${inner}</div></div>${cue}</div>`;
 }
 
 // Put a slide into a box and scale it to fit. Shrinks long lines so nothing is cut off.
 export function drawSlide(box, frame, opts = {}) {
   box.classList.add('stage');
+  // Keep a video that is already playing, so it does not restart on every slide.
+  const old = box.querySelector('video.bgv');
   box.innerHTML = slideHTML(frame, opts);
+  const now = box.querySelector('video.bgv');
+  if (old && now && old.getAttribute('src') === now.getAttribute('src')) now.replaceWith(old);
+  else if (now) now.play?.().catch(() => {});
   fit(box);
   fitText(box);
   if (document.fonts && document.fonts.status !== 'loaded') document.fonts.ready.then(() => fitText(box));

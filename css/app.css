@@ -175,6 +175,8 @@ select.input { appearance: auto; }
 /* Slide stage (shared by TV and previews) */
 .stage { position: relative; overflow: hidden; background: #000; }
 .stage-in { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 0 0; }
+/* Video backgrounds: a little darker so the words stay easy to read. */
+.bgv { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: brightness(.72); pointer-events: none; }
 .words { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; padding: 0 60px; }
 .words.center { justify-content: center; }
 .words.top { justify-content: flex-start; }
@@ -235,6 +237,9 @@ select.input { appearance: auto; }
 .bgsw { width: 96px; height: 56px; border-radius: 0; border: 1px solid var(--line); cursor: pointer; color: var(--text); font: inherit; font-size: .8rem; font-weight: 500; background: var(--paper); display: grid; place-items: center; text-align: center; padding: 2px; }
 .bgsw.sel { outline: 2px solid var(--ink); outline-offset: 2px; }
 .bgsw.upload { flex-direction: row; margin: 0; }
+.bgsw.upload.busy { cursor: progress; opacity: .7; }
+.bgsw.vid { position: relative; }
+.bgsw.vid::after { content: ''; position: absolute; left: 6px; bottom: 6px; border-style: solid; border-width: 6px 0 6px 10px; border-color: transparent transparent transparent #fff; filter: drop-shadow(0 0 2px rgb(0 0 0 / .6)); }
 .bgwrap { position: relative; }
 .bgwrap .x { position: absolute; top: -8px; right: -8px; width: 26px; height: 26px; border: 0; background: var(--danger); color: #fff; cursor: pointer; display: grid; place-items: center; padding: 0; }
 .bgwrap .x svg.i { width: 14px; height: 14px; stroke-width: 2.4; }
