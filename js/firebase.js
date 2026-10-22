@@ -8,7 +8,7 @@ import {
 import {
   initializeFirestore, persistentLocalCache, persistentMultipleTabManager,
   doc, getDoc, setDoc, updateDoc, deleteDoc, addDoc, collection, query, where,
-  getDocs, onSnapshot, serverTimestamp
+  getDocs, onSnapshot, serverTimestamp, memoryLocalCache
 } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js';
 
 const app = initializeApp({
@@ -23,9 +23,13 @@ const app = initializeApp({
 export const auth = getAuth(app);
 setPersistence(auth, browserLocalPersistence).catch(() => {});
 
+// A TV keeps its own live connection. With the shared on-device cache, another
+// tab of this site (say, an old command-centre tab in the background) can own
+// the connection, and the TV then lags behind or sticks on an old slide.
+export const isTv = /[?&]tv=/.test(location.search) || location.hash.startsWith('#/tv');
 let cache;
-try { cache = persistentLocalCache({ tabManager: persistentMultipleTabManager() }); } catch { cache = undefined; }
-export const db = initializeFirestore(app, cache ? { localCache: cache } : {});
+try { cache = isTv ? memoryLocalCache() : persistentLocalCache({ tabManager: persistentMultipleTabManager() }); } catch { cache = undefined; }
+export const db = initializeFirestore(app, { ...(cache ? { localCache: cache } : {}), ignoreUndefinedProperties: true });
 
 export const ADMIN_EMAIL = 'slides@w252f.com';
 export const C = { users: 'w252f_users', songs: 'w252f_songs', sets: 'w252f_sets', live: 'w252f_live', media: 'w252f_media' };

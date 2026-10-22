@@ -22,10 +22,8 @@ export function tvScreen({ mode }) {
   </div>`, 'page-tv');
   document.body.classList.add('is-tv');
   const screen = $('#screen'), wait = $('#wait');
-  let last = null, lastT = 0;
-  const onState = (st, src) => {
-    if (src === 'cloud' && st.t && st.t < lastT) return;
-    if (st.t) lastT = st.t;
+  let last = null;
+  const onState = st => {
     last = st;
     wait.hidden = true;
     drawSlide(screen, st.frame, { place: st.place, lang: st.lang, showZh: st.showZh, bg: st.bg, black: st.black, hidden: st.hidden });
