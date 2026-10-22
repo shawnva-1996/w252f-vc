@@ -14,15 +14,27 @@ export const GRADIENTS = [
   { id: 'black', name: 'Black', css: '#000' }
 ];
 
+// Soft photo backgrounds (Adobe Stock, blurred and darkened so the words stand out).
+export const PHOTOS = [
+  { id: 'sky-gold', name: 'Golden sky', url: '/img/bg-sky-gold.jpg' },
+  { id: 'sky-sunset', name: 'Sunset', url: '/img/bg-sky-sunset.jpg' },
+  { id: 'sky-blue', name: 'Blue sky', url: '/img/bg-sky-blue.jpg' },
+  { id: 'hands', name: 'Raised hands', url: '/img/bg-hands.jpg' }
+];
+export const photoUrl = id => (PHOTOS.find(p => p.id === id) || PHOTOS[0]).url;
+
 export const PLACES = {
   suntec: { name: 'Suntec', size: 65, valign: 'top', top: 90 },
   cell: { name: 'Home cell group', size: 100, valign: 'center', top: 0 }
 };
 
+// Each slide has main words ("en") and, if the song has one, a second
+// language ("zh"). The names are old: the main words can be any language
+// (English, Tagalog, Bahasa, Korean…) and so can the second one.
 export const LANGS = [
-  { id: 'both', name: 'English + Chinese' },
-  { id: 'en', name: 'English only' },
-  { id: 'zh', name: 'Chinese only' }
+  { id: 'both', name: 'Both languages', hint: 'e.g. English and Chinese' },
+  { id: 'en', name: 'Main words only', hint: 'e.g. English or Tagalog' },
+  { id: 'zh', name: 'Second language only', hint: 'e.g. Chinese' }
 ];
 // Older sets saved "showZh"; turn that into the new language choice.
 export const langOf = o => o?.lang || (o?.showZh === false ? 'en' : 'both');
@@ -30,13 +42,47 @@ export const langOf = o => o?.lang || (o?.showZh === false ? 'en' : 'both');
 export function bgCss(bg) {
   if (!bg) return GRADIENTS[0].css;
   if (bg.type === 'image' && bg.url) return `center / cover no-repeat url("${bg.url}")`;
+  if (bg.type === 'photo') return `center / cover no-repeat url("${photoUrl(bg.id)}")`;
   const g = GRADIENTS.find(x => x.id === bg.id);
   return g ? g.css : GRADIENTS[0].css;
 }
 
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
-// frame: { kind: 'lyric'|'title'|'blank', en: [], zh: [], title, artist }
+// Which kind of writing a line uses, so each one gets the right look.
+const CJK = /[\u3040-\u30ff\u3400-\u9fff\uf900-\ufaff\uac00-\ud7af\u1100-\u11ff]/;
+const JOINED = /[\u0590-\u08ff\u0900-\u0dff\u0e00-\u0eff\u1000-\u109f\u1780-\u17ff]/; // Hebrew, Arabic, Indian scripts, Thai, Lao, Myanmar, Khmer
+const RTL = /[\u0590-\u08ff]/;
+function line(text, cls, size) {
+  const t = String(text);
+  needFont(t);
+  const c = CJK.test(t) ? 'ln zh' : JOINED.test(t) ? `ln ${cls} cs` : `ln ${cls}`;
+  return `<div class="${c}"${RTL.test(t) ? ' dir="rtl"' : ''} style="font-size:${size}px">${esc(t)}</div>`;
+}
+
+// Fonts for other languages load only when a slide needs them.
+const FONTS = [
+  [/[\uac00-\ud7af\u1100-\u11ff]/, 'Noto+Sans+KR'], [/[\u3040-\u30ff]/, 'Noto+Sans+JP'],
+  [/[\u0e00-\u0e7f]/, 'Noto+Sans+Thai'], [/[\u0900-\u097f]/, 'Noto+Sans+Devanagari'],
+  [/[\u0b80-\u0bff]/, 'Noto+Sans+Tamil'], [/[\u0600-\u06ff]/, 'Noto+Sans+Arabic'],
+  [/[\u0590-\u05ff]/, 'Noto+Sans+Hebrew'], [/[\u1000-\u109f]/, 'Noto+Sans+Myanmar'],
+  [/[\u1780-\u17ff]/, 'Noto+Sans+Khmer']
+];
+const asked = new Set();
+function needFont(t) {
+  if (typeof document === 'undefined') return;
+  for (const [re, fam] of FONTS) {
+    if (asked.has(fam) || !re.test(t)) continue;
+    asked.add(fam);
+    const l = document.createElement('link');
+    l.rel = 'stylesheet';
+    l.href = `https://fonts.googleapis.com/css2?family=${fam}:wght@700&display=swap`;
+    l.onload = () => document.fonts?.ready.then(() => document.querySelectorAll('.stage').forEach(fitText));
+    document.head.appendChild(l);
+  }
+}
+
+// frame: { kind: 'lyric'|'title'|'blank', en: [], zh: [], title, artist, label }
 export function slideHTML(frame, opts = {}) {
   const place = PLACES[opts.place] || PLACES.suntec;
   const lang = langOf(opts);
@@ -44,20 +90,22 @@ export function slideHTML(frame, opts = {}) {
   let inner = '';
   if (!opts.hidden && !opts.black) {
     if (f.kind === 'title') {
-      inner = `<div class="ln en" style="font-size:${place.size * 1.25}px">${esc(f.title)}</div>` +
-        (f.artist ? `<div class="ln sub" style="font-size:${Math.round(place.size * 0.55)}px">${esc(f.artist)}</div>` : '');
+      inner = line(f.title, 'en', place.size * 1.25) +
+        (f.artist ? line(f.artist, 'sub', Math.round(place.size * 0.55)) : '');
     } else if (f.kind !== 'blank') {
       const en = (f.en || []).filter(Boolean), zh = (f.zh || []).filter(Boolean);
       // If a slide has no words in the chosen language, show what it has rather than nothing.
       const useEn = lang !== 'zh' || !zh.length, useZh = lang !== 'en' || !en.length;
       const zhSize = useEn ? Math.round(place.size * 0.85) : place.size;
-      if (useEn) inner += en.map(l => `<div class="ln en" style="font-size:${place.size}px">${esc(l)}</div>`).join('');
-      if (useZh) inner += zh.map(l => `<div class="ln zh" style="font-size:${zhSize}px">${esc(l)}</div>`).join('');
+      if (useEn) inner += en.map(l => line(l, 'en', place.size)).join('');
+      if (useZh) inner += zh.map(l => line(l, 'zh', zhSize)).join('');
     }
   }
+  // On the laptop only: name the music-only parts ("Instrumental", "Spirit") on their blank slides.
+  const cue = opts.preview && f.kind === 'blank' && f.label && f.label !== 'Blank' && !opts.black ? `<div class="cue">${esc(f.label)}</div>` : '';
   const bg = opts.black ? '#000' : bgCss(opts.bg);
   return `<div class="stage-in" style="background:${bg}">
-    <div class="words ${place.valign}" style="padding-top:${place.valign === 'top' ? place.top : 0}px"><div class="blk">${inner}</div></div></div>`;
+    <div class="words ${place.valign}" style="padding-top:${place.valign === 'top' ? place.top : 0}px"><div class="blk">${inner}</div></div>${cue}</div>`;
 }
 
 // Put a slide into a box and scale it to fit. Shrinks long lines so nothing is cut off.

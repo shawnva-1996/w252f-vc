@@ -5,6 +5,32 @@ export const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;'
 
 export const app = () => document.getElementById('app');
 
+// Simple line icons (instead of emoji, which look different on every device).
+const ICONS = {
+  laptop: '<rect x="4" y="5" width="16" height="11" rx="1"/><path d="M2 19h20"/>',
+  tv: '<rect x="3" y="5" width="18" height="12" rx="1"/><path d="M8 21h8M12 17v4"/>',
+  plug: '<path d="M9 3v5M15 3v5M7 8h10v3a5 5 0 0 1-10 0V8zM12 16v5"/>',
+  wifi: '<path d="M2 9a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><path d="M12 19.5h.01"/>',
+  cast: '<path d="M3 8V6a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-6M3 12a9 9 0 0 1 9 9M3 16a5 5 0 0 1 5 5M3 20h.01"/>',
+  black: '<rect x="4" y="5" width="16" height="14" fill="currentColor"/>',
+  eyeoff: '<path d="M3 3l18 18M10.6 6.1A10 10 0 0 1 12 6c6 0 9.5 6 9.5 6a17 17 0 0 1-3.2 3.8M6.4 7.4A17 17 0 0 0 2.5 12S6 18 12 18a9.6 9.6 0 0 0 4.4-1.1M9.9 9.9a3 3 0 0 0 4.2 4.2"/>',
+  look: '<path d="M12 3a9 9 0 1 0 0 18c1.1 0 1.5-.8 1.5-1.5 0-1.2-1-1.5-1-2.5s.8-1.5 1.5-1.5h2.5A4.5 4.5 0 0 0 21 11c0-4.4-4-8-9-8z"/><path d="M7.5 11h.01M10 7h.01M15 7.5h.01"/>',
+  pencil: '<path d="M4 20h4L19 9l-4-4L4 16v4zM13.5 6.5l4 4"/>',
+  file: '<path d="M6 3h8l4 4v14H6zM14 3v4h4M9 13h6M9 17h6"/>',
+  play: '<path d="M8 5v14l11-7z" fill="currentColor"/>',
+  plus: '<path d="M12 5v14M5 12h14"/>',
+  up: '<path d="M12 19V5M6 11l6-6 6 6"/>',
+  down: '<path d="M12 5v14M6 13l6 6 6-6"/>',
+  copy: '<rect x="8" y="8" width="12" height="12"/><path d="M16 8V4H4v12h4"/>',
+  x: '<path d="M6 6l12 12M18 6L6 18"/>',
+  menu: '<path d="M4 7h16M4 12h16M4 17h16"/>',
+  back: '<path d="M15 5l-7 7 7 7"/>',
+  next: '<path d="M9 5l7 7-7 7"/>',
+  blank: '<rect x="3" y="6" width="18" height="12"/>',
+  check: '<path d="M5 12l5 5 9-10"/>'
+};
+export const icon = name => `<svg class="i" viewBox="0 0 24 24" aria-hidden="true">${ICONS[name] || ''}</svg>`;
+
 export function show(html, cls = '') {
   const el = app();
   el.className = cls;
@@ -66,7 +92,7 @@ export async function askText(question, value = '', { multiline = false, ok = 'S
 
 export function header(title, { back = null, right = '' } = {}) {
   return `<header class="top">
-    ${back ? `<a class="btn ghost small back" href="${back}" aria-label="Back">‹ Back</a>` : '<span></span>'}
+    ${back ? `<a class="btn ghost small back" href="${back}" aria-label="Back">${icon('back')}Back</a>` : '<span></span>'}
     <h1>${esc(title)}</h1>
     <div class="top-right">${right}</div>
   </header>`;

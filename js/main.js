@@ -2,9 +2,9 @@ import {
   auth, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut,
   sendPasswordResetEmail, updateProfile
 } from './firebase.js';
-import { show, esc, toast, header, confirmBox, $ } from './ui.js';
-import { store, local, ensureProfile, listSets, cachedSets, removeSet, newDraft, listMedia } from './store.js';
-import { loadLibrary } from './songs.js';
+import { show, esc, toast, header, confirmBox, icon, $ } from './ui.js';
+import { store, local, ensureProfile, listSets, cachedSets, createSet, removeSet, newDraft, listMedia } from './store.js';
+import { loadLibrary, getSong, buildSlides } from './songs.js';
 import { wizard } from './wizard.js';
 import { controlScreen } from './control.js';
 import { tvScreen } from './tv.js';
@@ -67,24 +67,26 @@ async function route() {
 // 1. Welcome --------------------------------------------------------------
 function welcome() {
   const last = local.get('role');
-  show(`<main class="center-page welcome">
-    <div class="logo-mark" aria-hidden="true"></div>
-    <h1>Welcome</h1>
-    <p class="lead">Let's get the words up, so everyone can sing with their whole heart.</p>
-    <p class="q">Which screen is this?</p>
+  show(`<header class="hero"><div class="hero-in">
+      <p class="eyebrow">Worship slides</p>
+      <h1>Sing with your <em>whole heart</em></h1>
+      <p class="lead">Let's get the words up, so everyone can sing along.</p>
+    </div></header>
+    <main class="page welcome">
+    <p class="eyebrow">Which screen is this?</p>
     <div class="choices">
       <button class="choice ${last === 'control' ? 'last' : ''}" id="pick-control">
-        <span class="ico" aria-hidden="true">💻</span>
+        <span class="ico">${icon('laptop')}</span>
         <b>I'm running the songs</b>
         <small>This laptop or phone controls the slides</small>
       </button>
       <button class="choice ${last === 'tv' ? 'last' : ''}" id="pick-tv">
-        <span class="ico" aria-hidden="true">📺</span>
+        <span class="ico">${icon('tv')}</span>
         <b>This is the TV screen</b>
         <small>This screen only shows the words</small>
       </button>
     </div>
-    ${store.user ? `<p class="small muted">Logged in as ${esc(store.user.email)} · <button class="link" id="logout">Log out</button></p>` : ''}
+    ${store.user ? `<p class="small muted signed-in">Logged in as ${esc(store.user.email)} · <button class="link" id="logout">Log out</button></p>` : ''}
   </main>`, 'page-welcome');
   $('#pick-control').onclick = () => { local.set('role', 'control'); location.hash = '#/home'; };
   $('#pick-tv').onclick = () => { local.set('role', 'tv'); location.hash = '#/tv'; };
@@ -160,25 +162,42 @@ function friendly(e) {
 // Home: saved sets --------------------------------------------------------
 async function home() {
   const cached = cachedSets();
-  if (cached) drawHome(cached);
+  if (cached) drawHome(cached, []);
   else show(`<main class="page">${header('Your song sets', { back: '#/', right: menuButtons() })}${loading('Getting your song sets…')}</main>`), bindMenu();
-  let sets;
-  try { sets = await listSets(); }
+  let sets, ready;
+  try { [sets, ready] = await Promise.all([listSets(), readySets()]); }
   catch (e) { console.warn(e); if (!cached) toast('Could not load your sets. Please check the internet.'); return; }
   if (!location.hash.startsWith('#/home')) return;
-  if (!sets.length) { newDraft(); location.hash = '#/new/place'; return; }
-  if (!cached || JSON.stringify(sets.map(x => [x.id, x.updatedMs])) !== JSON.stringify(cached.map(x => [x.id, x.updatedMs]))) drawHome(sets);
+  const todo = ready.filter(p => !sets.some(s => s.preset === p.id));
+  if (!sets.length && !todo.length) { newDraft(); location.hash = '#/new/place'; return; }
+  if (todo.length || !cached || JSON.stringify(sets.map(x => [x.id, x.updatedMs])) !== JSON.stringify(cached.map(x => [x.id, x.updatedMs]))) drawHome(sets, todo);
 }
 
-function drawHome(sets) {
+// Ready-made sets (data/presets.json) that someone prepared for this account.
+async function readySets() {
+  const list = await fetch('/data/presets.json').then(r => r.ok ? r.json() : []).catch(() => []);
+  const now = new Date().toISOString().slice(0, 10);
+  return list.filter(p => (!p.admin || store.isAdmin) && (!p.until || p.until >= now));
+}
+
+async function addReady(p) {
+  await loadLibrary();
+  const songs = p.songs.map(x => getSong(x.id)).filter(Boolean).map((s, k) => ({
+    id: s.id, title: s.title, artist: s.artist || '', cat: p.songs[k].cat || s.cat, flow: p.songs[k].flow || s.flow
+  }));
+  if (!songs.length) throw new Error('The songs for this set are not in the library yet.');
+  const slides = songs.flatMap((s, k) => buildSlides(getSong(s.id), s.flow, k));
+  return createSet({
+    name: p.name, place: p.place || 'suntec', connection: local.get('connection', 'cable'), lang: p.lang || 'both',
+    bg: p.bg || { type: 'gradient', id: 'forest' }, songs, slides, preset: p.id
+  });
+}
+
+function drawHome(sets, ready) {
   const first = (store.user?.displayName || '').split(' ')[0];
-  show(`<main class="page">
-    ${header('Your song sets', { back: '#/', right: menuButtons() })}
-    <p class="lead">${first ? `Hi ${esc(first)}! ` : ''}Tap a set to start.</p>
-    <div class="set-list">
-      ${sets.map(s => `<div class="set-card">
+  const card = s => `<div class="set-card">
         <a class="set-open" href="#/set/${s.id}">
-          <span class="play" aria-hidden="true">▶</span>
+          <span class="play">${icon('play')}</span>
           <span class="set-text">
             <b>${esc(s.name || 'Song set')}</b>
             <span class="songs">${(s.songs || []).map(x => esc(x.title)).join(' · ')}</span>
@@ -186,12 +205,28 @@ function drawHome(sets) {
           </span>
         </a>
         <button class="link danger small" data-del="${s.id}" aria-label="Remove ${esc(s.name)}">Remove</button>
-      </div>`).join('')}
-    </div>
-    <a class="btn primary big wide" href="#/new/place" id="newset">＋ Make a new set</a>
+      </div>`;
+  show(`<main class="page">
+    ${header('Your song sets', { back: '#/', right: menuButtons() })}
+    <p class="lead">${first ? `Hi ${esc(first)}! ` : ''}Tap a set to start.</p>
+    ${ready.length ? `<section class="ready"><p class="eyebrow">Ready for you</p><div class="set-list">
+      ${ready.map(p => `<div class="set-card"><button class="set-open" data-ready="${esc(p.id)}">
+        <span class="play">${icon('plus')}</span>
+        <span class="set-text"><b>${esc(p.name)}</b>
+          <span class="songs">${p.songs.map(x => esc(x.title || x.id)).join(' · ')}</span>
+          <small>Prepared for you. Tap to add it to your sets.</small></span>
+      </button></div>`).join('')}</div></section>` : ''}
+    ${sets.length ? `<div class="set-list">${sets.map(card).join('')}</div>` : ''}
+    <a class="btn primary big wide" href="#/new/place" id="newset">${icon('plus')}Make a new set</a>
   </main>`);
   bindMenu();
   $('#newset').onclick = () => newDraft();
+  document.querySelectorAll('[data-ready]').forEach(b => b.onclick = async () => {
+    const p = ready.find(x => x.id === b.dataset.ready);
+    b.disabled = true;
+    try { const id = await addReady(p); toast(`"${p.name}" is ready.`); location.hash = '#/set/' + id; }
+    catch (e) { console.error(e); b.disabled = false; toast(e.message || 'Could not add the set. Please check the internet.'); }
+  });
   document.querySelectorAll('[data-del]').forEach(b => b.onclick = async () => {
     if (!(await confirmBox('Remove this set? This cannot be undone.', 'Yes, remove'))) return;
     await removeSet(b.dataset.del); toast('Set removed.'); home();
@@ -201,7 +236,7 @@ function drawHome(sets) {
 export const loading = (msg = 'Loading…') => `<div class="loading" role="status"><span class="spin" aria-hidden="true"></span>${esc(msg)}</div>`;
 
 export function menuButtons() {
-  return `<details class="menu"><summary class="btn ghost small" aria-label="Menu">☰ Menu</summary><div class="menu-list">
+  return `<details class="menu"><summary class="btn ghost small" aria-label="Menu">${icon('menu')}Menu</summary><div class="menu-list">
     <a href="#/home">My song sets</a>
     <a href="#/songs">Song library</a>
     <a href="#/song/new">Add a song</a>
