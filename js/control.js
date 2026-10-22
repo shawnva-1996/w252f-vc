@@ -1,6 +1,6 @@
 // The laptop "command centre": run the slides, change words, order and backgrounds.
 import { show, esc, toast, header, modal, confirmBox, icon, $, $$ } from './ui.js';
-import { store, getSet, updateSet, listMedia, addMedia, mediaUrl, removeMedia, shrinkImage } from './store.js';
+import { store, getSet, updateSet, listMedia, addMedia, mediaUrl, removeMedia, shrinkImage, isVideo, uploadVideo, removeVideo } from './store.js';
 import { drawSlide, GRADIENTS, PHOTOS, photoUrl, PLACES, LANGS, langOf, bgCss } from './render.js';
 import { publish, republish, canCast, startCast } from './live.js';
 import { loadLibrary, getSong, buildSlides, matches } from './songs.js';
@@ -49,12 +49,16 @@ async function resolveMedia() {
 }
 
 const bgOf = sl => sl?.bg || S.bg || { type: 'gradient', id: 'forest' };
-const renderBg = b => b?.type === 'image' ? { type: 'image', url: store.media.get(b.mediaId) }
+const renderBg = b => b?.type === 'image' ? (isVideo(b.mediaId)
+    ? { type: 'video', url: store.media.get(b.mediaId), poster: store.posters.get(b.mediaId) || '' }
+    : { type: 'image', url: store.media.get(b.mediaId) })
   : b?.type === 'photo' ? { type: 'image', url: location.origin + photoUrl(b.id) } : b;
 const bgKey = b => b?.type === 'image' ? (store.media.has(b.mediaId) ? 'm:' + b.mediaId : 'loading') : b?.type === 'photo' ? 'p:' + b.id : (b?.id || 'forest');
 // The background picker's value for a background, and back again.
 const bgPick = b => !b ? 'same' : b.type === 'image' ? 'm:' + b.mediaId : b.type === 'photo' ? 'p:' + b.id : 'g:' + b.id;
 const fromPick = v => v.startsWith('m:') ? { type: 'image', mediaId: v.slice(2) } : v.startsWith('p:') ? { type: 'photo', id: v.slice(2) } : { type: 'gradient', id: v.slice(2) };
+// One of your own pictures or videos (videos show their still picture and a small play mark).
+const mediaSwatch = (id, url, attr) => `<button class="bgsw ${isVideo(id) ? 'vid' : ''}" style="background:#000 center/cover url('${isVideo(id) ? store.posters.get(id) : url}')" ${attr}="${attr === 'data-m' ? id : 'm:' + id}" aria-label="${isVideo(id) ? 'Your video' : 'Your picture'}"></button>`;
 const photoSwatches = attr => PHOTOS.map(p => `<button class="bgsw" style="background:center/cover url('${p.url}')" ${attr}="p:${p.id}" title="${p.name}" aria-label="${p.name}"></button>`).join('');
 const opts = (sl, extra = {}) => ({ place: S.place, lang: langOf(S), bg: renderBg(bgOf(sl)), ...extra });
 
@@ -128,7 +132,7 @@ function layout() {
 function refresh() {
   const sl = S.slides[at], nx = S.slides[at + 1];
   drawSlide($('#now'), sl ? frameOf(sl) : null, opts(sl, { black, hidden, preview: true }));
-  drawSlide($('#next'), nx ? frameOf(nx) : { kind: 'blank' }, opts(nx, { preview: true }));
+  drawSlide($('#next'), nx ? frameOf(nx) : { kind: 'blank' }, opts(nx, { preview: true, still: true }));
   $('#pos').textContent = S.slides.length ? `Slide ${at + 1} of ${S.slides.length}` : 'No slides yet';
   $('#state').textContent = black ? 'Black screen' : hidden ? 'Words hidden' : 'Live';
   $('#state').className = 'badge ' + (black || hidden ? 'warn' : 'ok');
@@ -182,7 +186,7 @@ function drawGrid() {
   const io = new IntersectionObserver(es => es.forEach(e => {
     if (!e.isIntersecting) return;
     const i = Number(e.target.dataset.mini); const sl = S.slides[i];
-    drawSlide(e.target, frameOf(sl), opts(sl, { preview: true })); io.unobserve(e.target);
+    drawSlide(e.target, frameOf(sl), opts(sl, { preview: true, still: true })); io.unobserve(e.target);
   }), { rootMargin: '200px' });
   $$('[data-mini]').forEach(m => io.observe(m));
   $('#grid').onclick = gridClick;
@@ -229,7 +233,7 @@ async function editSlide(i) {
       <button class="bgsw ${!sl.bg ? 'sel' : ''}" data-bgx="same">Same as the set</button>
       ${GRADIENTS.map(g => `<button class="bgsw" style="background:${g.css}" data-bgx="g:${g.id}" title="${g.name}" aria-label="${g.name}"></button>`).join('')}
       ${photoSwatches('data-bgx')}
-      ${[...store.media.entries()].map(([id, url]) => `<button class="bgsw" style="background:center/cover url('${url}')" data-bgx="m:${id}" aria-label="Your picture"></button>`).join('')}
+      ${[...store.media.entries()].map(([id, url]) => mediaSwatch(id, url, 'data-bgx')).join('')}
     </div>
     <div class="row gap"><button class="btn ghost" data-v="cancel">Cancel</button><button class="btn primary" data-v="ok">Save</button></div>`, { wide: true });
   const w = modal.current;
@@ -309,9 +313,11 @@ async function lookDialog() {
     <div class="bg-row" id="m-bg">
       ${GRADIENTS.map(g => `<button class="bgsw" style="background:${g.css}" data-g="${g.id}" aria-label="${g.name}" title="${g.name}"></button>`).join('')}
       ${photoSwatches('data-p')}
-      ${[...store.media.entries()].map(([id, url]) => `<span class="bgwrap"><button class="bgsw" style="background:center/cover url('${url}')" data-m="${id}" aria-label="Your picture"></button><button class="x" data-rmm="${id}" aria-label="Delete picture">${icon('x')}</button></span>`).join('')}
+      ${[...store.media.entries()].map(([id, url]) => `<span class="bgwrap">${mediaSwatch(id, url, 'data-m')}<button class="x" data-rmm="${id}" aria-label="Delete">${icon('x')}</button></span>`).join('')}
       <label class="bgsw upload" title="Use my own picture">${icon('plus')}My picture<input type="file" accept="image/*" id="m-up" hidden></label>
+      <label class="bgsw upload" id="m-vlbl" title="Use my own video">${icon('plus')}<span>My video</span><input type="file" accept="video/mp4,video/quicktime,video/webm,video/x-m4v,.mp4,.mov,.m4v,.webm" id="m-vup" hidden></label>
     </div>
+    <p class="small muted">Videos play on a loop with no sound. A short MP4 works on every TV.</p>
     <div class="stage preview" id="m-pv"></div>
     <div class="row"><button class="btn primary" data-v="cancel">Done</button></div>`, { wide: true });
   const w = modal.current;
@@ -333,9 +339,9 @@ async function lookDialog() {
     else if (b.dataset.p) S.bg = fromPick(b.dataset.p);
     else if (b.dataset.m) S.bg = { type: 'image', mediaId: b.dataset.m };
     else if (b.dataset.rmm) {
-      if (!(await confirmBox('Delete this picture?', 'Yes, delete'))) return;
-      const id = b.dataset.rmm;
-      await removeMedia(id).catch(() => {});
+      const id = b.dataset.rmm, vid = isVideo(id);
+      if (!(await confirmBox(vid ? 'Delete this video?' : 'Delete this picture?', 'Yes, delete'))) return;
+      await (vid ? removeVideo(id) : removeMedia(id)).catch(() => {});
       if (S.bg?.mediaId === id) S.bg = { type: 'gradient', id: 'forest' };
       S.slides.forEach(s => { if (s.bg?.mediaId === id) delete s.bg; });
       b.closest('.bgwrap').remove();
@@ -350,10 +356,25 @@ async function lookDialog() {
       const id = await addMedia(url);
       S.bg = { type: 'image', mediaId: id };
       const sw = document.createElement('span'); sw.className = 'bgwrap';
-      sw.innerHTML = `<button class="bgsw" style="background:center/cover url('${url}')" data-m="${id}" aria-label="Your picture"></button><button class="x" data-rmm="${id}" aria-label="Delete picture">${icon('x')}</button>`;
+      sw.innerHTML = `${mediaSwatch(id, url, 'data-m')}<button class="x" data-rmm="${id}" aria-label="Delete">${icon('x')}</button>`;
       $('#m-bg', w).insertBefore(sw, $('.upload', w));
       persist('Picture added.'); pv(); refresh(); drawGrid();
     } catch (err) { console.error(err); toast(err.message || 'Could not add that picture.'); }
+  };
+  $('#m-vup', w).onchange = async e => {
+    const file = e.target.files[0]; if (!file) return;
+    const lbl = $('#m-vlbl', w), txt = $('span', lbl), inp = e.target;
+    lbl.classList.add('busy'); inp.disabled = true; txt.textContent = 'Uploading…';
+    try {
+      const { url, poster } = await uploadVideo(file, pc => { txt.textContent = `Uploading ${pc}%`; });
+      const id = await addMedia(url, { kind: 'video', poster });
+      S.bg = { type: 'image', mediaId: id };
+      const sw = document.createElement('span'); sw.className = 'bgwrap';
+      sw.innerHTML = `${mediaSwatch(id, url, 'data-m')}<button class="x" data-rmm="${id}" aria-label="Delete">${icon('x')}</button>`;
+      $('#m-bg', w).insertBefore(sw, $('.upload', w));
+      persist('Video added.'); pv(); refresh(); drawGrid();
+    } catch (err) { console.error(err); toast(err.message || 'Could not add that video.', 5000); }
+    lbl.classList.remove('busy'); inp.disabled = false; inp.value = ''; txt.textContent = 'My video';
   };
   await p;
 }
