@@ -162,15 +162,19 @@ function friendly(e) {
 // Home: saved sets --------------------------------------------------------
 async function home() {
   const cached = cachedSets();
-  if (cached) drawHome(cached, []);
+  // Ready-made sets come from the site itself, so show them even if the saved sets are slow to load.
+  const ready = await readySets();
+  const todo = sets => ready.filter(p => !sets.some(s => s.preset === p.id));
+  const key = sets => JSON.stringify([sets.map(x => [x.id, x.updatedMs]), todo(sets).map(p => p.id)]);
+  if (cached) drawHome(cached, todo(cached));
+  else if (ready.length) drawHome([], ready);
   else show(`<main class="page">${header('Your song sets', { back: '#/', right: menuButtons() })}${loading('Getting your song sets…')}</main>`), bindMenu();
-  let sets, ready;
-  try { [sets, ready] = await Promise.all([listSets(), readySets()]); }
+  let sets;
+  try { sets = await listSets(); }
   catch (e) { console.warn(e); if (!cached) toast('Could not load your sets. Please check the internet.'); return; }
   if (!location.hash.startsWith('#/home')) return;
-  const todo = ready.filter(p => !sets.some(s => s.preset === p.id));
-  if (!sets.length && !todo.length) { newDraft(); location.hash = '#/new/place'; return; }
-  if (todo.length || !cached || JSON.stringify(sets.map(x => [x.id, x.updatedMs])) !== JSON.stringify(cached.map(x => [x.id, x.updatedMs]))) drawHome(sets, todo);
+  if (!sets.length && !ready.length) { newDraft(); location.hash = '#/new/place'; return; }
+  if (key(sets) !== key(cached || [])) drawHome(sets, todo(sets));
 }
 
 // Ready-made sets (data/presets.json) that someone prepared for this account.
