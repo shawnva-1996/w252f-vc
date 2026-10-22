@@ -199,6 +199,19 @@ select.input { appearance: auto; }
 .badge { padding: 2px 10px; font-size: .7rem; letter-spacing: .18em; border: 1px solid currentColor; }
 .badge.ok { color: var(--ok); } .badge.warn { color: var(--warn); background: #c9a22722; }
 .pad { display: grid; grid-template-columns: 1fr 2fr; gap: 12px; margin: 16px 0; }
+/* Small remote that stays on screen once the big buttons scroll away. */
+.page-control .control { padding-bottom: 120px; }
+.remote { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; display: grid; grid-template-columns: 72px 1fr 1.3fr; gap: 8px; align-items: stretch;
+  padding: 10px max(12px, env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
+  background: var(--paper); border-top: 1px solid var(--ink); box-shadow: 0 -12px 30px -18px rgb(0 0 0 / .45); }
+.remote[hidden] { display: none; }
+.remote .btn { min-height: 60px; justify-content: center; }
+.remote #r-fwd { font-size: 1.05rem; letter-spacing: .18em; text-transform: uppercase; }
+.remote .btn svg.i { width: 1.5em; height: 1.5em; }
+.r-info { border: 0; background: none; font: inherit; color: var(--text); display: flex; flex-direction: column; justify-content: center; align-items: center; min-width: 0; cursor: pointer; padding: 0 4px; }
+.r-info b { font-size: 1.05rem; font-weight: 600; }
+.r-info small { font-size: .78rem; color: var(--muted); max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@media (min-width: 761px) { .remote { left: 50%; right: auto; transform: translateX(-50%); width: min(560px, calc(100% - 32px)); bottom: 16px; border: 1px solid var(--ink); padding: 10px; } }
 .btn.huge { min-height: 84px; font-size: 1.15rem; letter-spacing: .2em; text-transform: uppercase; }
 .btn.huge svg.i { width: 1.6em; height: 1.6em; }
 .tools { display: flex; flex-wrap: wrap; gap: 10px; }
