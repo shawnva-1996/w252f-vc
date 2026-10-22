@@ -1,7 +1,7 @@
 // The TV screen: only shows the words, and follows the laptop.
 import { show, $ } from './ui.js';
 import { store } from './store.js';
-import { drawSlide } from './render.js';
+import { drawSlide, playVideo } from './render.js';
 import { listen, listenCast } from './live.js';
 
 let stop = null;
@@ -33,6 +33,8 @@ export function tvScreen({ mode }) {
   window.addEventListener('resize', () => last && onState(last, 'redraw'));
   $('#tv').addEventListener('click', e => {
     if (e.target.closest('#leave')) { document.body.classList.remove('is-tv'); if (stop) stop(); return; }
+    // A tap also starts the background video if the browser held it back.
+    document.querySelectorAll('video.bgv').forEach(playVideo);
     const el = document.documentElement;
     if (!document.fullscreenElement && el.requestFullscreen) el.requestFullscreen().catch(() => {});
     else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
@@ -51,3 +53,8 @@ async function keepAwake() {
     }
   } catch {}
 }
+
+// Browsers pause videos in hidden windows; start them again when the TV is shown.
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') document.querySelectorAll('.tv video.bgv').forEach(playVideo);
+});
