@@ -117,15 +117,30 @@ export function slideHTML(frame, opts = {}) {
 // Put a slide into a box and scale it to fit. Shrinks long lines so nothing is cut off.
 export function drawSlide(box, frame, opts = {}) {
   box.classList.add('stage');
-  // Keep a video that is already playing, so it does not restart on every slide.
-  const old = box.querySelector('video.bgv');
-  box.innerHTML = slideHTML(frame, opts);
-  const now = box.querySelector('video.bgv');
-  if (old && now && old.getAttribute('src') === now.getAttribute('src')) now.replaceWith(old);
-  else if (now) now.play?.().catch(() => {});
+  const html = slideHTML(frame, opts);
+  const old = box.querySelector('video.bgv'), cur = box.firstElementChild;
+  const next = document.createElement('div'); next.innerHTML = html;
+  const fresh = next.firstElementChild, nv = fresh.querySelector('video.bgv');
+  if (old && nv && cur && old.getAttribute('src') === nv.getAttribute('src')) {
+    // Same video: change only the words around it. Taking a video out of the page,
+    // even for a moment, pauses it in Safari, and it would then stay still.
+    cur.setAttribute('style', fresh.getAttribute('style'));
+    [...cur.childNodes].forEach(n => n !== old && n.remove());
+    nv.remove();
+    cur.append(...fresh.childNodes);
+  } else {
+    box.innerHTML = html;
+  }
+  box.querySelectorAll('video.bgv').forEach(playVideo);
   fit(box);
   fitText(box);
   if (document.fonts && document.fonts.status !== 'loaded') document.fonts.ready.then(() => fitText(box));
+}
+
+// Start a background video. Browsers only play videos by themselves when they are muted.
+export function playVideo(v) {
+  v.muted = true; v.defaultMuted = true; v.playsInline = true;
+  if (v.paused) v.play?.().catch(() => {});
 }
 
 export function fit(box) {
