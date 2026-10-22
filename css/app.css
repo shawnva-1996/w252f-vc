@@ -264,7 +264,7 @@ body.is-tv { background: #000; overflow: hidden; cursor: none; }
 .tv { position: fixed; inset: 0; background: #000; }
 .stage.full { position: absolute; inset: 0; }
 .tv-wait { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 24px; color: var(--cream); background: linear-gradient(rgb(20 16 12 / .72), rgb(20 16 12 / .88)), #2a241e center / cover no-repeat url("/img/hero.jpg"); cursor: default; }
-.tv-wait .eyebrow { color: rgb(245 240 232 / .8); }
+.tv-wait p.eyebrow { color: rgb(245 240 232 / .8); font-size: .85rem; }
 .tv-wait h1 { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(2.6rem, 8vw, 5.5rem); margin: 0 0 .2em; }
 .tv-wait p { font-size: clamp(1.1rem, 2.5vw, 1.6rem); max-width: 800px; color: rgb(245 240 232 / .85); }
 .tv-wait .tap { color: var(--gold); }

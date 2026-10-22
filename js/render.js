@@ -41,8 +41,10 @@ export const langOf = o => o?.lang || (o?.showZh === false ? 'en' : 'both');
 
 export function bgCss(bg) {
   if (!bg) return GRADIENTS[0].css;
-  if (bg.type === 'image' && bg.url) return `center / cover no-repeat url("${bg.url}")`;
-  if (bg.type === 'photo') return `center / cover no-repeat url("${photoUrl(bg.id)}")`;
+  // Single quotes: this goes inside a style="…" attribute.
+  const url = u => `center / cover no-repeat url('${String(u).replace(/'/g, '%27')}')`;
+  if (bg.type === 'image' && bg.url) return url(bg.url);
+  if (bg.type === 'photo') return url(photoUrl(bg.id));
   const g = GRADIENTS.find(x => x.id === bg.id);
   return g ? g.css : GRADIENTS[0].css;
 }
