@@ -37,6 +37,16 @@
   <script>
     if ('serviceWorker' in navigator && location.hostname !== 'localhost') {
       addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+      // When a new version arrives, switch to it straight away, except while a set is
+      // running on the command centre: there it waits until you leave the set.
+      const had = !!navigator.serviceWorker.controller;
+      let ready = false;
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        if (!had) return;
+        ready = true;
+        if (!location.hash.startsWith('#/set/')) location.reload();
+      });
+      addEventListener('hashchange', () => { if (ready && !location.hash.startsWith('#/set/')) location.reload(); });
     }
   </script>
 </body>

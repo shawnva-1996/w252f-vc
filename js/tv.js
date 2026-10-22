@@ -12,6 +12,7 @@ export function tvScreen({ mode }) {
   if (stop) stop();
   show(`<div class="tv" id="tv">
     <div class="stage full" id="screen"></div>
+    <button class="tv-hint" id="vhint" hidden>Tap to start the video</button>
     <div class="tv-wait" id="wait">
       <p class="eyebrow">Worship slides</p>
       <h1>Ready for worship</h1>
@@ -21,12 +22,25 @@ export function tvScreen({ mode }) {
     </div>
   </div>`, 'page-tv');
   document.body.classList.add('is-tv');
-  const screen = $('#screen'), wait = $('#wait');
-  let last = null;
+  const screen = $('#screen'), wait = $('#wait'), hint = $('#vhint');
+  let last = null, hintTimer = null;
   const onState = st => {
     last = st;
     wait.hidden = true;
     drawSlide(screen, st.frame, { place: st.place, lang: st.lang, showZh: st.showZh, bg: st.bg, black: st.black, hidden: st.hidden });
+    watchVideo();
+  };
+  // If the browser holds the background video back, say so (a tap starts it).
+  const watchVideo = () => {
+    clearTimeout(hintTimer);
+    const v = screen.querySelector('video.bgv');
+    if (!v) { hint.hidden = true; return; }
+    const cant = () => { hint.textContent = "This video can't play in this browser. Please use an MP4 video."; hint.hidden = false; };
+    v.onplaying = () => { hint.hidden = true; };
+    v.onerror = cant;
+    if (v.error) return cant();
+    if (!v.paused) { hint.hidden = true; return; }
+    hintTimer = setTimeout(() => { if (v.isConnected && v.paused && !v.error) { hint.textContent = 'Tap to start the video'; hint.hidden = false; } }, 2500);
   };
   if (mode === 'cast') listenCast(onState);
   else stop = listen({ uid: store.uid, local: mode === 'local' }, onState);
@@ -35,6 +49,7 @@ export function tvScreen({ mode }) {
     if (e.target.closest('#leave')) { document.body.classList.remove('is-tv'); if (stop) stop(); return; }
     // A tap also starts the background video if the browser held it back.
     document.querySelectorAll('video.bgv').forEach(playVideo);
+    if (!screen.querySelector('video.bgv')?.error) hint.hidden = true;
     const el = document.documentElement;
     if (!document.fullscreenElement && el.requestFullscreen) el.requestFullscreen().catch(() => {});
     else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
