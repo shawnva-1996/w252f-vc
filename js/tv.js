@@ -13,6 +13,7 @@ export function tvScreen({ mode }) {
   show(`<div class="tv" id="tv">
     <div class="stage full" id="screen"></div>
     <div class="tv-wait" id="wait">
+      <p class="eyebrow">Worship slides</p>
       <h1>Ready for worship</h1>
       <p>${mode === 'cloud' ? 'Waiting for the laptop. Open a song set there and the words will show here.' : 'Waiting for the laptop…'}</p>
       ${mode !== 'cast' ? '<p class="tap">Tap anywhere to fill the whole screen.</p>' : ''}

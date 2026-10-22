@@ -1,7 +1,7 @@
 // New set, step by step: place → TV connection → praise songs → worship songs → order → save.
-import { show, esc, toast, header, $, $$, today } from './ui.js';
+import { show, esc, toast, header, icon, $, $$, today } from './ui.js';
 import { store, local, getDraft, saveDraft, createSet } from './store.js';
-import { loadLibrary, getSong, buildSlides, labelFor } from './songs.js';
+import { loadLibrary, getSong, buildSlides, labelFor, matches, langNote } from './songs.js';
 import { drawSlide, PLACES, LANGS } from './render.js';
 
 const STEPS = ['place', 'screen', 'praise-count', 'praise-pick', 'worship-count', 'worship-pick', 'flow', 'save'];
@@ -44,7 +44,7 @@ function place(d) {
       </button>`).join('')}
     </div>
     <p class="q">Which words should show?</p>
-    <div class="seg big wrap3" id="lang">${LANGS.map(l => `<button data-lang="${l.id}" class="${(d.lang || 'both') === l.id ? 'on' : ''}">${l.name}</button>`).join('')}</div>
+    <div class="seg big wrap3" id="lang">${LANGS.map(l => `<button data-lang="${l.id}" class="${(d.lang || 'both') === l.id ? 'on' : ''}">${l.name}<small>${l.hint}</small></button>`).join('')}</div>
     <div class="bar"><a class="btn primary big" href="#/new/screen">Next</a></div>
   </main>`);
   const preview = () => $$('[data-pv]').forEach(b => drawSlide(b, SAMPLE, { place: b.dataset.pv, lang: d.lang || 'both' }));
@@ -67,10 +67,10 @@ function screen(d) {
     ${steps('screen')}
     <div class="choices">
       <button class="choice ${d.connection === 'cable' ? 'sel' : ''}" data-c="cable">
-        <span class="ico" aria-hidden="true">🔌</span><b>With a cable (HDMI)</b>
+        <span class="ico">${icon('plug')}</span><b>With a cable (HDMI)</b>
         <small>The TV is plugged into this laptop</small></button>
       <button class="choice ${d.connection === 'device' ? 'sel' : ''}" data-c="device">
-        <span class="ico" aria-hidden="true">📶</span><b>No cable</b>
+        <span class="ico">${icon('wifi')}</span><b>No cable</b>
         <small>Another device shows the words (a TV, iPad or second laptop). It needs internet.</small></button>
     </div>
     <div class="bar"><a class="btn primary big" href="#/new/praise-count">Next</a></div>
@@ -125,16 +125,16 @@ function pick(d, cat) {
   let filter = cat;
   const render = () => {
     const q = $('#q').value.trim().toLowerCase();
-    const items = all.filter(s => (filter === 'all' || s.cat === filter) && (!q || s.title.toLowerCase().includes(q) || (s.artist || '').toLowerCase().includes(q)));
+    const items = all.filter(s => (filter === 'all' || s.cat === filter) && matches(s, q));
     $('#list').innerHTML = items.map(s => {
       const on = d[cat].includes(s.id);
       return `<li><button class="song-row ${on ? 'sel' : ''}" data-id="${s.id}" aria-pressed="${on}">
-        <span class="tick" aria-hidden="true">${on ? '✓' : ''}</span>
-        <span class="t"><b>${esc(s.title)}</b><small>${[s.artist, s.key && 'Key ' + s.key].filter(Boolean).map(esc).join(' · ')}</small></span></button></li>`;
+        <span class="tick">${on ? icon('check') : ''}</span>
+        <span class="t"><b>${esc(s.title)}${langNote(s) ? `<span class="lang-tag">${esc(langNote(s))}</span>` : ''}</b><small>${[s.artist, s.key && 'Key ' + s.key].filter(Boolean).map(esc).join(' · ')}</small></span></button></li>`;
     }).join('') || '<li class="muted">No songs found.</li>';
     const left = need - d[cat].length;
     $('#picked').textContent = left > 0 ? `${d[cat].length} of ${need} chosen. Tap ${left} more.` : (need === 1 ? 'Chosen. Tap Next.' : `All ${need} chosen. Tap Next.`);
-    $('#chips').innerHTML = d[cat].map(id => `<button data-unpick="${id}" aria-label="Remove ${esc(getSong(id)?.title)}">${esc(getSong(id)?.title)} ✕</button>`).join('');
+    $('#chips').innerHTML = d[cat].map(id => `<button data-unpick="${id}" aria-label="Remove ${esc(getSong(id)?.title)}">${esc(getSong(id)?.title)} ${icon('x')}</button>`).join('');
     $('#next').disabled = d[cat].length !== need;
   };
   $('#q').oninput = render;
@@ -173,10 +173,10 @@ function flow(d, i) {
       <span class="n">${k + 1}</span>
       <span class="t"><b>${esc(labelFor(song, id))}</b><small>${esc(first(id))}</small></span>
       <span class="acts">
-        <button class="ic" data-up="${k}" aria-label="Move up" ${k === 0 ? 'disabled' : ''}>↑</button>
-        <button class="ic" data-down="${k}" aria-label="Move down" ${k === f.length - 1 ? 'disabled' : ''}>↓</button>
-        <button class="ic" data-copy="${k}" aria-label="Repeat this">⧉</button>
-        <button class="ic danger" data-del="${k}" aria-label="Remove">✕</button>
+        <button class="ic" data-up="${k}" aria-label="Move up" ${k === 0 ? 'disabled' : ''}>${icon('up')}</button>
+        <button class="ic" data-down="${k}" aria-label="Move down" ${k === f.length - 1 ? 'disabled' : ''}>${icon('down')}</button>
+        <button class="ic" data-copy="${k}" aria-label="Repeat this">${icon('copy')}</button>
+        <button class="ic danger" data-del="${k}" aria-label="Remove">${icon('x')}</button>
       </span></li>`).join('') || '<li class="muted">Nothing yet. Tap a part below to add it.</li>';
     $('#count').textContent = buildSlides(song, f).length + ' slides';
   };
@@ -185,7 +185,7 @@ function flow(d, i) {
     ${steps('flow')}
     <p class="lead"><b>${esc(song.title)}</b> <span class="muted">(${i + 1} of ${list.length} · ${list[i].cat})</span></p>
     <p class="small muted">Already set to how we usually sing it. Change it if you like. <span id="count"></span></p>
-    <p class="legend"><span><b>↑</b><b>↓</b>move</span><span><b>⧉</b>sing again</span><span><b>✕</b>take out</span></p>
+    <p class="legend"><span><b>${icon('up')}</b><b>${icon('down')}</b>move</span><span><b>${icon('copy')}</b>sing again</span><span><b>${icon('x')}</b>take out</span></p>
     <ol class="flow" id="flow"></ol>
     <p class="q">Tap to add a part at the end:</p>
     <div class="chips">

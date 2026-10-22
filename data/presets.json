@@ -1,0 +1,22 @@
+[
+  {
+    "id": "2026-10-25-suntec",
+    "name": "25 Oct · Suntec",
+    "admin": true,
+    "until": "2026-10-26",
+    "place": "suntec",
+    "lang": "both",
+    "songs": [
+      {
+        "id": "labis-na-galak",
+        "title": "Labis Na Galak",
+        "cat": "praise"
+      },
+      {
+        "id": "jesus-my-everything",
+        "title": "Jesus My Everything",
+        "cat": "worship"
+      }
+    ]
+  }
+]

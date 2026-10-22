@@ -5,16 +5,21 @@ import { caller } from './_lib/firebase.js';
 export const config = { maxDuration: 60, api: { bodyParser: { sizeLimit: '5mb' } } };
 
 const PROMPT = `You turn song lyrics (pasted text, a PDF or a photo) into clean slide data for a church lyric projector.
+Songs can be in any language (English, Chinese, Tagalog, Bahasa, Korean, Tamil, Spanish…) or in two languages.
 Return ONLY JSON:
 {"title": str, "artist": str or "", "key": str or "", "cat": "praise" or "worship",
- "sections":[{"label": "Verse 1"|"Pre-Chorus"|"Chorus"|"Bridge"|"Tag"|"Intro"|"Outro"|"Riff"|..., "type":"verse|prechorus|chorus|bridge|tag|intro|outro|riff|other",
-   "slides":[{"en":[up to 2 lines], "zh":[up to 2 lines]}]}],
+ "langs": [main language name, second language name if there is one] (e.g. ["English","Chinese"], ["Tagalog"]),
+ "sections":[{"label": "Verse 1"|"Pre-Chorus"|"Chorus"|"Bridge"|"Tag"|"Intro"|"Outro"|"Riff"|..., "type":"verse|prechorus|chorus|bridge|tag|intro|outro|riff|cue|other",
+   "slides":[{"en":[up to 2 lines of the MAIN language], "zh":[up to 2 lines of the SECOND language]}]}],
  "flow":[section labels in the order the song is sung, repeats included]}
 Rules:
-- Keep only sung lyrics. Remove chords, pinyin, credits, copyright, CCLI, page numbers, file names, notes like "x2" (put repeats in flow).
+- The field names "en" and "zh" are fixed slots, not languages. "en" holds the main language of the song, whatever it is. "zh" holds a second language that translates the same slide (Chinese, or any other). A song in one language puts every line in "en" and leaves "zh" empty. When English is one of two languages, English goes in "en".
+- Keep every sung word exactly as written in its own language and script, with its accents, apostrophes and marks (e.g. 'Yo, Ika'y, ñ, é, Korean, Tamil). Never translate, never romanise, never drop lines because they are not English.
+- Keep only sung lyrics. Remove chords, credits, copyright, CCLI, page numbers, file names, notes like "x2" (put repeats in flow). Remove pinyin or other romanisation only when the same words are also there in their own script.
 - Each unique section appears ONCE in "sections". Number verses (Verse 1, Verse 2).
-- Max 2 English lines per slide; join very short lines. Never change words. Use normal sentence case.
-- "zh": Chinese lines that translate the same slide (max 2). Songs printed twice (Chinese then English) are the same sections: merge and align them. Never invent translations. Remove spaces between Chinese characters.
+- Max 2 lines per language per slide; join very short lines. Never change words. Use normal sentence case.
+- Songs printed twice (one language, then the other) are the same sections: merge and align them. Never invent translations. Remove spaces between Chinese characters.
+- Music-only parts in the song flow (e.g. "Instrumental: 8 bars", "Spirit") become a section with type "cue", that label, and "slides": [].
 - If there are no section headings, decide them from repetition (repeated block = chorus).
 - cat: "praise" for upbeat celebration songs, "worship" for slower intimate songs.`;
 

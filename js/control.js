@@ -1,9 +1,9 @@
 // The laptop "command centre": run the slides, change words, order and backgrounds.
-import { show, esc, toast, header, modal, confirmBox, $, $$ } from './ui.js';
+import { show, esc, toast, header, modal, confirmBox, icon, $, $$ } from './ui.js';
 import { store, getSet, updateSet, listMedia, addMedia, mediaUrl, removeMedia, shrinkImage } from './store.js';
-import { drawSlide, GRADIENTS, PLACES, LANGS, langOf, bgCss } from './render.js';
+import { drawSlide, GRADIENTS, PHOTOS, photoUrl, PLACES, LANGS, langOf, bgCss } from './render.js';
 import { publish, republish, canCast, startCast } from './live.js';
-import { loadLibrary, getSong, buildSlides } from './songs.js';
+import { loadLibrary, getSong, buildSlides, matches } from './songs.js';
 import { menuButtons, bindMenu, loading } from './main.js';
 import { db, C, doc, getDoc } from './firebase.js';
 
@@ -49,8 +49,13 @@ async function resolveMedia() {
 }
 
 const bgOf = sl => sl?.bg || S.bg || { type: 'gradient', id: 'forest' };
-const renderBg = b => b?.type === 'image' ? { type: 'image', url: store.media.get(b.mediaId) } : b;
-const bgKey = b => b?.type === 'image' ? (store.media.has(b.mediaId) ? 'm:' + b.mediaId : 'loading') : (b?.id || 'forest');
+const renderBg = b => b?.type === 'image' ? { type: 'image', url: store.media.get(b.mediaId) }
+  : b?.type === 'photo' ? { type: 'image', url: location.origin + photoUrl(b.id) } : b;
+const bgKey = b => b?.type === 'image' ? (store.media.has(b.mediaId) ? 'm:' + b.mediaId : 'loading') : b?.type === 'photo' ? 'p:' + b.id : (b?.id || 'forest');
+// The background picker's value for a background, and back again.
+const bgPick = b => !b ? 'same' : b.type === 'image' ? 'm:' + b.mediaId : b.type === 'photo' ? 'p:' + b.id : 'g:' + b.id;
+const fromPick = v => v.startsWith('m:') ? { type: 'image', mediaId: v.slice(2) } : v.startsWith('p:') ? { type: 'photo', id: v.slice(2) } : { type: 'gradient', id: v.slice(2) };
+const photoSwatches = attr => PHOTOS.map(p => `<button class="bgsw" style="background:center/cover url('${p.url}')" ${attr}="p:${p.id}" title="${p.name}" aria-label="${p.name}"></button>`).join('');
 const opts = (sl, extra = {}) => ({ place: S.place, lang: langOf(S), bg: renderBg(bgOf(sl)), ...extra });
 
 function send() {
@@ -62,7 +67,7 @@ function send() {
   });
   sessionStorage.setItem('w252f.at.' + S.id, at);
 }
-const frameOf = sl => ({ kind: sl.kind, en: sl.en || [], zh: sl.zh || [], title: sl.title || '', artist: sl.artist || '' });
+const frameOf = sl => ({ kind: sl.kind, en: sl.en || [], zh: sl.zh || [], title: sl.title || '', artist: sl.artist || '', label: sl.label || '' });
 
 function persist(msg) {
   clearTimeout(saveTimer);
@@ -92,19 +97,19 @@ function layout() {
       </div>
     </section>
     <section class="pad">
-      <button class="btn huge" id="back" aria-label="Back one slide">‹ Back</button>
-      <button class="btn huge primary" id="fwd" aria-label="Next slide">Next ›</button>
+      <button class="btn huge" id="back" aria-label="Back one slide">${icon('back')}Back</button>
+      <button class="btn huge primary" id="fwd" aria-label="Next slide">Next${icon('next')}</button>
     </section>
     <section class="tools">
-      <button class="btn tool" id="tv">📺 Show on TV</button>
-      <button class="btn tool ${black ? 'on' : ''}" id="black">⬛ Black screen</button>
-      <button class="btn tool ${hidden ? 'on' : ''}" id="hide">🙈 Hide words</button>
-      <button class="btn tool" id="look">🎨 Look</button>
-      <button class="btn tool ${editing ? 'on' : ''}" id="edit">✏️ ${editing ? 'Done changing' : 'Change slides'}</button>
+      <button class="btn tool" id="tv">${icon('tv')}Show on TV</button>
+      <button class="btn tool ${black ? 'on' : ''}" id="black">${icon('black')}Black screen</button>
+      <button class="btn tool ${hidden ? 'on' : ''}" id="hide">${icon('eyeoff')}Hide words</button>
+      <button class="btn tool" id="look">${icon('look')}Look</button>
+      <button class="btn tool ${editing ? 'on' : ''}" id="edit">${icon('pencil')}${editing ? 'Done changing' : 'Change slides'}</button>
     </section>
-    ${editing ? `<p class="note">Tap ✏️ to change words, ↑ ↓ to move, ⧉ to repeat, ✕ to remove. Changes save by themselves.</p>` : ''}
+    ${editing ? `<p class="note">Tap the pencil to change words, the arrows to move, the double square to repeat, and the cross to remove. Changes save by themselves.</p>` : ''}
     <section class="grid" id="grid"></section>
-    ${editing ? `<div class="center"><button class="btn ghost" id="addsong">+ Add a song to this set</button></div>` : ''}
+    ${editing ? `<div class="center"><button class="btn ghost" id="addsong">${icon('plus')}Add a song to this set</button></div>` : ''}
   </main>`, 'page-control');
   bindMenu();
   $('#back').onclick = () => goTo(at - 1);
@@ -122,8 +127,8 @@ function layout() {
 
 function refresh() {
   const sl = S.slides[at], nx = S.slides[at + 1];
-  drawSlide($('#now'), sl ? frameOf(sl) : null, opts(sl, { black, hidden }));
-  drawSlide($('#next'), nx ? frameOf(nx) : { kind: 'blank' }, opts(nx));
+  drawSlide($('#now'), sl ? frameOf(sl) : null, opts(sl, { black, hidden, preview: true }));
+  drawSlide($('#next'), nx ? frameOf(nx) : { kind: 'blank' }, opts(nx, { preview: true }));
   $('#pos').textContent = S.slides.length ? `Slide ${at + 1} of ${S.slides.length}` : 'No slides yet';
   $('#state').textContent = black ? 'Black screen' : hidden ? 'Words hidden' : 'Live';
   $('#state').className = 'badge ' + (black || hidden ? 'warn' : 'ok');
@@ -159,17 +164,17 @@ function drawGrid() {
   $('#grid').innerHTML = groups.map(g => {
     const song = S.songs[g.song] || { title: 'Extra slides' };
     return `<div class="group"><h3>${esc(song.title)} ${song.cat ? `<small>${esc(song.cat)}</small>` : ''}
-      ${editing && S.songs[g.song] ? `<span class="gacts"><button class="btn ghost small" data-addpart="${g.song}">+ Add a part</button><button class="btn ghost small" data-rmsong="${g.song}">Remove song</button></span>` : ''}</h3>
+      ${editing && S.songs[g.song] ? `<span class="gacts"><button class="btn ghost small" data-addpart="${g.song}">${icon('plus')}Add a part</button><button class="btn ghost small" data-rmsong="${g.song}">Remove song</button></span>` : ''}</h3>
       <div class="thumbs">${g.items.map(({ sl, i }) => `<div class="thumb ${i === at ? 'cur' : ''}" data-i="${i}">
         <button class="tbtn" data-go="${i}" aria-label="Show slide ${i + 1}"><div class="stage mini" data-mini="${i}"></div></button>
         <div class="tl"><span>${i + 1}. ${esc(sl.label || '')}</span></div>
         ${editing ? `<div class="tacts">
-          <button class="ic" data-ed="${i}" aria-label="Change words">✏️</button>
-          <button class="ic" data-mu="${i}" aria-label="Move earlier" ${i === 0 ? 'disabled' : ''}>↑</button>
-          <button class="ic" data-md="${i}" aria-label="Move later" ${i === S.slides.length - 1 ? 'disabled' : ''}>↓</button>
-          <button class="ic" data-cp="${i}" aria-label="Repeat this slide">⧉</button>
-          <button class="ic" data-bl="${i}" aria-label="Add blank slide after">▭</button>
-          <button class="ic danger" data-rm="${i}" aria-label="Remove slide">✕</button>
+          <button class="ic" data-ed="${i}" aria-label="Change words">${icon('pencil')}</button>
+          <button class="ic" data-mu="${i}" aria-label="Move earlier" ${i === 0 ? 'disabled' : ''}>${icon('up')}</button>
+          <button class="ic" data-md="${i}" aria-label="Move later" ${i === S.slides.length - 1 ? 'disabled' : ''}>${icon('down')}</button>
+          <button class="ic" data-cp="${i}" aria-label="Repeat this slide">${icon('copy')}</button>
+          <button class="ic" data-bl="${i}" aria-label="Add blank slide after">${icon('blank')}</button>
+          <button class="ic danger" data-rm="${i}" aria-label="Remove slide">${icon('x')}</button>
         </div>` : ''}
       </div>`).join('')}</div></div>`;
   }).join('') || '<p class="muted center">This set has no slides. Tap "Change slides" then "Add a song".</p>';
@@ -177,7 +182,7 @@ function drawGrid() {
   const io = new IntersectionObserver(es => es.forEach(e => {
     if (!e.isIntersecting) return;
     const i = Number(e.target.dataset.mini); const sl = S.slides[i];
-    drawSlide(e.target, frameOf(sl), opts(sl)); io.unobserve(e.target);
+    drawSlide(e.target, frameOf(sl), opts(sl, { preview: true })); io.unobserve(e.target);
   }), { rootMargin: '200px' });
   $$('[data-mini]').forEach(m => io.observe(m));
   $('#grid').onclick = gridClick;
@@ -217,17 +222,18 @@ async function editSlide(i) {
     ${sl.kind === 'title' ? `
       <label>Song title<input class="input" id="m-title" value="${esc(sl.title || '')}"></label>
       <label>Sung by<input class="input" id="m-artist" value="${esc(sl.artist || '')}"></label>` : `
-      <label>English words <small>(one line per row)</small><textarea class="input" id="m-en" rows="3">${esc((sl.en || []).join('\n'))}</textarea></label>
-      <label>Chinese words <small>(leave empty if none)</small><textarea class="input" id="m-zh" rows="3">${esc((sl.zh || []).join('\n'))}</textarea></label>`}
+      <label>Main words <small>(any language, one line per row)</small><textarea class="input" id="m-en" rows="3">${esc((sl.en || []).join('\n'))}</textarea></label>
+      <label>Second language <small>(e.g. Chinese; leave empty if none)</small><textarea class="input" id="m-zh" rows="3">${esc((sl.zh || []).join('\n'))}</textarea></label>`}
     <div class="lbl">Background for this slide</div>
     <div class="bg-row" id="m-bg">
       <button class="bgsw ${!sl.bg ? 'sel' : ''}" data-bgx="same">Same as the set</button>
       ${GRADIENTS.map(g => `<button class="bgsw" style="background:${g.css}" data-bgx="g:${g.id}" title="${g.name}" aria-label="${g.name}"></button>`).join('')}
+      ${photoSwatches('data-bgx')}
       ${[...store.media.entries()].map(([id, url]) => `<button class="bgsw" style="background:center/cover url('${url}')" data-bgx="m:${id}" aria-label="Your picture"></button>`).join('')}
     </div>
     <div class="row gap"><button class="btn ghost" data-v="cancel">Cancel</button><button class="btn primary" data-v="ok">Save</button></div>`, { wide: true });
   const w = modal.current;
-  let pickBg = sl.bg ? (sl.bg.type === 'image' ? 'm:' + sl.bg.mediaId : 'g:' + sl.bg.id) : 'same';
+  let pickBg = bgPick(sl.bg);
   const mark = () => $$('[data-bgx]', w).forEach(b => b.classList.toggle('sel', b.dataset.bgx === pickBg));
   mark();
   $('#m-bg', w).onclick = e => { const b = e.target.closest('[data-bgx]'); if (b) { pickBg = b.dataset.bgx; mark(); } };
@@ -242,8 +248,7 @@ async function editSlide(i) {
     sl.kind = sl.en.length || sl.zh.length ? 'lyric' : 'blank';
   }
   if (pickBg === 'same') delete sl.bg;
-  else if (pickBg.startsWith('g:')) sl.bg = { type: 'gradient', id: pickBg.slice(2) };
-  else sl.bg = { type: 'image', mediaId: pickBg.slice(2) };
+  else sl.bg = fromPick(pickBg);
   void isLyric;
   persist('Saved.'); drawGrid(); refresh();
 }
@@ -253,8 +258,8 @@ async function addPartDialog(songIdx) {
   if (!song) return toast('This song is no longer in the library.');
   const v = await modal(`<h2>Add a part of ${esc(song.title)}</h2>
     <p class="muted">It goes after the last slide of this song.</p>
-    <div class="chips">${song.sections.map(s => `<button class="chip" data-v="${esc(s.id)}">+ ${esc(s.label)}</button>`).join('')}
-    <button class="chip soft" data-v="title">+ Song title</button><button class="chip soft" data-v="blank">+ Blank</button></div>
+    <div class="chips">${song.sections.map(s => `<button class="chip" data-v="${esc(s.id)}">${icon('plus')}${esc(s.label)}</button>`).join('')}
+    <button class="chip soft" data-v="title">${icon('plus')}Song title</button><button class="chip soft" data-v="blank">${icon('plus')}Blank</button></div>
     <div class="row"><button class="btn ghost" data-v="cancel">Close</button></div>`);
   if (!v) return;
   const add = buildSlides(song, [v], songIdx);
@@ -280,7 +285,7 @@ async function addSongDialog() {
   const w = modal.current;
   const draw = () => {
     const q = $('#m-q', w).value.trim().toLowerCase();
-    $('#m-list', w).innerHTML = lib.filter(s => !q || s.title.toLowerCase().includes(q)).slice(0, 60)
+    $('#m-list', w).innerHTML = lib.filter(s => matches(s, q)).slice(0, 60)
       .map(s => `<li><button class="song-row" data-v="${s.id}"><span class="t"><b>${esc(s.title)}</b><small>${esc(s.cat)} ${s.artist ? '· ' + esc(s.artist) : ''}</small></span></button></li>`).join('');
   };
   $('#m-q', w).oninput = draw; draw();
@@ -293,18 +298,19 @@ async function addSongDialog() {
   persist(`Added "${song.title}".`); drawGrid(); refresh();
 }
 
-// Words look: place, Chinese, background --------------------------------
+// Words look: place, languages, background --------------------------------
 async function lookDialog() {
   const p = modal(`<h2>How the words look</h2>
     <div class="lbl">Where are you?</div>
     <div class="seg big">${Object.entries(PLACES).map(([id, pl]) => `<button data-place="${id}" class="${S.place === id ? 'on' : ''}">${pl.name}</button>`).join('')}</div>
     <div class="lbl">Which words?</div>
-    <div class="seg big wrap3">${LANGS.map(l => `<button data-lang="${l.id}" class="${langOf(S) === l.id ? 'on' : ''}">${l.name}</button>`).join('')}</div>
+    <div class="seg big wrap3">${LANGS.map(l => `<button data-lang="${l.id}" class="${langOf(S) === l.id ? 'on' : ''}">${l.name}<small>${l.hint}</small></button>`).join('')}</div>
     <div class="lbl">Background for all slides</div>
     <div class="bg-row" id="m-bg">
       ${GRADIENTS.map(g => `<button class="bgsw" style="background:${g.css}" data-g="${g.id}" aria-label="${g.name}" title="${g.name}"></button>`).join('')}
-      ${[...store.media.entries()].map(([id, url]) => `<span class="bgwrap"><button class="bgsw" style="background:center/cover url('${url}')" data-m="${id}" aria-label="Your picture"></button><button class="x" data-rmm="${id}" aria-label="Delete picture">✕</button></span>`).join('')}
-      <label class="bgsw upload" title="Use my own picture">＋ My picture<input type="file" accept="image/*" id="m-up" hidden></label>
+      ${photoSwatches('data-p')}
+      ${[...store.media.entries()].map(([id, url]) => `<span class="bgwrap"><button class="bgsw" style="background:center/cover url('${url}')" data-m="${id}" aria-label="Your picture"></button><button class="x" data-rmm="${id}" aria-label="Delete picture">${icon('x')}</button></span>`).join('')}
+      <label class="bgsw upload" title="Use my own picture">${icon('plus')}My picture<input type="file" accept="image/*" id="m-up" hidden></label>
     </div>
     <div class="stage preview" id="m-pv"></div>
     <div class="row"><button class="btn primary" data-v="cancel">Done</button></div>`, { wide: true });
@@ -314,7 +320,8 @@ async function lookDialog() {
     drawSlide($('#m-pv', w), frameOf(sl), opts({ ...sl, bg: undefined }));
     $$('[data-place]', w).forEach(b => b.classList.toggle('on', b.dataset.place === S.place));
     $$('[data-lang]', w).forEach(b => b.classList.toggle('on', b.dataset.lang === langOf(S)));
-    $$('[data-g]', w).forEach(b => b.classList.toggle('sel', S.bg?.type !== 'image' && S.bg?.id === b.dataset.g));
+    $$('[data-g]', w).forEach(b => b.classList.toggle('sel', (!S.bg?.type || S.bg.type === 'gradient') && S.bg?.id === b.dataset.g));
+    $$('[data-p]', w).forEach(b => b.classList.toggle('sel', S.bg?.type === 'photo' && 'p:' + S.bg.id === b.dataset.p));
     $$('[data-m]', w).forEach(b => b.classList.toggle('sel', S.bg?.type === 'image' && S.bg.mediaId === b.dataset.m));
   };
   pv();
@@ -323,6 +330,7 @@ async function lookDialog() {
     if (b.dataset.place) S.place = b.dataset.place;
     else if (b.dataset.lang) S.lang = b.dataset.lang;
     else if (b.dataset.g) S.bg = { type: 'gradient', id: b.dataset.g };
+    else if (b.dataset.p) S.bg = fromPick(b.dataset.p);
     else if (b.dataset.m) S.bg = { type: 'image', mediaId: b.dataset.m };
     else if (b.dataset.rmm) {
       if (!(await confirmBox('Delete this picture?', 'Yes, delete'))) return;
@@ -342,7 +350,7 @@ async function lookDialog() {
       const id = await addMedia(url);
       S.bg = { type: 'image', mediaId: id };
       const sw = document.createElement('span'); sw.className = 'bgwrap';
-      sw.innerHTML = `<button class="bgsw" style="background:center/cover url('${url}')" data-m="${id}" aria-label="Your picture"></button><button class="x" data-rmm="${id}" aria-label="Delete picture">✕</button>`;
+      sw.innerHTML = `<button class="bgsw" style="background:center/cover url('${url}')" data-m="${id}" aria-label="Your picture"></button><button class="x" data-rmm="${id}" aria-label="Delete picture">${icon('x')}</button>`;
       $('#m-bg', w).insertBefore(sw, $('.upload', w));
       persist('Picture added.'); pv(); refresh(); drawGrid();
     } catch (err) { console.error(err); toast(err.message || 'Could not add that picture.'); }
@@ -356,14 +364,14 @@ async function tvDialog() {
   const url = location.origin;
   const v = await modal(`<h2>Show the words on the TV</h2>
     <div class="tv-opt ${cable ? 'pick' : ''}">
-      <h3>🔌 TV plugged into this laptop</h3>
+      <h3>${icon('plug')}TV plugged into this laptop</h3>
       <ol><li>Tap <b>Open TV window</b>.</li><li>Drag that window onto the TV.</li><li>Tap it once. It will fill the whole TV.</li></ol>
       <button class="btn primary" data-v="window">Open TV window</button>
     </div>
-    ${canCast() ? `<div class="tv-opt"><h3>📡 Cast (Chromecast / Google TV)</h3>
+    ${canCast() ? `<div class="tv-opt"><h3>${icon('cast')}Cast (Chromecast / Google TV)</h3>
       <p>Sends the words to a TV on the same Wi-Fi.</p><button class="btn" data-v="cast">Cast to TV</button></div>` : ''}
     <div class="tv-opt ${!cable ? 'pick' : ''}">
-      <h3>📶 No cable: another device</h3>
+      <h3>${icon('wifi')}No cable: another device</h3>
       <ol><li>On the TV, iPad or other laptop, open <b>${esc(url.replace(/^https?:\/\//, ''))}</b></li>
       <li>Log in with <b>${esc(store.user.email)}</b></li><li>Tap <b>This is the TV screen</b>.</li></ol>
       <p class="small muted">The words will follow this laptop. Both need internet.</p>

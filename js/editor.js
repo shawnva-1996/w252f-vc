@@ -1,8 +1,8 @@
 // Song library, adding a song (paste or upload), and changing a song.
 import { auth } from './firebase.js';
-import { show, esc, toast, header, confirmBox, $, $$ } from './ui.js';
+import { show, esc, toast, header, confirmBox, icon, $, $$ } from './ui.js';
 import { store } from './store.js';
-import { loadLibrary, getSong, saveSong, removeSong, quickParse, slugify, labelFor } from './songs.js';
+import { loadLibrary, getSong, saveSong, removeSong, quickParse, slugify, labelFor, matches, langNote } from './songs.js';
 import { menuButtons, bindMenu, loading } from './main.js';
 
 const canEdit = s => store.isAdmin || (s && s.ownerUid && s.ownerUid === store.uid);
@@ -19,16 +19,16 @@ export async function songLibrary() {
     </div>
     <p class="small muted" id="n"></p>
     <ul class="song-list" id="list"></ul>
-    <a class="btn primary big wide" href="#/song/new">+ Add a song</a>
+    <a class="btn primary big wide" href="#/song/new">${icon('plus')}Add a song</a>
   </main>`);
   bindMenu();
   let f = 'all';
   const draw = () => {
     const q = $('#q').value.trim().toLowerCase();
-    const items = lib.filter(s => (f === 'all' || s.cat === f) && (!q || s.title.toLowerCase().includes(q) || (s.artist || '').toLowerCase().includes(q)));
+    const items = lib.filter(s => (f === 'all' || s.cat === f) && matches(s, q));
     $('#n').textContent = `${items.length} songs`;
-    $('#list').innerHTML = items.map(s => `<li><a class="song-row" href="#/song/${s.id}"><span class="t"><b>${esc(s.title)}</b>
-      <small>${s.cat === 'praise' ? 'Praise' : 'Worship'}${s.artist ? ' · ' + esc(s.artist) : ''}${s.key ? ' · Key ' + esc(s.key) : ''}</small></span><span class="go">›</span></a></li>`).join('');
+    $('#list').innerHTML = items.map(s => `<li><a class="song-row" href="#/song/${s.id}"><span class="t"><b>${esc(s.title)}${langNote(s) ? `<span class="lang-tag">${esc(langNote(s))}</span>` : ''}</b>
+      <small>${s.cat === 'praise' ? 'Praise' : 'Worship'}${s.artist ? ' · ' + esc(s.artist) : ''}${s.key ? ' · Key ' + esc(s.key) : ''}${s.aka?.length ? ' · also called ' + s.aka.map(esc).join(', ') : ''}</small></span><span class="go">${icon('next')}</span></a></li>`).join('');
   };
   $('#q').oninput = draw;
   $$('[data-f]').forEach(b => b.onclick = () => { f = b.dataset.f; $$('[data-f]').forEach(x => x.classList.toggle('on', x === b)); draw(); });
@@ -47,7 +47,7 @@ export async function songEditor(id) {
 function viewSong(s) {
   show(`<main class="page narrow">
     ${header(s.title, { back: '#/songs', right: menuButtons() })}
-    <p class="muted">${esc(s.artist || '')} ${s.key ? '· Key ' + esc(s.key) : ''}</p>
+    <p class="muted">${[s.artist, s.key && 'Key ' + s.key, langNote(s)].filter(Boolean).map(esc).join(' · ')}</p>
     ${s.sections.map(sec => `<section class="lyric"><h3>${esc(sec.label)}</h3>
       ${sec.slides.map(sl => `<p>${[...(sl.en || []), ...(sl.zh || [])].map(esc).join('<br>')}</p>`).join('')}</section>`).join('')}
     <p class="small muted">Usual order: ${(s.flow || []).map(x => esc(labelFor(s, x))).join(' → ')}</p>
@@ -60,10 +60,10 @@ function viewSong(s) {
 function addSong() {
   show(`<main class="page narrow">
     ${header('Add a song', { back: '#/songs', right: menuButtons() })}
-    <p class="lead">Paste the words, or choose a file. We'll sort out the verses and chorus for you.</p>
+    <p class="lead">Paste the words, or choose a file. We'll sort out the verses and chorus for you. Any language works: English, Chinese, Tagalog, Bahasa, Korean and more.</p>
     <label>Paste the words here<textarea class="input" id="raw" rows="10" placeholder="Verse 1&#10;I give You glory…"></textarea></label>
     <div class="or">or</div>
-    <label class="btn ghost big wide file-btn">📄 Choose a file (PDF, Word, PowerPoint, photo)
+    <label class="btn ghost big wide file-btn">${icon('file')}Choose a file (PDF, Word, PowerPoint, photo)
       <input type="file" id="file" accept=".pdf,.docx,.pptx,.txt,image/*" hidden></label>
     <p class="small muted center" id="fname"></p>
     <p class="error" id="err" role="alert"></p>
@@ -124,7 +124,8 @@ function fromParsed(p) {
   const byLabel = Object.fromEntries(sections.map(s => [s.label.toLowerCase(), s.id]));
   let flow = (p.flow || []).map(l => byLabel[String(l).toLowerCase()] || (sections.find(s => s.id === l) || {}).id).filter(Boolean);
   if (!flow.length) flow = sections.map(s => s.id);
-  return { title: p.title || '', artist: p.artist || '', cat: p.cat || 'worship', key: p.key || '', sections, flow: ['title', ...flow] };
+  const langs = (p.langs || []).filter(Boolean);
+  return { title: p.title || '', artist: p.artist || '', cat: p.cat || 'worship', key: p.key || '', langs, sections, flow: ['title', ...flow] };
 }
 
 const b64 = f => new Promise((res, rej) => { const r = new FileReader(); r.onload = () => res(String(r.result).split(',')[1]); r.onerror = rej; r.readAsDataURL(f); });
@@ -160,7 +161,7 @@ async function pptxText(file) {
 }
 
 // Step 2: check and save -----------------------------------------------------
-const TYPES = [['verse', 'Verse'], ['prechorus', 'Pre-chorus'], ['chorus', 'Chorus'], ['bridge', 'Bridge'], ['tag', 'Tag / ending'], ['riff', 'Riff'], ['intro', 'Intro'], ['other', 'Other']];
+const TYPES = [['verse', 'Verse'], ['prechorus', 'Pre-chorus'], ['chorus', 'Chorus'], ['bridge', 'Bridge'], ['tag', 'Tag / ending'], ['riff', 'Riff'], ['intro', 'Intro'], ['cue', 'Music only (no words)'], ['other', 'Other']];
 const toBox = (slides, k) => slides.map(s => (s[k] || []).join('\n')).join('\n\n');
 const fromBox = txt => txt.replace(/\r/g, '').split(/\n\s*\n/).map(b => b.split('\n').map(x => x.trim()).filter(Boolean));
 
@@ -171,11 +172,16 @@ function editForm(s, isNew = false) {
     <label>Song name<input class="input" id="title" value="${esc(s.title)}" required></label>
     <div class="row2">
       <label>Sung by<input class="input" id="artist" value="${esc(s.artist || '')}"></label>
-      <label>Key<input class="input" id="key" value="${esc(s.key || '')}" maxlength="4"></label>
+      <label>Key<input class="input" id="key" value="${esc(s.key || '')}" maxlength="8"></label>
     </div>
+    <div class="row2">
+      <label>Main language<input class="input" id="lang1" value="${esc(s.langs?.[0] || '')}" placeholder="English" list="langlist"></label>
+      <label>Second language <small>(if any)</small><input class="input" id="lang2" value="${esc(s.langs?.[1] || '')}" placeholder="Chinese" list="langlist"></label>
+    </div>
+    <datalist id="langlist">${['English', 'Chinese', 'Tagalog', 'Bahasa Indonesia', 'Bahasa Melayu', 'Korean', 'Japanese', 'Tamil', 'Hindi', 'Thai', 'Vietnamese', 'Spanish'].map(l => `<option value="${l}">`).join('')}</datalist>
     <div class="lbl">Type of song</div>
     <div class="seg big" id="cat"><button data-c="praise" class="${s.cat === 'praise' ? 'on' : ''}">Praise</button><button data-c="worship" class="${s.cat !== 'praise' ? 'on' : ''}">Worship</button></div>
-    <p class="small muted">In each box, put a blank line between slides. Two lines per slide looks best.</p>
+    <p class="small muted">In each box, put a blank line between slides. Two lines per slide looks best. For a music-only part (like "Instrumental: 8 bars"), choose "Music only" and leave the boxes empty.</p>
     <div id="secs"></div>
     <button class="btn ghost wide" id="addsec">+ Add a part</button>
     <h3>Usual order</h3>
@@ -189,14 +195,16 @@ function editForm(s, isNew = false) {
   </main>`);
   bindMenu();
   const secs = s.sections;
+  const lang1 = () => ($('#lang1')?.value || '').trim() || 'Main language';
+  const lang2 = () => ($('#lang2')?.value || '').trim() || 'Second language';
   const drawSecs = () => {
     $('#secs').innerHTML = secs.map((sec, i) => `<fieldset class="sec" data-i="${i}">
       <div class="row2">
         <label>Part name<input class="input" data-k="label" value="${esc(sec.label)}"></label>
         <label>Kind<select class="input" data-k="type">${TYPES.map(([v, n]) => `<option value="${v}" ${sec.type === v ? 'selected' : ''}>${n}</option>`).join('')}</select></label>
       </div>
-      <label>English<textarea class="input" data-k="en" rows="${Math.min(10, sec.slides.length * 3 + 1)}">${esc(toBox(sec.slides, 'en'))}</textarea></label>
-      <label>Chinese <small>(optional)</small><textarea class="input" data-k="zh" rows="${Math.min(10, sec.slides.length * 3 + 1)}">${esc(toBox(sec.slides, 'zh'))}</textarea></label>
+      <label>${esc(lang1())} words<textarea class="input" data-k="en" rows="${Math.min(10, sec.slides.length * 3 + 1)}">${esc(toBox(sec.slides, 'en'))}</textarea></label>
+      <label>${esc(lang2())} words <small>(optional)</small><textarea class="input" data-k="zh" rows="${Math.min(10, sec.slides.length * 3 + 1)}">${esc(toBox(sec.slides, 'zh'))}</textarea></label>
       <div class="row"><button class="btn ghost small" data-rmsec="${i}">Remove this part</button></div>
     </fieldset>`).join('');
   };
@@ -211,11 +219,12 @@ function editForm(s, isNew = false) {
   };
   const drawFlow = () => {
     $('#flow').innerHTML = s.flow.map((id, k) => `<li class="flow-row"><span class="n">${k + 1}</span><span class="t"><b>${esc(labelFor(s, id))}</b></span>
-      <span class="acts"><button class="ic" data-fu="${k}" ${k === 0 ? 'disabled' : ''} aria-label="Move up">↑</button><button class="ic danger" data-fd="${k}" aria-label="Remove">✕</button></span></li>`).join('');
+      <span class="acts"><button class="ic" data-fu="${k}" ${k === 0 ? 'disabled' : ''} aria-label="Move up">${icon('up')}</button><button class="ic danger" data-fd="${k}" aria-label="Remove">${icon('x')}</button></span></li>`).join('');
     $('#flowadd').innerHTML = secs.map(x => `<button class="chip" data-fa="${esc(x.id)}">+ ${esc(x.label)}</button>`).join('') +
       '<button class="chip soft" data-fa="title">+ Song title</button><button class="chip soft" data-fa="blank">+ Blank</button>';
   };
   drawSecs(); drawFlow();
+  ['#lang1', '#lang2'].forEach(q => $(q).onchange = () => { collect(); drawSecs(); });
   $('#cat').onclick = e => { const b = e.target.closest('[data-c]'); if (!b) return; s.cat = b.dataset.c; $$('[data-c]').forEach(x => x.classList.toggle('on', x === b)); };
   $('#secs').addEventListener('change', () => { collect(); drawFlow(); });
   $('#secs').onclick = e => { const b = e.target.closest('[data-rmsec]'); if (!b) return; collect(); const [gone] = secs.splice(+b.dataset.rmsec, 1); s.flow = s.flow.filter(x => x !== gone.id); drawSecs(); drawFlow(); };
@@ -230,7 +239,9 @@ function editForm(s, isNew = false) {
   $('#save').onclick = async () => {
     collect();
     s.title = $('#title').value.trim(); s.artist = $('#artist').value.trim(); s.key = $('#key').value.trim();
-    s.sections = secs.filter(x => x.slides.some(sl => sl.en.length || sl.zh.length));
+    s.langs = [$('#lang1').value.trim(), $('#lang2').value.trim()];
+    while (s.langs.length && !s.langs[s.langs.length - 1]) s.langs.pop();
+    s.sections = secs.filter(x => x.type === 'cue' || x.slides.some(sl => sl.en.length || sl.zh.length));
     s.flow = s.flow.filter(id => id === 'title' || id === 'blank' || s.sections.some(x => x.id === id));
     if (!s.title) { $('#err').textContent = 'Please give the song a name.'; return; }
     if (!s.sections.length) { $('#err').textContent = 'Please add some words first.'; return; }
