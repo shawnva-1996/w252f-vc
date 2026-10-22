@@ -265,6 +265,7 @@ export function bindMenu() {
     const off = e => { if (!d.contains(e.target)) { d.open = false; document.removeEventListener('click', off, true); } };
     setTimeout(() => document.addEventListener('click', off, true));
   });
-  document.querySelectorAll('.menu-list a').forEach(a => a.onclick = () => a.closest('details').open = false);
+  // Braces matter: a click handler that returns false cancels the link.
+  document.querySelectorAll('.menu-list a').forEach(a => a.onclick = () => { a.closest('details').open = false; });
 }
 window.__w252f = { route };
