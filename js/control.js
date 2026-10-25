@@ -12,6 +12,10 @@ let at = 0, black = false, hidden = false, editing = false;
 let saveTimer = null;
 let keyHandler = null;
 let remoteWatch = null;
+let pendingDecks = [];   // slide files chosen while making a new set
+
+// Slide files to add as soon as the new set opens.
+export const queueDecks = files => { pendingDecks = [...files]; };
 
 export async function controlScreen(id, then) {
   show(`<main class="page">${loading('Opening your set…')}</main>`);
@@ -28,6 +32,10 @@ export async function controlScreen(id, then) {
     const row = $('#addrow');
     row.scrollIntoView({ block: 'center' });
     row.classList.add('flash');
+  }
+  if (pendingDecks.length) {
+    const files = pendingDecks; pendingDecks = [];
+    (async () => { for (const f of files) if (S?.id === id) await addDeck(f); })();
   }
   // Pictures and the song library load quietly after the screen is up.
   loadLibrary().catch(() => {});
@@ -119,6 +127,7 @@ function layout() {
       <button class="btn tool ${black ? 'on' : ''}" id="black">${icon('black')}Black screen</button>
       <button class="btn tool ${hidden ? 'on' : ''}" id="hide">${icon('eyeoff')}Hide words</button>
       <button class="btn tool" id="look">${icon('look')}Look</button>
+      <button class="btn tool" id="slidebg">${icon('image')}Slide background</button>
       <button class="btn tool ${editing ? 'on' : ''}" id="edit">${icon('pencil')}${editing ? 'Done changing' : 'Change slides'}</button>
     </section>
     ${editing ? `<p class="note">Tap the pencil to change words, the arrows to move, the double square to repeat, and the cross to remove. Changes save by themselves.</p>` : ''}
@@ -147,6 +156,7 @@ function layout() {
   $('#hide').onclick = () => { hidden = !hidden; if (hidden) black = false; refresh(); };
   $('#tv').onclick = tvDialog;
   $('#look').onclick = lookDialog;
+  $('#slidebg').onclick = () => slideBgDialog(at);
   $('#edit').onclick = () => { editing = !editing; layout(); };
   $('#addsong').onclick = addSongDialog;
   $('#deckfile').onchange = e => { const f = e.target.files[0]; e.target.value = ''; if (f) addDeck(f); };
@@ -289,6 +299,79 @@ function swap(a, b) {
 }
 const rid = () => Math.random().toString(36).slice(2, 10);
 
+// Your own pictures and videos, used as backgrounds. Each returns the new media id.
+async function uploadPicture(file) {
+  toast('Adding your picture…');
+  const url = await shrinkImage(file);
+  return addMedia(url);
+}
+async function uploadClip(file, onPct) {
+  const { url, poster } = await uploadVideo(file, onPct);
+  return addMedia(url, { kind: 'video', poster });
+}
+// The row of backgrounds to pick from, ending with "use my own picture / video".
+const bgChoices = (attr, same) => `${same ? `<button class="bgsw" ${attr}="same">${same}</button>` : ''}
+  ${GRADIENTS.map(g => `<button class="bgsw" style="background:${g.css}" ${attr}="g:${g.id}" title="${g.name}" aria-label="${g.name}"></button>`).join('')}
+  ${photoSwatches(attr)}
+  ${[...store.media.entries()].map(([id, url]) => mediaSwatch(id, url, attr)).join('')}
+  <label class="bgsw upload" title="Use my own picture">${icon('plus')}My picture<input type="file" accept="image/*" data-uppic hidden></label>
+  <label class="bgsw upload" title="Use my own video">${icon('plus')}<span>My video</span><input type="file" accept="video/mp4,video/quicktime,video/webm,video/x-m4v,.mp4,.mov,.m4v,.webm" data-upvid hidden></label>`;
+// Wire the upload buttons in a background row: new pictures and videos join the row and get picked.
+function bindUploads(row, attr, onPick) {
+  const add = id => {
+    const b = document.createElement('div');
+    b.innerHTML = mediaSwatch(id, store.media.get(id), attr);
+    row.insertBefore(b.firstElementChild, $('.upload', row));
+    onPick('m:' + id);
+  };
+  $('[data-uppic]', row).onchange = async e => {
+    const f = e.target.files[0]; e.target.value = ''; if (!f) return;
+    try { add(await uploadPicture(f)); toast('Picture added.'); } catch (err) { console.error(err); toast(err.message || 'Could not add that picture.'); }
+  };
+  $('[data-upvid]', row).onchange = async e => {
+    const f = e.target.files[0], inp = e.target, lbl = inp.closest('label'), txt = $('span', lbl); inp.value = ''; if (!f) return;
+    lbl.classList.add('busy'); inp.disabled = true; txt.textContent = 'Uploading…';
+    try { add(await uploadClip(f, pc => { txt.textContent = `Uploading ${pc}%`; })); toast('Video added.'); }
+    catch (err) { console.error(err); toast(err.message || 'Could not add that video.', 5000); }
+    lbl.classList.remove('busy'); inp.disabled = false; txt.textContent = 'My video';
+  };
+}
+
+// A picture, video or colour behind one slide (or the whole song), straight from the tools.
+async function slideBgDialog(i) {
+  const sl = S.slides[i];
+  if (!sl) return;
+  if (sl.kind === 'image') return toast('This is a slide from a PDF or PowerPoint file. It fills the whole screen, so it has no background.', 5000);
+  const song = S.songs[sl.song];
+  const p = modal(`<h2>Background for slide ${i + 1}</h2>
+    <p class="muted">${esc([song?.title, sl.label].filter(Boolean).join(' · '))}</p>
+    <div class="stage preview" id="m-pv"></div>
+    <div class="bg-row" id="m-bg">${bgChoices('data-bgx', 'Same as the set')}</div>
+    <p class="small muted">Videos play on a loop with no sound. A short MP4 works on every TV.</p>
+    <div class="row gap wrap">
+      <button class="btn ghost" data-v="cancel">Cancel</button>
+      ${song && !song.deck ? `<button class="btn" data-v="song">Use for all of this song</button>` : ''}
+      <button class="btn primary" data-v="slide">Use for this slide</button>
+    </div>`, { wide: true });
+  const w = modal.current, row = $('#m-bg', w);
+  let pick = bgPick(sl.bg);
+  const show = () => {
+    $$('[data-bgx]', w).forEach(b => b.classList.toggle('sel', b.dataset.bgx === pick));
+    drawSlide($('#m-pv', w), frameOf(sl), opts({ ...sl, bg: pick === 'same' ? undefined : fromPick(pick) }));
+  };
+  show();
+  row.onclick = e => { const b = e.target.closest('[data-bgx]'); if (b) { pick = b.dataset.bgx; show(); } };
+  bindUploads(row, 'data-bgx', v => { pick = v; show(); });
+  const v = await p;
+  if (!v) return;
+  const bg = pick === 'same' ? null : fromPick(pick);
+  const set = s => { if (bg) s.bg = bg; else delete s.bg; };
+  if (v === 'song') S.slides.forEach(s => { if (s.song === sl.song && s.kind !== 'image') set(s); });
+  else set(sl);
+  persist(v === 'song' ? 'Background set for the whole song.' : 'Background set for this slide.');
+  await resolveMedia(); drawGrid(); refresh();
+}
+
 // Change one slide's words and background
 async function editSlide(i) {
   const sl = S.slides[i];
@@ -301,18 +384,14 @@ async function editSlide(i) {
       <label>Main words <small>(any language, one line per row)</small><textarea class="input" id="m-en" rows="3">${esc((sl.en || []).join('\n'))}</textarea></label>
       <label>Second language <small>(e.g. Chinese; leave empty if none)</small><textarea class="input" id="m-zh" rows="3">${esc((sl.zh || []).join('\n'))}</textarea></label>`}
     <div class="lbl">Background for this slide</div>
-    <div class="bg-row" id="m-bg">
-      <button class="bgsw ${!sl.bg ? 'sel' : ''}" data-bgx="same">Same as the set</button>
-      ${GRADIENTS.map(g => `<button class="bgsw" style="background:${g.css}" data-bgx="g:${g.id}" title="${g.name}" aria-label="${g.name}"></button>`).join('')}
-      ${photoSwatches('data-bgx')}
-      ${[...store.media.entries()].map(([id, url]) => mediaSwatch(id, url, 'data-bgx')).join('')}
-    </div>
+    <div class="bg-row" id="m-bg">${bgChoices('data-bgx', 'Same as the set')}</div>
     <div class="row gap"><button class="btn ghost" data-v="cancel">Cancel</button><button class="btn primary" data-v="ok">Save</button></div>`, { wide: true });
   const w = modal.current;
   let pickBg = bgPick(sl.bg);
   const mark = () => $$('[data-bgx]', w).forEach(b => b.classList.toggle('sel', b.dataset.bgx === pickBg));
   mark();
   $('#m-bg', w).onclick = e => { const b = e.target.closest('[data-bgx]'); if (b) { pickBg = b.dataset.bgx; mark(); } };
+  bindUploads($('#m-bg', w), 'data-bgx', v => { pickBg = v; mark(); });
   w._collect = () => 'save';
   const v = await p;
   if (v !== 'save') return;
@@ -326,7 +405,7 @@ async function editSlide(i) {
   if (pickBg === 'same') delete sl.bg;
   else sl.bg = fromPick(pickBg);
   void isLyric;
-  persist('Saved.'); drawGrid(); refresh();
+  persist('Saved.'); await resolveMedia(); drawGrid(); refresh();
 }
 
 async function addPartDialog(songIdx) {
@@ -375,7 +454,7 @@ async function addDeck(file) {
     if (kind === 'pptx') toast('Slides added. PowerPoint files can look a little different here, so please check them. A PDF keeps the exact look.', 7000);
     $(`.thumb[data-i="${first}"]`)?.scrollIntoView({ block: 'center', behavior: 'smooth' });
   } catch (e) { console.error(e); toast(e.message || 'Could not add those slides.', 6000); }
-  if (lbl.isConnected) { lbl.classList.remove('busy'); inp.disabled = false; say('Add slides (greetings, sermon, announcements)'); }
+  if (lbl.isConnected) { lbl.classList.remove('busy'); inp.disabled = false; say('Add slides (PDF or PowerPoint)'); }
 }
 
 async function addSongDialog() {
