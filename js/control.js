@@ -68,11 +68,13 @@ function send() {
   const b = bgOf(sl);
   publish(store.uid, {
     setId: S.id, index: at, total: S.slides.length, frame: sl ? frameOf(sl) : { kind: 'blank' },
-    black, hidden, place: S.place, lang: langOf(S), bgKey: bgKey(b), bg: renderBg(b)
+    black, hidden, place: S.place, lang: langOf(S), bgKey: bgKey(b), bg: renderBg(b), preload: preloadFrom(at + 1)
   });
   sessionStorage.setItem('w252f.at.' + S.id, at);
 }
-const frameOf = sl => ({ kind: sl.kind, en: sl.en || [], zh: sl.zh || [], title: sl.title || '', artist: sl.artist || '', label: sl.label || '' });
+const frameOf = sl => ({ kind: sl.kind, en: sl.en || [], zh: sl.zh || [], title: sl.title || '', artist: sl.artist || '', label: sl.label || '', ...(sl.src ? { src: sl.src } : {}) });
+// The next slide pictures, so the TV can fetch them before they are needed.
+const preloadFrom = i => S.slides.slice(i, i + 3).filter(s => s.kind === 'image' && s.src).map(s => s.src);
 
 function persist(msg) {
   clearTimeout(saveTimer);
@@ -114,7 +116,12 @@ function layout() {
     </section>
     ${editing ? `<p class="note">Tap the pencil to change words, the arrows to move, the double square to repeat, and the cross to remove. Changes save by themselves.</p>` : ''}
     <section class="grid" id="grid"></section>
-    ${editing ? `<div class="center"><button class="btn ghost" id="addsong">${icon('plus')}Add a song to this set</button></div>` : ''}
+    <div class="center add-row">
+      ${editing ? `<button class="btn ghost" id="addsong">${icon('plus')}Add a song to this set</button>` : ''}
+      <label class="btn ghost file-btn" id="adddeck">${icon('file')}<span>Add sermon or announcement slides</span>
+        <input type="file" id="deckfile" accept=".pdf,.pptx,application/pdf,application/vnd.openxmlformats-officedocument.presentationml.presentation" hidden></label>
+    </div>
+    <p class="small muted center">PowerPoint or PDF. They go after the songs. A PDF keeps the exact look of your slides.</p>
     <nav class="remote" id="remote" aria-label="Slide remote" hidden>
       <button class="btn" id="r-back" aria-label="Back one slide">${icon('back')}</button>
       <button class="r-info" id="r-info" aria-label="Go to the top"><b id="r-pos"></b><small id="r-part"></small></button>
@@ -127,7 +134,7 @@ function layout() {
   $('#r-info').onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
   // When the big Back / Next buttons scroll out of sight, keep a small remote on screen.
   remoteWatch?.disconnect();
-  remoteWatch = new IntersectionObserver(([e]) => { $('#remote').hidden = e.isIntersecting; }, { threshold: 0.6 });
+  remoteWatch = new IntersectionObserver(([e]) => { const r = $('#remote'); if (r) r.hidden = e.isIntersecting; }, { threshold: 0.6 });
   remoteWatch.observe($('.pad'));
   $('#black').onclick = () => { black = !black; if (black) hidden = false; refresh(); };
   $('#hide').onclick = () => { hidden = !hidden; if (hidden) black = false; refresh(); };
@@ -135,6 +142,7 @@ function layout() {
   $('#look').onclick = lookDialog;
   $('#edit').onclick = () => { editing = !editing; layout(); };
   const add = $('#addsong'); if (add) add.onclick = addSongDialog;
+  $('#deckfile').onchange = e => { const f = e.target.files[0]; e.target.value = ''; if (f) addDeck(f); };
   swipe($('#now'));
   drawGrid();
   refresh();
@@ -181,12 +189,12 @@ function drawGrid() {
   $('#grid').innerHTML = groups.map(g => {
     const song = S.songs[g.song] || { title: 'Extra slides' };
     return `<div class="group"><h3>${esc(song.title)} ${song.cat ? `<small>${esc(song.cat)}</small>` : ''}
-      ${editing && S.songs[g.song] ? `<span class="gacts"><button class="btn ghost small" data-addpart="${g.song}">${icon('plus')}Add a part</button><button class="btn ghost small" data-rmsong="${g.song}">Remove song</button></span>` : ''}</h3>
+      ${editing && S.songs[g.song] ? `<span class="gacts">${song.deck ? '' : `<button class="btn ghost small" data-addpart="${g.song}">${icon('plus')}Add a part</button>`}<button class="btn ghost small" data-rmsong="${g.song}">${song.deck ? 'Remove these slides' : 'Remove song'}</button></span>` : ''}</h3>
       <div class="thumbs">${g.items.map(({ sl, i }) => `<div class="thumb ${i === at ? 'cur' : ''}" data-i="${i}">
         <button class="tbtn" data-go="${i}" aria-label="Show slide ${i + 1}"><div class="stage mini" data-mini="${i}"></div></button>
         <div class="tl"><span>${i + 1}. ${esc(sl.label || '')}</span></div>
         ${editing ? `<div class="tacts">
-          <button class="ic" data-ed="${i}" aria-label="Change words">${icon('pencil')}</button>
+          ${sl.kind === 'image' ? '' : `<button class="ic" data-ed="${i}" aria-label="Change words">${icon('pencil')}</button>`}
           <button class="ic" data-mu="${i}" aria-label="Move earlier" ${i === 0 ? 'disabled' : ''}>${icon('up')}</button>
           <button class="ic" data-md="${i}" aria-label="Move later" ${i === S.slides.length - 1 ? 'disabled' : ''}>${icon('down')}</button>
           <button class="ic" data-cp="${i}" aria-label="Repeat this slide">${icon('copy')}</button>
@@ -208,7 +216,7 @@ function drawGrid() {
 function gridClick(e) {
   const b = e.target.closest('button'); if (!b) return;
   const d = b.dataset, n = k => Number(k);
-  if (d.go !== undefined) { if (editing) return editSlide(n(d.go)); return goTo(n(d.go)); }
+  if (d.go !== undefined) { if (editing && S.slides[n(d.go)].kind !== 'image') return editSlide(n(d.go)); return goTo(n(d.go)); }
   if (d.ed !== undefined) return editSlide(n(d.ed));
   if (d.mu !== undefined) { const i = n(d.mu); swap(i, i - 1); }
   else if (d.md !== undefined) { const i = n(d.md); swap(i, i + 1); }
@@ -287,10 +295,33 @@ async function addPartDialog(songIdx) {
 
 async function removeSong(songIdx) {
   if (!(await confirmBox(`Remove "${S.songs[songIdx].title}" and its slides from this set?`, 'Yes, remove'))) return;
+  dropSong(songIdx);
+  persist('Removed.'); drawGrid(); refresh();
+}
+function dropSong(songIdx) {
   S.slides = S.slides.filter(s => s.song !== songIdx).map(s => ({ ...s, song: s.song > songIdx ? s.song - 1 : s.song }));
   S.songs.splice(songIdx, 1);
   at = Math.min(at, Math.max(0, S.slides.length - 1));
-  persist('Song removed.'); drawGrid(); refresh();
+}
+
+// Sermon or announcement slides from a PowerPoint or PDF file, added after the songs.
+async function addDeck(file) {
+  const lbl = $('#adddeck'), txt = $('span', lbl), inp = $('#deckfile');
+  const say = t => { if (txt.isConnected) txt.textContent = t; };
+  lbl.classList.add('busy'); inp.disabled = true; say('Opening the file…');
+  const setId = S.id;
+  try {
+    const { uploadDeck } = await import('./deck.js');
+    const { title, urls, kind } = await uploadDeck(file, say);
+    if (S?.id !== setId) throw new Error('The slides were not added because you left the set. Please open it and add them again.');
+    S.songs.push({ id: 'deck-' + rid(), title, cat: 'slides', deck: true });
+    const k = S.songs.length - 1;
+    S.slides.push(...urls.map((src, i) => ({ id: rid(), song: k, label: `Slide ${i + 1}`, kind: 'image', src })));
+    persist(`Added ${urls.length} slides.`); drawGrid(); refresh();
+    if (kind === 'pptx') toast('Slides added. PowerPoint files can look a little different here, so please check them. A PDF keeps the exact look.', 7000);
+    $(`.thumb[data-i="${S.slides.length - urls.length}"]`)?.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  } catch (e) { console.error(e); toast(e.message || 'Could not add those slides.', 6000); }
+  if (lbl.isConnected) { lbl.classList.remove('busy'); inp.disabled = false; say('Add sermon or announcement slides'); }
 }
 
 async function addSongDialog() {

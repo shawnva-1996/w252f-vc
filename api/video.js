@@ -1,7 +1,8 @@
-// Background videos: lets a signed-in person upload a video straight from
-// their browser to Vercel Blob (the file never passes through this function),
-// and delete one they uploaded. Needs BLOB_READ_WRITE_TOKEN (set by Vercel
-// when the Blob store is connected to the project).
+// Background videos and sermon / announcement slide pictures: lets a
+// signed-in person upload straight from their browser to Vercel Blob (the
+// file never passes through this function), and delete a video they
+// uploaded. Needs BLOB_READ_WRITE_TOKEN (set by Vercel when the Blob store is
+// connected to the project).
 import { handleUpload } from '@vercel/blob/client';
 import { del } from '@vercel/blob';
 import { adminDb, caller } from './_lib/firebase.js';
@@ -22,6 +23,9 @@ export default async function handler(req, res) {
     const out = await handleUpload({
       body, request: req,
       onBeforeGenerateToken: async pathname => {
+        if (pathname.startsWith(`slides/${me.uid}/`)) {
+          return { allowedContentTypes: ['image/jpeg', 'image/png'], maximumSizeInBytes: 10 * 1024 * 1024, addRandomSuffix: true };
+        }
         if (!pathname.startsWith(`videos/${me.uid}/`)) throw new Error('Wrong place for this video.');
         return {
           allowedContentTypes: ['video/mp4', 'video/quicktime', 'video/webm', 'video/x-m4v'],

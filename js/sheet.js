@@ -172,3 +172,34 @@ function editChords(song, chords) {
     } catch (e) { $('#err').textContent = e.message; btn.disabled = false; btn.textContent = 'Save chords'; }
   };
 }
+
+// Look up chords for every song that has none yet, three at a time.
+// The page must stay open while it runs. Shared by the song library and Admin.
+let bulkRunning = false;
+export function bulkChords(lib, have, el, done) {
+  const todo = lib.filter(s => !(s.id in have));
+  el.info.textContent = todo.length ? `${lib.length - todo.length} of ${lib.length} songs have chords.` : `All ${lib.length} songs have chords.`;
+  el.go.hidden = !todo.length;
+  el.go.disabled = bulkRunning;
+  let stopNow = false;
+  el.stop.onclick = () => { stopNow = true; el.stop.disabled = true; el.stop.textContent = 'Stopping…'; };
+  el.go.onclick = async () => {
+    bulkRunning = true; el.go.disabled = true; el.stop.hidden = false;
+    let n = 0, found = 0;
+    const missed = [], queue = [...todo];
+    el.log.textContent = 'Looking online. Please keep this page open; each song takes up to a minute.';
+    const worker = async () => {
+      while (queue.length && !stopNow && el.log.isConnected) {
+        const s = queue.shift();
+        try { const d = await chordsApi('POST', '', { action: 'find', id: s.id }); if (d.chords) { found++; have[s.id] = d.chords.key || ''; local.set('chords.' + s.id, d.chords); } }
+        catch { missed.push(s.title); }
+        n++;
+        el.log.textContent = `Checked ${n} of ${todo.length} · found chords for ${found}${missed.length ? ` · none found for: ${missed.join(', ')}` : ''}`;
+      }
+    };
+    await Promise.all([worker(), worker(), worker()]);
+    bulkRunning = false; el.stop.hidden = true;
+    haveChords = { ...haveChords, ...have }; local.set('chords.list', haveChords);
+    if (done) done(found);
+  };
+}

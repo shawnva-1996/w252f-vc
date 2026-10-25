@@ -4,7 +4,7 @@ import { show, esc, toast, header, confirmBox, icon, $, $$ } from './ui.js';
 import { store, local } from './store.js';
 import { loadLibrary, getLibrary, refreshLibrary, onLibrary, getSong, saveSong, removeSong, quickParse, slugify, labelFor, matches, langNote } from './songs.js';
 import { menuButtons, bindMenu, loading } from './main.js';
-import { canEdit, chordList, cachedChordList } from './sheet.js';
+import { canEdit, chordList, cachedChordList, bulkChords } from './sheet.js';
 
 // The library opens straight away from what this device already knows, then
 // redraws if added songs or chords arrive from the internet.
@@ -25,6 +25,12 @@ export async function songLibrary() {
       <input class="input search" id="q" type="search" placeholder="Type a song name…" aria-label="Search songs" value="${esc(lastSearch)}">
       <div class="seg"><button class="on" data-f="all">All</button><button data-f="praise">Praise</button><button data-f="worship">Worship</button><button data-f="chords">Chords</button></div>
     </div>
+    <div class="chord-bulk" id="chbox" hidden>
+      <span id="chinfo"></span>
+      <button class="btn ghost small" id="chgo">Find chords online for the rest</button>
+      <button class="btn ghost small" id="chstop" hidden>Stop</button>
+      <p class="small muted" id="chlog"></p>
+    </div>
     <p class="small muted" id="n"></p>
     <ul class="song-list" id="list"></ul>
     <a class="btn primary big wide" href="#/song/new">${icon('plus')}Add a song</a>
@@ -44,7 +50,12 @@ export async function songLibrary() {
   draw();
   const here = () => location.hash === '#/songs';
   const stop = onLibrary(next => { if (!here()) return stop(); lib = next; draw(); });
-  chordList(() => here() && draw());
+  const bulk = have => {
+    if (!here()) return;
+    $('#chbox').hidden = false;
+    bulkChords(lib, { ...have }, { info: $('#chinfo'), go: $('#chgo'), stop: $('#chstop'), log: $('#chlog') }, found => { toast(`Found chords for ${found} songs.`); draw(); });
+  };
+  chordList(have => { if (here()) { draw(); } }).then(bulk);
 }
 let lastSearch = '';
 
