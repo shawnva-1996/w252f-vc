@@ -118,10 +118,10 @@ function layout() {
     <section class="grid" id="grid"></section>
     <div class="center add-row">
       ${editing ? `<button class="btn ghost" id="addsong">${icon('plus')}Add a song to this set</button>` : ''}
-      <label class="btn ghost file-btn" id="adddeck">${icon('file')}<span>Add sermon or announcement slides</span>
+      <label class="btn ghost file-btn" id="adddeck">${icon('file')}<span>Add slides (greetings, sermon, announcements)</span>
         <input type="file" id="deckfile" accept=".pdf,.pptx,application/pdf,application/vnd.openxmlformats-officedocument.presentationml.presentation" hidden></label>
     </div>
-    <p class="small muted center">PowerPoint or PDF. They go after the songs. A PDF keeps the exact look of your slides.</p>
+    <p class="small muted center">PowerPoint or PDF, before the songs (greetings) or after them (sermon, announcements). A PDF keeps the exact look of your slides.</p>
     <nav class="remote" id="remote" aria-label="Slide remote" hidden>
       <button class="btn" id="r-back" aria-label="Back one slide">${icon('back')}</button>
       <button class="r-info" id="r-info" aria-label="Go to the top"><b id="r-pos"></b><small id="r-part"></small></button>
@@ -142,7 +142,18 @@ function layout() {
   $('#look').onclick = lookDialog;
   $('#edit').onclick = () => { editing = !editing; layout(); };
   const add = $('#addsong'); if (add) add.onclick = addSongDialog;
-  $('#deckfile').onchange = e => { const f = e.target.files[0]; e.target.value = ''; if (f) addDeck(f); };
+  $('#deckfile').onchange = async e => {
+    const f = e.target.files[0]; e.target.value = '';
+    if (!f) return;
+    const where = S.slides.length ? await modal(`<h2>Where should these slides go?</h2>
+      <p class="muted">${esc(f.name)}</p>
+      <div class="choices two">
+        <button class="choice" data-v="start"><b>Before the songs</b><small>For greetings and welcome slides</small></button>
+        <button class="choice" data-v="end"><b>After the songs</b><small>For the sermon and announcements</small></button>
+      </div>
+      <div class="row"><button class="btn ghost" data-v="cancel">Cancel</button></div>`, { wide: true }) : 'end';
+    if (where) addDeck(f, where);
+  };
   swipe($('#now'));
   drawGrid();
   refresh();
@@ -304,8 +315,9 @@ function dropSong(songIdx) {
   at = Math.min(at, Math.max(0, S.slides.length - 1));
 }
 
-// Sermon or announcement slides from a PowerPoint or PDF file, added after the songs.
-async function addDeck(file) {
+// Greetings, sermon or announcement slides from a PowerPoint or PDF file,
+// added before or after the songs.
+async function addDeck(file, where = 'end') {
   const lbl = $('#adddeck'), txt = $('span', lbl), inp = $('#deckfile');
   const say = t => { if (txt.isConnected) txt.textContent = t; };
   lbl.classList.add('busy'); inp.disabled = true; say('Opening the file…');
@@ -314,14 +326,24 @@ async function addDeck(file) {
     const { uploadDeck } = await import('./deck.js');
     const { title, urls, kind } = await uploadDeck(file, say);
     if (S?.id !== setId) throw new Error('The slides were not added because you left the set. Please open it and add them again.');
-    S.songs.push({ id: 'deck-' + rid(), title, cat: 'slides', deck: true });
-    const k = S.songs.length - 1;
-    S.slides.push(...urls.map((src, i) => ({ id: rid(), song: k, label: `Slide ${i + 1}`, kind: 'image', src })));
+    const deck = { id: 'deck-' + rid(), title, cat: 'slides', deck: true };
+    const pics = k => urls.map((src, i) => ({ id: rid(), song: k, label: `Slide ${i + 1}`, kind: 'image', src }));
+    let first;
+    if (where === 'start') {
+      S.songs.unshift(deck);
+      S.slides.forEach(sl => { sl.song += 1; });
+      S.slides.unshift(...pics(0));
+      at += urls.length; first = 0;
+    } else {
+      S.songs.push(deck);
+      first = S.slides.length;
+      S.slides.push(...pics(S.songs.length - 1));
+    }
     persist(`Added ${urls.length} slides.`); drawGrid(); refresh();
     if (kind === 'pptx') toast('Slides added. PowerPoint files can look a little different here, so please check them. A PDF keeps the exact look.', 7000);
-    $(`.thumb[data-i="${S.slides.length - urls.length}"]`)?.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    $(`.thumb[data-i="${first}"]`)?.scrollIntoView({ block: 'center', behavior: 'smooth' });
   } catch (e) { console.error(e); toast(e.message || 'Could not add those slides.', 6000); }
-  if (lbl.isConnected) { lbl.classList.remove('busy'); inp.disabled = false; say('Add sermon or announcement slides'); }
+  if (lbl.isConnected) { lbl.classList.remove('busy'); inp.disabled = false; say('Add slides (greetings, sermon, announcements)'); }
 }
 
 async function addSongDialog() {
