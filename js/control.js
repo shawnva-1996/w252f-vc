@@ -121,7 +121,7 @@ function layout() {
       <label class="btn ghost file-btn" id="adddeck">${icon('file')}<span>Add slides (greetings, sermon, announcements)</span>
         <input type="file" id="deckfile" accept=".pdf,.pptx,application/pdf,application/vnd.openxmlformats-officedocument.presentationml.presentation" hidden></label>
     </div>
-    <p class="small muted center">PowerPoint or PDF, before the songs (greetings) or after them (sermon, announcements). A PDF keeps the exact look of your slides.</p>
+    <p class="small muted center">PowerPoint or PDF. To move slides or a song, drag it by the ${icon('grip')} handle, e.g. greetings to the top. A PDF keeps the exact look of your slides.</p>
     <nav class="remote" id="remote" aria-label="Slide remote" hidden>
       <button class="btn" id="r-back" aria-label="Back one slide">${icon('back')}</button>
       <button class="r-info" id="r-info" aria-label="Go to the top"><b id="r-pos"></b><small id="r-part"></small></button>
@@ -142,18 +142,7 @@ function layout() {
   $('#look').onclick = lookDialog;
   $('#edit').onclick = () => { editing = !editing; layout(); };
   const add = $('#addsong'); if (add) add.onclick = addSongDialog;
-  $('#deckfile').onchange = async e => {
-    const f = e.target.files[0]; e.target.value = '';
-    if (!f) return;
-    const where = S.slides.length ? await modal(`<h2>Where should these slides go?</h2>
-      <p class="muted">${esc(f.name)}</p>
-      <div class="choices two">
-        <button class="choice" data-v="start"><b>Before the songs</b><small>For greetings and welcome slides</small></button>
-        <button class="choice" data-v="end"><b>After the songs</b><small>For the sermon and announcements</small></button>
-      </div>
-      <div class="row"><button class="btn ghost" data-v="cancel">Cancel</button></div>`, { wide: true }) : 'end';
-    if (where) addDeck(f, where);
-  };
+  $('#deckfile').onchange = e => { const f = e.target.files[0]; e.target.value = ''; if (f) addDeck(f); };
   swipe($('#now'));
   drawGrid();
   refresh();
@@ -197,9 +186,9 @@ function drawGrid() {
     if (!g || g.song !== sl.song) groups.push({ song: sl.song, items: [{ sl, i }] });
     else g.items.push({ sl, i });
   });
-  $('#grid').innerHTML = groups.map(g => {
+  $('#grid').innerHTML = groups.map((g, gi) => {
     const song = S.songs[g.song] || { title: 'Extra slides' };
-    return `<div class="group"><h3>${esc(song.title)} ${song.cat ? `<small>${esc(song.cat)}</small>` : ''}
+    return `<div class="group" data-g="${gi}"><h3>${groups.length > 1 ? `<button class="grip" data-grip="${gi}" aria-label="Drag to move ${esc(song.title)}" title="Drag to move">${icon('grip')}</button>` : ''}${esc(song.title)} ${song.cat ? `<small>${esc(song.cat)}</small>` : ''}
       ${editing && S.songs[g.song] ? `<span class="gacts">${song.deck ? '' : `<button class="btn ghost small" data-addpart="${g.song}">${icon('plus')}Add a part</button>`}<button class="btn ghost small" data-rmsong="${g.song}">${song.deck ? 'Remove these slides' : 'Remove song'}</button></span>` : ''}</h3>
       <div class="thumbs">${g.items.map(({ sl, i }) => `<div class="thumb ${i === at ? 'cur' : ''}" data-i="${i}">
         <button class="tbtn" data-go="${i}" aria-label="Show slide ${i + 1}"><div class="stage mini" data-mini="${i}"></div></button>
@@ -222,6 +211,50 @@ function drawGrid() {
   }), { rootMargin: '200px' });
   $$('[data-mini]').forEach(m => io.observe(m));
   $('#grid').onclick = gridClick;
+  $$('[data-grip]').forEach(h => h.onpointerdown = e => dragGroup(e, groups));
+}
+
+// Drag a whole group (a song, or greetings / sermon slides) to a new place.
+// Works with a mouse and with a finger; the list scrolls near the edges.
+function dragGroup(e, groups) {
+  e.preventDefault();
+  const from = Number(e.currentTarget.dataset.grip);
+  const els = $$('#grid .group');
+  const src = els[from];
+  const line = document.createElement('div'); line.className = 'drop-line';
+  src.classList.add('dragging');
+  let to = from, y = e.clientY, scroller = null;
+  const place = () => {
+    // Drop before the first group whose middle is below the finger.
+    let k = els.findIndex(g => { const r = g.getBoundingClientRect(); return y < r.top + r.height / 2; });
+    if (k < 0) k = els.length;
+    to = k;
+    const ref = els[k];
+    if (ref) ref.before(line); else els[els.length - 1].after(line);
+    line.hidden = k === from || k === from + 1;
+  };
+  const move = ev => { y = ev.clientY; place(); };
+  const edge = () => {
+    // The closer to the edge, the faster it scrolls.
+    const m = 90, h = innerHeight;
+    if (y < m) scrollBy(0, -Math.ceil(30 * (m - y) / m) - 4); else if (y > h - m) scrollBy(0, Math.ceil(30 * (y - h + m) / m) + 4); else return;
+    place();
+  };
+  const end = () => {
+    removeEventListener('pointermove', move); removeEventListener('pointerup', end); removeEventListener('pointercancel', end);
+    clearInterval(scroller); line.remove(); src.classList.remove('dragging');
+    if (to === from || to === from + 1) return;
+    const cur = S.slides[at]?.id;
+    const runs = groups.map(g => g.items.map(x => x.sl));
+    const [moved] = runs.splice(from, 1);
+    runs.splice(to > from ? to - 1 : to, 0, moved);
+    S.slides = runs.flat();
+    at = Math.max(0, S.slides.findIndex(sl => sl.id === cur));
+    persist('Moved.'); drawGrid(); refresh();
+  };
+  addEventListener('pointermove', move); addEventListener('pointerup', end); addEventListener('pointercancel', end);
+  scroller = setInterval(edge, 30);
+  place();
 }
 
 function gridClick(e) {
@@ -315,9 +348,9 @@ function dropSong(songIdx) {
   at = Math.min(at, Math.max(0, S.slides.length - 1));
 }
 
-// Greetings, sermon or announcement slides from a PowerPoint or PDF file,
-// added before or after the songs.
-async function addDeck(file, where = 'end') {
+// Greetings, sermon or announcement slides from a PowerPoint or PDF file.
+// They go at the end; drag the group to put them anywhere (e.g. greetings first).
+async function addDeck(file) {
   const lbl = $('#adddeck'), txt = $('span', lbl), inp = $('#deckfile');
   const say = t => { if (txt.isConnected) txt.textContent = t; };
   lbl.classList.add('busy'); inp.disabled = true; say('Opening the file…');
@@ -328,18 +361,10 @@ async function addDeck(file, where = 'end') {
     if (S?.id !== setId) throw new Error('The slides were not added because you left the set. Please open it and add them again.');
     const deck = { id: 'deck-' + rid(), title, cat: 'slides', deck: true };
     const pics = k => urls.map((src, i) => ({ id: rid(), song: k, label: `Slide ${i + 1}`, kind: 'image', src }));
-    let first;
-    if (where === 'start') {
-      S.songs.unshift(deck);
-      S.slides.forEach(sl => { sl.song += 1; });
-      S.slides.unshift(...pics(0));
-      at += urls.length; first = 0;
-    } else {
-      S.songs.push(deck);
-      first = S.slides.length;
-      S.slides.push(...pics(S.songs.length - 1));
-    }
-    persist(`Added ${urls.length} slides.`); drawGrid(); refresh();
+    S.songs.push(deck);
+    const first = S.slides.length;
+    S.slides.push(...pics(S.songs.length - 1));
+    persist(`Added ${urls.length} slides. Drag them by the handle to move them.`); drawGrid(); refresh();
     if (kind === 'pptx') toast('Slides added. PowerPoint files can look a little different here, so please check them. A PDF keeps the exact look.', 7000);
     $(`.thumb[data-i="${first}"]`)?.scrollIntoView({ block: 'center', behavior: 'smooth' });
   } catch (e) { console.error(e); toast(e.message || 'Could not add those slides.', 6000); }
