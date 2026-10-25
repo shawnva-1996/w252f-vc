@@ -136,7 +136,7 @@ function layout() {
       <label class="btn file-btn" id="adddeck">${icon('file')}<span>Add slides (PDF or PowerPoint)</span>
         <input type="file" id="deckfile" accept=".pdf,.pptx,application/pdf,application/vnd.openxmlformats-officedocument.presentationml.presentation" hidden></label>
     </section>
-    <p class="small muted center add-hint">Greetings, sermon or announcement slides work too. New things go at the end. To move slides or a song, drag it by the ${icon('grip')} handle.</p>
+    <p class="small muted center add-hint">Greetings, sermon or announcement slides work too. New things go at the end. To move a song or slides, tap its ${icon('up')} or ${icon('down')} arrow.</p>
     <section class="grid" id="grid"></section>
     <nav class="remote" id="remote" aria-label="Slide remote" hidden>
       <button class="btn" id="r-back" aria-label="Back one slide">${icon('back')}</button>
@@ -205,7 +205,7 @@ function drawGrid() {
   });
   $('#grid').innerHTML = groups.map((g, gi) => {
     const song = S.songs[g.song] || { title: 'Extra slides' };
-    return `<div class="group" data-g="${gi}"><h3>${groups.length > 1 ? `<button class="grip" data-grip="${gi}" aria-label="Drag to move ${esc(song.title)}" title="Drag to move">${icon('grip')}</button>` : ''}${esc(song.title)} ${song.cat ? `<small>${esc(song.cat)}</small>` : ''}
+    return `<div class="group" data-g="${gi}"><h3>${groups.length > 1 ? `<span class="gmove"><button class="ic" data-gup="${gi}" aria-label="Move ${esc(song.title)} up" title="Move up" ${gi === 0 ? 'disabled' : ''}>${icon('up')}</button><button class="ic" data-gdown="${gi}" aria-label="Move ${esc(song.title)} down" title="Move down" ${gi === groups.length - 1 ? 'disabled' : ''}>${icon('down')}</button></span>` : ''}${esc(song.title)} ${song.cat ? `<small>${esc(song.cat)}</small>` : ''}
       ${editing && S.songs[g.song] ? `<span class="gacts">${song.deck ? '' : `<button class="btn ghost small" data-addpart="${g.song}">${icon('plus')}Add a part</button>`}<button class="btn ghost small" data-rmsong="${g.song}">${song.deck ? 'Remove these slides' : 'Remove song'}</button></span>` : ''}</h3>
       <div class="thumbs">${g.items.map(({ sl, i }) => `<div class="thumb ${i === at ? 'cur' : ''}" data-i="${i}">
         <button class="tbtn" data-go="${i}" aria-label="Show slide ${i + 1}"><div class="stage mini" data-mini="${i}"></div></button>
@@ -227,51 +227,25 @@ function drawGrid() {
     drawSlide(e.target, frameOf(sl), opts(sl, { preview: true, still: true })); io.unobserve(e.target);
   }), { rootMargin: '200px' });
   $$('[data-mini]').forEach(m => io.observe(m));
-  $('#grid').onclick = gridClick;
-  $$('[data-grip]').forEach(h => h.onpointerdown = e => dragGroup(e, groups));
+  $('#grid').onclick = e => {
+    const b = e.target.closest('[data-gup], [data-gdown]');
+    if (b) return moveGroup(groups, Number(b.dataset.gup ?? b.dataset.gdown), b.dataset.gup !== undefined ? -1 : 1);
+    gridClick(e);
+  };
 }
 
-// Drag a whole group (a song, or greetings / sermon slides) to a new place.
-// Works with a mouse and with a finger; the list scrolls near the edges.
-function dragGroup(e, groups) {
-  e.preventDefault();
-  const from = Number(e.currentTarget.dataset.grip);
-  const els = $$('#grid .group');
-  const src = els[from];
-  const line = document.createElement('div'); line.className = 'drop-line';
-  src.classList.add('dragging');
-  let to = from, y = e.clientY, scroller = null;
-  const place = () => {
-    // Drop before the first group whose middle is below the finger.
-    let k = els.findIndex(g => { const r = g.getBoundingClientRect(); return y < r.top + r.height / 2; });
-    if (k < 0) k = els.length;
-    to = k;
-    const ref = els[k];
-    if (ref) ref.before(line); else els[els.length - 1].after(line);
-    line.hidden = k === from || k === from + 1;
-  };
-  const move = ev => { y = ev.clientY; place(); };
-  const edge = () => {
-    // The closer to the edge, the faster it scrolls.
-    const m = 90, h = innerHeight;
-    if (y < m) scrollBy(0, -Math.ceil(30 * (m - y) / m) - 4); else if (y > h - m) scrollBy(0, Math.ceil(30 * (y - h + m) / m) + 4); else return;
-    place();
-  };
-  const end = () => {
-    removeEventListener('pointermove', move); removeEventListener('pointerup', end); removeEventListener('pointercancel', end);
-    clearInterval(scroller); line.remove(); src.classList.remove('dragging');
-    if (to === from || to === from + 1) return;
-    const cur = S.slides[at]?.id;
-    const runs = groups.map(g => g.items.map(x => x.sl));
-    const [moved] = runs.splice(from, 1);
-    runs.splice(to > from ? to - 1 : to, 0, moved);
-    S.slides = runs.flat();
-    at = Math.max(0, S.slides.findIndex(sl => sl.id === cur));
-    persist('Moved.'); drawGrid(); refresh();
-  };
-  addEventListener('pointermove', move); addEventListener('pointerup', end); addEventListener('pointercancel', end);
-  scroller = setInterval(edge, 30);
-  place();
+// Move a whole group (a song, or greetings / sermon slides) one place up or down.
+function moveGroup(groups, from, dir) {
+  const to = from + dir;
+  if (to < 0 || to >= groups.length) return;
+  const cur = S.slides[at]?.id;
+  const runs = groups.map(g => g.items.map(x => x.sl));
+  [runs[from], runs[to]] = [runs[to], runs[from]];
+  S.slides = runs.flat();
+  at = Math.max(0, S.slides.findIndex(sl => sl.id === cur));
+  persist('Moved.'); drawGrid(); refresh();
+  // Keep the moved group in view.
+  $$('#grid .group')[to]?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
 }
 
 function gridClick(e) {
@@ -435,7 +409,7 @@ function dropSong(songIdx) {
 }
 
 // Greetings, sermon or announcement slides from a PowerPoint or PDF file.
-// They go at the end; drag the group to put them anywhere (e.g. greetings first).
+// They go at the end; the group's up arrow moves them anywhere (e.g. greetings first).
 async function addDeck(file) {
   const lbl = $('#adddeck'), txt = $('span', lbl), inp = $('#deckfile');
   const say = t => { if (txt.isConnected) txt.textContent = t; };
@@ -450,7 +424,7 @@ async function addDeck(file) {
     S.songs.push(deck);
     const first = S.slides.length;
     S.slides.push(...pics(S.songs.length - 1));
-    persist(`Added ${urls.length} slides. Drag them by the handle to move them.`); drawGrid(); refresh();
+    persist(`Added ${urls.length} slides. Tap the up arrow next to their name to move them.`); drawGrid(); refresh();
     if (kind === 'pptx') toast('Slides added. PowerPoint files can look a little different here, so please check them. A PDF keeps the exact look.', 7000);
     $(`.thumb[data-i="${first}"]`)?.scrollIntoView({ block: 'center', behavior: 'smooth' });
   } catch (e) { console.error(e); toast(e.message || 'Could not add those slides.', 6000); }

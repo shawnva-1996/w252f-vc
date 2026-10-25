@@ -46,6 +46,36 @@ async function pdfPictures(file, onStep) {
   return out;
 }
 
+// Videos inside a slide cannot play in a picture, and waiting for them to load
+// can hold a slide up for a long time. Each becomes a still of an early frame
+// (or a black box), and sound and web pages in slides are left out.
+const VIDEO_WAIT_MS = 4000;
+function videoFrame(v) {
+  return new Promise(res => {
+    const done = ok => { clearTimeout(t); res(ok); };
+    const t = setTimeout(() => done(false), VIDEO_WAIT_MS);
+    v.muted = true; v.preload = 'auto';
+    v.addEventListener('seeked', () => done(true), { once: true });
+    v.addEventListener('error', () => done(false), { once: true });
+    v.addEventListener('loadeddata', () => { v.currentTime = Math.min(0.5, (v.duration || 1) / 2); }, { once: true });
+    v.load();
+  });
+}
+async function stillVideos(el) {
+  el.querySelectorAll('audio, iframe, object, embed').forEach(n => n.remove());
+  for (const v of el.querySelectorAll('video')) {
+    const w = v.offsetWidth || Number(v.getAttribute('width')) || 320, h = v.offsetHeight || Number(v.getAttribute('height')) || 180;
+    const c = document.createElement('canvas');
+    c.width = w; c.height = h; c.style.cssText = v.style.cssText; c.style.width = w + 'px'; c.style.height = h + 'px';
+    const ctx = c.getContext('2d');
+    ctx.fillStyle = '#000'; ctx.fillRect(0, 0, w, h);
+    if (await videoFrame(v)) { try { ctx.drawImage(v, 0, 0, w, h); } catch {} }
+    v.replaceWith(c);
+  }
+}
+// Gives up on a step that takes too long, so one slide can never hold up the rest.
+const inTime = (promise, ms, msg) => Promise.race([promise, new Promise((_, rej) => setTimeout(() => rej(new Error(msg)), ms))]);
+
 async function pptxPictures(file, onStep) {
   await Promise.all([loadScript('/vendor/pptx-preview.umd.js'), loadScript('/vendor/modern-screenshot.js')]);
   const host = document.createElement('div');
@@ -61,7 +91,10 @@ async function pptxPictures(file, onStep) {
       onStep(i + 1, els.length);
       const el = els[i], w = el.offsetWidth || 1920, h = el.offsetHeight || 1080;
       const s = Math.min(1920 / w, 1080 / h);
-      out.push(await window.modernScreenshot.domToBlob(el, { type: 'image/jpeg', quality: 0.86, scale: s, width: w, height: h }));
+      await stillVideos(el);
+      // Pictures in the slide that will not load are skipped after a few seconds.
+      out.push(await inTime(window.modernScreenshot.domToBlob(el, { type: 'image/jpeg', quality: 0.86, scale: s, width: w, height: h, timeout: 8000 }),
+        60000, `Slide ${i + 1} could not be read. Please save the file as PDF in PowerPoint and add that instead.`));
     }
     return out;
   } finally { host.remove(); }
@@ -77,15 +110,26 @@ export async function uploadDeck(file, onProgress = () => {}) {
   const [{ upload }, token] = await Promise.all([import('./blob-upload.js'), auth.currentUser.getIdToken()]);
   const base = (file.name || 'slides').replace(/\.[^.]+$/, '');
   const slug = base.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40) || 'slides';
+  // Each picture gets 60 seconds and three tries, so one slow upload cannot stall the rest.
+  const sendPic = async (path, pic) => {
+    for (let tryNo = 1; ; tryNo++) {
+      const stop = new AbortController(), t = setTimeout(() => stop.abort(), 60000);
+      try {
+        const blob = await upload(path, pic, {
+          access: 'public', handleUploadUrl: '/api/video', headers: { Authorization: 'Bearer ' + token }, contentType: 'image/jpeg', abortSignal: stop.signal
+        });
+        return blob.url;
+      } catch (e) {
+        if (tryNo >= 3) throw new Error('The slides could not be uploaded. Please check the internet and try again.');
+      } finally { clearTimeout(t); }
+    }
+  };
   const urls = new Array(pics.length);
   let done = 0, next = 0;
   const worker = async () => {
     while (next < pics.length) {
       const i = next++;
-      const blob = await upload(`slides/${store.uid}/${slug}-${String(i + 1).padStart(3, '0')}.jpg`, pics[i], {
-        access: 'public', handleUploadUrl: '/api/video', headers: { Authorization: 'Bearer ' + token }, contentType: 'image/jpeg'
-      });
-      urls[i] = blob.url;
+      urls[i] = await sendPic(`slides/${store.uid}/${slug}-${String(i + 1).padStart(3, '0')}.jpg`, pics[i]);
       onProgress(`Uploading slide ${++done} of ${pics.length}…`);
     }
   };
