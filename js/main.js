@@ -10,6 +10,7 @@ import { controlScreen } from './control.js';
 import { tvScreen } from './tv.js';
 import { songEditor, songLibrary } from './editor.js';
 import { adminScreen } from './admin.js';
+import { songSheet } from './sheet.js';
 
 const params = new URLSearchParams(location.search);
 if (local.get('bigtext')) document.documentElement.classList.add('bigtext');
@@ -55,6 +56,7 @@ async function route() {
       case 'tv': return isTv ? tvScreen({ mode: 'cloud' }) : location.reload();
       case 'songs': return songLibrary();
       case 'song': return songEditor(arg);
+      case 'sheet': return songSheet(arg);
       case 'admin': return store.isAdmin ? adminScreen(arg) : (location.hash = '#/home');
       default: location.hash = '#/';
     }
@@ -69,12 +71,12 @@ async function route() {
 function welcome() {
   const last = local.get('role');
   show(`<header class="hero"><div class="hero-in">
-      <p class="eyebrow">Worship slides</p>
+      <p class="brand"><img src="/img/chc-logo.svg" alt="" width="56" height="40"><span>City Harvest Church<small>Worship slides</small></span></p>
       <h1>Sing with your <em>whole heart</em></h1>
       <p class="lead">Let's get the words up, so everyone can sing along.</p>
     </div></header>
     <main class="page welcome">
-    <p class="eyebrow">Which screen is this?</p>
+    <p class="eyebrow">What would you like to do?</p>
     <div class="choices">
       <button class="choice ${last === 'control' ? 'last' : ''}" id="pick-control">
         <span class="ico">${icon('laptop')}</span>
@@ -86,11 +88,17 @@ function welcome() {
         <b>This is the TV screen</b>
         <small>This screen only shows the words</small>
       </button>
+      <button class="choice ${last === 'sheets' ? 'last' : ''}" id="pick-sheets">
+        <span class="ico">${icon('music')}</span>
+        <b>Song sheets</b>
+        <small>Words and chords for the band, in any key</small>
+      </button>
     </div>
     ${store.user ? `<p class="small muted signed-in">Logged in as ${esc(store.user.email)} · <button class="link" id="logout">Log out</button></p>` : ''}
   </main>`, 'page-welcome');
   $('#pick-control').onclick = () => { local.set('role', 'control'); location.hash = '#/home'; };
   $('#pick-tv').onclick = () => { local.set('role', 'tv'); location.hash = '#/tv'; };
+  $('#pick-sheets').onclick = () => { local.set('role', 'sheets'); location.hash = '#/songs'; };
   const lo = $('#logout'); if (lo) lo.onclick = doLogout;
 }
 
@@ -137,7 +145,7 @@ function loginScreen(mode = 'login') {
     const btn = f.querySelector('button[type=submit]');
     btn.disabled = true; $('#err').textContent = '';
     try {
-      if (!pendingAfterLogin) pendingAfterLogin = local.get('role') === 'tv' ? '#/tv' : '#/home';
+      if (!pendingAfterLogin) pendingAfterLogin = { tv: '#/tv', sheets: '#/songs' }[local.get('role')] || '#/home';
       if (mode === 'login') await signInWithEmailAndPassword(auth, f.email.value.trim(), f.pw.value);
       else {
         const cred = await createUserWithEmailAndPassword(auth, f.email.value.trim(), f.pw.value);
