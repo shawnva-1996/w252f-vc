@@ -383,3 +383,5 @@ textarea.mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace
 .add-row + p { margin-top: 6px; }
 .btn.busy { cursor: progress; opacity: .75; pointer-events: none; }
 .stage-in.pic .cue { display: none; }
+.modal .choices { margin: 12px 0; }
+.modal .choice { min-height: 0; padding: 18px 20px; justify-content: flex-start; }
