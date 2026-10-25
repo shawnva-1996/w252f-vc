@@ -3,7 +3,7 @@
 import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 const files = ['/index.html', '/css/app.css', '/data/songs.json', '/data/presets.json',
-  ...readdirSync('img').filter(f => f.endsWith('.jpg')).sort().map(f => '/img/' + f),
+  ...readdirSync('img').filter(f => /\.(jpg|png|svg)$/.test(f)).sort().map(f => '/img/' + f),
   ...readdirSync('js').filter(f => f.endsWith('.js')).sort().map(f => '/js/' + f)];
 const hash = createHash('sha1');
 for (const f of files) hash.update(readFileSync('.' + f));

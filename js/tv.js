@@ -14,6 +14,7 @@ export function tvScreen({ mode }) {
     <div class="stage full" id="screen"></div>
     <button class="tv-hint" id="vhint" hidden>Tap to start the video</button>
     <div class="tv-wait" id="wait">
+      <img class="tv-logo" src="/img/chc-logo.svg" alt="City Harvest Church">
       <p class="eyebrow">Worship slides</p>
       <h1>Ready for worship</h1>
       <p>${mode === 'cloud' ? 'Waiting for the laptop. Open a song set there and the words will show here.' : 'Waiting for the laptop…'}</p>

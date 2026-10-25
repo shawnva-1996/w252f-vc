@@ -2,6 +2,8 @@
 import { auth } from './firebase.js';
 import { show, esc, toast, header, confirmBox, askText, $ } from './ui.js';
 import { menuButtons, bindMenu, loading } from './main.js';
+import { loadLibrary } from './songs.js';
+import { chordsApi, chordList } from './sheet.js';
 
 async function api(action, body = {}) {
   const token = await auth.currentUser.getIdToken();
@@ -19,6 +21,10 @@ export async function adminScreen() {
   show(`<main class="page">
     ${header('Admin', { back: '#/home', right: menuButtons() })}
     <div class="row gap wrap"><a class="btn ghost" href="#/songs">Songs: add, change, remove</a></div>
+    <h2>Chords</h2>
+    <p id="chinfo" class="muted">Checking which songs have chords…</p>
+    <div class="row gap wrap"><button class="btn primary" id="chgo" disabled>Find chords online for songs without them</button><button class="btn ghost" id="chstop" hidden>Stop</button></div>
+    <p class="small muted" id="chlog"></p>
     <h2>People (${users.length})</h2>
     <form id="add" class="add-user">
       <input class="input" name="email" type="email" placeholder="Email" required>
@@ -35,6 +41,7 @@ export async function adminScreen() {
       </span></li>`).join('')}</ul>
   </main>`);
   bindMenu();
+  chordsPanel();
   $('#add').onsubmit = async e => {
     e.preventDefault();
     const f = e.target;
@@ -55,5 +62,38 @@ export async function adminScreen() {
         await api('delete', { uid: b.dataset.rm }); toast('Removed.'); adminScreen();
       }
     } catch (err) { toast(err.message); }
+  };
+}
+
+// Look up chords for every song that has none yet, a few at a time.
+// Keep this page open while it runs; it can take a while.
+let running = false;
+async function chordsPanel() {
+  const [lib, have] = await Promise.all([loadLibrary(), chordList()]);
+  if (!$('#chinfo')) return;
+  const todo = lib.filter(s => !(s.id in have));
+  $('#chinfo').textContent = `${lib.length - todo.length} of ${lib.length} songs have chords.`;
+  const go = $('#chgo'), stop = $('#chstop'), log = $('#chlog');
+  go.disabled = !todo.length || running;
+  let stopNow = false;
+  stop.onclick = () => { stopNow = true; stop.disabled = true; };
+  go.onclick = async () => {
+    running = true; go.disabled = true; stop.hidden = false;
+    let done = 0, found = 0;
+    const missed = [];
+    const queue = [...todo];
+    const worker = async () => {
+      while (queue.length && !stopNow && $('#chlog')) {
+        const s = queue.shift();
+        try { const d = await chordsApi('POST', '', { action: 'find', id: s.id }); if (d.chords) found++; }
+        catch { missed.push(s.title); }
+        done++;
+        log.textContent = `Checked ${done} of ${todo.length} · found ${found}${missed.length ? ' · none for: ' + missed.join(', ') : ''}`;
+      }
+    };
+    await Promise.all([worker(), worker(), worker()]);
+    running = false; stop.hidden = true;
+    toast(`Found chords for ${found} songs.`);
+    if ($('#chinfo')) chordsPanel();
   };
 }

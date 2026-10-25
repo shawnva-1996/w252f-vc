@@ -2,24 +2,58 @@
 // the admin changes (Firestore). Also turns a song + flow into slides.
 import { db, C, collection, getDocs, doc, setDoc, deleteDoc, serverTimestamp } from './firebase.js';
 
-let library = null;
+let library = null, baseP = null, refreshing = null, lastExtra = null;
+const watchers = new Set();
+const KEPT = 'w252f.songs.extra';
+const readKept = () => { try { return JSON.parse(localStorage.getItem(KEPT)); } catch { return null; } };
+const keep = list => { try { localStorage.setItem(KEPT, JSON.stringify(list)); } catch {} };
+const getBase = () => baseP ||= fetch('/data/songs.json').then(r => r.json()).catch(() => { baseP = null; return []; });
 
-export async function loadLibrary(force = false) {
-  if (library && !force) return library;
-  const base = await fetch('/data/songs.json').then(r => r.json()).catch(() => []);
+// Screens can ask to hear when added songs arrive, so they redraw. Returns a stop function.
+export const onLibrary = fn => { watchers.add(fn); return () => watchers.delete(fn); };
+
+function build(base, extra) {
   const map = new Map(base.map(s => [s.id, { ...s, builtIn: true }]));
-  try {
-    const snap = await getDocs(collection(db, C.songs));
-    snap.forEach(d => {
-      const s = { ...d.data(), id: d.id };
-      if (s.deleted) map.delete(d.id);
-      else map.set(d.id, { ...map.get(d.id), ...s, builtIn: map.get(d.id)?.builtIn || false });
-    });
-  } catch (e) { console.warn('Could not load added songs', e); }
+  for (const s of extra || []) {
+    if (s.deleted) map.delete(s.id);
+    else map.set(s.id, { ...map.get(s.id), ...s, builtIn: map.get(s.id)?.builtIn || false });
+  }
   library = [...map.values()].sort((a, b) => a.title.localeCompare(b.title));
   return library;
 }
 
+// The built-in songs, plus the added songs this device saw last time, show
+// straight away. Added songs are then checked online, and screens that asked
+// (onLibrary) redraw if anything changed. Only the very first visit waits.
+export async function loadLibrary(force = false) {
+  if (force) return refreshLibrary();
+  if (library) return library;
+  const kept = readKept();
+  if (!kept) return refreshLibrary();
+  const base = await getBase();
+  if (!library) { build(base, kept); lastExtra = JSON.stringify(kept); refreshLibrary().catch(() => {}); }
+  return library;
+}
+
+export function refreshLibrary() {
+  return refreshing ||= (async () => {
+    const base = await getBase();
+    try {
+      const snap = await getDocs(collection(db, C.songs));
+      const extra = [];
+      snap.forEach(d => { const { updatedAt, ...s } = d.data(); extra.push({ ...s, id: d.id }); });
+      const sig = JSON.stringify(extra);
+      keep(extra);
+      if (sig !== lastExtra || !library) { lastExtra = sig; build(base, extra); watchers.forEach(fn => fn(library)); }
+    } catch (e) {
+      console.warn('Could not load added songs', e);
+      if (!library) build(base, readKept());
+    } finally { refreshing = null; }
+    return library;
+  })();
+}
+
+export const getLibrary = () => library;
 export const getSong = id => (library || []).find(s => s.id === id);
 
 // Search that ignores accents and capitals ("galak" finds "Galak", "o" finds "ó"),
@@ -37,14 +71,25 @@ export async function saveSong(song, uid) {
     ownerUid: song.ownerUid || uid, updatedAt: serverTimestamp()
   };
   await setDoc(doc(db, C.songs, id), data, { merge: true });
-  library = null;
+  await changeKept(id, { ...data, id });
   return id;
 }
 
 export async function removeSong(song, uid) {
   if (song.builtIn) await setDoc(doc(db, C.songs, song.id), { deleted: true, ownerUid: uid, title: song.title });
   else await deleteDoc(doc(db, C.songs, song.id));
-  library = null;
+  await changeKept(song.id, song.builtIn ? { id: song.id, deleted: true, ownerUid: uid, title: song.title } : null);
+}
+
+// Show a saved or removed song at once, then check online in the background.
+async function changeKept(id, song) {
+  const kept = (readKept() || []).filter(s => s.id !== id);
+  if (song) { const { updatedAt, ...s } = song; kept.push({ ...(readKept() || []).find(x => x.id === id), ...s }); }
+  keep(kept); lastExtra = JSON.stringify(kept);
+  build(await getBase(), kept);
+  watchers.forEach(fn => fn(library));
+  // A check that started before the save may bring old data, so check again after it.
+  Promise.resolve(refreshing).catch(() => {}).then(() => refreshLibrary()).catch(() => {});
 }
 
 export function labelFor(song, id) {

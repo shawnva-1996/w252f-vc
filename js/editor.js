@@ -1,21 +1,29 @@
 // Song library, adding a song (paste or upload), and changing a song.
 import { auth } from './firebase.js';
 import { show, esc, toast, header, confirmBox, icon, $, $$ } from './ui.js';
-import { store } from './store.js';
-import { loadLibrary, getSong, saveSong, removeSong, quickParse, slugify, labelFor, matches, langNote } from './songs.js';
+import { store, local } from './store.js';
+import { loadLibrary, getLibrary, refreshLibrary, onLibrary, getSong, saveSong, removeSong, quickParse, slugify, labelFor, matches, langNote } from './songs.js';
 import { menuButtons, bindMenu, loading } from './main.js';
+import { canEdit, chordList, cachedChordList } from './sheet.js';
 
-const canEdit = s => store.isAdmin || (s && s.ownerUid && s.ownerUid === store.uid);
-
+// The library opens straight away from what this device already knows, then
+// redraws if added songs or chords arrive from the internet.
 export async function songLibrary() {
-  show(`<main class="page">${header('Song library', { back: '#/home', right: menuButtons() })}${loading('Getting the songs…')}</main>`);
-  bindMenu();
-  const lib = await loadLibrary();
+  const back = local.get('role') === 'sheets' ? '#/' : '#/home';
+  const top = header('Song library', { back, right: menuButtons() });
+  let lib = getLibrary();
+  if (!lib) {
+    show(`<main class="page">${top}${loading('Getting the songs…')}</main>`);
+    bindMenu();
+    lib = await loadLibrary();
+    if (location.hash !== '#/songs') return;
+  }
   show(`<main class="page">
-    ${header('Song library', { back: '#/home', right: menuButtons() })}
+    ${top}
+    <p class="lead">Tap a song for its words and chords, in any key.</p>
     <div class="sticky-tools">
-      <input class="input search" id="q" type="search" placeholder="Type a song name…" aria-label="Search songs">
-      <div class="seg"><button class="on" data-f="all">All</button><button data-f="praise">Praise</button><button data-f="worship">Worship</button></div>
+      <input class="input search" id="q" type="search" placeholder="Type a song name…" aria-label="Search songs" value="${esc(lastSearch)}">
+      <div class="seg"><button class="on" data-f="all">All</button><button data-f="praise">Praise</button><button data-f="worship">Worship</button><button data-f="chords">Chords</button></div>
     </div>
     <p class="small muted" id="n"></p>
     <ul class="song-list" id="list"></ul>
@@ -24,36 +32,34 @@ export async function songLibrary() {
   bindMenu();
   let f = 'all';
   const draw = () => {
-    const q = $('#q').value.trim().toLowerCase();
-    const items = lib.filter(s => (f === 'all' || s.cat === f) && matches(s, q));
+    const have = cachedChordList();
+    const q = lastSearch = $('#q').value.trim().toLowerCase();
+    const items = lib.filter(s => (f === 'all' || s.cat === f || (f === 'chords' && s.id in have)) && matches(s, q));
     $('#n').textContent = `${items.length} songs`;
-    $('#list').innerHTML = items.map(s => `<li><a class="song-row" href="#/song/${s.id}"><span class="t"><b>${esc(s.title)}${langNote(s) ? `<span class="lang-tag">${esc(langNote(s))}</span>` : ''}</b>
-      <small>${s.cat === 'praise' ? 'Praise' : 'Worship'}${s.artist ? ' · ' + esc(s.artist) : ''}${s.key ? ' · Key ' + esc(s.key) : ''}${s.aka?.length ? ' · also called ' + s.aka.map(esc).join(', ') : ''}</small></span><span class="go">${icon('next')}</span></a></li>`).join('');
+    $('#list').innerHTML = items.map(s => `<li><a class="song-row" href="#/sheet/${s.id}"><span class="t"><b>${esc(s.title)}${langNote(s) ? `<span class="lang-tag">${esc(langNote(s))}</span>` : ''}${s.id in have ? '<span class="lang-tag chords-tag">Chords</span>' : ''}</b>
+      <small>${s.cat === 'praise' ? 'Praise' : 'Worship'}${s.artist ? ' · ' + esc(s.artist) : ''}${s.key || have[s.id] ? ' · Key ' + esc(s.key || have[s.id]) : ''}${s.aka?.length ? ' · also called ' + s.aka.map(esc).join(', ') : ''}</small></span><span class="go">${icon('next')}</span></a></li>`).join('');
   };
   $('#q').oninput = draw;
   $$('[data-f]').forEach(b => b.onclick = () => { f = b.dataset.f; $$('[data-f]').forEach(x => x.classList.toggle('on', x === b)); draw(); });
   draw();
+  const here = () => location.hash === '#/songs';
+  const stop = onLibrary(next => { if (!here()) return stop(); lib = next; draw(); });
+  chordList(() => here() && draw());
 }
+let lastSearch = '';
 
 export async function songEditor(id) {
-  await loadLibrary();
   if (id === 'new') return addSong();
-  const s = getSong(id);
+  let s = getSong(id);
+  if (!s) {
+    show(`<main class="page narrow">${header('Change song', { back: '#/songs', right: menuButtons() })}${loading('Getting the song…')}</main>`);
+    bindMenu();
+    await loadLibrary();
+    s = getSong(id) || (await refreshLibrary(), getSong(id));
+  }
   if (!s) { toast('Song not found.'); location.hash = '#/songs'; return; }
-  if (!canEdit(s)) return viewSong(s);
+  if (!canEdit(s)) { location.replace('#/sheet/' + id); return; }
   editForm(structuredClone(s));
-}
-
-function viewSong(s) {
-  show(`<main class="page narrow">
-    ${header(s.title, { back: '#/songs', right: menuButtons() })}
-    <p class="muted">${[s.artist, s.key && 'Key ' + s.key, langNote(s)].filter(Boolean).map(esc).join(' · ')}</p>
-    ${s.sections.map(sec => `<section class="lyric"><h3>${esc(sec.label)}</h3>
-      ${sec.slides.map(sl => `<p>${[...(sl.en || []), ...(sl.zh || [])].map(esc).join('<br>')}</p>`).join('')}</section>`).join('')}
-    <p class="small muted">Usual order: ${(s.flow || []).map(x => esc(labelFor(s, x))).join(' → ')}</p>
-    <p class="small muted">Only the admin or the person who added this song can change it.</p>
-  </main>`);
-  bindMenu();
 }
 
 // Step 1: paste or upload ---------------------------------------------------
@@ -167,7 +173,7 @@ const fromBox = txt => txt.replace(/\r/g, '').split(/\n\s*\n/).map(b => b.split(
 
 function editForm(s, isNew = false) {
   show(`<main class="page narrow">
-    ${header(isNew ? 'Check the song' : 'Change song', { back: isNew ? '#/song/new' : '#/songs', right: menuButtons() })}
+    ${header(isNew ? 'Check the song' : 'Change song', { back: isNew ? '#/song/new' : '#/sheet/' + s.id, right: menuButtons() })}
     ${isNew ? '<p class="note">Please check the words and parts below, then tap Save.</p>' : ''}
     <label>Song name<input class="input" id="title" value="${esc(s.title)}" required></label>
     <div class="row2">
@@ -248,10 +254,8 @@ function editForm(s, isNew = false) {
     const btn = $('#save'); btn.disabled = true; btn.textContent = 'Saving…';
     try {
       const id = await saveSong(s, store.uid);
-      await loadLibrary(true);
       toast(`"${s.title}" is saved in the library.`);
-      void id;
-      location.hash = '#/songs';
+      location.hash = '#/sheet/' + id;
     } catch (e) { console.error(e); $('#err').textContent = 'Could not save. Please check the internet.'; btn.disabled = false; btn.textContent = 'Save song'; }
   };
 }
