@@ -42,13 +42,17 @@ export function transposeChord(chord, semis, flats) {
 
 // Nashville number for a chord in a key: 1, 4, 6m, 5/7, b7…
 const DEGREE = ['1', 'b2', '2', 'b3', '3', '4', '#4', '5', 'b6', '6', 'b7', '7'];
-export function nashville(chord, key) {
+export function nashvilleParts(chord, key) {
   const m = String(chord).trim().match(CHORD);
   const k = parseKey(key);
-  if (!m || !k) return chord;
+  if (!m || !k) return null;
   const tonic = k.minor ? (k.root + 3) % 12 : k.root; // minor songs count from their relative major (6m = home)
   const deg = n => DEGREE[(n - tonic + 12) % 12];
-  return deg(noteIndex(m[1], m[2])) + m[3] + (m[4] ? '/' + deg(noteIndex(m[4], m[5])) : '');
+  return { num: deg(noteIndex(m[1], m[2])), kind: m[3], bass: m[4] ? deg(noteIndex(m[4], m[5])) : '' };
+}
+export function nashville(chord, key) {
+  const n = nashvilleParts(chord, key);
+  return n ? n.num + n.kind + (n.bass ? '/' + n.bass : '') : chord;
 }
 
 export function semitones(fromKey, toKey) {
@@ -114,5 +118,31 @@ export function moveChords(chordLine, words) {
     out += ch;
   }
   while (k < marks.length) out += `[${marks[k++][1]}]`;
+  return out;
+}
+
+// Band charts: one line of bars, like "E | A | F#m B | E (x2)". Only real
+// chord names count (so "Bass" or "End" in a note stay as words).
+const BAND = /^[A-G][#b]?(?:m(?!aj)|maj|min|dim|aug|sus|add|M|\+)?\d*(?:(?:sus|add|maj|b|#)\d+)*(?:\/[A-G][#b]?)?$/;
+export const isBandChord = s => BAND.test(s);
+
+// "(1st time) G | Am7 D | % (x2)" -> { before: '(1st time)', bars: [[{chord:'G'}], …], after: '(x2)' }
+// Each bar is a list of { chord } or { note }. Notes in brackets that hold only
+// chords, like "(A/C#)", become chords too.
+export function parseBars(line) {
+  const tok = s => (s.match(/\([^)]*\)|[^\s()]+/g) || []).flatMap(t => {
+    if (t[0] !== '(') return [isBandChord(t) ? { chord: t } : { note: t }];
+    const inner = t.slice(1, -1).trim().split(/\s+/);
+    return inner.length && inner.every(isBandChord) ? inner.map(c => ({ chord: c, soft: true })) : [{ note: t }];
+  });
+  const bars = String(line).split('|').map(tok).filter(b => b.length);
+  const out = { before: [], bars, after: [] };
+  if (!bars.some(b => b.some(t => t.chord || t.note === '%'))) return { before: bars.flat(), bars: [], after: [] };
+  // Notes before the first chord or after the last one go beside the bars,
+  // but a bar that is only a note, like "(break)", stays a bar.
+  const music = t => t.chord || t.note === '%';
+  const first = bars[0], last = bars[bars.length - 1];
+  if (first.some(music)) while (!music(first[0])) out.before.push(first.shift());
+  if (last.some(music)) while (!music(last[last.length - 1])) out.after.unshift(last.pop());
   return out;
 }

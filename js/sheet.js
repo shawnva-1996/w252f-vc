@@ -5,7 +5,7 @@ import { show, esc, toast, header, icon, $, $$ } from './ui.js';
 import { store, local } from './store.js';
 import { loadLibrary, getSong, refreshLibrary, labelFor, langNote } from './songs.js';
 import { menuButtons, bindMenu, loading } from './main.js';
-import { KEYS, parseKey, useFlats, transposeChord, nashville, semitones, capoHint, parseLine, stripChords } from './chords.js';
+import { KEYS, parseKey, useFlats, transposeChord, nashville, nashvilleParts, semitones, capoHint, parseLine, stripChords, parseBars } from './chords.js';
 
 const MINOR = ['Cm', 'C#m', 'Dm', 'Ebm', 'Em', 'Fm', 'F#m', 'Gm', 'G#m', 'Am', 'Bbm', 'Bm'];
 export const canEdit = s => store.isAdmin || (s && s.ownerUid && s.ownerUid === store.uid);
@@ -44,17 +44,19 @@ export async function songSheet(id) {
     if (!song) { toast('Song not found.'); location.hash = '#/songs'; return; }
   }
   let chords = local.get('chords.' + id);
+  let chart = local.get('chart.' + id);
   const prefs = { view: local.get('sheet.view', 'chords'), size: local.get('sheet.size', 0), lang2: local.get('sheet.lang2', false) };
   let looking = false;
 
-  const fromKey = () => chords?.key || song.key || '';
-  const toKey = () => local.get('sheet.key.' + id) || song.key || chords?.key || '';
+  const fromKey = () => chords?.key || song.key || chart?.key || '';
+  const toKey = () => local.get('sheet.key.' + id) || song.key || chords?.key || chart?.key || '';
   const draw = () => {
     const minor = parseKey(fromKey())?.minor;
     const keys = minor ? MINOR : KEYS;
     const cur = toKey(), from = fromKey();
     const shown = parseKey(cur);
-    const has = chords && Object.keys(chords.parts || {}).length;
+    const words = chords && Object.keys(chords.parts || {}).length;
+    const has = words || chart;
     const two = song.sections.some(sec => sec.slides.some(sl => sl.zh?.length));
     const view = has ? prefs.view : 'words';
     const semis = semitones(from, cur), flats = useFlats(cur);
@@ -64,6 +66,23 @@ export async function songSheet(id) {
       return `<div class="sl cl">${parseLine(l).map(p => `<span class="cw"><b class="ch">${p.chord ? esc(chordOf(p.chord)) : ''}</b>${esc(p.text) || (p.chord ? '&nbsp;' : '')}</span>`).join('')}</div>`;
     };
     const prog = l => `<div class="sl prog">${parseLine(l).filter(p => p.chord).map(p => `<b class="ch">${esc(chordOf(p.chord))}</b>`).join(' ')}</div>`;
+    // The band chart is written in its own key, so it moves by its own amount.
+    const chartSemis = chart ? semitones(chart.key, cur) : 0;
+    const chartChord = c => {
+      if (view !== 'numbers') return esc(transposeChord(c, chartSemis, flats));
+      const n = nashvilleParts(c, chart.key);
+      return n ? esc(n.num) + (/^\d/.test(n.kind) ? `<sup>${esc(n.kind)}</sup>` : esc(n.kind)) + (n.bass ? '/' + esc(n.bass) : '') : esc(c);
+    };
+    const tok = t => t.chord ? `<b class="ch">${t.soft ? '(' : ''}${chartChord(t.chord)}${t.soft ? ')' : ''}</b>` : t.note === '%' ? '<span class="rpt" title="Same as the bar before">%</span>' : `<i>${esc(t.note)}</i>`;
+    const bars = l => {
+      const b = parseBars(l);
+      const note = list => list.length ? `<span class="bc-note">${list.map(tok).join(' ')}</span>` : '';
+      return `<div class="bc-line">${note(b.before)}${b.bars.length ? `<span class="bc-bars">${b.bars.map(x => `<span class="bc-bar">${x.map(tok).join(' ')}</span>`).join('')}</span>` : ''}${note(b.after)}</div>`;
+    };
+    const chartBlock = () => `<section class="band-chart">
+        <h3>Band chart <span class="muted">${esc([chart.key && (view === 'numbers' ? `Numbers count from ${chart.key}` : cur && cur !== chart.key ? `Key ${cur} (chart written in ${chart.key})` : `Key ${chart.key}`), chart.tempo && `Tempo ${chart.tempo}`].filter(Boolean).join(' · '))}</span></h3>
+        ${chart.parts.map(p => `<div class="bc-part">${p.label ? `<h4>${esc(p.label)}</h4>` : ''}${/^order/i.test(p.label) ? p.lines.map(l => `<div class="bc-line"><span class="bc-note"><i>${esc(l)}</i></span></div>`).join('') : p.lines.map(bars).join('')}</div>`).join('')}
+      </section>`;
     const sections = song.sections.map(sec => {
       const got = chords?.parts?.[sec.id] || [];
       let i = 0;
@@ -95,16 +114,18 @@ export async function songSheet(id) {
         </div>
         ${capo ? `<p class="capo">${esc(capo)}</p>` : ''}
         ${order.length ? `<p class="order"><span>Order</span> ${order.join(' · ')}</p>` : ''}
+        ${chart && view !== 'words' ? chartBlock() : ''}
         ${chords?.intro && view !== 'words' ? `<section class="sheet-part"><h3>Intro</h3>${prog(chords.intro)}</section>` : ''}
         ${sections}
       </div>
       <div class="sheet-foot">
-        ${has ? `<p class="small muted">${chords.from === 'online' ? `Chords found online${chords.sources?.length ? ' from ' + chords.sources.map(s => `<a href="${esc(s.uri)}" target="_blank" rel="noopener">${esc(s.title || 'a chord site')}</a>`).join(', ') : ''}. Please check them before you play.` : 'Chords typed in by the team.'}</p>`
-          : `<p class="note">${looking ? 'Looking for the chords online. This can take up to a minute…' : 'This song has no chords yet.'}</p>
-             ${looking ? '' : '<button class="btn primary" id="find">Find the chords online</button>'}`}
+        ${chart ? `<p class="small muted">Band chart copied from the church's chord chart file "${esc(chart.from)}".</p>` : ''}
+        ${words ? `<p class="small muted">${chords.from === 'online' ? `Chords over the words found online${chords.sources?.length ? ' from ' + chords.sources.map(s => `<a href="${esc(s.uri)}" target="_blank" rel="noopener">${esc(s.title || 'a chord site')}</a>`).join(', ') : ''}. Please check them before you play.` : 'Chords over the words typed in by the team.'}</p>`
+          : `<p class="note">${looking ? 'Looking for the chords online. This can take up to a minute…' : chart ? 'The words don\'t have chords over them yet.' : 'This song has no chords yet.'}</p>
+             ${looking ? '' : `<button class="btn ${chart ? 'ghost' : 'primary'}" id="find">${chart ? 'Look online for chords over the words' : 'Find the chords online'}</button>`}`}
         <div class="row gap wrap">
-          ${canEdit(song) ? `<button class="btn ghost" id="editch">${icon('pencil')}${has ? 'Change chords' : 'Type the chords'}</button>
-            ${has && store.isAdmin ? '<button class="btn ghost" id="refind">Look for the chords again</button>' : ''}
+          ${canEdit(song) ? `<button class="btn ghost" id="editch">${icon('pencil')}${words ? 'Change chords' : 'Type the chords'}</button>
+            ${words && store.isAdmin ? '<button class="btn ghost" id="refind">Look for the chords again</button>' : ''}
             <a class="btn ghost" href="#/song/${esc(song.id)}">${icon('pencil')}Change words</a>` : ''}
         </div>
       </div>
@@ -132,9 +153,10 @@ export async function songSheet(id) {
   draw();
   // Get the newest chords in the background.
   chordsApi('GET', '?id=' + encodeURIComponent(id)).then(d => {
-    const was = JSON.stringify(chords || null);
+    const was = JSON.stringify([chords || null, chart || null]);
     chords = d.chords; if (chords) local.set('chords.' + id, chords); else local.del('chords.' + id);
-    if (JSON.stringify(chords || null) !== was && location.hash === '#/sheet/' + id) draw();
+    chart = d.chart; if (chart) local.set('chart.' + id, chart); else local.del('chart.' + id);
+    if (JSON.stringify([chords || null, chart || null]) !== was && location.hash === '#/sheet/' + id) draw();
   }).catch(e => console.warn(e));
 }
 

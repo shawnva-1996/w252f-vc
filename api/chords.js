@@ -1,12 +1,15 @@
 // Chord sheets. Chords for each song live in Firestore (w252f_chords), which
 // only this server can read, so only people who are logged in can see them.
-//   GET  ?id=…           chords for one song
-//   GET  ?list=1         which songs have chords (song id -> key)
+// Band charts copied from the church's chord chart files live in
+// _lib/band-charts.js, also only sent from here.
+//   GET  ?id=…           chords and band chart for one song
+//   GET  ?list=1         which songs have chords or a band chart (song id -> key)
 //   POST {action:'find', id}            look for the chords online (Gemini + Google Search)
 //   POST {action:'save', id, chords}    save chords someone typed or fixed
 // The Gemini keys live in Vercel settings (GEMINI_KEYS).
 import { adminDb, caller, ADMIN_EMAIL } from './_lib/firebase.js';
 import { isChord, stripChords, sameWords, moveChords } from '../js/chords.js';
+import CHARTS from './_lib/band-charts.js';
 
 export const config = { maxDuration: 300 };
 
@@ -122,10 +125,12 @@ export default async function handler(req, res) {
     if (req.method === 'GET') {
       if (req.query.list) {
         const snap = await adminDb.collection(COL).select('key').get();
-        return res.json({ songs: Object.fromEntries(snap.docs.map(d => [d.id, d.get('key') || ''])) });
+        const charts = Object.entries(CHARTS).map(([id, c]) => [id, c.key]);
+        return res.json({ songs: Object.fromEntries([...charts, ...snap.docs.map(d => [d.id, d.get('key') || ''])]) });
       }
-      const d = await adminDb.collection(COL).doc(String(req.query.id || '')).get();
-      return res.json({ chords: d.exists ? d.data() : null });
+      const id = String(req.query.id || '');
+      const d = await adminDb.collection(COL).doc(id).get();
+      return res.json({ chords: d.exists ? d.data() : null, chart: CHARTS[id] || null });
     }
     if (req.method !== 'POST') return res.status(405).json({ error: 'Not allowed' });
     const { action, id, chords } = req.body || {};
