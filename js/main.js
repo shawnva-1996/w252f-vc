@@ -51,7 +51,7 @@ async function route() {
       case 'login': return loginScreen();
       case 'home': return home();
       case 'new': return wizard(arg, arg2);
-      case 'set': return controlScreen(arg);
+      case 'set': return controlScreen(arg, arg2);
       // Reload once so the TV starts with its own live connection (see firebase.js).
       case 'tv': return isTv ? tvScreen({ mode: 'cloud' }) : location.reload();
       case 'songs': return songLibrary();
@@ -217,6 +217,7 @@ function drawHome(sets, ready) {
             <small>${s.place === 'cell' ? 'Home cell group' : 'Suntec'} · ${(s.slides || []).length} slides</small>
           </span>
         </a>
+        <a class="link small" href="#/set/${s.id}/add" aria-label="Add a song or slides to ${esc(s.name)}">Add</a>
         <button class="link danger small" data-del="${s.id}" aria-label="Remove ${esc(s.name)}">Remove</button>
       </div>`;
   show(`<main class="page">

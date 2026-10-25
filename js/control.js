@@ -13,7 +13,7 @@ let saveTimer = null;
 let keyHandler = null;
 let remoteWatch = null;
 
-export async function controlScreen(id) {
+export async function controlScreen(id, then) {
   show(`<main class="page">${loading('Opening your set…')}</main>`);
   S = await getSet(id);
   if (!S) { toast('That set was not found.'); location.hash = '#/home'; return; }
@@ -22,6 +22,13 @@ export async function controlScreen(id) {
   black = hidden = editing = false;
   layout();
   send();
+  // From "Add" on the home screen: show the add buttons straight away.
+  if (then === 'add') {
+    history.replaceState(null, '', '#/set/' + id);
+    const row = $('#addrow');
+    row.scrollIntoView({ block: 'center' });
+    row.classList.add('flash');
+  }
   // Pictures and the song library load quietly after the screen is up.
   loadLibrary().catch(() => {});
   listMedia().catch(() => []).then(resolveMedia).then(() => { if (S?.id === id && hasImages()) { drawGrid(); refresh(); } });
@@ -115,13 +122,13 @@ function layout() {
       <button class="btn tool ${editing ? 'on' : ''}" id="edit">${icon('pencil')}${editing ? 'Done changing' : 'Change slides'}</button>
     </section>
     ${editing ? `<p class="note">Tap the pencil to change words, the arrows to move, the double square to repeat, and the cross to remove. Changes save by themselves.</p>` : ''}
-    <section class="grid" id="grid"></section>
-    <div class="center add-row">
-      ${editing ? `<button class="btn ghost" id="addsong">${icon('plus')}Add a song to this set</button>` : ''}
-      <label class="btn ghost file-btn" id="adddeck">${icon('file')}<span>Add slides (greetings, sermon, announcements)</span>
+    <section class="add-row" id="addrow" aria-label="Add to this set">
+      <button class="btn" id="addsong">${icon('plus')}Add a song</button>
+      <label class="btn file-btn" id="adddeck">${icon('file')}<span>Add slides (PDF or PowerPoint)</span>
         <input type="file" id="deckfile" accept=".pdf,.pptx,application/pdf,application/vnd.openxmlformats-officedocument.presentationml.presentation" hidden></label>
-    </div>
-    <p class="small muted center">PowerPoint or PDF. To move slides or a song, drag it by the ${icon('grip')} handle, e.g. greetings to the top. A PDF keeps the exact look of your slides.</p>
+    </section>
+    <p class="small muted center add-hint">Greetings, sermon or announcement slides work too. New things go at the end. To move slides or a song, drag it by the ${icon('grip')} handle.</p>
+    <section class="grid" id="grid"></section>
     <nav class="remote" id="remote" aria-label="Slide remote" hidden>
       <button class="btn" id="r-back" aria-label="Back one slide">${icon('back')}</button>
       <button class="r-info" id="r-info" aria-label="Go to the top"><b id="r-pos"></b><small id="r-part"></small></button>
@@ -141,7 +148,7 @@ function layout() {
   $('#tv').onclick = tvDialog;
   $('#look').onclick = lookDialog;
   $('#edit').onclick = () => { editing = !editing; layout(); };
-  const add = $('#addsong'); if (add) add.onclick = addSongDialog;
+  $('#addsong').onclick = addSongDialog;
   $('#deckfile').onchange = e => { const f = e.target.files[0]; e.target.value = ''; if (f) addDeck(f); };
   swipe($('#now'));
   drawGrid();
