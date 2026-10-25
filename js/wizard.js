@@ -3,6 +3,7 @@ import { show, esc, toast, header, icon, $, $$, today } from './ui.js';
 import { store, local, getDraft, saveDraft, createSet } from './store.js';
 import { loadLibrary, getSong, buildSlides, labelFor, matches, langNote } from './songs.js';
 import { drawSlide, PLACES, LANGS } from './render.js';
+import { queueDecks } from './control.js';
 
 const STEPS = ['place', 'screen', 'praise-count', 'praise-pick', 'worship-count', 'worship-pick', 'flow', 'save'];
 
@@ -220,8 +221,18 @@ async function save(d) {
     ${steps('save')}
     <label>Name this set<input class="input" id="name" value="${esc(name)}"></label>
     <ol class="summary">${list.map(x => `<li>${esc(getSong(x.id).title)} <small class="muted">${x.cat}</small></li>`).join('')}</ol>
+    <div class="lbl">Greetings, sermon or announcement slides</div>
+    <label class="btn ghost wide file-btn" id="decklbl">${icon('file')}<span>Add slides (PDF or PowerPoint)</span>
+      <input type="file" id="decks" multiple accept=".pdf,.pptx,application/pdf,application/vnd.openxmlformats-officedocument.presentationml.presentation" hidden></label>
+    <ol class="summary" id="decklist"></ol>
+    <p class="small muted">If you have them. They go after the songs. In the set, drag them by the ${icon('grip')} handle to move them, e.g. greetings to the top.</p>
     <div class="bar"><button class="btn primary big" id="save">Save and start</button></div>
   </main>`);
+  let decks = [];
+  $('#decks').onchange = e => {
+    decks.push(...e.target.files); e.target.value = '';
+    $('#decklist').innerHTML = decks.map(f => `<li>${esc(f.name)}</li>`).join('');
+  };
   $('#save').onclick = async () => {
     const btn = $('#save'); btn.disabled = true; btn.textContent = 'Saving…';
     const songs = list.map(x => { const s = getSong(x.id); return { id: s.id, title: s.title, artist: s.artist || '', cat: x.cat, flow: d.flows[s.id] || s.flow }; });
@@ -232,6 +243,7 @@ async function save(d) {
         lang: d.lang || 'both', bg: { type: 'gradient', id: 'forest' }, songs, slides
       });
       store.draft = null; sessionStorage.removeItem('w252f.draft');
+      queueDecks(decks);
       toast('Saved. You can find it again under "Your song sets".');
       location.hash = '#/set/' + id;
     } catch (e) {

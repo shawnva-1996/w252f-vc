@@ -408,4 +408,4 @@ textarea.mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace
 .grip svg.i { fill: currentColor; }
 .group.dragging { opacity: .45; }
 .drop-line { height: 4px; background: var(--gold); margin: 12px 0 -14px; }
-.add-row + p svg.i { width: 1em; height: 1em; vertical-align: -2px; fill: currentColor; }
+.add-row + p svg.i, p.small svg.i { width: 1em; height: 1em; vertical-align: -2px; fill: currentColor; }
