@@ -3,7 +3,7 @@ import { auth } from './firebase.js';
 import { show, esc, toast, header, confirmBox, askText, $ } from './ui.js';
 import { menuButtons, bindMenu, loading } from './main.js';
 import { loadLibrary } from './songs.js';
-import { chordsApi, chordList } from './sheet.js';
+import { chordList, bulkChords } from './sheet.js';
 
 async function api(action, body = {}) {
   const token = await auth.currentUser.getIdToken();
@@ -65,35 +65,10 @@ export async function adminScreen() {
   };
 }
 
-// Look up chords for every song that has none yet, a few at a time.
-// Keep this page open while it runs; it can take a while.
-let running = false;
+// Look up chords for every song that has none yet. The same button is on the
+// song library for everyone; it is here too for the admin.
 async function chordsPanel() {
   const [lib, have] = await Promise.all([loadLibrary(), chordList()]);
   if (!$('#chinfo')) return;
-  const todo = lib.filter(s => !(s.id in have));
-  $('#chinfo').textContent = `${lib.length - todo.length} of ${lib.length} songs have chords.`;
-  const go = $('#chgo'), stop = $('#chstop'), log = $('#chlog');
-  go.disabled = !todo.length || running;
-  let stopNow = false;
-  stop.onclick = () => { stopNow = true; stop.disabled = true; };
-  go.onclick = async () => {
-    running = true; go.disabled = true; stop.hidden = false;
-    let done = 0, found = 0;
-    const missed = [];
-    const queue = [...todo];
-    const worker = async () => {
-      while (queue.length && !stopNow && $('#chlog')) {
-        const s = queue.shift();
-        try { const d = await chordsApi('POST', '', { action: 'find', id: s.id }); if (d.chords) found++; }
-        catch { missed.push(s.title); }
-        done++;
-        log.textContent = `Checked ${done} of ${todo.length} · found ${found}${missed.length ? ' · none for: ' + missed.join(', ') : ''}`;
-      }
-    };
-    await Promise.all([worker(), worker(), worker()]);
-    running = false; stop.hidden = true;
-    toast(`Found chords for ${found} songs.`);
-    if ($('#chinfo')) chordsPanel();
-  };
+  bulkChords(lib, have, { info: $('#chinfo'), go: $('#chgo'), stop: $('#chstop'), log: $('#chlog') }, () => toast('Done looking for chords.'));
 }

@@ -22,7 +22,7 @@ export function publish(uid, state) {
     setId: state.setId || null, index: state.index ?? 0, total: state.total ?? 0,
     frame: state.frame || { kind: 'blank' }, black: !!state.black, hidden: !!state.hidden,
     place: state.place || 'suntec', lang: state.lang || 'both', bgKey: state.bgKey || 'forest',
-    t: Date.now(), at: serverTimestamp()
+    preload: state.preload || [], t: Date.now(), at: serverTimestamp()
   };
   if (state.bgKey !== lastBgKey) { data.bg = state.bg || null; lastBgKey = state.bgKey; }
   setDoc(doc(db, C.live, uid), data, { merge: true }).catch(e => console.warn('live update failed', e));

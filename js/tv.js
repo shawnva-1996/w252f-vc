@@ -6,6 +6,7 @@ import { listen, listenCast } from './live.js';
 
 let stop = null;
 let wake = null;
+const preloaded = new Set();
 
 export function tvScreen({ mode }) {
   // mode: 'local' (window on the same laptop), 'cast' (Chromecast), 'cloud' (another device, logged in)
@@ -27,6 +28,8 @@ export function tvScreen({ mode }) {
   let last = null, hintTimer = null;
   const onState = st => {
     last = st;
+    // Fetch the next slide pictures now, so they show at once when their turn comes.
+    (st.preload || []).forEach(u => { if (!preloaded.has(u)) { preloaded.add(u); new Image().src = u; } });
     wait.hidden = true;
     drawSlide(screen, st.frame, { place: st.place, lang: st.lang, showZh: st.showZh, bg: st.bg, black: st.black, hidden: st.hidden });
     watchVideo();

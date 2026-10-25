@@ -85,11 +85,15 @@ function needFont(t) {
   }
 }
 
-// frame: { kind: 'lyric'|'title'|'blank', en: [], zh: [], title, artist, label }
+// frame: { kind: 'lyric'|'title'|'blank'|'image', en: [], zh: [], title, artist, label, src }
 export function slideHTML(frame, opts = {}) {
   const place = PLACES[opts.place] || PLACES.suntec;
   const lang = langOf(opts);
   const f = frame || { kind: 'blank' };
+  // Sermon and announcement slides are pictures that fill the screen on black.
+  if (f.kind === 'image') {
+    return `<div class="stage-in pic" style="background:#000">${opts.black || opts.hidden || !f.src ? '' : `<img class="slide-pic" src="${esc(f.src)}" alt="" decoding="async">`}</div>`;
+  }
   let inner = '';
   if (!opts.hidden && !opts.black) {
     if (f.kind === 'title') {
