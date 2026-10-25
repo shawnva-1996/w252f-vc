@@ -1,7 +1,7 @@
 // Keeps the site on this device so screens open instantly and it still
 // works if the Wi-Fi drops. A new version is picked up the next time the
 // site is opened (never in the middle of a song).
-const VERSION = 'a22c74678d';
+const VERSION = '8478b20b6e';
 const CACHE = 'w252f-' + VERSION;
 const SHELL = ["/index.html","/css/app.css","/data/songs.json","/data/presets.json","/img/bg-hands.jpg","/img/bg-sky-blue.jpg","/img/bg-sky-gold.jpg","/img/bg-sky-sunset.jpg","/img/chc-icon.png","/img/chc-logo.svg","/img/hero-tall.jpg","/img/hero.jpg","/js/admin.js","/js/blob-upload.js","/js/chords.js","/js/control.js","/js/deck.js","/js/editor.js","/js/firebase.js","/js/live.js","/js/main.js","/js/render.js","/js/sheet.js","/js/songs.js","/js/store.js","/js/tv.js","/js/ui.js","/js/wizard.js"];
 const LONG = /^https:\/\/(www\.gstatic\.com\/firebasejs\/|cdnjs\.cloudflare\.com\/|fonts\.(googleapis|gstatic)\.com\/)/;
