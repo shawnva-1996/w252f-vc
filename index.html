@@ -42,13 +42,19 @@
     if ('serviceWorker' in navigator && location.hostname !== 'localhost') {
       addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
       // When a new version arrives, switch to it straight away, except while a set is
-      // running on the command centre: there it waits until you leave the set.
+      // running on the command centre: there it waits until you leave the set, or tap
+      // the "update now" bar at the top.
       const had = !!navigator.serviceWorker.controller;
       let ready = false;
       navigator.serviceWorker.addEventListener('controllerchange', () => {
-        if (!had) return;
+        if (!had || ready) return;
         ready = true;
-        if (!location.hash.startsWith('#/set/')) location.reload();
+        if (!location.hash.startsWith('#/set/')) return location.reload();
+        const bar = document.createElement('button');
+        bar.className = 'update-bar';
+        bar.textContent = 'A new version of the app is ready. Tap here to update.';
+        bar.onclick = () => location.reload();
+        document.body.appendChild(bar);
       });
       addEventListener('hashchange', () => { if (ready && !location.hash.startsWith('#/set/')) location.reload(); });
     }
