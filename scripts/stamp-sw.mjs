@@ -6,7 +6,9 @@ const files = ['/index.html', '/css/app.css', '/data/songs.json', '/data/presets
   ...readdirSync('img').filter(f => /\.(jpg|png|svg)$/.test(f)).sort().map(f => '/img/' + f),
   ...readdirSync('js').filter(f => f.endsWith('.js')).sort().map(f => '/js/' + f)];
 const hash = createHash('sha1');
-for (const f of files) hash.update(readFileSync('.' + f));
+// index.html carries the version itself, so that line is left out of the sum.
+const unstamped = t => t.replace(/<meta name="app-version" content="[^"]*">/, '');
+for (const f of files) hash.update(f === '/index.html' ? unstamped(readFileSync('index.html', 'utf8')) : readFileSync('.' + f));
 const version = hash.digest('hex').slice(0, 10);
 const ext = [
   'https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js',
@@ -21,5 +23,6 @@ writeFileSync('sw.js', sw);
 let html = readFileSync('index.html', 'utf8');
 html = html.replace(/<!-- preload -->[\s\S]*?<!-- \/preload -->/, '<!-- preload -->\n  ' +
   [...files.filter(f => f.startsWith('/js/')), ...ext.filter(u => u.includes('firebasejs'))].map(f => `<link rel="modulepreload" href="${f}">`).join('\n  ') + '\n  <!-- /preload -->');
+html = html.replace(/<meta name="app-version" content="[^"]*">/, `<meta name="app-version" content="${version}">`);
 writeFileSync('index.html', html);
 console.log('sw version', version, files.length, 'files');
