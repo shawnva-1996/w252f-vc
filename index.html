@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f5f0e8">
+  <meta name="app-version" content="f211faa52a">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <title>Worship Slides · City Harvest Church</title>
   <link rel="icon" type="image/svg+xml" href="/img/chc-logo.svg">
@@ -40,23 +41,54 @@
   <script type="module" src="/js/main.js"></script>
   <script>
     if ('serviceWorker' in navigator && location.hostname !== 'localhost') {
-      addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
       // When a new version arrives, switch to it straight away, except while a set is
       // running on the command centre: there it waits until you leave the set, or tap
       // the "update now" bar at the top.
+      const mine = document.querySelector('meta[name="app-version"]').content;
       const had = !!navigator.serviceWorker.controller;
-      let ready = false;
-      navigator.serviceWorker.addEventListener('controllerchange', () => {
-        if (!had || ready) return;
+      let ready = false, reg = null;
+      // Last resort when the phone keeps an old copy: forget the saved copy and
+      // load the site fresh from the internet (only once for each new version).
+      const fresh = async latest => {
+        const key = 'w252f.fresh.' + latest;
+        try { if (sessionStorage.getItem(key)) return location.reload(); sessionStorage.setItem(key, '1'); } catch {}
+        try {
+          await Promise.all((await navigator.serviceWorker.getRegistrations()).map(r => r.unregister()));
+          await Promise.all((await caches.keys()).filter(k => k.startsWith('w252f-') && k !== 'w252f-ext').map(k => caches.delete(k)));
+        } catch {}
+        location.reload();
+      };
+      let doUpdate = () => location.reload();
+      const arrived = () => {
+        if (ready) return;
         ready = true;
-        if (!location.hash.startsWith('#/set/')) return location.reload();
+        if (!location.hash.startsWith('#/set/')) return doUpdate();
         const bar = document.createElement('button');
         bar.className = 'update-bar';
         bar.textContent = 'A new version of the app is ready. Tap here to update.';
-        bar.onclick = () => location.reload();
+        bar.onclick = () => doUpdate();
         document.body.appendChild(bar);
+      };
+      navigator.serviceWorker.addEventListener('controllerchange', () => { if (had) arrived(); });
+      addEventListener('hashchange', () => { if (ready && !location.hash.startsWith('#/set/')) doUpdate(); });
+      // Ask for the newest version on opening and each time the app comes back
+      // to the front (phones often resume an old page without reloading it).
+      let checked = 0;
+      const check = async () => {
+        if (ready || Date.now() - checked < 30000) return;
+        checked = Date.now();
+        reg?.update().catch(() => {});
+        if (!had) return;
+        const latest = await fetch('/sw.js', { cache: 'no-store' }).then(r => r.text()).then(t => (t.match(/const VERSION = '([^']+)'/) || [])[1]).catch(() => null);
+        if (!latest || !mine || latest === mine) return;
+        // A newer version exists. Give the normal update a few seconds, then load it fresh.
+        setTimeout(() => { if (!ready) { doUpdate = () => fresh(latest); arrived(); } }, 8000);
+      };
+      addEventListener('load', async () => {
+        reg = await navigator.serviceWorker.register('/sw.js').catch(() => null);
+        check();
       });
-      addEventListener('hashchange', () => { if (ready && !location.hash.startsWith('#/set/')) location.reload(); });
+      document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') check(); });
     }
   </script>
 </body>
