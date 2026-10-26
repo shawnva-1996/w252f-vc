@@ -1,7 +1,8 @@
 // Sermon and announcement slides: turns a PDF or PowerPoint file into one
 // picture per slide (1920 x 1080 at most) and stores them in Vercel Blob.
 // PDFs keep their exact look. PowerPoint files are drawn in the browser, so
-// fonts and layouts can come out a little different.
+// fonts and layouts can come out a little different. Videos inside PowerPoint
+// slides are uploaded too and play on the TV over the slide picture.
 import { auth } from './firebase.js';
 import { store } from './store.js';
 
@@ -48,7 +49,8 @@ async function pdfPictures(file, onStep) {
 
 // Videos inside a slide cannot play in a picture, and waiting for them to load
 // can hold a slide up for a long time. Each becomes a still of an early frame
-// (or a black box), and sound and web pages in slides are left out.
+// (or a black box) in the picture, and is kept with its place on the slide to
+// play on the TV. Sound and web pages in slides are left out.
 const VIDEO_WAIT_MS = 4000;
 function videoFrame(v) {
   return new Promise(res => {
@@ -63,15 +65,21 @@ function videoFrame(v) {
 }
 async function stillVideos(el) {
   el.querySelectorAll('audio, iframe, object, embed').forEach(n => n.remove());
+  const box = el.getBoundingClientRect(), found = [];
   for (const v of el.querySelectorAll('video')) {
     const w = v.offsetWidth || Number(v.getAttribute('width')) || 320, h = v.offsetHeight || Number(v.getAttribute('height')) || 180;
+    const r = v.getBoundingClientRect(), src = v.currentSrc || v.src;
     const c = document.createElement('canvas');
     c.width = w; c.height = h; c.style.cssText = v.style.cssText; c.style.width = w + 'px'; c.style.height = h + 'px';
     const ctx = c.getContext('2d');
     ctx.fillStyle = '#000'; ctx.fillRect(0, 0, w, h);
-    if (await videoFrame(v)) { try { ctx.drawImage(v, 0, 0, w, h); } catch {} }
+    const plays = await videoFrame(v);
+    if (plays) { try { ctx.drawImage(v, 0, 0, w, h); } catch {} }
+    // Kept even when this browser cannot show it: the TV may still play it.
+    if (src) found.push({ src, x: (r.left - box.left) / box.width, y: (r.top - box.top) / box.height, w: r.width / box.width, h: r.height / box.height });
     v.replaceWith(c);
   }
+  return found;
 }
 // Gives up on a step that takes too long, so one slide can never hold up the rest.
 const inTime = (promise, ms, msg) => Promise.race([promise, new Promise((_, rej) => setTimeout(() => rej(new Error(msg)), ms))]);
@@ -86,21 +94,45 @@ async function pptxPictures(file, onStep) {
     await pv.preview(await file.arrayBuffer());
     const els = [...host.querySelectorAll('.pptx-preview-slide-wrapper')].slice(0, MAX_SLIDES);
     if (!els.length) throw new Error('No slides found in that file.');
-    const out = [];
+    const out = [], vids = [];
+    let ar = 0;
     for (let i = 0; i < els.length; i++) {
       onStep(i + 1, els.length);
       const el = els[i], w = el.offsetWidth || 1920, h = el.offsetHeight || 1080;
       const s = Math.min(1920 / w, 1080 / h);
-      await stillVideos(el);
+      vids[i] = await stillVideos(el);
+      if (!ar) ar = w / h;
       // Pictures in the slide that will not load are skipped after a few seconds.
       out.push(await inTime(window.modernScreenshot.domToBlob(el, { type: 'image/jpeg', quality: 0.86, scale: s, width: w, height: h, timeout: 8000 }),
         60000, `Slide ${i + 1} could not be read. Please save the file as PDF in PowerPoint and add that instead.`));
     }
+    out.vids = vids; out.ar = ar;
     return out;
   } finally { host.remove(); }
 }
 
-// Returns { title, urls }. onProgress(text) reports each step.
+// The kind of video, from the first bytes of the file (PowerPoint does not say).
+async function videoType(blob) {
+  const b = new Uint8Array(await blob.slice(0, 12).arrayBuffer());
+  const tag = String.fromCharCode(...b.slice(4, 12));
+  if (b[0] === 0x1a && b[1] === 0x45 && b[2] === 0xdf && b[3] === 0xa3) return ['video/webm', 'webm'];
+  if (tag.startsWith('ftyp')) return tag.slice(4, 6) === 'qt' ? ['video/quicktime', 'mov'] : ['video/mp4', 'mp4'];
+  return null;
+}
+async function sendVideo(src, path, upload, token) {
+  const blob = await fetch(src).then(r => r.blob());
+  const type = await videoType(blob);
+  if (!type) throw new Error('This kind of video cannot be played here.');
+  const out = await upload(`${path}.${type[1]}`, blob, {
+    access: 'public', handleUploadUrl: '/api/video', headers: { Authorization: 'Bearer ' + token }, contentType: type[0], multipart: blob.size > 20 * 1024 * 1024
+  });
+  return out.url;
+}
+
+// Returns { title, urls, kind, vids, ar, skipped }: vids[i] lists the videos on
+// slide i with their place on it (fractions of the slide), ar is the slides'
+// width / height, and skipped counts videos that cannot play here.
+// onProgress(text) reports each step.
 export async function uploadDeck(file, onProgress = () => {}) {
   const kind = deckKind(file);
   if (kind === 'old') throw new Error('Old PowerPoint (.ppt) and Keynote files cannot be read. Please save it as PDF or .pptx and try again.');
@@ -134,6 +166,20 @@ export async function uploadDeck(file, onProgress = () => {}) {
     }
   };
   await Promise.all([worker(), worker(), worker(), worker()]);
+  // Videos inside the slides: each file goes up once, even if several slides use it.
+  const vids = [], sent = new Map();
+  let failed = 0;
+  const all = (pics.vids || []).flat();
+  for (let i = 0; i < (pics.vids || []).length; i++) {
+    for (const v of pics.vids[i] || []) {
+      if (!sent.has(v.src)) {
+        onProgress(`Uploading video ${sent.size + 1} of ${new Set(all.map(x => x.src)).size}…`);
+        sent.set(v.src, await sendVideo(v.src, `videos/${store.uid}/${slug}-${sent.size + 1}`, upload, token).catch(e => { console.error(e); failed++; return null; }));
+      }
+      const url = sent.get(v.src);
+      if (url) (vids[i] = vids[i] || []).push({ url, x: v.x, y: v.y, w: v.w, h: v.h });
+    }
+  }
   const title = base.replace(/[_-]+/g, ' ').trim() || 'Slides';
-  return { title: title[0].toUpperCase() + title.slice(1), urls, kind };
+  return { title: title[0].toUpperCase() + title.slice(1), urls, kind, vids, ar: pics.ar || 16 / 9, skipped: failed };
 }

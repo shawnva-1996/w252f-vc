@@ -92,7 +92,8 @@ export function slideHTML(frame, opts = {}) {
   const f = frame || { kind: 'blank' };
   // Sermon and announcement slides are pictures that fill the screen on black.
   if (f.kind === 'image') {
-    return `<div class="stage-in pic" style="background:#000">${opts.black || opts.hidden || !f.src ? '' : `<img class="slide-pic" src="${esc(f.src)}" alt="" decoding="async">`}</div>`;
+    const shown = !opts.black && !opts.hidden && f.src;
+    return `<div class="stage-in pic" style="background:#000">${shown ? `<img class="slide-pic" src="${esc(f.src)}" alt="" decoding="async">${vidsHTML(f, opts)}` : ''}</div>`;
   }
   let inner = '';
   if (!opts.hidden && !opts.black) {
@@ -118,10 +119,26 @@ export function slideHTML(frame, opts = {}) {
     <div class="words ${place.valign}" style="padding-top:${place.valign === 'top' ? place.top : 0}px"><div class="blk">${inner}</div></div>${cue}</div>`;
 }
 
+// Videos from a PowerPoint slide, placed where they were on the slide. They
+// play on the TV only; small previews show the slide picture and a note.
+function vidsHTML(f, opts) {
+  if (!f.vids?.length) return '';
+  if (opts.preview || opts.still) return opts.preview && !opts.still ? '<div class="vcue">The video plays on the TV</div>' : '';
+  // The picture is fitted inside the 1920 x 1080 screen, keeping its shape.
+  const ar = f.ar || 16 / 9, w = ar >= 16 / 9 ? 1920 : Math.round(1080 * ar), h = Math.round(w / ar);
+  const pct = n => (n * 100).toFixed(3) + '%';
+  return `<div class="pic-box" style="width:${w}px;height:${h}px;left:${(1920 - w) / 2}px;top:${(1080 - h) / 2}px">${f.vids.map(v =>
+    `<video class="slide-vid" src="${esc(v.url)}" playsinline preload="auto" style="left:${pct(v.x)};top:${pct(v.y)};width:${pct(v.w)};height:${pct(v.h)}"></video>`).join('')}</div>`;
+}
+
 // Put a slide into a box and scale it to fit. Shrinks long lines so nothing is cut off.
 export function drawSlide(box, frame, opts = {}) {
   box.classList.add('stage');
   const html = slideHTML(frame, opts);
+  // Nothing changed (the laptop sends the same slide again): leave it, so a
+  // playing video carries on.
+  if (box._html === html && box.firstElementChild) { fit(box); return; }
+  box._html = html;
   const old = box.querySelector('video.bgv'), cur = box.firstElementChild;
   const next = document.createElement('div'); next.innerHTML = html;
   const fresh = next.firstElementChild, nv = fresh.querySelector('video.bgv');
@@ -136,9 +153,16 @@ export function drawSlide(box, frame, opts = {}) {
     box.innerHTML = html;
   }
   box.querySelectorAll('video.bgv').forEach(playVideo);
+  box.querySelectorAll('video.slide-vid').forEach(playSlideVideo);
   fit(box);
   fitText(box);
   if (document.fonts && document.fonts.status !== 'loaded') document.fonts.ready.then(() => fitText(box));
+}
+
+// Start a video from a slide, with sound. If the browser does not allow sound
+// yet, it plays without it until the TV screen is tapped.
+export function playSlideVideo(v) {
+  v.play?.().catch(() => { v.muted = true; v.play?.().catch(() => {}); });
 }
 
 // Start a background video. Browsers only play videos by themselves when they are muted.

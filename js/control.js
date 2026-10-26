@@ -87,16 +87,16 @@ function send() {
   });
   sessionStorage.setItem('w252f.at.' + S.id, at);
 }
-const frameOf = sl => ({ kind: sl.kind, en: sl.en || [], zh: sl.zh || [], title: sl.title || '', artist: sl.artist || '', label: sl.label || '', ...(sl.src ? { src: sl.src } : {}) });
+const frameOf = sl => ({ kind: sl.kind, en: sl.en || [], zh: sl.zh || [], title: sl.title || '', artist: sl.artist || '', label: sl.label || '', ...(sl.src ? { src: sl.src } : {}), ...(sl.vids ? { vids: sl.vids, ar: sl.ar } : {}) });
 // The next slide pictures, so the TV can fetch them before they are needed.
 const preloadFrom = i => S.slides.slice(i, i + 3).filter(s => s.kind === 'image' && s.src).map(s => s.src);
 
-function persist(msg) {
+function persist(msg, ms) {
   clearTimeout(saveTimer);
   saveTimer = setTimeout(async () => {
     try {
       await updateSet(S.id, { name: S.name, place: S.place, lang: langOf(S), bg: S.bg, slides: S.slides, songs: S.songs });
-      if (msg) toast(msg);
+      if (msg) toast(msg, ms);
     } catch (e) { console.error(e); toast('Could not save the change. Check the internet.'); }
   }, 400);
 }
@@ -417,15 +417,18 @@ async function addDeck(file) {
   const setId = S.id;
   try {
     const { uploadDeck } = await import('./deck.js');
-    const { title, urls, kind } = await uploadDeck(file, say);
+    const { title, urls, kind, vids, ar, skipped } = await uploadDeck(file, say);
     if (S?.id !== setId) throw new Error('The slides were not added because you left the set. Please open it and add them again.');
     const deck = { id: 'deck-' + rid(), title, cat: 'slides', deck: true };
-    const pics = k => urls.map((src, i) => ({ id: rid(), song: k, label: `Slide ${i + 1}`, kind: 'image', src }));
+    const pics = k => urls.map((src, i) => ({ id: rid(), song: k, label: vids[i] ? `Slide ${i + 1} (video)` : `Slide ${i + 1}`, kind: 'image', src, ...(vids[i] ? { vids: vids[i], ar } : {}) }));
     S.songs.push(deck);
     const first = S.slides.length;
     S.slides.push(...pics(S.songs.length - 1));
-    persist(`Added ${urls.length} slides. Tap the up arrow next to their name to move them.`); drawGrid(); refresh();
-    if (kind === 'pptx') toast('Slides added. PowerPoint files can look a little different here, so please check them. A PDF keeps the exact look.', 7000);
+    const nv = vids.filter(Boolean).length;
+    const note = skipped ? ` ${skipped === 1 ? 'One video' : skipped + ' videos'} in this file cannot play here, so ${skipped === 1 ? 'it shows' : 'they show'} as a still picture. Save videos as MP4 in PowerPoint to play them.`
+      : nv ? ` The video${nv === 1 ? '' : 's'} on ${nv === 1 ? 'one slide' : nv + ' slides'} will play on the TV.`
+      : kind === 'pptx' ? ' PowerPoint files can look a little different here, so please check them. A PDF keeps the exact look.' : '';
+    persist(`Added ${urls.length} slides. Tap the up arrow next to their name to move them.${note}`, note ? 9000 : undefined); drawGrid(); refresh();
     $(`.thumb[data-i="${first}"]`)?.scrollIntoView({ block: 'center', behavior: 'smooth' });
   } catch (e) { console.error(e); toast(e.message || 'Could not add those slides.', 6000); }
   if (lbl.isConnected) { lbl.classList.remove('busy'); inp.disabled = false; say('Add slides (PDF or PowerPoint)'); }

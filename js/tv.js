@@ -1,7 +1,7 @@
 // The TV screen: only shows the words, and follows the laptop.
 import { show, $ } from './ui.js';
 import { store } from './store.js';
-import { drawSlide, playVideo } from './render.js';
+import { drawSlide, playVideo, playSlideVideo } from './render.js';
 import { listen, listenCast } from './live.js';
 
 let stop = null;
@@ -37,6 +37,17 @@ export function tvScreen({ mode }) {
   // If the browser holds the background video back, say so (a tap starts it).
   const watchVideo = () => {
     clearTimeout(hintTimer);
+    const sv = screen.querySelector('video.slide-vid');
+    if (sv) {
+      // A video from a slide: offer a tap if it is held back or has no sound.
+      hint.hidden = true;
+      sv.onerror = () => { hint.textContent = "This video can't play in this browser. Please use an MP4 video."; hint.hidden = false; };
+      hintTimer = setTimeout(() => {
+        if (!sv.isConnected || sv.error) return;
+        if (sv.paused || sv.muted) { hint.textContent = sv.paused ? 'Tap to start the video' : 'Tap for the video sound'; hint.hidden = false; }
+      }, 1500);
+      return;
+    }
     const v = screen.querySelector('video.bgv');
     if (!v) { hint.hidden = true; return; }
     const cant = () => { hint.textContent = "This video can't play in this browser. Please use an MP4 video."; hint.hidden = false; };
@@ -53,7 +64,8 @@ export function tvScreen({ mode }) {
     if (e.target.closest('#leave')) { document.body.classList.remove('is-tv'); if (stop) stop(); return; }
     // A tap also starts the background video if the browser held it back.
     document.querySelectorAll('video.bgv').forEach(playVideo);
-    if (!screen.querySelector('video.bgv')?.error) hint.hidden = true;
+    document.querySelectorAll('video.slide-vid').forEach(v => { v.muted = false; playSlideVideo(v); });
+    if (!screen.querySelector('video.bgv, video.slide-vid')?.error) hint.hidden = true;
     const el = document.documentElement;
     if (!document.fullscreenElement && el.requestFullscreen) el.requestFullscreen().catch(() => {});
     else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
