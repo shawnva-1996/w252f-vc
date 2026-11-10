@@ -13,3 +13,12 @@ The laptop (or phone) runs the slides; the TV follows.
 
 Vercel settings needed: `FIREBASE_SERVICE_ACCOUNT` (the service account JSON) and `GEMINI_KEYS` (comma separated).
 Never commit key files. The old lyrics converter lives on the `archive/lyrics-converter` branch.
+
+## Christmas 2026 worship visuals reference
+
+Reference-only documentation for the Sunday Screens Instagram 9-slide Christmas showcase (14 visual looks). Original vendor media has **not** been acquired or committed; licensing must be verified first.
+
+- [Detailed visual specifications and 14 AI prompts](docs/christmas-2026/instagram-sundayscreens-visual-spec.md)
+- [Licensed asset acquisition checklist](docs/christmas-2026/ASSET_ACQUISITION.md)
+- [Media manifest / acquisition statuses](docs/christmas-2026/manifest.csv)
+- [Executor handoff for download checks and independent generation](docs/christmas-2026/executor-handoff.md)
