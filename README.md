@@ -22,3 +22,7 @@ Reference-only documentation for the Sunday Screens Instagram 9-slide Christmas 
 - [Licensed asset acquisition checklist](docs/christmas-2026/ASSET_ACQUISITION.md)
 - [Media manifest / acquisition statuses](docs/christmas-2026/manifest.csv)
 - [Executor handoff for download checks and independent generation](docs/christmas-2026/executor-handoff.md)
+
+## Paskong Pinoy Remix — Final Teaser 3 (2026)
+
+Pre-production story, 58-second Taglish script, Google Flow agent instructions, atomic pickup prompts and portrait/footage checklist live in [Teaser 3](Teaser%203/README.md). No video is marked rendered until actual approved member portraits and source clips have been supplied.
