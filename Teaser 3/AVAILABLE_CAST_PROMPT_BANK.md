@@ -56,7 +56,7 @@ Use the one-person CAMEO_<NAME> prompt in the agent prompt. Limit to short, edit
 ## HOLD: named story roles not represented by screenshot filenames
 - Mitch (first surprise interruption and transition): no clear file. **Do not equate Mischie to Mitch.**
 - Renee (final joint outro): no clear file.
-- Leizel, Anavee, Eyad (required dance faces): no clear files.
+- Leizel, Anavee, Iad (required dance faces): no clear files.
 
 Owner may provide portrait files or genuine footage later. Leave those slots reserved and do not silently omit them from final editor timeline.
 
