@@ -1,33 +1,33 @@
 # TEASER 3 — COPY-READY GOOGLE FLOW PICKUP PROMPTS
 
-Use with GOOGLE_FLOW_AGENT_INSTRUCTION.md. Each item below is **one independent generation**, not a full 58s render. References must be attached in the Flow interface. A reference ID is a production placeholder, NOT a file that already exists. Production status: ALL PICKUPS BLOCKED on relevant portraits as of 2026-11-10.
+Use with GOOGLE_FLOW_AGENT_INSTRUCTION.md. Each item below is **one independent generation**, not a full 58s render. References must be attached in the Flow interface. A reference ID is a production placeholder, NOT a file that already exists. Production status: screenshot filenames identified 2026-11-13; original portrait files have NOT been supplied. All person-based generations remain blocked until those images are attached. The 2026-11-13 **positivity-and-love-first** rule supersedes any sadness-first or negative-emotional-hook wording.
 
 ## Per-generation universal negative (include in each pickup)
 "Single continuous take. One camera. No internal cuts, no reverse shot, no extra dialogue or filler, no invented extra people, no face changes, no social UI, no generated subtitles or on-screen text, no logos, no watermark, no AI-created rules, and no voice-over. Immediately begin the requested action. Hold the defined expression silently after the line."
 
-## P01 — Monica's homesickness (target final interval 0.0–4.0)
-REFERENCES: REF_MONICA only. VISIBLE PEOPLE: Monica only. SPEAKER: Monica. SILENT CHARACTERS: none.
-FRAMING: vertical 9:16 tight medium close-up, fixed shoulder-height eye-level lens. Singapore apartment/rest-area window with out-of-focus urban Christmas lights, cool teal night tones, slight warm light from a phone held below her face. Phone display is neutral/replaceable; no real text.
-PRINCIPAL ACTION: Monica is already looking at her phone, quietly holding back tears, then looks up slightly.
-DIALOGUE (exact, natural Tagalog): "Pasko na naman… ang layo ko pa rin sa pamilya."
-PERFORMANCE: Understated homesickness; slight tremble in voice, vulnerable but dignified. No sobbing, no melodramatic scream.
-ENDING/TAIL: Keep her watery-eyed expression and lower her gaze silently, no additional movement.
-PACING: Already emotional in the first frame, first word within about 0.5 sec. One uninterrupted take.
-NEGATIVES: universal negative.
+## P01 — Monica's Christmas love, POSITIVE EMOTIONAL HOOK (target final interval 0.0–4.0; UPDATED OWNER LOCK 2026-11-13)
+REFERENCES: attach original photo `sa_monica.jpeg` designated REF_MONICA (screenshot listing alone is NOT sufficient). VISIBLE PEOPLE: Monica only. SPEAKER: Monica. SILENT CHARACTERS: none.
+FRAMING: vertical 9:16 tight medium close-up, fixed shoulder-height eye-level lens. A cozy Singapore setting with small glowing Christmas fairy lights and golden festive bokeh. Gentle amber key light reflects warmly on her face. Phone held naturally below frame, display neutral/replaceable for family photo insert in post.
+PRINCIPAL ACTION: Monica is ALREADY SMILING with affection while looking at the phone as if she is sending a loving Christmas greeting to family. A slight tender longing is acceptable only as background emotion; this is joyful LOVE FIRST, not sadness.
+DIALOGUE (exact *proposed* Taglish line): "Merry Christmas sa inyo… miss na miss ko kayo."
+PERFORMANCE: Warm natural Filipino delivery, appreciative and affectionate, an almost tearful *happy* feeling if natural, but NO distress, sorrow, crying, anger or dramatic sighs.
+ENDING/TAIL: Hold a loving soft smile and a fond gaze at her neutral phone. No extra dialogue/action.
+PACING: Warm positive expression from FRAME 1; begin greeting within ~0.5s; one uninterrupted take.
+NEGATIVES: universal negative. No fabricated actual family visuals in Flow—insert permitted actual photo/video afterward.
 
 ## P02 — Monica discovers the happy party (target final interval 4.0–9.0)
 REFERENCES: REF_MONICA only. VISIBLE PEOPLE: Monica only. SPEAKER: Monica. SILENT CHARACTERS: none.
-FRAMING: same cool location, fixed 9:16 three-quarter tight close-up, over-shoulder space for phone screen compositing; neutral/blank phone screen.
+FRAMING: same warm golden location, fixed 9:16 three-quarter tight close-up, over-shoulder space for phone screen compositing; neutral/blank phone screen.
 PRINCIPAL ACTION: Monica glances at a phone item and an involuntary smile starts. The exact ad and archive video of Susie are inserted later in post.
 DIALOGUE: "Ang saya naman dito…"
-PERFORMANCE: Genuine curiosity, a little longing but now hope; a small smile.
+PERFORMANCE: Genuine delighted curiosity and gentle Christmas warmth; an easy bright smile. Never sad at the start.
 ENDING/TAIL: Hold her intrigued gaze on the phone silently.
 PACING: Phone glance immediately, speak promptly after visual recognition.
 NEGATIVES: universal negative; do not synthesize social-media UI or fake dance footage.
 
 ## P03 — Jessa's first invitation (target final interval 9.0–13.0)
 REFERENCES: REF_JESSA only if speaker-isolation needed; optionally include REF_MONICA only if a verified two-character take is supported. VISIBLE PEOPLE: Jessa clearly, Monica as a silent cropped shoulder only if technically reliable. SPEAKER: Jessa. SILENT CHARACTERS: Monica if visible, otherwise none.
-FRAMING: locked medium close-up of Jessa in the same hallway, cool lighting beginning to warm.
+FRAMING: locked medium close-up of Jessa in the same hallway, soft consistent golden Christmas lighting.
 PRINCIPAL ACTION: Jessa gently taps/gestures toward Monica's shoulder and smiles with concern.
 DIALOGUE: "Gusto mo bang sumali?"
 PERFORMANCE: Warm, spontaneous, inclusive, sincere—no presenter delivery.
@@ -123,10 +123,14 @@ ENDING/TAIL: Continue smiling toward camera silently.
 PACING: Enter immediately and deliver line; no added words.
 NEGATIVES: universal negative. Composite P13 and P14 into a shared final frame rather than generating multi-speaker dialogue.
 
+## Dancer/cameo references visible from screenshot (filename only)
+
+An additional [filename index](CAST_REFERENCE_INDEX.md) and [ready-to-fill cast prompt bank](AVAILABLE_CAST_PROMPT_BANK.md) cover the 12 required screenshot-matched characters and 12 other optional silent cameo people. Actual media files are NOT attached yet. Missing required cast: Mitch, Renee, Leizel, Anavee, Eyad. No substituted identities. Do not render P04/P05 (Mitch) or P14 (Renee) until references arrive.
+
 ## POST / EDITING (not model-facing)
 - Screen replacement: real event advertisement + Susie archive on Monica's phone; exact game rules photo on Jessa's phone; end card from owner-confirmed flyer. No AI typography or invented details.
-- Camera rhythm: close, intimate cool look (0–17) -> arm wipe/whip-pan sparkle (17–20) -> warm wide dance energy (20–33) -> close emotional belonging (33–47) -> inviting medium two-shot composite (47–55).
-- Sound design: near-silence/soft phone notification + delicate piano at opening; party audio bleeds faintly through the phone; clear festive beat enters at transition; dip under conversation; full warm swell in outro. Use original or licensed tracks.
+- Camera rhythm: close, loving, intimate warm look (0–17) -> arm wipe/whip-pan sparkle (17–20) -> warm wide dance energy (20–33) -> close emotional belonging (33–47) -> inviting medium two-shot composite (47–55).
+- Sound design: warm music-box / gentle nostalgic Christmas piano at opening, with a loving greeting audible immediately; party audio bleeds faintly through the phone; clear festive beat enters at transition; dip under conversation; full warm swell in outro. Use original or licensed tracks.
 - Use actual member dance clips wherever possible. Ensure Leizel, Susie, Margie, Flor, Riza, Anavee, Lilia, Usha, Eyad, Willy, Adrian, and Donna EACH recognisably appears.
 - Generate subtitles from final actual audio, all caps single-line phrases, lifted to around 65% frame height. Keep phone-rules plate unobstructed; avoid subtitles during legibility holds.
 - Validate the final exported duration is STRICTLY below 60s. Suggested 58.0s; if pacing creates overage, shorten dancing and transitions, NOT the rules visual below legibility or the two end lines.
