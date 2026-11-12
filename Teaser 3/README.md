@@ -17,7 +17,7 @@ Source of truth: W252F-VC. Google Flow production methodology adapted from the c
 
 ## Casting and canonical spelling
 Story roles: Monica (sad protagonist), Jessa (gentle invitation), Mitch (spelled M-I-T-C-H, enthusiastic "Besh!"), Mommy Tere (outro), Renee (spelled R-E-N-E-E, joins Tere's outro).
-Featured dancers, cover every member: Leizel, Susie, Margie, Flor, Riza, Anavee, Lilia, Usha, Eyad, Willy, Adrian, Donna.
+Featured dancers, cover every member: Leizel, Susie, Margie, Flor, Riza, Anavee, Lilia, Usha, Iad, Willy, Adrian, Donna.
 Source transcript contained approximate variants "Liza" vs "Leizel", "Floor" vs "Flor", "Anavi" vs "Anavee", "Suzy" vs "Susie"; use the established initial/project spellings **Leizel, Flor, Anavee, Susie** provisionally until the portrait filenames confirm. Do not silently collapse Riza and Leizel into one person.
 Optional real video of Susie: only insert owner-supplied licensed/consented archival footage; do not fabricate a past event clip.
 
@@ -31,7 +31,7 @@ Optional real video of Susie: only insert owner-supplied licensed/consented arch
 | 17.0–20.0 | Mitch offers a hand and playfully pulls Monica and Jessa forward; hand-swipe / whip-pan / Christmas-light match cut. Composite if necessary. | Festive musical whoosh; NO dialogue. |
 | 20.0–23.0 | Magical arrival in vibrant decorated event space; dance montage group A: Leizel, Susie, Margie, Flor. | Festive music; live cheering. |
 | 23.0–26.0 | Dance montage group B: Riza, Anavee, Lilia, Usha. | Music. |
-| 26.0–29.0 | Dance montage group C: Eyad, Willy, Adrian, Donna. | Music. |
+| 26.0–29.0 | Dance montage group C: Iad, Willy, Adrian, Donna. | Music. |
 | 29.0–33.0 | REAL dancing/practice crowd, smiles, food, raffle and prizes; meaningful Monica reaction (wide-eyed smile, tear of relief). Props and prizes only if genuinely planned. | Music dips slightly to make next line clear. |
 | 33.0–36.0 | Jessa turns to Monica. | JESSA: "Gusto mo ba sumama?" |
 | 36.0–38.0 | Monica responds immediately, delighted. | MONICA: "Of course, siyempre!" |
@@ -73,7 +73,7 @@ Do not use logos, exact camera setups, scripts, or audio of reference campaigns.
 
 ## 2026-11-13 readiness update
 - Screenshot-only reference filenames are indexed in CAST_REFERENCE_INDEX.md; 33 files / 24 distinct people.
-- 12 of 17 previously required cast names have filename matches (Tere identity provisional); missing names are Mitch, Renee, Leizel, Anavee and Eyad.
+- 12 of 17 previously required cast names have filename matches (Tere identity provisional); missing names are Mitch, Renee, Leizel, Anavee and Iad.
 - DO NOT identify Mischie as Mitch without owner confirmation; 12 additional names are optional silent cameos, not replacements.
 - No named member can be used in Flow until an original reference image (or consented actual video) has been supplied.
 
