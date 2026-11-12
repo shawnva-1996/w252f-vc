@@ -34,14 +34,14 @@
 
 **Production-role tally:** 12 of 17 previously specified principal/featured identities have a possible corresponding filename in screenshot. This is NOT verification of 12 reference images: the original image files were not supplied. The 12 matching names are Monica, Jessa, Tere (provisionally Mommy Tere), Susie, Margie, Flor, Riza, Lilia, Usha, Willy, Adrian, Donna.
 
-**Missing original teaser-cast names from screenshot:** Mitch, Renee, Leizel, Anavee, Eyad. DO NOT substitute or mislabel a pictured person (especially **Mischie ≠ Mitch** without explicit confirmation). Missing roles remain placeholders; do not generate talking scenes for them yet. The 12 others from the screenshot are optional background/cameo candidates, not automatically approved changes to the agreed story.
+**Missing original teaser-cast names from screenshot:** Mitch, Renee, Leizel, Anavee, Iad. DO NOT substitute or mislabel a pictured person (especially **Mischie ≠ Mitch** without explicit confirmation). Missing roles remain placeholders; do not generate talking scenes for them yet. The 12 others from the screenshot are optional background/cameo candidates, not automatically approved changes to the agreed story.
 
 **Version selection:** when two names are available, `_one`, `_two`, `_1`, `_2` or `_three` only distinguish photo files. No assertion that the later version has better image quality. Choose the best original photo after checking recognisability, full face, unobstructed facial features, lighting, likeness, ownership consent. Log the actual chosen filename. Preserve exact .JPG capitalization for `sa_susie_2.JPG`.
 
 ## Current priority
 1. **Dialogue preparations:** Monica (`sa_monica.jpeg`), Jessa (`n4_jessa.jpeg`), Tere (`w2_tere.jpeg`, pending person confirmation).
 2. **Already matchable featured dancers:** Susie, Margie, Flor, Riza, Lilia, Usha, Willy, Adrian, Donna.
-3. **Missing scripted people:** Mitch, Renee, Leizel, Anavee, Eyad — do not fabricate.
+3. **Missing scripted people:** Mitch, Renee, Leizel, Anavee, Iad — do not fabricate.
 4. **Optional cameos:** Ally, Charie, Christy, Dok Bing, Malyn, Rex, Shiela, Anna, Cheska, Kathleen, Mischie, Rowena Wheng.
 5. **Nonportrait media still needed:** actual previous-year dance clip of Susie, real group footage, exact game rules image, approved final event flyer and suitable licensed/original music.
 
