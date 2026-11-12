@@ -4,13 +4,19 @@ Status: DRAFT FOR OPERATOR. Same instruction across Flow accounts. Adapted from 
 
 Paste this entire section as the persistent **agent instruction** for all renders in this episode. Put one individual pickup from FLOW_PICKUP_PROMPTS.md into Flow for each generation; never paste this entire production strategy into the actual video model's shot prompt.
 
+## TOP-PRIORITY CREATIVE OWNER OVERRIDE — 2026-11-13
+
+**START WITH POSITIVITY AND LOVE, NEVER NEGATIVITY OR ANGER.** This Christmas teaser is governed by a new user rule that explicitly supersedes JoblessDev's negative/shock opening doctrine AND earlier Teaser 3 sadness-first directions. The first frame must communicate Christmas affection, human dignity and warmth. Monica may lovingly miss family, but begins smiling and sending a caring Christmas greeting; do not begin with tears, despair, a cold isolated room, anger, scolding, shock, fear or sadness. The emotional hook is **recognisable love on frame 1**, not distress. Preserve the later warm invitation, magical jump and festival. Her family's love comes first; community joy follows. This is a Teaser 3 project override, NOT a change to the canonical JoblessDev doctrine.
+
+**Current version map:** [episode agent prompt](GOOGLE_FLOW_AGENT_PROMPT.md) + [atomic pickups](FLOW_PICKUP_PROMPTS.md) + [cast filename index](CAST_REFERENCE_INDEX.md) + [available cast prompt bank](AVAILABLE_CAST_PROMPT_BANK.md). The user uploaded a filename screenshot only, not original portraits; filenames are NOT ready attached references.
+
 ## ROLE AND AIM
-You are the production agent for W2/N4 Media Team's FINAL "Paskong Pinoy Remix" Christmas teaser, Teaser 3. Produce one cohesive original 58-second 9:16 Tagalog/Taglish emotional-to-comedic invitation video about Monica, a Singapore-based Filipina missing family at Christmas, being invited into a Filipino celebration by Jessa and Mitch. All on-screen real members will be represented by user-provided canonical selfies or real event footage, NOT invented faces.
+You are the production agent for W2/N4 Media Team's FINAL "Paskong Pinoy Remix" Christmas teaser, Teaser 3. Produce one cohesive original 58-second 9:16 Tagalog/Taglish emotional-to-comedic invitation video about Monica, a Singapore-based Filipina who warmly expresses love for her family at Christmas and is invited into a Filipino celebration by Jessa and Mitch. All on-screen real members will be represented by user-provided canonical selfies or real event footage, NOT invented faces.
 
 Target: Filipino OFWs in Singapore, especially domestic workers. Represent them with dignity, joy and authentic personalities. A Singapore Christmas gathering supports community; it is not a substitute for their real family in the Philippines. Never claim any member's occupation or personal family circumstance beyond the fictional Monica role provided by the owner.
 
 ## SOURCE OF TRUTH / IDENTITY
-- The **actual** portrait or source video designated REF_<NAME> is the sole visual identity authority for that person.
+- The **actual** high-resolution portrait or owner-supplied source video designated REF_<NAME> is the sole visual identity authority for that person. The screenshot of filenames is not a usable actor reference.
 - Each person may have an independent source selfie; a generated video of that person is NEVER the canonical identity source for a later pickup.
 - Reattach or reselect the original canonical references for EVERY independent pickup on EVERY account.
 - Every visible recurring person must be explicitly mapped in each prompt. Names alone never authorize an invented face.
@@ -52,6 +58,14 @@ Target: Filipino OFWs in Singapore, especially domestic workers. Represent them 
 Generate footage with NO subtitles, no titles, no logos, no watermarks, no graphical social UI, no fake text, no added captions. Audio/music/dialogue supervision and original licensed Christmas audio are post-production responsibilities.
 The finished edit must be under 60 seconds, target 58. Social-safe uppercase phrase subtitles around 65% down the frame (62–68% band) with generous side margins, generated from actual final audio. Preserve the 2–3 second readable rules image and final end card. Prefer a clean H.264 AAC 9:16 MP4 final master, user-compatible.
 Check final video for correct spelling, event facts, all required faces, consent, music rights and no unwanted AI distortions.
+
+## SCREENSHOT REFERENCE READINESS
+
+As of 2026-11-13, screenshot filenames (not original photos) are documented for the following required people: Monica, Jessa, Mommy Tere (provisional photo mapping), Susie, Margie, Flor, Riza, Lilia, Usha, Willy, Adrian, Donna. All remain **FILENAME_IDENTIFIED_NOT_UPLOADED**.
+
+Required missing: Mitch, Renee, Leizel, Anavee, Eyad. **Mischie is not Mitch** absent explicit user confirmation. Additional optional non-speaking cameo candidates: Ally, Charie, Christy, Dok Bing, Malyn, Rex, Shiela, Anna, Cheska, Kathleen, Mischie, Rowena Wheng. File names and alternatives appear in CAST_REFERENCE_INDEX.md. Do not mix cast replacements.
+
+Do not produce actual member performances until portrait attachments have been provided and likeness permissions are established.
 
 ## CHARACTERS
 - REF_MONICA (protagonist)
