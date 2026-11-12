@@ -59,7 +59,7 @@ NEGATIVES: universal negative; build final pull and three-person interaction wit
 Do not attempt all twelve identities in one Flow prompt. Primary solution: owner-provided real footage with recognisable close/mid shots and permission, matched to music:
 - 20–23 sec: Leizel, Susie, Margie, Flor.
 - 23–26 sec: Riza, Anavee, Lilia, Usha.
-- 26–29 sec: Eyad, Willy, Adrian, Donna.
+- 26–29 sec: Iad, Willy, Adrian, Donna.
 - 29–33 sec: food, raffle, prizes, dancing reaction and Monica's natural delighted smile.
 If archive footage doesn't include a named member, a low-risk independent 1–2-person video pickup may be created with their attached references and a simple dance step, static camera, no dialogue, 1–2s final edit; otherwise use approved portrait animation in post. NEVER invent raffle outcome or promised prizes. Do not composite a fake past-year archive clip as if it happened.
 
@@ -125,12 +125,12 @@ NEGATIVES: universal negative. Composite P13 and P14 into a shared final frame r
 
 ## Dancer/cameo references visible from screenshot (filename only)
 
-An additional [filename index](CAST_REFERENCE_INDEX.md) and [ready-to-fill cast prompt bank](AVAILABLE_CAST_PROMPT_BANK.md) cover the 12 required screenshot-matched characters and 12 other optional silent cameo people. Actual media files are NOT attached yet. Missing required cast: Mitch, Renee, Leizel, Anavee, Eyad. No substituted identities. Do not render P04/P05 (Mitch) or P14 (Renee) until references arrive.
+An additional [filename index](CAST_REFERENCE_INDEX.md) and [ready-to-fill cast prompt bank](AVAILABLE_CAST_PROMPT_BANK.md) cover the 12 required screenshot-matched characters and 12 other optional silent cameo people. Actual media files are NOT attached yet. Missing required cast: Mitch, Renee, Leizel, Anavee, Iad. No substituted identities. Do not render P04/P05 (Mitch) or P14 (Renee) until references arrive.
 
 ## POST / EDITING (not model-facing)
 - Screen replacement: real event advertisement + Susie archive on Monica's phone; exact game rules photo on Jessa's phone; end card from owner-confirmed flyer. No AI typography or invented details.
 - Camera rhythm: close, loving, intimate warm look (0–17) -> arm wipe/whip-pan sparkle (17–20) -> warm wide dance energy (20–33) -> close emotional belonging (33–47) -> inviting medium two-shot composite (47–55).
 - Sound design: warm music-box / gentle nostalgic Christmas piano at opening, with a loving greeting audible immediately; party audio bleeds faintly through the phone; clear festive beat enters at transition; dip under conversation; full warm swell in outro. Use original or licensed tracks.
-- Use actual member dance clips wherever possible. Ensure Leizel, Susie, Margie, Flor, Riza, Anavee, Lilia, Usha, Eyad, Willy, Adrian, and Donna EACH recognisably appears.
+- Use actual member dance clips wherever possible. Ensure Leizel, Susie, Margie, Flor, Riza, Anavee, Lilia, Usha, Iad, Willy, Adrian, and Donna EACH recognisably appears.
 - Generate subtitles from final actual audio, all caps single-line phrases, lifted to around 65% frame height. Keep phone-rules plate unobstructed; avoid subtitles during legibility holds.
 - Validate the final exported duration is STRICTLY below 60s. Suggested 58.0s; if pacing creates overage, shorten dancing and transitions, NOT the rules visual below legibility or the two end lines.
