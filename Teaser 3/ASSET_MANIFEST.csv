@@ -1,24 +1,36 @@
 asset_id,subject,media_type,expected_filename,status,purpose,notes
-REF_MONICA,Monica,portrait,monica.jpg,PENDING,lead identity and continuity,"One face clearly visible; explicit consent for AI animation"
-REF_JESSA,Jessa,portrait,jessa.jpg,PENDING,invitation and rules reveal,"Same approved face and wardrobe across scenes"
-REF_MITCH,Mitch,portrait,mitch.jpg,PENDING,interruption and hand transition,"Spelling MITCH not MICH"
-REF_TERE,Mommy Tere,portrait,mommy_tere.jpg,PENDING,outro CTA,"Consent to likeness use"
-REF_RENEE,Renee,portrait,renee.jpg,PENDING,outro co-frame composite,"Spelling RENEE"
-REF_LEIZEL,Leizel,portrait,leizel.jpg,PENDING,dance montage A,"Confirm distinct from Riza; original note had variant Liza"
-REF_SUSIE,Susie,portrait,susie.jpg,PENDING,dance montage A and ad,"Past-year archive is separate video"
-REF_MARGIE,Margie,portrait,margie.jpg,PENDING,dance montage A,"Consent"
-REF_FLOR,Flor,portrait,flor.jpg,PENDING,dance montage A,"Spelling based on initial note; later heard as Floor"
-REF_RIZA,Riza,portrait,riza.jpg,PENDING,dance montage B,"Distinct cast member"
-REF_ANAVEE,Anavee,portrait,anavee.jpg,PENDING,dance montage B,"Spelling based on initial note; later heard Anavi"
-REF_LILIA,Lilia,portrait,lilia.jpg,PENDING,dance montage B,"Consent"
-REF_USHA,Usha,portrait,usha.jpg,PENDING,dance montage B,"Consent"
-REF_EYAD,Eyad,portrait,eyad.jpg,PENDING,dance montage C,"User later spelled Eyad"
-REF_WILLY,Willy,portrait,willy.jpg,PENDING,dance montage C,"Consent"
-REF_ADRIAN,Adrian,portrait,adrian.jpg,PENDING,dance montage C,"Consent"
-REF_DONNA,Donna,portrait,donna.jpg,PENDING,dance montage C,"Consent"
+REF_MONICA,Monica,portrait,sa_monica.jpeg,FILENAME_SEEN_ONLY,lead identity and continuity,"One face clearly visible; explicit consent for AI animation"
+REF_JESSA,Jessa,portrait,n4_jessa.jpeg,FILENAME_SEEN_ONLY,invitation and rules reveal,"Same approved face and wardrobe across scenes"
+REF_MITCH,Mitch,portrait,MISSING_FROM_SCREENSHOT,MISSING,interruption and hand transition,"Spelling MITCH not MICH"
+REF_TERE,Mommy Tere,portrait,w2_tere.jpeg,IDENTITY_CONFIRM_FILENAME_ONLY,outro CTA,"Consent to likeness use"
+REF_RENEE,Renee,portrait,MISSING_FROM_SCREENSHOT,MISSING,outro co-frame composite,"Spelling RENEE"
+REF_LEIZEL,Leizel,portrait,MISSING_FROM_SCREENSHOT,MISSING,dance montage A,"Confirm distinct from Riza; original note had variant Liza"
+REF_SUSIE,Susie,portrait,sa_susie.jpeg|sa_susie_2.JPG,FILENAME_SEEN_ONLY,dance montage A and ad,"Past-year archive is separate video"
+REF_MARGIE,Margie,portrait,sa_margie.jpeg,FILENAME_SEEN_ONLY,dance montage A,"Consent"
+REF_FLOR,Flor,portrait,sa_flor.jpeg,FILENAME_SEEN_ONLY,dance montage A,"Spelling based on initial note; later heard as Floor"
+REF_RIZA,Riza,portrait,sa_riza.jpeg|sa_riza_two.jpeg,FILENAME_SEEN_ONLY,dance montage B,"Distinct cast member"
+REF_ANAVEE,Anavee,portrait,MISSING_FROM_SCREENSHOT,MISSING,dance montage B,"Spelling based on initial note; later heard Anavi"
+REF_LILIA,Lilia,portrait,sa_lilia.jpeg,FILENAME_SEEN_ONLY,dance montage B,"Consent"
+REF_USHA,Usha,portrait,n4_usha_1.jpeg|n4_usha_2.jpeg,FILENAME_SEEN_ONLY,dance montage B,"Consent"
+REF_EYAD,Eyad,portrait,MISSING_FROM_SCREENSHOT,MISSING,dance montage C,"User later spelled Eyad"
+REF_WILLY,Willy,portrait,w2_willy.jpeg,FILENAME_SEEN_ONLY,dance montage C,"Consent"
+REF_ADRIAN,Adrian,portrait,w2_adrian.jpeg|w2_adrian_two.jpeg,FILENAME_SEEN_ONLY,dance montage C,"Consent"
+REF_DONNA,Donna,portrait,n4_donna.jpeg,FILENAME_SEEN_ONLY,dance montage C,"Consent"
 VIDEO_SUSIE_ARCHIVE,Susie past-year dance,video,susie_archive.mp4,PENDING,phone ad montage,"Must be genuine provided archive and rightfully usable"
 VIDEO_EVENT_REAL,Past practice/dance footage,video,event_archive.mp4,PENDING,authentic fast dance montage,"Ensure all featured identifiable people have consent"
 REF_RULES_IMAGE,Actual game rules,image,game_rules.png,PENDING,exact unspoken phone screen visual,"Do not retype or generate rules; replace in post"
 REF_EVENT_FLYER,Approved Paskong Pinoy flyer,image,event_flyer.png,PENDING,exact event end card,"Needs date venue time and contact / CTA"
 OPTIONAL_FAMILY_AUDIO,Real family greeting if owner provides,audio,family_message.wav,OPTIONAL,authentic emotional hook,"Only with permission; not essential; avoid inventing loved ones"
 MUSIC_TRACK,Original or licensed Christmas instrumental,audio,christmas_track.wav,PENDING,soundtrack,"Document music rights"
+REF_ALLY,Ally,portrait,n4_ally_one.jpeg|n4_ally_two.jpeg,FILENAME_SEEN_ONLY,OPTIONAL silent cameo,Screenshot name only; actual portrait not uploaded; no dialogue; never substitute as another role
+REF_CHARIE,Charie,portrait,n4_charie.jpeg,FILENAME_SEEN_ONLY,OPTIONAL silent cameo,Screenshot name only; actual portrait not uploaded; no dialogue; never substitute as another role
+REF_CHRISTY,Christy,portrait,n4_christy.jpeg,FILENAME_SEEN_ONLY,OPTIONAL silent cameo,Screenshot name only; actual portrait not uploaded; no dialogue; never substitute as another role
+REF_DOK_BING,Dok Bing,portrait,n4_dok_bing_1.jpeg|n4_dok_bing_three.jpeg,FILENAME_SEEN_ONLY,OPTIONAL silent cameo,Screenshot name only; actual portrait not uploaded; no dialogue; never substitute as another role
+REF_MALYN,Malyn,portrait,n4_malyn.jpeg,FILENAME_SEEN_ONLY,OPTIONAL silent cameo,Screenshot name only; actual portrait not uploaded; no dialogue; never substitute as another role
+REF_REX,Rex,portrait,n4_rex.jpeg,FILENAME_SEEN_ONLY,OPTIONAL silent cameo,Screenshot name only; actual portrait not uploaded; no dialogue; never substitute as another role
+REF_SHIELA,Shiela,portrait,n4_shiela.jpeg,FILENAME_SEEN_ONLY,OPTIONAL silent cameo,Screenshot name only; actual portrait not uploaded; no dialogue; never substitute as another role
+REF_ANNA,Anna,portrait,sa_anna_v.jpeg,FILENAME_SEEN_ONLY,OPTIONAL silent cameo,Screenshot name only; actual portrait not uploaded; no dialogue; never substitute as another role
+REF_CHESKA,Cheska,portrait,w2_cheska.jpeg,FILENAME_SEEN_ONLY,OPTIONAL silent cameo,Screenshot name only; actual portrait not uploaded; no dialogue; never substitute as another role
+REF_KATHLEEN,Kathleen,portrait,w2_kathleen_one.jpeg|w2_kathleen_two.jpeg,FILENAME_SEEN_ONLY,OPTIONAL silent cameo,Screenshot name only; actual portrait not uploaded; no dialogue; never substitute as another role
+REF_MISCHIE,Mischie,portrait,w2_mischie_one.jpeg|w2_mischie_two.jpeg,FILENAME_SEEN_ONLY,OPTIONAL silent cameo,Screenshot name only; actual portrait not uploaded; no dialogue; never substitute as another role
+REF_ROWENA_WHENG,Rowena Wheng,portrait,w2_rowena_wheng.jpeg|w2_rowena_wheng_two.jpeg,FILENAME_SEEN_ONLY,OPTIONAL silent cameo,Screenshot name only; actual portrait not uploaded; no dialogue; never substitute as another role
