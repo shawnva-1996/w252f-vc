@@ -1,16 +1,18 @@
 # Paskong Pinoy Remix — Teaser 3: "Malayo sa Pamilya, Pero Hindi Nag-iisa"
 
-Created: 2026-11-10 (Asia/Singapore)
+Created: 2026-11-10 (Asia/Singapore); revised 2026-11-13
+> **LATEST OWNER OVERRIDE — 2026-11-13: POSITIVITY AND LOVE FIRST.** This version supersedes the previously drafted tearful/negative opening. First frame: Monica lovingly sends a Christmas greeting or smiles at her family's memory. Loneliness stays a tender subtext, not a negative lead. See the current [Agent Instruction](GOOGLE_FLOW_AGENT_INSTRUCTION.md), [Episode Agent Prompt](GOOGLE_FLOW_AGENT_PROMPT.md), [Available Cast Prompt Bank](AVAILABLE_CAST_PROMPT_BANK.md) and [screenshot filename index](CAST_REFERENCE_INDEX.md).
+
 Status: PRE-PRODUCTION / SCRIPT PROPOSED / NOT RENDERED. Reference photos, real dance footage, rules image and approved event details pending.
 Source of truth: W252F-VC. Google Flow production methodology adapted from the canonical shawnva-1996/JoblessDev repository, SOURCE_OF_TRUTH.md, project-instructions/doctrines/Stable-Agent-Instruction.txt, production/ACTIVE.json and prompts/OMNI_VIDEO_BASELINE_V2.md.
 
 ## Owner intent (do not erase)
 - This is the **third and final** Paskong Pinoy Remix teaser for Singapore-based Filipinos, particularly overseas Filipino workers and domestic workers.
-- Story: Monica is sad to be away from family at Christmas; she discovers the event via festive advertisement featuring Susie's dancing in archival footage; Jessa invites her; Mitch exuberantly brings them into the celebration; 12 named dancers appear; food, raffle and prizes; Jessa shows the real game rules on a phone without reading them aloud; Monica happily agrees; Mommy Tere and Renee share the outro.
-- Tonal curve: immediate quiet emotion -> curiosity -> friendly Filipino humour -> magical transition -> warmth, dancing and belonging -> human CTA.
+- Story: Monica warmly expresses love for her family in the Philippines while spending Christmas in Singapore; she gently misses them, but the very first beat is positive; she discovers the event via festive advertisement featuring Susie's dancing in archival footage; Jessa invites her; Mitch exuberantly brings them into the celebration; 12 named dancers appear; food, raffle and prizes; Jessa shows the real game rules on a phone without reading them aloud; Monica happily agrees; Mommy Tere and Renee share the outro.
+- Tonal curve: immediate loving warmth -> curious hope -> friendly Filipino humour -> magical transition -> warmth, dancing and belonging -> human CTA.
 - Narrative truth: a community celebration does not replace family back home; it makes Christmas abroad feel less lonely. Portray domestic workers with dignity, warmth, agency, and authenticity. Do not invent individual life circumstances.
 - Maximum final duration 60 seconds HARD. Recommended 58-second vertical 9:16 master. Produce a shorter ~30-35s cut only by trimming without changing the meaning.
-- The media-owner will provide a clearly visible reference selfie for each named member; archival practice/dance videos; exact image of game rules; and the event title/date/venue/time details. Never invent these assets or claim delivery before they are supplied.
+- A screenshot showed 33 portrait filenames on 2026-11-13 but NO actual original portrait files. The media-owner will provide the clearly visible original selfie for each named member; archival practice/dance videos; exact image of game rules; and the event title/date/venue/time details. Never invent these assets or claim delivery before they are supplied.
 - The owner's accounts may have different Flow credit balances; do not assume credits can be pooled or auto-transferred.
 
 ## Casting and canonical spelling
@@ -22,7 +24,7 @@ Optional real video of Susie: only insert owner-supplied licensed/consented arch
 ## APPROVAL-DRAFT TAGLISH SCRIPT — exact on-screen timing for 58s
 | Time | Picture / post | Spoken line / sound |
 | --- | --- | --- |
-| 00.0–04.0 | IN MEDIA RES: close on Monica, tearful beside a softly lit window, holding a family photo/video-call screen. Singapore Christmas bokeh; subdued cool color. | MONICA (soft, restrained): "Pasko na naman… ang layo ko pa rin sa pamilya." |
+| 00.0–04.0 | IN MEDIA RES: Monica already smiling tenderly at her phone/family image, warm fairy lights reflecting in her eyes; positive affection first, wistful love only as subtext. | MONICA (natural, tender smile): "Merry Christmas sa inyo… miss na miss ko kayo." |
 | 04.0–09.0 | Her phone scrolls onto an event ad; phone insert uses the REAL Paskong Pinoy Remix poster plus REAL clip of Susie dancing in last year's event. | MONICA, voice lifting: "Ang saya naman dito…" |
 | 09.0–13.0 | Jessa taps her shoulder gently; Monica looks up. | JESSA: "Gusto mo bang sumali?" |
 | 13.0–17.0 | Mitch pops into frame unexpectedly, exuberant but not screaming. | MITCH: "Besh! Sumali na kayo!" |
@@ -42,8 +44,8 @@ Optional real video of Susie: only insert owner-supplied licensed/consented arch
 Editable line alternatives are creative proposals; keep user-approved lines locked once confirmed. Do not add new speakers or imply family reunion/travel.
 
 ## Emotional and cinematography rules
-1. The first frame must already be emotionally legible: tear or sad smile, holiday glow reflected in phone. Avoid a slow establishing shot.
-2. Monica's grief is quiet and specific, never melodramatic or humiliating. No stereotyping domestic workers.
+1. The first frame must already be emotionally legible: Monica gives a loving family greeting with a genuine smile and warm holiday glow; gentle longing may be felt, but no distress, crying or sorrow at the opening. Avoid a slow establishing shot.
+2. Monica's love is warm and specific; her gentle homesickness is only an understated undertone, never melodramatic or humiliating. No stereotyping domestic workers.
 3. Opening cold Singapore blue/green -> warm golden party; use light / saturation / sound to encode emotional transition.
 4. Real archival party footage is authenticity and identity authority for Susie's dancing and the twelve named dancers where possible.
 5. The digital ad (phone poster and Susie footage), phone rules and final end card MUST be exact graphics edited in post. Flow makes blank-screen or replaceable-screen performance plates.
@@ -62,9 +64,18 @@ Do not use logos, exact camera setups, scripts, or audio of reference campaigns.
 
 ## Repository deliverables
 - [GOOGLE_FLOW_AGENT_INSTRUCTION.md](GOOGLE_FLOW_AGENT_INSTRUCTION.md) — persistent cross-account agent operating instruction.
+- [GOOGLE_FLOW_AGENT_PROMPT.md](GOOGLE_FLOW_AGENT_PROMPT.md) — separate current episode-level agent prompt.
 - [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md) — self-contained per-pickup prompt pack + edit plan.
+- [CAST_REFERENCE_INDEX.md](CAST_REFERENCE_INDEX.md) — all 33 screenshot filenames mapped to 24 distinct people; no full-resolution images supplied yet.
+- [AVAILABLE_CAST_PROMPT_BANK.md](AVAILABLE_CAST_PROMPT_BANK.md) — ready-to-fill dialogue, dancer and optional cameo pickups.
 - [ASSET_MANIFEST.csv](ASSET_MANIFEST.csv) — identity / archival / graphic assets to collect.
 - This README — story, timing, roster, cinematography, research and completion gates.
+
+## 2026-11-13 readiness update
+- Screenshot-only reference filenames are indexed in CAST_REFERENCE_INDEX.md; 33 files / 24 distinct people.
+- 12 of 17 previously required cast names have filename matches (Tere identity provisional); missing names are Mitch, Renee, Leizel, Anavee and Eyad.
+- DO NOT identify Mischie as Mitch without owner confirmation; 12 additional names are optional silent cameos, not replacements.
+- No named member can be used in Flow until an original reference image (or consented actual video) has been supplied.
 
 ## Next production gates
 1. Receive portraits, obtain permission to use and AI-animate likenesses, fill manifest.
