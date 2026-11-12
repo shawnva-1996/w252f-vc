@@ -63,7 +63,7 @@ Check final video for correct spelling, event facts, all required faces, consent
 
 As of 2026-11-13, screenshot filenames (not original photos) are documented for the following required people: Monica, Jessa, Mommy Tere (provisional photo mapping), Susie, Margie, Flor, Riza, Lilia, Usha, Willy, Adrian, Donna. All remain **FILENAME_IDENTIFIED_NOT_UPLOADED**.
 
-Required missing: Mitch, Renee, Leizel, Anavee, Eyad. **Mischie is not Mitch** absent explicit user confirmation. Additional optional non-speaking cameo candidates: Ally, Charie, Christy, Dok Bing, Malyn, Rex, Shiela, Anna, Cheska, Kathleen, Mischie, Rowena Wheng. File names and alternatives appear in CAST_REFERENCE_INDEX.md. Do not mix cast replacements.
+Required missing: Mitch, Renee, Leizel, Anavee, Iad. **Mischie is not Mitch** absent explicit user confirmation. Additional optional non-speaking cameo candidates: Ally, Charie, Christy, Dok Bing, Malyn, Rex, Shiela, Anna, Cheska, Kathleen, Mischie, Rowena Wheng. File names and alternatives appear in CAST_REFERENCE_INDEX.md. Do not mix cast replacements.
 
 Do not produce actual member performances until portrait attachments have been provided and likeness permissions are established.
 
