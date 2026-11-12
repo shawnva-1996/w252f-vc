@@ -22,7 +22,7 @@ PROVISIONALLY READY TO PREPARE because filenames were identified:
 - `w2_adrian.jpeg` / `w2_adrian_two.jpeg`: ADRIAN dance.
 - `n4_donna.jpeg`: DONNA dance.
 
-MISSING FROM SCREENSHOT: MITCH, RENEE, LEIZEL, ANAVEE, EYAD. Hold their speaking/dance pickups until a valid original selfie or genuine usable footage is provided. `w2_mischie_one.jpeg` is NOT automatically Mitch. Also identified 12 OPTIONAL non-speaking cameo names: Ally, Charie, Christy, Dok Bing, Malyn, Rex, Shiela, Anna, Cheska, Kathleen, Mischie, Rowena Wheng. These do NOT replace promised original dancers; include only if timing and approval permit.
+MISSING FROM SCREENSHOT: MITCH, RENEE, LEIZEL, ANAVEE, IAD. Hold their speaking/dance pickups until a valid original selfie or genuine usable footage is provided. `w2_mischie_one.jpeg` is NOT automatically Mitch. Also identified 12 OPTIONAL non-speaking cameo names: Ally, Charie, Christy, Dok Bing, Malyn, Rex, Shiela, Anna, Cheska, Kathleen, Mischie, Rowena Wheng. These do NOT replace promised original dancers; include only if timing and approval permit.
 
 **STORY ORDER (58s):**
 00–04s Monica smiles lovingly at family photo or neutral phone (real photo inserted in post if authorised): exact proposed line "Merry Christmas sa inyo… miss na miss ko kayo." Warm golden festive bokeh. Not crying.
@@ -30,7 +30,7 @@ MISSING FROM SCREENSHOT: MITCH, RENEE, LEIZEL, ANAVEE, EYAD. Hold their speaking
 09–13s Jessa gently taps Monica's shoulder: "Gusto mo bang sumali?"
 13–17s Mitch enters playfully: "Besh! Sumali na kayo!" (DO NOT render until Mitch selfie arrives.)
 17–20s Mitch reaches/pulls them into magical match-cut transformation; create separately edited reaches / whip pan, not an unstable three-face one-take transformation.
-20–33s energised real event dance footage preferred; each of the 12 nominated dancers gets a recognisable moment: Leizel, Susie, Margie, Flor; Riza, Anavee, Lilia, Usha; Eyad, Willy, Adrian, Donna; with actual food, actual raffle and actual prizes only if confirmed, and a radiant Monica reaction. Use individual quiet dance pickups if real footage inadequate. Do not invent absent dancers.
+20–33s energised real event dance footage preferred; each of the 12 nominated dancers gets a recognisable moment: Leizel, Susie, Margie, Flor; Riza, Anavee, Lilia, Usha; Iad, Willy, Adrian, Donna; with actual food, actual raffle and actual prizes only if confirmed, and a radiant Monica reaction. Use individual quiet dance pickups if real footage inadequate. Do not invent absent dancers.
 33–36s Jessa: "Gusto mo ba sumama?"
 36–38s Monica: "Of course, siyempre!"
 38–43s Jessa displays phone with exact owner-supplied game-rules image inserted legibly in post. No spoken line.
