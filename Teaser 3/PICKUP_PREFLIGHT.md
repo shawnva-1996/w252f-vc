@@ -34,6 +34,15 @@ This checklist applies to EVERY P01–P14 pickup and any later silent dancer/cam
 ## Mischie P04 update (owner confirmed)
 The P04/P05 actor is **Mischie**. An earlier P04 speaking generation was flagged by Flow; the specific cause is unknown and the new V4 spoken version is **not yet tested**. Choose one real original photo of Mischie with permission. P04 provides a short spoken prompt and a safe **silent** performance alternative for use with Mischie's real recorded invitation in the editor. Do not repeatedly reword a refused prompt to defeat a platform filter.
 
+## Continuity check — Jessa P09 and P11
+
+- [ ] P09's **approved** clip is the wardrobe anchor. Save a still from P09 where Jessa's outfit is clearly visible using Flow's **Save frame** feature.
+- [ ] For P11, keep `n4_jessa.jpeg` as Jessa's original identity reference; the P09 saved still is an additional **outfit/lighting reference**, not a replacement identity. If the selected Omni 1.2 Flash model does not permit multiple ingredients, do not change the locked generation preset; choose an eligible alternative within approved workflow or edit using a phone close-up.
+- [ ] Confirm neckline, sleeve length, clothing color/pattern, accessories and hairstyle match the accepted P09 take.
+- [ ] P11 is silent and uses only the owner-supplied game-rules visual in post. Do not generate rules text.
+- [ ] Before spending another 10 credits, check whether cropping, a phone insert, or an existing matching take already solves the mismatch.
+- [ ] Google Flow's behavior depends on the selected mode and reference compatibility; no guarantee that a saved still will perfectly lock clothing. Respect any content refusal.
+
 ## Gate A: Reference and permissions BEFORE paying any credits
 - [ ] The account has at least 10 real available credits, has fewer than five prior charged generations at this preset under the assumed 50-credit budget, and the current attempt would not exceed 50 credits. Count charged failed attempts as well as successful generations.
 - [ ] The Flow interface shows exactly **Omni 1.2 Flash / 360p / 10 seconds / one output / 10 credits**. If not, STOP; do not silently change models or duration.
