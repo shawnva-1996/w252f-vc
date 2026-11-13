@@ -13,7 +13,7 @@
 | Monica | `sa_monica.jpeg` | P01, P02, P10, P12 |
 | Jessa | `n4_jessa.jpeg` | P03, P09, P11 |
 | Mommy Tere | `w2_tere.jpeg` (confirm that this is Mommy Tere) | P13 |
-| Mitch | **MISSING — hold** | P04, P05 |
+| Mischie | `w2_mischie_one.jpeg` or `w2_mischie_two.jpeg` (choose one actual approved original) | P04, P05 |
 | Renee | **MISSING — hold** | P14 |
 
 **Use the complete spoken lines exactly as shown in [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md).** The bank below is only for *silent* dancers and optional silent cameos.
@@ -134,9 +134,9 @@ There is no speaking. Keep it as a single continuous shot, with only Donna visib
 
 **Leizel, Anavee, and Iad** need their actual reference photos or usable real dance footage. Do not invent or substitute faces. A silent new-dance pickup can use the same short style above once the relevant original photo is provided.
 
-## Optional background cameos (12 additional photo-matched people)
+## Optional background cameos (11 additional photo-matched people)
 
-These are *not* newly added speaking characters and do not replace the 12 originally featured dancers. Include only if there is time and the member has given permission.
+Mischie is already a main story character, not an optional cameo. The eleven people below are *not* newly added speaking characters and do not replace the 12 originally featured dancers. Include only if there is time and the member has given permission.
 
 ### Ally — optional silent Christmas greeting
 
@@ -256,18 +256,6 @@ Create a warm festive vertical 9:16 video of Kathleen using the attached referen
 Kathleen is at a cheerful Christmas gathering with warm golden lights. Kathleen gives a friendly smile and a small welcoming wave.
 
 There is no speaking. Keep it as a single continuous shot, with only Kathleen visible. No subtitles, no logos, and no on-screen text.
-```
-
-### Mischie — optional silent Christmas greeting
-
-**Attach one original:** `w2_mischie_one.jpeg` or `w2_mischie_two.jpeg`
-
-```text
-Create a warm festive vertical 9:16 video of Mischie using the attached reference photo.
-
-Mischie is at a cheerful Christmas gathering with warm golden lights. Mischie gives a friendly smile and a small welcoming wave.
-
-There is no speaking. Keep it as a single continuous shot, with only Mischie visible. No subtitles, no logos, and no on-screen text.
 ```
 
 ### Rowena Wheng — optional silent Christmas greeting
