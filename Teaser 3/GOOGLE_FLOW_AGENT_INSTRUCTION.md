@@ -42,6 +42,18 @@ The user has confirmed a **simple, conversational P02 prompt approach worked** i
 - Owner confirmed **Mischie** is the P04/P05 performer. Mischie is a principal story character, not an optional cameo.
 - Consent is required before animating identifiable member photographs, and any real family images need permission.
 
+## Jessa wardrobe continuity lock (P03 / P09 / P11)
+
+The owner's observed problem: Jessa's outfit differs between the generated P09 and P11 clips. **Treat the accepted P09 outfit as canonical for this party sequence.** For P11, keep `n4_jessa.jpeg` as the original identity reference; also use a saved P09 video **still frame** as a separate **wardrobe reference**, if Omni 1.2 Flash Ingredients accepts both. Google Flow supports saving frames as images and using visual ingredients for consistency. A saved generated frame is for outfit/color reference only; never replace the original portrait as the canonical identity.
+
+1. In Flow open accepted P09, pause on a clear frame showing Jessa's upper-body outfit, choose **Save frame**.
+2. Reuse the same original Jessa image plus that saved frame as Ingredients for P11 (only if model settings permit them). Use P11's revised short prompt in FLOW_PICKUP_PROMPTS.md.
+3. Check **clothing color, sleeves, neckline, accessories, hair and makeup**, and party-lighting continuity on output. For P03, use this same visual wardrobe target where it is narratively the same event.
+4. If wardrobe consistency fails or the platform disallows another reference, avoid spending multiple extra 10-credit renders. **Use a phone close-up or crop/cutaway in post**, or the genuine approved footage, to hide the clothing discontinuity.
+5. The 10s 360p 10-credit Omni 1.2 Flash preset remains unchanged. Source generation and final timeline are separate concerns.
+
+Do not put multi-scene agent instructions into the short model-facing prompt. Character setup is optional where available and suitable; verify eligibility and credit cost before any extra generation.
+
 ## Current generation procedure
 
 1. Load this Agent Instruction ONCE, then load [GOOGLE_FLOW_AGENT_PROMPT.md](GOOGLE_FLOW_AGENT_PROMPT.md) ONCE for this episode.
