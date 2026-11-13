@@ -1,5 +1,20 @@
 # Paskong Pinoy Remix — Teaser 3 | Google Flow Agent Instruction V4
 
+## LOCKED GOOGLE FLOW GENERATION PRESET — OWNER REQUIREMENT (2026-11-13)
+
+For **every Teaser 3 Flow video generation**, including speaking pickups, silent gestures, dancers, cameos, and charged retries, select in Flow's UI:
+
+- **Model:** Omni 1.2 Flash
+- **Resolution:** 360p
+- **Clip duration:** 10 seconds (source footage; trim down in the final editor)
+- **Cost assumption provided by owner:** 10 credits for each generated video
+- **Per-account budget:** 50 credits → **at most 5 charged generations per account** at that price
+- **Aspect ratio:** 9:16
+
+**Do not automatically choose 8s, another Omni model, 720p/1080p, an upscale, or multiple outputs.** If the selected preset isn't available or the displayed price differs, stop and check rather than spending credits under different settings. Count every *charged* attempt, including retries, against that account's budget. Settings/balances are user-provided expectations and must be confirmed in the live Flow UI before each generation. Never treat credits from different accounts as pooled. This choice is locked for this Teaser 3 workflow until the owner changes it.
+
+**Important:** 10 seconds refers to each generated source pickup, **not** the final edit. The completed teaser remains **58 seconds**. Model-facing prompts remain brief natural language; preset and credit controls belong in Flow UI / agent preflight, not the video text prompt.
+
 **Current authority: 2026-11-13.** This is the persistent **AGENT** instruction, not text to paste into the video-generation model with every shot. It adapts the principles of the canonical JoblessDev production doctrine without changing that original repository.
 
 ## Role and creative priority
@@ -30,7 +45,7 @@ The user has confirmed a **simple, conversational P02 prompt approach worked** i
 ## Current generation procedure
 
 1. Load this Agent Instruction ONCE, then load [GOOGLE_FLOW_AGENT_PROMPT.md](GOOGLE_FLOW_AGENT_PROMPT.md) ONCE for this episode.
-2. For each new VIDEO output, choose the single intended original still; verify the relevant model, 9:16 aspect ratio, supported approximately eight-second source duration, and price/credits in the Flow UI.
+2. For each new VIDEO output, choose the single intended original still; verify the relevant model, 9:16 aspect ratio, supported approximately ten-second source duration, and price/credits in the Flow UI.
 3. Copy **one** `text` prompt from [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md), or a **silent** cast prompt from [AVAILABLE_CAST_PROMPT_BANK.md](AVAILABLE_CAST_PROMPT_BANK.md). Never paste the whole file or the episode prompt directly into the generator.
 4. Generate from the original permitted **still**. Do not ask Flow to change what a previously uploaded/generated video says; use new video from original stills or do human speech edits externally.
 5. Audition the entire generated audio. Check the correct person, all exact words (including sentence endings), one speaker, natural Filipino delivery, and a quiet smile after the final word. A short unhurried line is preferred; never accept a truncated sentence.
@@ -42,7 +57,7 @@ The user has confirmed a **simple, conversational P02 prompt approach worked** i
 
 ## Budget and retry discipline
 
-The JoblessDev historical economical draft baseline used Gemini Omni Flash and 360p where available; always check the **current** Flow engine, feature eligibility, cost, and upscale choices. Do not assume multiple accounts combine credits or that old credit costs remain valid. Select first, upscale the winner if supported. Classify failures (policy, service, missing reference, incorrect speaker, cut-off words, continuity, audio) before deciding whether a *permitted* new attempt is worthwhile.
+The previous JoblessDev baseline is superseded for this Teaser 3 workflow by the owner-locked **Omni 1.2 Flash, 360p, 10-second clip, 10-credit preset**. Confirm that the live Flow UI is showing those exact settings and the credit cost before generating. Do not assume multiple accounts combine credits or that old credit costs remain valid. Select first, upscale the winner if supported. Classify failures (policy, service, missing reference, incorrect speaker, cut-off words, continuity, audio) before deciding whether a *permitted* new attempt is worthwhile.
 
 ## Updated story and names
 
