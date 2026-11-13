@@ -1,5 +1,13 @@
 # TEASER 3 — CURRENT GOOGLE FLOW AGENT PROMPT (v2, 2026-11-13)
 
+## Production reliability override — 2026-11-13 (V3)
+
+**The definitive model-facing instructions for every shot are in [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md), and numeric timings in [PICKUP_TIMING_MANIFEST.json](PICKUP_TIMING_MANIFEST.json).** Earlier prose timings/prompts in this file are narrative background only where different. Use [PICKUP_PREFLIGHT.md](PICKUP_PREFLIGHT.md) before every generation; static checks: `node "Teaser 3/PICKUP_PREFLIGHT.mjs"`.
+
+**Never try to add/change speech by editing a previously generated or uploaded video in Flow.** Every speaking pickup is a new generation referencing the original permitted portrait image; one speaker, one line, all speech finished before edit point, 8-second draft source when available, and 2+ seconds silent tail. If Flow refuses a policy-sensitive generation, stop retries and use real recorded dialogue in the editor. Google Flow policy outcomes cannot be guaranteed. This directive applies to **all** performers (Monica, Jessa, Mitch, Mommy Tere, Renee) and any additional voice pickup.
+
+Latest exact 58-second time windows: Monica P01 00–06; Monica P02 06–11; Jessa P03 11–15; Mitch P04 15–19; transition P05 19–21; party P06–P08 21–32; Jessa P09 32–35; Monica P10 35–38; rules P11 38–43; Monica P12 43–47; Tere P13 47–52; Renee P14 52–55; end card 55–58.
+
 **Paste this as the episode-level agent prompt AFTER loading [GOOGLE_FLOW_AGENT_INSTRUCTION.md](GOOGLE_FLOW_AGENT_INSTRUCTION.md).** The agent instruction is stable across all accounts, while this episode prompt describes the editable production plan. For actual video-generation model calls, use only the atomic prompt for that pickup from [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md) or the canonical one-person cameo prompt below; do not dump the entire brief into Veo.
 
 ## Agent prompt — ready to paste
@@ -26,15 +34,17 @@ MISSING FROM SCREENSHOT: MITCH, RENEE, LEIZEL, ANAVEE, IAD. Hold their speaking/
 
 **Audio correction (2026-11-13):** The fully required line is "Merry Christmas sa inyo… miss na miss ko na kayo." The original four-second script cut it off. Give Monica a six-second final window (source generation eight seconds, final two seconds a silent tail); reduce the dance montage by two seconds for a 58-second final edit. If needed, render P01B as only "Miss na miss ko na kayo." from her still photo or add a consensually recorded human voiceover in post. If Flow reports a policy warning, distinguish editing speech in uploaded video (unsupported) from producing new footage from a still image; do not force repeated retries.
 
+**RENDERING RULE V3:** This episode-level document is for the AGENT's context, not the video model. Use one canonical pickup per generation from FLOW_PICKUP_PROMPTS.md after checking PICKUP_PREFLIGHT.md. The numeric timing manifest is authoritative if any older line here conflicts. One original still per speaking performance, source 8 seconds when offered, complete dialogue by the speech deadline then silent tail. Never edit uploaded video to alter speech. For policy warnings, stop and use real performer voiceover in post.
+
 **STORY ORDER (58s):**
 00–06s Monica smiles lovingly at family photo or neutral phone (real photo inserted in post if authorised): exact proposed line "Merry Christmas sa inyo… miss na miss ko na kayo." Warm golden festive bokeh. Not crying.
 06–11s Monica sees the actual Christmas gathering advert, including genuine last-year clip of Susie dancing. "Ang saya naman dito…"
 11–15s Jessa gently taps Monica's shoulder: "Gusto mo bang sumali?"
 15–19s Mitch enters playfully: "Besh! Sumali na kayo!" (DO NOT render until Mitch selfie arrives.)
-19–22s Mitch reaches/pulls them into magical match-cut transformation; create separately edited reaches / whip pan, not an unstable three-face one-take transformation.
-22–33s energised real event dance footage preferred; each of the 12 nominated dancers gets a recognisable moment: Leizel, Susie, Margie, Flor; Riza, Anavee, Lilia, Usha; Iad, Willy, Adrian, Donna; with actual food, actual raffle and actual prizes only if confirmed, and a radiant Monica reaction. Use individual quiet dance pickups if real footage inadequate. Do not invent absent dancers.
-33–36s Jessa: "Gusto mo ba sumama?"
-36–38s Monica: "Of course, siyempre!"
+19–21s Mitch reaches/pulls them into magical match-cut transformation; create separately edited reaches / whip pan, not an unstable three-face one-take transformation.
+21–32s energised real event dance footage preferred; each of the 12 nominated dancers gets a recognisable moment: Leizel, Susie, Margie, Flor; Riza, Anavee, Lilia, Usha; Iad, Willy, Adrian, Donna; with actual food, actual raffle and actual prizes only if confirmed, and a radiant Monica reaction. Use individual quiet dance pickups if real footage inadequate. Do not invent absent dancers.
+32–35s Jessa: "Gusto mo ba sumama?"
+35–38s Monica: "Of course, siyempre!"
 38–43s Jessa displays phone with exact owner-supplied game-rules image inserted legibly in post. No spoken line.
 43–47s Monica: "Walang problema, madali lang 'yan!"
 47–52s Mommy Tere: "Tara na sa Paskong Pinoy Remix!"
