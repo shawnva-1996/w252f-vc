@@ -112,7 +112,7 @@ NEGATIVES: No subtitles, no logos, no fake text/UI, no internal cuts, no second 
 **Edit / QA:** Keep 4s in final timeline; audio must be completely finished before its end. BLOCKED UNTIL ORIGINAL MITCH PHOTO IS SUPPLIED. w2_mischie is not proof of Mitch.
 
 
-## P05 — Mitch invites with hand gesture | FINAL 19–22s
+## P05 — Mitch invites with hand gesture | FINAL 19–21s
 
 **Copy ONLY the block below as the model-facing pickup prompt.**
 
@@ -136,7 +136,7 @@ NEGATIVES: No subtitles, no logos, no fake text/UI, no internal cuts, no second 
 **Edit / QA:** Keep 3s in final timeline; audio must be completely finished before its end. No actual pulling of multiple generated people. Transition made from post match-cut. BLOCKED UNTIL MITCH PHOTO IS SUPPLIED.
 
 
-## P09 — Jessa renews the invitation | FINAL 33–36s
+## P09 — Jessa renews the invitation | FINAL 32–35s
 
 **Copy ONLY the block below as the model-facing pickup prompt.**
 
@@ -160,7 +160,7 @@ NEGATIVES: No subtitles, no logos, no fake text/UI, no internal cuts, no second 
 **Edit / QA:** Keep 3s in final timeline; audio must be completely finished before its end. No second speaker, no inferred reverse shot.
 
 
-## P10 — Monica says yes | FINAL 36–38s
+## P10 — Monica says yes | FINAL 35–38s
 
 **Copy ONLY the block below as the model-facing pickup prompt.**
 
@@ -174,14 +174,14 @@ SILENT CHARACTERS: NONE.
 CAMERA / FRAMING: Warm party 9:16 locked close-up, same Monica as P01/P02.
 ONE ACTION: Monica immediately beams and nods once toward Jessa, off-camera.
 EXACT SPEECH: "Of course, siyempre!"
-SPEECH TIMING: Begin the line immediately, in natural unhurried Filipino Tagalog/Taglish; complete the WHOLE sentence, including its last word, within 1.6 seconds of the 8-second source clip. Do not truncate, improvise, repeat, or add words. The remaining 6.4 seconds must be completely SILENT.
+SPEECH TIMING: Begin the line immediately, in natural unhurried Filipino Tagalog/Taglish; complete the WHOLE sentence, including its last word, within 2.2 seconds of the 8-second source clip. Do not truncate, improvise, repeat, or add words. The remaining 5.8 seconds must be completely SILENT.
 PERFORMANCE: Warm human Christmas affection, gentle welcoming expression, restrained natural acting; no negativity or anger.
 ENDING / TAIL: Once final word is fully spoken, Monica silently holds a friendly smile and natural eyeline until clip ends.
 PACING: Start meaningful action at the very first frame. No setup pause or extra gestures.
 NEGATIVES: No subtitles, no logos, no fake text/UI, no internal cuts, no second voice, no added dialogue, no watermarks, no invented identity or family scene.
 ```
 
-**Edit / QA:** Keep 2s in final timeline; audio must be completely finished before its end. If the whole line does not fit naturally in 2 seconds, protect dialogue and shorten adjacent music montage instead.
+**Edit / QA:** Keep 3s in final timeline; audio must be completely finished before its end. If the whole line does not fit naturally in 3 seconds, protect dialogue and shorten adjacent music montage instead.
 
 
 ## P11 — Jessa displays the actual rules image | FINAL 38–43s
@@ -279,21 +279,21 @@ NEGATIVES: No subtitles, no logos, no fake text/UI, no internal cuts, no second 
 
 **Edit / QA:** Keep 3s in final timeline; audio must be completely finished before its end. BLOCKED UNTIL RENEE ORIGINAL PHOTO IS SUPPLIED; single speaker; combine with Tere in post.
 
-## P06 — Dancers group A | FINAL 22–25s
+## P06 — Dancers group A | FINAL 21–24s
 
 **Post-production from authentic, consented media first.** Required visible members: **Leizel, Susie, Margie, Flor**. 
 
 No generated historical video, no invented visible identity. If footage is absent, use approved original single-person portrait with a SILENT one-step dance animation (one person, one camera, 8-second source; select 0.5–1.5s in post) or a static photo with editorial movement. Do not fabricate their voice. Reserve the absent members' slots pending source reference.
 
 
-## P07 — Dancers group B | FINAL 25–28s
+## P07 — Dancers group B | FINAL 24–27s
 
 **Post-production from authentic, consented media first.** Required visible members: **Riza, Anavee, Lilia, Usha**. 
 
 No generated historical video, no invented visible identity. If footage is absent, use approved original single-person portrait with a SILENT one-step dance animation (one person, one camera, 8-second source; select 0.5–1.5s in post) or a static photo with editorial movement. Do not fabricate their voice. Reserve the absent members' slots pending source reference.
 
 
-## P08 — Dancers group C and joy montage | FINAL 28–33s
+## P08 — Dancers group C and joy montage | FINAL 27–32s
 
 **Post-production from authentic, consented media first.** Required visible members: **Iad, Willy, Adrian, Donna**. 28-31 dancers, 31-33 happy Monica/food/raffle inserts where confirmed
 
@@ -303,7 +303,7 @@ No generated historical video, no invented visible identity. If footage is absen
 If the entire P01 line was correctly spoken except that its ending clipped, do NOT upload the failed clip to Flow and ask for extra speech. Preserve what already works. Either record the complete P01 dialogue with a willing real speaker and sync in an editor over a silent Monica shot, OR (only if Flow policy allows) independently generate a NEW photo-referenced one-speaker clip with exact words: **"Miss na miss ko na kayo."** Start immediately; finish by 3s, silent smiling tail. Stop if policy warning occurs. Do not join mismatched voices deceptively; prefer authentic performance.
 
 ## Final edit
-- **00–06** Monica love; **06–11** ad discovery; **11–15** Jessa invite; **15–19** Mitch invite; **19–22** arm transition; **22–33** dance + food/raffle (only confirmed), featuring all 12 designated dancers; **33–36** Jessa asks; **36–38** Monica answers; **38–43** actual rules image; **43–47** Monica reacts; **47–52** Mommy Tere invite; **52–55** Renee joins (separate composite); **55–58** verified flyer end card.
+- **00–06** Monica love; **06–11** ad discovery; **11–15** Jessa invite; **15–19** Mitch invite; **19–21** arm transition; **21–32** dance + food/raffle (only confirmed), featuring all 12 designated dancers; **32–35** Jessa asks; **35–38** Monica answers; **38–43** actual rules image; **43–47** Monica reacts; **47–52** Mommy Tere invite; **52–55** Renee joins (separate composite); **55–58** verified flyer end card.
 - Target 58s; never exceed 60s. Finish one line BEFORE each hard cut; trim music and dancing first if needed.
 - Actual final audio, not prompt, controls final subtitles; raised safe region around 65% from top, avoid obscuring phone screen.
 - Source portraits for Mitch, Renee, Leizel, Anavee, Iad remain unavailable in screenshot; w2_tere.jpeg identification needs confirmation.
