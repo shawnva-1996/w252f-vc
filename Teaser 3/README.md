@@ -1,10 +1,18 @@
 # Paskong Pinoy Remix — Teaser 3: "Malayo sa Pamilya, Pero Hindi Nag-iisa"
 
+## Production reliability override — 2026-11-13 (V3)
+
+**The definitive model-facing instructions for every shot are in [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md), and numeric timings in [PICKUP_TIMING_MANIFEST.json](PICKUP_TIMING_MANIFEST.json).** Earlier prose timings/prompts in this file are narrative background only where different. Use [PICKUP_PREFLIGHT.md](PICKUP_PREFLIGHT.md) before every generation; static checks: `node "Teaser 3/PICKUP_PREFLIGHT.mjs"`.
+
+**Never try to add/change speech by editing a previously generated or uploaded video in Flow.** Every speaking pickup is a new generation referencing the original permitted portrait image; one speaker, one line, all speech finished before edit point, 8-second draft source when available, and 2+ seconds silent tail. If Flow refuses a policy-sensitive generation, stop retries and use real recorded dialogue in the editor. Google Flow policy outcomes cannot be guaranteed. This directive applies to **all** performers (Monica, Jessa, Mitch, Mommy Tere, Renee) and any additional voice pickup.
+
+Latest exact 58-second time windows: Monica P01 00–06; Monica P02 06–11; Jessa P03 11–15; Mitch P04 15–19; transition P05 19–21; party P06–P08 21–32; Jessa P09 32–35; Monica P10 35–38; rules P11 38–43; Monica P12 43–47; Tere P13 47–52; Renee P14 52–55; end card 55–58.
+
 Created: 2026-11-10 (Asia/Singapore); revised 2026-11-13
 > **LATEST OWNER OVERRIDE — 2026-11-13: POSITIVITY AND LOVE FIRST.** This version supersedes the previously drafted tearful/negative opening. First frame: Monica lovingly sends a Christmas greeting or smiles at her family's memory. Loneliness stays a tender subtext, not a negative lead. See the current [Agent Instruction](GOOGLE_FLOW_AGENT_INSTRUCTION.md), [Episode Agent Prompt](GOOGLE_FLOW_AGENT_PROMPT.md), [Available Cast Prompt Bank](AVAILABLE_CAST_PROMPT_BANK.md) and [screenshot filename index](CAST_REFERENCE_INDEX.md).
 
 Status: PRE-PRODUCTION / SCRIPT PROPOSED / NOT RENDERED. Reference photos, real dance footage, rules image and approved event details pending.
-Source of truth: W252F-VC. Google Flow production methodology adapted from the canonical shawnva-1996/JoblessDev repository, SOURCE_OF_TRUTH.md, project-instructions/doctrines/Stable-Agent-Instruction.txt, production/ACTIVE.json and prompts/OMNI_VIDEO_BASELINE_V2.md.
+Source of truth: W252F-VC. V3 dialogue-safe plan dated 2026-11-13. Google Flow production methodology adapted from the canonical shawnva-1996/JoblessDev repository, SOURCE_OF_TRUTH.md, project-instructions/doctrines/Stable-Agent-Instruction.txt, production/ACTIVE.json and prompts/OMNI_VIDEO_BASELINE_V2.md.
 
 ## Owner intent (do not erase)
 - This is the **third and final** Paskong Pinoy Remix teaser for Singapore-based Filipinos, particularly overseas Filipino workers and domestic workers.
@@ -38,8 +46,8 @@ If Flow drops the last words, preserve the successful opening footage; generate 
 | 25.0–28.0 | Dance montage group B: Riza, Anavee, Lilia, Usha. | Music. |
 | 28.0–31.0 | Dance montage group C: Iad, Willy, Adrian, Donna. | Music. |
 | 31.0–33.0 | REAL dancing/practice crowd, smiles, food, raffle and prizes; meaningful Monica reaction (wide-eyed happy smile). Props and prizes only if genuinely planned. | Music dips slightly to make next line clear. |
-| 33.0–36.0 | Jessa turns to Monica. | JESSA: "Gusto mo ba sumama?" |
-| 36.0–38.0 | Monica responds immediately, delighted. | MONICA: "Of course, siyempre!" |
+| 32.0–35.0 | Jessa turns to Monica. | JESSA: "Gusto mo ba sumama?" |
+| 35.0–38.0 | Monica responds immediately, delighted. | MONICA: "Of course, siyempre!" |
 | 38.0–43.0 | Jessa raises phone toward Monica; screen is replaced in post with the EXACT owner-provided image of game rules, visible long enough to read. | Music under; NO dialogue; do not render or rewrite rules using AI. |
 | 43.0–47.0 | Monica returns a confident little grin. | MONICA: "Walang problema, madali lang 'yan!" |
 | 47.0–52.0 | Mommy Tere looks toward the camera in event lighting. | MOMMY TERE: "Tara na sa Paskong Pinoy Remix!" |
@@ -70,7 +78,9 @@ Do not use logos, exact camera setups, scripts, or audio of reference campaigns.
 ## Repository deliverables
 - [GOOGLE_FLOW_AGENT_INSTRUCTION.md](GOOGLE_FLOW_AGENT_INSTRUCTION.md) — persistent cross-account agent operating instruction.
 - [GOOGLE_FLOW_AGENT_PROMPT.md](GOOGLE_FLOW_AGENT_PROMPT.md) — separate current episode-level agent prompt.
-- [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md) — self-contained per-pickup prompt pack + edit plan.
+- [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md) — authoritative V3 atomic per-pickup prompts with dialogue-completion and policy-safe generation instructions.
+- [PICKUP_TIMING_MANIFEST.json](PICKUP_TIMING_MANIFEST.json) — authoritative per-shot 58-second timetable, spoken lines and performance deadlines.
+- [PICKUP_PREFLIGHT.md](PICKUP_PREFLIGHT.md) and [PICKUP_PREFLIGHT.mjs](PICKUP_PREFLIGHT.mjs) — scene preflight and deterministic structural validator.
 - [CAST_REFERENCE_INDEX.md](CAST_REFERENCE_INDEX.md) — all 33 screenshot filenames mapped to 24 distinct people; no full-resolution images supplied yet.
 - [AVAILABLE_CAST_PROMPT_BANK.md](AVAILABLE_CAST_PROMPT_BANK.md) — ready-to-fill dialogue, dancer and optional cameo pickups.
 - [ASSET_MANIFEST.csv](ASSET_MANIFEST.csv) — identity / archival / graphic assets to collect.
