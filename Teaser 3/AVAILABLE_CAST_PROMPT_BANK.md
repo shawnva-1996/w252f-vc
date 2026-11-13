@@ -1,5 +1,20 @@
 # Teaser 3 — Available cast prompt bank V4
 
+## LOCKED GOOGLE FLOW GENERATION PRESET — OWNER REQUIREMENT (2026-11-13)
+
+For **every Teaser 3 Flow video generation**, including speaking pickups, silent gestures, dancers, cameos, and charged retries, select in Flow's UI:
+
+- **Model:** Omni 1.2 Flash
+- **Resolution:** 360p
+- **Clip duration:** 10 seconds (source footage; trim down in the final editor)
+- **Cost assumption provided by owner:** 10 credits for each generated video
+- **Per-account budget:** 50 credits → **at most 5 charged generations per account** at that price
+- **Aspect ratio:** 9:16
+
+**Do not automatically choose 8s, another Omni model, 720p/1080p, an upscale, or multiple outputs.** If the selected preset isn't available or the displayed price differs, stop and check rather than spending credits under different settings. Count every *charged* attempt, including retries, against that account's budget. Settings/balances are user-provided expectations and must be confirmed in the live Flow UI before each generation. Never treat credits from different accounts as pooled. This choice is locked for this Teaser 3 workflow until the owner changes it.
+
+**Important:** 10 seconds refers to each generated source pickup, **not** the final edit. The completed teaser remains **58 seconds**. Model-facing prompts remain brief natural language; preset and credit controls belong in Flow UI / agent preflight, not the video text prompt.
+
 **Current, simplified Google Flow style (2026-11-13).** The owner reported that a short, natural-language P02 prompt worked. The blocks below use the same approach and are prepared, **not individually generation-tested**. The direct model-facing prompts are inside `text` blocks; the filenames, timing and QA instructions are editor/agent metadata only.
 
 **One character per generation.** Attach their actual original, consented photo, NOT the screenshot containing photo filenames and NOT a prior generated video. If two candidates are listed, choose ONE after checking the originals. These prompts are for *new* friendly holiday performances. Do not present an AI-generated dance as real historical footage.
