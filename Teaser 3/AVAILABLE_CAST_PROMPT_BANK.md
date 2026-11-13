@@ -5,7 +5,8 @@
 ## Core dialogue / scene plates already filename-matched
 
 ### Monica — `sa_monica.jpeg`
-- P01 WARM LOVE FIRST: tight close-up with warm golden Christmas lights, Monica already smiling affectionately at her phone. Speaker Monica. Exact proposed dialogue: "Merry Christmas sa inyo… miss na miss ko kayo." One action: looks lovingly at phone, tiny joyful/wistful exhale. Tail holds soft appreciative smile, not tears. Phone text and family image added in post only.
+- P01 WARM LOVE FIRST: tight close-up with warm golden Christmas lights, Monica already smiling affectionately at her phone. Speaker Monica. Exact proposed dialogue: "Merry Christmas sa inyo… miss na miss ko na kayo." Generate an eight-second source clip; all words completed before six seconds, then two seconds of silent smile. Final P01 is 0–6 seconds. One action: looks lovingly at phone, tiny joyful/wistful exhale. Tail holds soft appreciative smile, not tears. Phone text and family image added in post only.
+- P01B OPTIONAL REPAIR: if the complete P01 line cannot be finished, create a new independent original-photo pickup saying only "Miss na miss ko na kayo." Then edit the best takes together. Do not edit a generated video in Flow to add words; on repeated policy warnings use approved real spoken voiceover.
 - P02 DISCOVERY: same face and wardrobe in warm environment; Monica scrolls neutral phone plate, her eyes brighten as if discovering festive dance ad. Exact dialogue "Ang saya naman dito…" Tail gentle eager smile.
 - P10 REPLY: festive venue, exact dialogue "Of course, siyempre!" Immediate happy nod, silent tail.
 - P12 RULES REPLY: festive venue, exact dialogue "Walang problema, madali lang 'yan!" Immediate playful grin, silent tail.
