@@ -126,7 +126,7 @@
       "sourceGenerationSeconds": 10,
       "speechCompleteBySeconds": 0,
       "silentTailAtLeastSeconds": null,
-      "notes": "Jessa silent phone plate. Identity reference original n4_jessa.jpeg; secondary wardrobe ingredient is saved still from approved P09 where supported. Match same outfit/accessories/lighting. Actual rules composite in post.",
+      "notes": "Silent P11 front-facing SCREEN plate. Identity original n4_jessa.jpeg; P09 saved still for outfit when supported. Phone already upright at chest level, glass FRONT DISPLAY fully facing viewer from frame 1, back points toward Jessa, blank gray display; no raising/rotating. Editor adds genuine owner-provided rules image. If shot fails use editorial insert instead of costly repeated render.",
       "creditsPerGeneration": 10
     },
     {
@@ -274,7 +274,8 @@
         "party lighting"
       ],
       "fallback": "If P11 mismatches and a retry would cost 10 credits, hide outfit through phone/rules close-up in editing rather than spend repeatedly",
-      "confidence": "Reference improves continuity but does not guarantee exact wardrobe match"
+      "confidence": "Reference improves continuity but does not guarantee exact wardrobe match",
+      "phoneOrientationP11": "Smartphone vertical, FRONT GLASS faces camera directly from frame 1, back of phone points toward Jessa; neutral screen unobstructed for compositing. No turning or raising phone during shot."
     }
   }
 }
