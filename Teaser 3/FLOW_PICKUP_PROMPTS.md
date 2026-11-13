@@ -181,19 +181,25 @@ Use a natural conversational Filipino tone. Keep it as a single continuous shot,
 
 ### P11 — Jessa displays the actual rules image (final 38–43s)
 
-**Reference:** `n4_jessa.jpeg`
+**References / continuity:** Use `n4_jessa.jpeg` as Jessa's **original identity image** and a clean **saved still frame from the approved P09 clip** as her **wardrobe reference**, if the selected model supports two image ingredients. Choose a P09 frame showing her outfit clearly and without distracting characters. Save the frame in Flow using **Save frame**, then add it through Ingredients. If only one image is supported, prioritize an identity-accurate still with the approved P09 outfit visible, subject to permission and Flow support. Never treat a prior generated video as the canonical identity asset.
+
+**Copy only this text into the video prompt:**
 
 ```text
-Create a warm Christmas-themed vertical 9:16 video of Jessa using the attached reference photo.
+Create a warm Christmas-themed vertical 9:16 video of Jessa using the attached reference images.
 
-Jessa is in a warm, festive Christmas party setting. She lifts her phone toward the camera and holds it steady, as if showing a friend some event information. The phone screen is blank and neutral.
+Jessa is at a cheerful Christmas party with soft golden lights.
 
-Jessa does not speak. She continues holding the phone with a cheerful expression.
+She wears exactly the same outfit shown in the reference frame from the previous Christmas party scene, including the same colors, neckline, sleeves, and accessories.
+
+Jessa smiles warmly and gently raises her phone toward the camera, holding it steady.
+
+She does not speak.
 
 Keep it as a single continuous shot, with only Jessa visible. No subtitles, no logos, and no on-screen text.
 ```
 
-**Editor / QA:** The actual supplied rules graphic is inserted in post. The image must remain readable in the final 5-second slot. This is a silent performance pickup.
+**Editor / QA:** P11 final 38–43s. Approve only when Jessa's **face and clothing match the P09 approved visual**. If retake would waste 10 credits or Flow refuses the reference, reuse the existing scene and cut to a close-up of the phone/rules graphic in post; do not repeatedly retry prohibited generations. Compositing adds the actual owner-approved rules image on the phone. Do not generate the rules text with Flow.
 
 ### P12 — Monica says the rules are easy (final 43–47s)
 
