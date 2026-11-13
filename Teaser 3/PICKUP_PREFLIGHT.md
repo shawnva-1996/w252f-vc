@@ -1,5 +1,19 @@
 # Teaser 3 — Mandatory generation preflight (2026-11-13)
 
+## V4 operator note — simple model-facing prompts confirmed useful (2026-11-13)
+
+**Owner observation:** A simplified P02 prompt generated successfully in Google Flow; the previously heavily structured version was flagged. The precise cause of that refusal is unknown. The lesson here is to send Flow a clear concise scene description, **not** to circumvent safety filters. This does NOT guarantee that other prompts will be accepted.
+
+**The Agent does the hard work.** Keep the filename-to-person lookup, consent checks, clip settings, 58-second timeline, dialogue-completion checks, continuity and editor notes here and in `PICKUP_TIMING_MANIFEST.json`.
+
+**The Video Model gets the small prompt.** Copy only the `text` section of one scene in `FLOW_PICKUP_PROMPTS.md` V4 or one silent dancer/cameo in `AVAILABLE_CAST_PROMPT_BANK.md`. Include the scene, actor, one action, exact dialogue, gentle post-dialogue hold and short clean-video line. No internal production labels or multi-scene instructions.
+
+**Source video settings** (such as 8-second draft clip when available) are selected in the Flow UI, NOT injected into the model-facing prompt. Review the generated audible speech and trim later. If the complete sentence doesn't fit in its final slot, preserve words and reallocate timeline from silence or montage; do not cut off the last syllables.
+
+**When a safety restriction actually appears**, stop repeating or rewriting prompts in pursuit of passing the filter. Check that the original media is consented and that you are not editing existing video speech. Use real footage, an approved human-recorded voiceover, or a different permitted workflow if necessary.
+
+**Current known success:** only the owner-reported P02 attempt using the simpler prompting approach. P01 and the remaining V4 pickup rewrites have not been freshly tested by this update.
+
 This checklist applies to EVERY P01–P14 pickup and any later silent dancer/cameo. **No prompt can guarantee Google Flow policy approval or perfect speech.** The purpose is fewer failures, earlier identification of issues, and a dependable editing fallback.
 
 ## Gate A: Reference and permissions BEFORE paying any credits
