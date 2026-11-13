@@ -41,6 +41,9 @@ Target: Filipino OFWs in Singapore, especially domestic workers. Represent them 
 - After the line, assign a silent expression/eye line. No extra dialogue, gesture, or improvised action.
 - For wrong-speaker issues, isolate the speaker's selfie reference, exclude listeners from the model input, and add listener reactions in post.
 
+## Dialogue-completion and policy-failure lock — 2026-11-13
+P01 Monica exact dialogue is **"Merry Christmas sa inyo… miss na miss ko na kayo."** (second "na" is mandatory). Generate an eight-second source clip, finishing the whole sentence by about 6s with ~2s silent smile. Final P01 timeline 0–6s; trim two seconds from dance montage. Review actual rendered speech before declaring PASS. If clipped, do a distinct short P01B one-speaker pickup of **"Miss na miss ko na kayo."**, or record an approved natural Tagalog voiceover over silent footage in post. Never repeatedly spend credits on identical broken prompts. Do not use generated or uploaded video as a speech-editing target; Flow may refuse such edits. Respect content policies; if a photo-animated pickup is blocked, stop and use real footage/voiceover rather than trying to bypass the filter.
+
 ## SPEECH / LANGUAGE
 - Natural Filipino Tagalog/Taglish as spoken by Filipinos living in Singapore. **NOT** exaggerated Singlish, generic American English, theatrical dubbing, caricatured helper accent, or unnecessary English translation.
 - Speaker words are exact from the approved script. No extra lines, filler, changes of name, added laughs, auto-narration, or improvised ad copy.
