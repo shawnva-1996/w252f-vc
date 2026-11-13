@@ -8,17 +8,17 @@
 
 **Timing/QA remain unchanged:** [PICKUP_TIMING_MANIFEST.json](PICKUP_TIMING_MANIFEST.json) defines the 58s final cut. [PICKUP_PREFLIGHT.md](PICKUP_PREFLIGHT.md) describes reference checks, audio completion and platform restrictions; [PICKUP_PREFLIGHT.mjs](PICKUP_PREFLIGHT.mjs) validates structural timing. Voice deadlines and retries are agent/editor decisions, not long commands in the video-model text.
 
-**Creative lock:** POSITIVITY AND LOVE FIRST. Monica's full opening is **"Merry Christmas sa inyo… miss na miss ko na kayo."** Iad is the correct spelling. Missing roles (Mitch, Renee, Leizel, Anavee, Iad) are not fabricated. Reuse the actual original photos for each new pickup. If a particular Flow generation is refused, respect the platform decision and edit permitted footage plus a consented human recording externally. A successful P02 attempt does not prove every other V4 shot will work.
+**Creative lock:** POSITIVITY AND LOVE FIRST. Monica's full opening is **"Merry Christmas sa inyo… miss na miss ko na kayo."** Iad is the correct spelling. Mischie is owner-confirmed and has two candidate portrait filenames. Still-missing names are Renee, Leizel, Anavee and Iad; no replacements are fabricated. Reuse the actual original photos for each new pickup. If a particular Flow generation is refused, respect the platform decision and edit permitted footage plus a consented human recording externally. A successful P02 attempt does not prove every other V4 shot will work.
 
-**Status:** GitHub text prompts updated; **other V4 generations remain untested**. No final video is claimed rendered.
+**Current Mischie P04:** Previous spoken Flow attempt was flagged (specific cause unknown); V4 simplified spoken prompt and silent alternative with consented real voiceover are recorded. **Status:** GitHub text prompts updated; **other V4 generations remain untested**. No final video is claimed rendered.
 
 ## Historical production reliability notes — V3 (superseded by V4 above)
 
 **The current simplified model-facing prompts are in [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md) V4, and numeric timings in [PICKUP_TIMING_MANIFEST.json](PICKUP_TIMING_MANIFEST.json).** Earlier prose timings/prompts in this file are narrative background only where different. Use [PICKUP_PREFLIGHT.md](PICKUP_PREFLIGHT.md) before every generation; static checks: `node "Teaser 3/PICKUP_PREFLIGHT.mjs"`.
 
-**Never try to add/change speech by editing a previously generated or uploaded video in Flow.** Every speaking pickup is a new generation referencing the original permitted portrait image; one speaker, one line, all speech finished before edit point, 8-second draft source when available, and 2+ seconds silent tail. If Flow refuses a policy-sensitive generation, stop retries and use real recorded dialogue in the editor. Google Flow policy outcomes cannot be guaranteed. This directive applies to **all** performers (Monica, Jessa, Mitch, Mommy Tere, Renee) and any additional voice pickup.
+**Never try to add/change speech by editing a previously generated or uploaded video in Flow.** Every speaking pickup is a new generation referencing the original permitted portrait image; one speaker, one line, all speech finished before edit point, 8-second draft source when available, and 2+ seconds silent tail. If Flow refuses a policy-sensitive generation, stop retries and use real recorded dialogue in the editor. Google Flow policy outcomes cannot be guaranteed. This directive applies to **all** performers (Monica, Jessa, Mischie, Mommy Tere, Renee) and any additional voice pickup.
 
-Latest exact 58-second time windows: Monica P01 00–06; Monica P02 06–11; Jessa P03 11–15; Mitch P04 15–19; transition P05 19–21; party P06–P08 21–32; Jessa P09 32–35; Monica P10 35–38; rules P11 38–43; Monica P12 43–47; Tere P13 47–52; Renee P14 52–55; end card 55–58.
+Latest exact 58-second time windows: Monica P01 00–06; Monica P02 06–11; Jessa P03 11–15; Mischie P04 15–19; transition P05 19–21; party P06–P08 21–32; Jessa P09 32–35; Monica P10 35–38; rules P11 38–43; Monica P12 43–47; Tere P13 47–52; Renee P14 52–55; end card 55–58.
 
 Created: 2026-11-10 (Asia/Singapore); revised 2026-11-13
 > **LATEST OWNER OVERRIDE — 2026-11-13: POSITIVITY AND LOVE FIRST.** This version supersedes the previously drafted tearful/negative opening. First frame: Monica lovingly sends a Christmas greeting or smiles at her family's memory. Loneliness stays a tender subtext, not a negative lead. See the current [Agent Instruction](GOOGLE_FLOW_AGENT_INSTRUCTION.md), [Episode Agent Prompt](GOOGLE_FLOW_AGENT_PROMPT.md), [Available Cast Prompt Bank](AVAILABLE_CAST_PROMPT_BANK.md) and [screenshot filename index](CAST_REFERENCE_INDEX.md).
@@ -28,7 +28,7 @@ Source of truth: W252F-VC. V3 dialogue-safe plan dated 2026-11-13. Google Flow p
 
 ## Owner intent (do not erase)
 - This is the **third and final** Paskong Pinoy Remix teaser for Singapore-based Filipinos, particularly overseas Filipino workers and domestic workers.
-- Story: Monica warmly expresses love for her family in the Philippines while spending Christmas in Singapore; she gently misses them, but the very first beat is positive; she discovers the event via festive advertisement featuring Susie's dancing in archival footage; Jessa invites her; Mitch exuberantly brings them into the celebration; 12 named dancers appear; food, raffle and prizes; Jessa shows the real game rules on a phone without reading them aloud; Monica happily agrees; Mommy Tere and Renee share the outro.
+- Story: Monica warmly expresses love for her family in the Philippines while spending Christmas in Singapore; she gently misses them, but the very first beat is positive; she discovers the event via festive advertisement featuring Susie's dancing in archival footage; Jessa invites her; Mischie exuberantly brings them into the celebration; 12 named dancers appear; food, raffle and prizes; Jessa shows the real game rules on a phone without reading them aloud; Monica happily agrees; Mommy Tere and Renee share the outro.
 - Tonal curve: immediate loving warmth -> curious hope -> friendly Filipino humour -> magical transition -> warmth, dancing and belonging -> human CTA.
 - Narrative truth: a community celebration does not replace family back home; it makes Christmas abroad feel less lonely. Portray domestic workers with dignity, warmth, agency, and authenticity. Do not invent individual life circumstances.
 - Maximum final duration 60 seconds HARD. Recommended 58-second vertical 9:16 master. Produce a shorter ~30-35s cut only by trimming without changing the meaning.
@@ -36,7 +36,7 @@ Source of truth: W252F-VC. V3 dialogue-safe plan dated 2026-11-13. Google Flow p
 - The owner's accounts may have different Flow credit balances; do not assume credits can be pooled or auto-transferred.
 
 ## Casting and canonical spelling
-Story roles: Monica (sad protagonist), Jessa (gentle invitation), Mitch (spelled M-I-T-C-H, enthusiastic "Besh!"), Mommy Tere (outro), Renee (spelled R-E-N-E-E, joins Tere's outro).
+Story roles: Monica (sad protagonist), Jessa (gentle invitation), Mischie (spelled M-I-S-C-H-I-E, owner-confirmed P04/P05 speaking character, enthusiastic "Besh!"), Mommy Tere (outro), Renee (spelled R-E-N-E-E, joins Tere's outro).
 Featured dancers, cover every member: Leizel, Susie, Margie, Flor, Riza, Anavee, Lilia, Usha, Iad, Willy, Adrian, Donna.
 Source transcript contained approximate variants "Liza" vs "Leizel", "Floor" vs "Flor", "Anavi" vs "Anavee", "Suzy" vs "Susie"; use the established initial/project spellings **Leizel, Flor, Anavee, Susie** provisionally until the portrait filenames confirm. Do not silently collapse Riza and Leizel into one person.
 Optional real video of Susie: only insert owner-supplied licensed/consented archival footage; do not fabricate a past event clip.
@@ -52,8 +52,8 @@ If Flow drops the last words, preserve the successful opening footage; generate 
 | 00.0–06.0 | IN MEDIA RES: Monica already smiling tenderly at her phone/family image, warm fairy lights reflecting in her eyes; positive affection first, wistful love only as subtext. | MONICA (natural, tender smile): "Merry Christmas sa inyo… miss na miss ko na kayo." |
 | 06.0–11.0 | Her phone scrolls onto an event ad; phone insert uses the REAL Paskong Pinoy Remix poster plus REAL clip of Susie dancing in last year's event. | MONICA, voice lifting: "Ang saya naman dito…" |
 | 11.0–15.0 | Jessa taps her shoulder gently; Monica looks up. | JESSA: "Gusto mo bang sumali?" |
-| 15.0–19.0 | Mitch pops into frame unexpectedly, exuberant but not screaming. | MITCH: "Besh! Sumali na kayo!" |
-| 19.0–22.0 | Mitch offers a hand and playfully pulls Monica and Jessa forward; hand-swipe / whip-pan / Christmas-light match cut. Composite if necessary. | Festive musical whoosh; NO dialogue. |
+| 15.0–19.0 | Mischie pops into frame unexpectedly, exuberant but not screaming. | MISCHIE: "Besh! Sumali na kayo!" |
+| 19.0–21.0 | Mischie offers a hand and playfully pulls Monica and Jessa forward; hand-swipe / whip-pan / Christmas-light match cut. Composite if necessary. | Festive musical whoosh; NO dialogue. |
 | 22.0–25.0 | Magical arrival in vibrant decorated event space; dance montage group A: Leizel, Susie, Margie, Flor. | Festive music; live cheering. |
 | 25.0–28.0 | Dance montage group B: Riza, Anavee, Lilia, Usha. | Music. |
 | 28.0–31.0 | Dance montage group C: Iad, Willy, Adrian, Donna. | Music. |
@@ -100,8 +100,8 @@ Do not use logos, exact camera setups, scripts, or audio of reference campaigns.
 
 ## 2026-11-13 readiness update
 - Screenshot-only reference filenames are indexed in CAST_REFERENCE_INDEX.md; 33 files / 24 distinct people.
-- 12 of 17 previously required cast names have filename matches (Tere identity provisional); missing names are Mitch, Renee, Leizel, Anavee and Iad.
-- DO NOT identify Mischie as Mitch without owner confirmation; 12 additional names are optional silent cameos, not replacements.
+- 13 of 17 previously required cast names have filename matches (Tere identity provisional), including Mischie; missing names are Renee, Leizel, Anavee and Iad.
+- Mischie is explicitly owner-confirmed as the invitation/transition performer, with `w2_mischie_one.jpeg` and `w2_mischie_two.jpeg` as candidate reference files. Eleven other names are optional silent cameos, not replacements.
 - No named member can be used in Flow until an original reference image (or consented actual video) has been supplied.
 
 ## Next production gates
