@@ -1,7 +1,7 @@
 /**
  * W252F-VC Teaser 3: static structural production preflight.
  * Run from repo root: node "Teaser 3/PICKUP_PREFLIGHT.mjs"
- * This checks metadata/timing ONLY. It does NOT access Google Flow,
+ * This checks metadata/timing AND that each V4 short prompt matches the manifest. It does NOT access Google Flow,
  * verify consent, inspect images, hear audio or guarantee policy acceptance.
  */
 import { readFileSync } from "node:fs";
@@ -42,12 +42,42 @@ for (const person of ["Leizel","Susie","Margie","Flor","Riza","Anavee","Lilia","
  if (!named.includes(person)) fault("Missing dancer " + person);
 }
 if (named.includes("Eyad")) fault("Obsolete transcription Eyad");
+
+if (plan.version !== "4.0") fault("Expected V4 manifest");
+const prompts = readFileSync(new URL("./FLOW_PICKUP_PROMPTS.md", import.meta.url), "utf8");
+if (!prompts.includes("V4")) fault("V4 prompt bank not found");
+for (const shot of plan.shots) {
+ const start = prompts.indexOf("### " + shot.id + " —");
+ if (start === -1) {
+   fault("Missing atomic prompt " + shot.id);
+   continue;
+ }
+ const next = prompts.indexOf("\n### ", start + 5);
+ const section = prompts.slice(start, next >= 0 ? next : undefined);
+ const match = section.match(/```text\n([\s\S]*?)\n```/);
+ if (!match) {
+   fault("Missing copy-only text block " + shot.id);
+   continue;
+ }
+ const modelPrompt = match[1];
+ if (!modelPrompt.includes("using the attached reference photo"))
+   fault("Missing photo reference instruction " + shot.id);
+ if (/^(PICKUP|REFERENCE|VISIBLE PEOPLE|SPEECH TIMING|NEGATIVES):/m.test(modelPrompt))
+   fault("Structured model-facing metadata has returned " + shot.id);
+ if (shot.spokenLine !== null && !modelPrompt.includes('"' + shot.spokenLine + '"'))
+   fault("Dialogue mismatch " + shot.id);
+ if (shot.spokenLine === null && !/does not speak/i.test(modelPrompt))
+   fault("Silent pickup lacks silent instruction " + shot.id);
+ if (!modelPrompt.includes("No subtitles, no logos, and no on-screen text."))
+   fault("Missing clean-footage phrase " + shot.id);
+}
+
 if (faults.length) {
  console.error("PRE-FLIGHT FAILED");
  faults.forEach(e => console.error("  ✗ " + e));
  process.exitCode = 1;
 } else {
- console.log("STATIC TIMING AND TEXT: PASS (58 seconds, " + all.length + " events).");
+ console.log("V4 STATIC TIMING AND PROMPTS: PASS (58 seconds, " + all.length + " events).");
  console.log("SCENE CAST/ASSET READINESS: PENDING — still photos are NOT validated by this script.");
  console.log("Unresolved original photo/identity shots:", missing.join(", ") || "none in manifest; still confirm attachments in Flow");
  console.log("SPEECH & GOOGLE POLICY STATUS: NOT TESTED — listen to actual generated clip and inspect Flow response.");
