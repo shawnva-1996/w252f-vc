@@ -15,7 +15,7 @@ The user has confirmed a **simple, conversational P02 prompt approach worked** i
 1. The AGENT handles production instructions, cast lookup, shot order, timing, budget, continuity, QA and final editing.
 2. The VIDEO MODEL receives only one short natural-language paragraph set in the selected scene's `text` block: who, setting, one action, exact dialogue when needed, the expression after the line, and a brief clean-footage ending.
 3. Do **not** paste technical metadata, internal repository names, rigid `PICKUP/REFERENCE/SPEECH TIMING/NEGATIVES` fields, shot tables, post-production directions or lengthy negative lists into the video model.
-4. Do **not** rewrite text merely to defeat a platform policy warning. Short prompts are for clarity and more reliable performance, not to circumvent policies. If Flow refuses a generation, stop retries and move to permitted real footage or consented real voiceover in an external editor.
+4. Do **not** rewrite text merely to defeat a platform policy warning. An earlier P04 speaking generation was flagged; the reason is unknown, so never promise that new wording will be approved. Short prompts are for clarity and more reliable performance, not to circumvent policies. If Flow refuses a generation, stop retries and move to permitted real footage or consented real voiceover in an external editor.
 
 ## Fixed reference authority
 
@@ -23,8 +23,8 @@ The user has confirmed a **simple, conversational P02 prompt approach worked** i
 - The original identity photo (never a generated video) remains the authority for every independent pickup.
 - One visible named speaker per speaking pickup. If a listener should be shown, shoot them as a separate silent pickup or cut together existing footage.
 - Preserve face, approximate age, skin tone, hairstyle and other identifying features. Match wardrobe, lens, lighting and emotional tone across repeat shots.
-- Do not substitute another person for a missing reference. **Mitch and Renee are missing. Leizel, Anavee and Iad are still missing for the featured dance montage.** `w2_tere.jpeg` is provisionally Mommy Tere and must be checked before generating.
-- Optional cameos are distinct people: never reinterpret Mischie as Mitch unless specifically confirmed by the owner.
+- Do not substitute another person for a missing reference. **Mischie's portrait filenames are now identified (`w2_mischie_one.jpeg` / `w2_mischie_two.jpeg`), while Renee's portrait and Leizel, Anavee and Iad's dancer portraits remain missing.** `w2_tere.jpeg` is provisionally Mommy Tere and must be checked before generating.
+- Owner confirmed **Mischie** is the P04/P05 performer. Mischie is a principal story character, not an optional cameo.
 - Consent is required before animating identifiable member photographs, and any real family images need permission.
 
 ## Current generation procedure
@@ -49,8 +49,8 @@ The JoblessDev historical economical draft baseline used Gemini Omni Flash and 3
 P01 Monica loving greeting: **"Merry Christmas sa inyo… miss na miss ko na kayo."** Both `na` words matter.
 P02 Monica discovers festive ad: **"Ang saya naman dito…"** (owner-reported successful simplified prompt style).
 P03 Jessa invites: **"Gusto mo bang sumali?"**
-P04 Mitch: **"Besh! Sumali na kayo!"** (hold pending photo).
-P05 Mitch silent transition reach (hold pending photo).
+P04 Mischie: **"Besh! Sumali na kayo!"** (choose an actual original approved Mischie portrait; if speaking is refused, use a silent shot plus her genuine recorded voice in post).
+P05 Mischie silent transition reach (use original approved Mischie photo).
 P06–P08 real festive footage includes **Leizel, Susie, Margie, Flor, Riza, Anavee, Lilia, Usha, Iad, Willy, Adrian, Donna**.
 P09 Jessa: **"Gusto mo ba sumama?"**
 P10 Monica: **"Of course, siyempre!"**
