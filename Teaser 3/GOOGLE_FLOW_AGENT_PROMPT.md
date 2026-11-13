@@ -24,13 +24,15 @@ PROVISIONALLY READY TO PREPARE because filenames were identified:
 
 MISSING FROM SCREENSHOT: MITCH, RENEE, LEIZEL, ANAVEE, IAD. Hold their speaking/dance pickups until a valid original selfie or genuine usable footage is provided. `w2_mischie_one.jpeg` is NOT automatically Mitch. Also identified 12 OPTIONAL non-speaking cameo names: Ally, Charie, Christy, Dok Bing, Malyn, Rex, Shiela, Anna, Cheska, Kathleen, Mischie, Rowena Wheng. These do NOT replace promised original dancers; include only if timing and approval permit.
 
+**Audio correction (2026-11-13):** The fully required line is "Merry Christmas sa inyo… miss na miss ko na kayo." The original four-second script cut it off. Give Monica a six-second final window (source generation eight seconds, final two seconds a silent tail); reduce the dance montage by two seconds for a 58-second final edit. If needed, render P01B as only "Miss na miss ko na kayo." from her still photo or add a consensually recorded human voiceover in post. If Flow reports a policy warning, distinguish editing speech in uploaded video (unsupported) from producing new footage from a still image; do not force repeated retries.
+
 **STORY ORDER (58s):**
-00–04s Monica smiles lovingly at family photo or neutral phone (real photo inserted in post if authorised): exact proposed line "Merry Christmas sa inyo… miss na miss ko kayo." Warm golden festive bokeh. Not crying.
-04–09s Monica sees the actual Christmas gathering advert, including genuine last-year clip of Susie dancing. "Ang saya naman dito…"
-09–13s Jessa gently taps Monica's shoulder: "Gusto mo bang sumali?"
-13–17s Mitch enters playfully: "Besh! Sumali na kayo!" (DO NOT render until Mitch selfie arrives.)
-17–20s Mitch reaches/pulls them into magical match-cut transformation; create separately edited reaches / whip pan, not an unstable three-face one-take transformation.
-20–33s energised real event dance footage preferred; each of the 12 nominated dancers gets a recognisable moment: Leizel, Susie, Margie, Flor; Riza, Anavee, Lilia, Usha; Iad, Willy, Adrian, Donna; with actual food, actual raffle and actual prizes only if confirmed, and a radiant Monica reaction. Use individual quiet dance pickups if real footage inadequate. Do not invent absent dancers.
+00–06s Monica smiles lovingly at family photo or neutral phone (real photo inserted in post if authorised): exact proposed line "Merry Christmas sa inyo… miss na miss ko na kayo." Warm golden festive bokeh. Not crying.
+06–11s Monica sees the actual Christmas gathering advert, including genuine last-year clip of Susie dancing. "Ang saya naman dito…"
+11–15s Jessa gently taps Monica's shoulder: "Gusto mo bang sumali?"
+15–19s Mitch enters playfully: "Besh! Sumali na kayo!" (DO NOT render until Mitch selfie arrives.)
+19–22s Mitch reaches/pulls them into magical match-cut transformation; create separately edited reaches / whip pan, not an unstable three-face one-take transformation.
+22–33s energised real event dance footage preferred; each of the 12 nominated dancers gets a recognisable moment: Leizel, Susie, Margie, Flor; Riza, Anavee, Lilia, Usha; Iad, Willy, Adrian, Donna; with actual food, actual raffle and actual prizes only if confirmed, and a radiant Monica reaction. Use individual quiet dance pickups if real footage inadequate. Do not invent absent dancers.
 33–36s Jessa: "Gusto mo ba sumama?"
 36–38s Monica: "Of course, siyempre!"
 38–43s Jessa displays phone with exact owner-supplied game-rules image inserted legibly in post. No spoken line.
