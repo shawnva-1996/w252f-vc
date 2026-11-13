@@ -1,5 +1,20 @@
 # Paskong Pinoy Remix — Teaser 3 | Flow pickup prompts V4
 
+## LOCKED GOOGLE FLOW GENERATION PRESET — OWNER REQUIREMENT (2026-11-13)
+
+For **every Teaser 3 Flow video generation**, including speaking pickups, silent gestures, dancers, cameos, and charged retries, select in Flow's UI:
+
+- **Model:** Omni 1.2 Flash
+- **Resolution:** 360p
+- **Clip duration:** 10 seconds (source footage; trim down in the final editor)
+- **Cost assumption provided by owner:** 10 credits for each generated video
+- **Per-account budget:** 50 credits → **at most 5 charged generations per account** at that price
+- **Aspect ratio:** 9:16
+
+**Do not automatically choose 8s, another Omni model, 720p/1080p, an upscale, or multiple outputs.** If the selected preset isn't available or the displayed price differs, stop and check rather than spending credits under different settings. Count every *charged* attempt, including retries, against that account's budget. Settings/balances are user-provided expectations and must be confirmed in the live Flow UI before each generation. Never treat credits from different accounts as pooled. This choice is locked for this Teaser 3 workflow until the owner changes it.
+
+**Important:** 10 seconds refers to each generated source pickup, **not** the final edit. The completed teaser remains **58 seconds**. Model-facing prompts remain brief natural language; preset and credit controls belong in Flow UI / agent preflight, not the video text prompt.
+
 **Updated 2026-11-13.** These are **short, plain-language video-generation prompts**, modeled on the exact P02 wording the owner reported working in Google Flow. This is a clarity/usability improvement; **it does not guarantee Flow policy approval**. If a prompt is refused, respect the refusal and use real, permitted footage or a consented human-recorded voiceover in the editor.
 
 **Creative priority:** POSITIVITY AND LOVE FIRST. Filipino OFW community, warm Christmas family affection, natural Tagalog/Taglish, original member likeness with consent. **Iad** is the correct dancer's name.
@@ -7,7 +22,7 @@
 ## One-time setup (agent), then one pickup at a time (video model)
 1. In Google Flow Agent mode, provide [Agent Instruction](GOOGLE_FLOW_AGENT_INSTRUCTION.md) once, then the [Episode Agent Prompt](GOOGLE_FLOW_AGENT_PROMPT.md) once.
 2. For each scene below, **attach the actual original, permitted photograph** listed under **Reference**. The screenshot of filenames is not a substitute. When an actor is missing, leave their scene on hold.
-3. In the VIDEO-generation interface, select 9:16 and an approximately 8-second source duration if supported. Verify your active model, features, and credits. The timing is an editor/agent setting, **not** part of the short model-facing prompt.
+3. In the VIDEO-generation interface, select 9:16 and an approximately 10-second source duration if supported. Verify your active model, features, and credits. The timing is an editor/agent setting, **not** part of the short model-facing prompt.
 4. **Copy only the text inside that pickup's `text` code block** into the video model. Do not paste the editorial notes, JSON, tables, large negative lists, or production metadata.
 5. Listen to the generated audio. Verify the whole sentence, particularly its final words. Accept only a shot that matches the reference person, expression and dialogue. Use the [preflight checklist](PICKUP_PREFLIGHT.md); numbers in [timing manifest](PICKUP_TIMING_MANIFEST.json) govern the final 58-second cut.
 6. Do not ask Flow to change what an existing uploaded/generated video says. If an audio version is refused or unsupported, use an approved real voice recording over a silent scene in post; never try to circumvent a safety refusal.
@@ -32,7 +47,7 @@ After saying the complete sentence, she keeps a soft loving smile and looks at t
 Use a natural conversational Filipino tone. Keep it as a single continuous shot, with only Monica visible. No subtitles, no logos, and no on-screen text.
 ```
 
-**Editor / QA:** Previously clipped in a 4-second target; keep full 8-second source where available, review every word, then trim to 6s in final edit. Speech must be fully audible before the final cut.
+**Editor / QA:** Previously clipped in a 4-second target; keep full 10-second source where available, review every word, then trim to 6s in final edit. Speech must be fully audible before the final cut.
 
 ### P02 — Monica discovers the celebration (final 06–11s)
 
