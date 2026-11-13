@@ -1,5 +1,20 @@
 # Teaser 3 — Mandatory generation preflight (2026-11-13)
 
+## LOCKED GOOGLE FLOW GENERATION PRESET — OWNER REQUIREMENT (2026-11-13)
+
+For **every Teaser 3 Flow video generation**, including speaking pickups, silent gestures, dancers, cameos, and charged retries, select in Flow's UI:
+
+- **Model:** Omni 1.2 Flash
+- **Resolution:** 360p
+- **Clip duration:** 10 seconds (source footage; trim down in the final editor)
+- **Cost assumption provided by owner:** 10 credits for each generated video
+- **Per-account budget:** 50 credits → **at most 5 charged generations per account** at that price
+- **Aspect ratio:** 9:16
+
+**Do not automatically choose 8s, another Omni model, 720p/1080p, an upscale, or multiple outputs.** If the selected preset isn't available or the displayed price differs, stop and check rather than spending credits under different settings. Count every *charged* attempt, including retries, against that account's budget. Settings/balances are user-provided expectations and must be confirmed in the live Flow UI before each generation. Never treat credits from different accounts as pooled. This choice is locked for this Teaser 3 workflow until the owner changes it.
+
+**Important:** 10 seconds refers to each generated source pickup, **not** the final edit. The completed teaser remains **58 seconds**. Model-facing prompts remain brief natural language; preset and credit controls belong in Flow UI / agent preflight, not the video text prompt.
+
 ## V4 operator note — simple model-facing prompts confirmed useful (2026-11-13)
 
 **Owner observation:** A simplified P02 prompt generated successfully in Google Flow; the previously heavily structured version was flagged. The precise cause of that refusal is unknown. The lesson here is to send Flow a clear concise scene description, **not** to circumvent safety filters. This does NOT guarantee that other prompts will be accepted.
@@ -24,7 +39,7 @@ The P04/P05 actor is **Mischie**. An earlier P04 speaking generation was flagged
 - [ ] The individual consented to appearing / having their likeness animated for this community video. For children or high-profile persons, check current Flow eligibility instead of assuming support.
 - [ ] Filename matches CAST_REFERENCE_INDEX.md and the identity has been visually verified. `w2_tere.jpeg` is only provisionally Mommy Tere.
 - [ ] Owner confirmed Mischie is the P04/P05 character. Attach ONE actual approved original of `w2_mischie_one.jpeg` or `w2_mischie_two.jpeg`. Renee's portrait is still missing; Leizel, Anavee and Iad remain missing for the dance montage.
-- [ ] Model and current settings show Video mode, still-image ingredients or frames (not uploaded-video speech edit), 9:16, single output, source duration 8 seconds where supported; if not, choose duration that fits the full utterance **plus silent tail**. Verify visible credits before generating.
+- [ ] Model and current settings show Video mode, still-image ingredients or frames (not uploaded-video speech edit), 9:16, single output, source duration 10 seconds using the locked Omni 1.2 Flash 360p preset; if not, choose duration that fits the full utterance **plus silent tail**. Verify visible credits before generating.
 
 ## Gate B: Audio-safe prompt BEFORE generating
 - [ ] One primary named speaker only OR an explicitly silent shot.
@@ -54,7 +69,7 @@ The P04/P05 actor is **Mischie**. An earlier P04 speaking generation was flagged
 - **Missing member photo:** hold shot, use authentic consented footage if available, never create a substitute face.
 
 ## Final edit contract
-Edit to [PICKUP_TIMING_MANIFEST.json](PICKUP_TIMING_MANIFEST.json): **58 seconds**, no gaps/overlaps. Single-speaker shots originate from separate 8-second source clips when supported, but are trimmed to their assigned final length. Silence can be trimmed; **speech cannot be cut off**. If actual dialogue is too long, adjust final edit timings (first shorten effects/montage) and revalidate manifest.
+Edit to [PICKUP_TIMING_MANIFEST.json](PICKUP_TIMING_MANIFEST.json): **58 seconds**, no gaps/overlaps. Single-speaker shots originate from separate 10-second source clips when supported, but are trimmed to their assigned final length. Silence can be trimmed; **speech cannot be cut off**. If actual dialogue is too long, adjust final edit timings (first shorten effects/montage) and revalidate manifest.
 
 Do not shorten unreadable game-rules graphics or omit any required dancer. The party sequence comes from real archival or new consented content, not invented historical footage. Generate final subtitles from the audible final output; avoid obscuring phone screen. Keep the owner creative lock: **POSITIVITY AND LOVE FIRST**.
 
