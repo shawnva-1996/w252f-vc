@@ -1,5 +1,20 @@
 # Paskong Pinoy Remix — Teaser 3: "Malayo sa Pamilya, Pero Hindi Nag-iisa"
 
+## LOCKED GOOGLE FLOW GENERATION PRESET — OWNER REQUIREMENT (2026-11-13)
+
+For **every Teaser 3 Flow video generation**, including speaking pickups, silent gestures, dancers, cameos, and charged retries, select in Flow's UI:
+
+- **Model:** Omni 1.2 Flash
+- **Resolution:** 360p
+- **Clip duration:** 10 seconds (source footage; trim down in the final editor)
+- **Cost assumption provided by owner:** 10 credits for each generated video
+- **Per-account budget:** 50 credits → **at most 5 charged generations per account** at that price
+- **Aspect ratio:** 9:16
+
+**Do not automatically choose 8s, another Omni model, 720p/1080p, an upscale, or multiple outputs.** If the selected preset isn't available or the displayed price differs, stop and check rather than spending credits under different settings. Count every *charged* attempt, including retries, against that account's budget. Settings/balances are user-provided expectations and must be confirmed in the live Flow UI before each generation. Never treat credits from different accounts as pooled. This choice is locked for this Teaser 3 workflow until the owner changes it.
+
+**Important:** 10 seconds refers to each generated source pickup, **not** the final edit. The completed teaser remains **58 seconds**. Model-facing prompts remain brief natural language; preset and credit controls belong in Flow UI / agent preflight, not the video text prompt.
+
 ## CURRENT PRODUCTION DOCTRINE — V4 (2026-11-13)
 
 **Current model-facing prompts:** [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md) V4 and [AVAILABLE_CAST_PROMPT_BANK.md](AVAILABLE_CAST_PROMPT_BANK.md) V4. A **short, natural-language P02 prompt style** worked in Google Flow according to the owner. The older densely structured `PICKUP / REFERENCE / SPEECH TIMING / NEGATIVES` text is internal planning format only and **must not be pasted into the video model**.
@@ -16,7 +31,7 @@
 
 **The current simplified model-facing prompts are in [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md) V4, and numeric timings in [PICKUP_TIMING_MANIFEST.json](PICKUP_TIMING_MANIFEST.json).** Earlier prose timings/prompts in this file are narrative background only where different. Use [PICKUP_PREFLIGHT.md](PICKUP_PREFLIGHT.md) before every generation; static checks: `node "Teaser 3/PICKUP_PREFLIGHT.mjs"`.
 
-**Never try to add/change speech by editing a previously generated or uploaded video in Flow.** Every speaking pickup is a new generation referencing the original permitted portrait image; one speaker, one line, all speech finished before edit point, 8-second draft source when available, and 2+ seconds silent tail. If Flow refuses a policy-sensitive generation, stop retries and use real recorded dialogue in the editor. Google Flow policy outcomes cannot be guaranteed. This directive applies to **all** performers (Monica, Jessa, Mischie, Mommy Tere, Renee) and any additional voice pickup.
+**Never try to add/change speech by editing a previously generated or uploaded video in Flow.** Every speaking pickup is a new generation referencing the original permitted portrait image; one speaker, one line, all speech finished before edit point, 10-second draft source when available, and 2+ seconds silent tail. If Flow refuses a policy-sensitive generation, stop retries and use real recorded dialogue in the editor. Google Flow policy outcomes cannot be guaranteed. This directive applies to **all** performers (Monica, Jessa, Mischie, Mommy Tere, Renee) and any additional voice pickup.
 
 Latest exact 58-second time windows: Monica P01 00–06; Monica P02 06–11; Jessa P03 11–15; Mischie P04 15–19; transition P05 19–21; party P06–P08 21–32; Jessa P09 32–35; Monica P10 35–38; rules P11 38–43; Monica P12 43–47; Tere P13 47–52; Renee P14 52–55; end card 55–58.
 
@@ -42,7 +57,7 @@ Source transcript contained approximate variants "Liza" vs "Leizel", "Floor" vs 
 Optional real video of Susie: only insert owner-supplied licensed/consented archival footage; do not fabricate a past event clip.
 
 ## Monica P01 audio fix — 2026-11-13
-The owner corrected the exact spoken line to **"Merry Christmas sa inyo… miss na miss ko na kayo."** This includes the additional "na". Generate an 8-second clip from her original approved still. Finish all speech within approximately six seconds, then hold a silent loving smile for about two seconds. Final timeline gives P01 0–6 seconds (two extra seconds recovered from the dance montage), keeping the entire video 58 seconds.
+The owner corrected the exact spoken line to **"Merry Christmas sa inyo… miss na miss ko na kayo."** This includes the additional "na". Generate an 10-second clip from her original approved still. Finish all speech within approximately six seconds, then hold a silent loving smile for about four seconds. Final timeline gives P01 0–6 seconds (two extra seconds recovered from the dance montage), keeping the entire video 58 seconds.
 
 If Flow drops the last words, preserve the successful opening footage; generate a separate, single-speaker P01B pickup with only **"Miss na miss ko na kayo."** using the original still image, or record a consenting person's real Tagalog voice to add in post. A policy error is not equivalent to clipped speech: do not repeatedly attempt to evade a safety refusal. Google Flow does not support changing what someone says in an uploaded video. If the photo-based generation is rejected again, use real human voice and edit it outside Flow.
 
