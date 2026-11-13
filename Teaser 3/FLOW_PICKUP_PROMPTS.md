@@ -22,7 +22,7 @@ For **every Teaser 3 Flow video generation**, including speaking pickups, silent
 ## One-time setup (agent), then one pickup at a time (video model)
 1. In Google Flow Agent mode, provide [Agent Instruction](GOOGLE_FLOW_AGENT_INSTRUCTION.md) once, then the [Episode Agent Prompt](GOOGLE_FLOW_AGENT_PROMPT.md) once.
 2. For each scene below, **attach the actual original, permitted photograph** listed under **Reference**. The screenshot of filenames is not a substitute. When an actor is missing, leave their scene on hold.
-3. In the VIDEO-generation interface, select 9:16 and an approximately 10-second source duration if supported. Verify your active model, features, and credits. The timing is an editor/agent setting, **not** part of the short model-facing prompt.
+3. In the VIDEO-generation interface, select 9:16, Omni 1.2 Flash, 360p, 10 seconds, one output, and confirm 10 credits per charge. Do not generate if any setting differs; respect the five-charged-generation budget per 50-credit account. The timing is an editor/agent setting, **not** part of the short model-facing prompt.
 4. **Copy only the text inside that pickup's `text` code block** into the video model. Do not paste the editorial notes, JSON, tables, large negative lists, or production metadata.
 5. Listen to the generated audio. Verify the whole sentence, particularly its final words. Accept only a shot that matches the reference person, expression and dialogue. Use the [preflight checklist](PICKUP_PREFLIGHT.md); numbers in [timing manifest](PICKUP_TIMING_MANIFEST.json) govern the final 58-second cut.
 6. Do not ask Flow to change what an existing uploaded/generated video says. If an audio version is refused or unsupported, use an approved real voice recording over a silent scene in post; never try to circumvent a safety refusal.
@@ -47,7 +47,7 @@ After saying the complete sentence, she keeps a soft loving smile and looks at t
 Use a natural conversational Filipino tone. Keep it as a single continuous shot, with only Monica visible. No subtitles, no logos, and no on-screen text.
 ```
 
-**Editor / QA:** Previously clipped in a 4-second target; keep full 10-second source where available, review every word, then trim to 6s in final edit. Speech must be fully audible before the final cut.
+**Editor / QA:** Previously clipped in a 4-second target; keep the entire 10-second source, review every word, then trim to 6s in final edit. Speech must be fully audible before the final cut.
 
 ### P02 — Monica discovers the celebration (final 06–11s)
 
