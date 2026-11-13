@@ -12,6 +12,22 @@ const all = [...plan.shots, ...plan.montage, plan.endCard].sort(
   (a,b) => a.finalStartSec - b.finalStartSec
 );
 const fault = message => faults.push(message);
+if (plan.generationPreset?.model !== "Omni 1.2 Flash")
+ fault("Wrong model: expected Omni 1.2 Flash");
+if (plan.generationPreset?.resolution !== "360p")
+ fault("Wrong resolution: expected 360p");
+if (plan.generationPreset?.sourceGenerationSeconds !== 10)
+ fault("Wrong source length: expected 10 seconds");
+if (plan.generationPreset?.creditsPerGeneration !== 10)
+ fault("Wrong per-generation cost: expected 10 credits");
+if (plan.generationPreset?.budgetCreditsPerAccount !== 50)
+ fault("Wrong per-account planning budget: expected 50 credits");
+if (plan.generationPreset?.maxGenerationsPerAccount !== 5)
+ fault("Wrong per-account cap: expected 5 charged generations");
+if (plan.generationPreset?.aspectRatio !== "9:16")
+ fault("Wrong aspect ratio: expected 9:16");
+if (plan.generationPreset?.creditsPerGeneration * plan.generationPreset?.maxGenerationsPerAccount > plan.generationPreset?.budgetCreditsPerAccount)
+ fault("Per-account credit budget overrun");
 if (plan.durationSeconds !== 58) fault("Expected 58s total duration");
 if (all[0].finalStartSec !== 0 || all.at(-1).finalEndSec !== 58) fault("Timeline endpoints wrong");
 for (let i = 0; i < all.length; i++) {
@@ -35,7 +51,8 @@ if (mReach?.speaker !== null || mReach?.spokenLine !== null) fault("P05 must rem
 const missing = [];
 for (const shot of plan.shots) {
  if (shot.type !== "NEW_VIDEO_FROM_ORIGINAL_STILL") fault("Found a non-still speaking clip " + shot.id);
- if (!Number.isFinite(shot.sourceGenerationSeconds) || shot.sourceGenerationSeconds < 5) fault("Bad source duration " + shot.id);
+ if (shot.sourceGenerationSeconds !== 10) fault("Wrong source duration (must be 10s) " + shot.id);
+ if (shot.creditsPerGeneration !== 10) fault("Wrong per-shot credit cost (must be 10 credits) " + shot.id);
  if (shot.originalStillFilename === "UNAVAILABLE" || /confirm/i.test(shot.notes || "")) missing.push(shot.id);
  if (shot.spokenLine !== null) {
    if (!shot.speaker || !shot.spokenLine?.trim()) fault("Speaker or words missing " + shot.id);
@@ -86,7 +103,8 @@ if (faults.length) {
  faults.forEach(e => console.error("  ✗ " + e));
  process.exitCode = 1;
 } else {
- console.log("V4 STATIC TIMING AND PROMPTS: PASS (58 seconds, " + all.length + " events).");
+ console.log("V4.1 STATIC TIMING/PRESET/PROMPTS: PASS (58-second edit; Omni 1.2 Flash 360p, 10s, 10 credits; " + all.length + " events).");
+ console.log("BUDGET: 5 charged generations per account only if that account has 50 available credits.");
  console.log("SCENE CAST/ASSET READINESS: PENDING — still photos are NOT validated by this script.");
  console.log("Unresolved original photo/identity shots:", missing.join(", ") || "none in manifest; still confirm attachments in Flow");
  console.log("SPEECH & GOOGLE POLICY STATUS: NOT TESTED — listen to actual generated clip and inspect Flow response.");
