@@ -1,5 +1,20 @@
 # Paskong Pinoy Remix — Teaser 3 | Google Flow Episode Agent Prompt V4
 
+## LOCKED GOOGLE FLOW GENERATION PRESET — OWNER REQUIREMENT (2026-11-13)
+
+For **every Teaser 3 Flow video generation**, including speaking pickups, silent gestures, dancers, cameos, and charged retries, select in Flow's UI:
+
+- **Model:** Omni 1.2 Flash
+- **Resolution:** 360p
+- **Clip duration:** 10 seconds (source footage; trim down in the final editor)
+- **Cost assumption provided by owner:** 10 credits for each generated video
+- **Per-account budget:** 50 credits → **at most 5 charged generations per account** at that price
+- **Aspect ratio:** 9:16
+
+**Do not automatically choose 8s, another Omni model, 720p/1080p, an upscale, or multiple outputs.** If the selected preset isn't available or the displayed price differs, stop and check rather than spending credits under different settings. Count every *charged* attempt, including retries, against that account's budget. Settings/balances are user-provided expectations and must be confirmed in the live Flow UI before each generation. Never treat credits from different accounts as pooled. This choice is locked for this Teaser 3 workflow until the owner changes it.
+
+**Important:** 10 seconds refers to each generated source pickup, **not** the final edit. The completed teaser remains **58 seconds**. Model-facing prompts remain brief natural language; preset and credit controls belong in Flow UI / agent preflight, not the video text prompt.
+
 **Use this as the ONE-TIME story brief in Flow Agent mode, after loading the [Agent Instruction](GOOGLE_FLOW_AGENT_INSTRUCTION.md). It is NOT a single video-generation prompt.** The individual model-facing prompts are in [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md).
 
 ## Copy/paste into Google Flow Agent
