@@ -21,18 +21,23 @@ Featured dancers, cover every member: Leizel, Susie, Margie, Flor, Riza, Anavee,
 Source transcript contained approximate variants "Liza" vs "Leizel", "Floor" vs "Flor", "Anavi" vs "Anavee", "Suzy" vs "Susie"; use the established initial/project spellings **Leizel, Flor, Anavee, Susie** provisionally until the portrait filenames confirm. Do not silently collapse Riza and Leizel into one person.
 Optional real video of Susie: only insert owner-supplied licensed/consented archival footage; do not fabricate a past event clip.
 
+## Monica P01 audio fix — 2026-11-13
+The owner corrected the exact spoken line to **"Merry Christmas sa inyo… miss na miss ko na kayo."** This includes the additional "na". Generate an 8-second clip from her original approved still. Finish all speech within approximately six seconds, then hold a silent loving smile for about two seconds. Final timeline gives P01 0–6 seconds (two extra seconds recovered from the dance montage), keeping the entire video 58 seconds.
+
+If Flow drops the last words, preserve the successful opening footage; generate a separate, single-speaker P01B pickup with only **"Miss na miss ko na kayo."** using the original still image, or record a consenting person's real Tagalog voice to add in post. A policy error is not equivalent to clipped speech: do not repeatedly attempt to evade a safety refusal. Google Flow does not support changing what someone says in an uploaded video. If the photo-based generation is rejected again, use real human voice and edit it outside Flow.
+
 ## APPROVAL-DRAFT TAGLISH SCRIPT — exact on-screen timing for 58s
 | Time | Picture / post | Spoken line / sound |
 | --- | --- | --- |
-| 00.0–04.0 | IN MEDIA RES: Monica already smiling tenderly at her phone/family image, warm fairy lights reflecting in her eyes; positive affection first, wistful love only as subtext. | MONICA (natural, tender smile): "Merry Christmas sa inyo… miss na miss ko kayo." |
-| 04.0–09.0 | Her phone scrolls onto an event ad; phone insert uses the REAL Paskong Pinoy Remix poster plus REAL clip of Susie dancing in last year's event. | MONICA, voice lifting: "Ang saya naman dito…" |
-| 09.0–13.0 | Jessa taps her shoulder gently; Monica looks up. | JESSA: "Gusto mo bang sumali?" |
-| 13.0–17.0 | Mitch pops into frame unexpectedly, exuberant but not screaming. | MITCH: "Besh! Sumali na kayo!" |
-| 17.0–20.0 | Mitch offers a hand and playfully pulls Monica and Jessa forward; hand-swipe / whip-pan / Christmas-light match cut. Composite if necessary. | Festive musical whoosh; NO dialogue. |
-| 20.0–23.0 | Magical arrival in vibrant decorated event space; dance montage group A: Leizel, Susie, Margie, Flor. | Festive music; live cheering. |
-| 23.0–26.0 | Dance montage group B: Riza, Anavee, Lilia, Usha. | Music. |
-| 26.0–29.0 | Dance montage group C: Iad, Willy, Adrian, Donna. | Music. |
-| 29.0–33.0 | REAL dancing/practice crowd, smiles, food, raffle and prizes; meaningful Monica reaction (wide-eyed smile, tear of relief). Props and prizes only if genuinely planned. | Music dips slightly to make next line clear. |
+| 00.0–06.0 | IN MEDIA RES: Monica already smiling tenderly at her phone/family image, warm fairy lights reflecting in her eyes; positive affection first, wistful love only as subtext. | MONICA (natural, tender smile): "Merry Christmas sa inyo… miss na miss ko na kayo." |
+| 06.0–11.0 | Her phone scrolls onto an event ad; phone insert uses the REAL Paskong Pinoy Remix poster plus REAL clip of Susie dancing in last year's event. | MONICA, voice lifting: "Ang saya naman dito…" |
+| 11.0–15.0 | Jessa taps her shoulder gently; Monica looks up. | JESSA: "Gusto mo bang sumali?" |
+| 15.0–19.0 | Mitch pops into frame unexpectedly, exuberant but not screaming. | MITCH: "Besh! Sumali na kayo!" |
+| 19.0–22.0 | Mitch offers a hand and playfully pulls Monica and Jessa forward; hand-swipe / whip-pan / Christmas-light match cut. Composite if necessary. | Festive musical whoosh; NO dialogue. |
+| 22.0–25.0 | Magical arrival in vibrant decorated event space; dance montage group A: Leizel, Susie, Margie, Flor. | Festive music; live cheering. |
+| 25.0–28.0 | Dance montage group B: Riza, Anavee, Lilia, Usha. | Music. |
+| 28.0–31.0 | Dance montage group C: Iad, Willy, Adrian, Donna. | Music. |
+| 31.0–33.0 | REAL dancing/practice crowd, smiles, food, raffle and prizes; meaningful Monica reaction (wide-eyed happy smile). Props and prizes only if genuinely planned. | Music dips slightly to make next line clear. |
 | 33.0–36.0 | Jessa turns to Monica. | JESSA: "Gusto mo ba sumama?" |
 | 36.0–38.0 | Monica responds immediately, delighted. | MONICA: "Of course, siyempre!" |
 | 38.0–43.0 | Jessa raises phone toward Monica; screen is replaced in post with the EXACT owner-provided image of game rules, visible long enough to read. | Music under; NO dialogue; do not render or rewrite rules using AI. |
@@ -46,7 +51,7 @@ Editable line alternatives are creative proposals; keep user-approved lines lock
 ## Emotional and cinematography rules
 1. The first frame must already be emotionally legible: Monica gives a loving family greeting with a genuine smile and warm holiday glow; gentle longing may be felt, but no distress, crying or sorrow at the opening. Avoid a slow establishing shot.
 2. Monica's love is warm and specific; her gentle homesickness is only an understated undertone, never melodramatic or humiliating. No stereotyping domestic workers.
-3. Opening cold Singapore blue/green -> warm golden party; use light / saturation / sound to encode emotional transition.
+3. Opening warm golden Christmas light -> vibrant festive red-and-gold party; use light / saturation / sound to encode emotional transition.
 4. Real archival party footage is authenticity and identity authority for Susie's dancing and the twelve named dancers where possible.
 5. The digital ad (phone poster and Susie footage), phone rules and final end card MUST be exact graphics edited in post. Flow makes blank-screen or replaceable-screen performance plates.
 6. Transition: match hand extension + whip-pan or fabric / fairy-light occlusion; build effect in post instead of relying on Flow to keep three faces stable across a simulated portal.
