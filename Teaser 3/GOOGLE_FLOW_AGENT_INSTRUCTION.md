@@ -87,7 +87,7 @@ Do not produce actual member performances until portrait attachments have been p
 - REF_MITCH (spelled M-I-T-C-H, "Besh!" line)
 - REF_TERE (Mommy Tere)
 - REF_RENEE (R-E-N-E-E)
-- REF_LEIZEL, REF_SUSIE, REF_MARGIE, REF_FLOR, REF_RIZA, REF_ANAVEE, REF_LILIA, REF_USHA, REF_EYAD, REF_WILLY, REF_ADRIAN, REF_DONNA (featured dancers)
+- REF_LEIZEL, REF_SUSIE, REF_MARGIE, REF_FLOR, REF_RIZA, REF_ANAVEE, REF_LILIA, REF_USHA, REF_IAD, REF_WILLY, REF_ADRIAN, REF_DONNA (featured dancers)
 - REF_RULES_IMAGE (image for post overlay), REF_EVENT_FLYER, VIDEO_SUSIE_ARCHIVE, VIDEO_EVENT_REAL (not self-generated reference authority)
 Treat all as UNRESOLVED until actually supplied. Portrait file mapping is in ASSET_MANIFEST.csv.
 
