@@ -1,6 +1,6 @@
 # Teaser 3 — Google Flow atomic pickup prompts V3 (dialogue-safe)
 
-**CURRENT AUTHORITY — 2026-11-13.** This file REPLACES older P01–P14 wording and timing. Full episode length **58 seconds**. First beat is **POSITIVITY AND LOVE**, not sadness or anger. Latest cast correction: **Iad** (never Eyad).
+**CURRENT AUTHORITY — 2026-11-13.** This file REPLACES older P01–P14 wording and timing. Full episode length **58 seconds**. First beat is **POSITIVITY AND LOVE**, not sadness or anger. Latest cast correction: **Iad**.
 
 ## Read this before ANY generate
 1. Paste the stable [Agent Instruction](GOOGLE_FLOW_AGENT_INSTRUCTION.md) and [episode Agent Prompt](GOOGLE_FLOW_AGENT_PROMPT.md) into Agent mode ONCE. Then generate ONE standalone atomic pickup from below. The story paragraph is NOT itself a video-model prompt.
