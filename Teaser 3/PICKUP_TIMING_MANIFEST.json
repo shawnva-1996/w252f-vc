@@ -1,11 +1,11 @@
 {
-  "version": "4.0",
+  "version": "4.1",
   "created": "2026-11-13",
   "name": "Paskong Pinoy Remix Teaser 3",
   "durationSeconds": 58,
   "creativeLock": "POSITIVITY AND LOVE FIRST",
   "policyGuard": "Generate dialogue only as a NEW VIDEO from consented original reference stills. Never edit speech in an uploaded video; if the platform refuses a prompt, stop attempts, use human voiceover in external editor.",
-  "toolSettings": "Video, 9:16, supported 8-second generation if available; verify model, clip duration and credits in current Google Flow UI. Prefer economical draft rendering.",
+  "toolSettings": "LOCKED USER PRESET: Omni 1.2 Flash; 360p; 10-second source video; 10 credits per generation; maximum 5 charged generations per 50-credit account. 9:16. Set in the Google Flow UI, not in model-facing prompts. Confirm actual available per-account credits before generating.",
   "voiceVerification": "Listen to generated file and compare complete words including ending, correct single speaker, and no speech in silent tail. Do not count prompt text as actual transcription.",
   "fallback": "If words clip: salvage existing good footage, use an approved willing human-recorded voiceover over silent footage OR independent shorter pickup if policy-permitted. If platform policy warning repeats, stop new Flow dialogue generation; no filter bypass.",
   "shots": [
@@ -18,10 +18,11 @@
       "originalStillFilename": "sa_monica.jpeg",
       "speaker": "Monica",
       "spokenLine": "Merry Christmas sa inyo… miss na miss ko na kayo.",
-      "sourceGenerationSeconds": 8,
+      "sourceGenerationSeconds": 10,
       "speechCompleteBySeconds": 5.7,
-      "silentTailAtLeastSeconds": 2.3,
-      "notes": "Never lead with tears or negativity. Full sentence, including second 'na'."
+      "silentTailAtLeastSeconds": 4.3,
+      "notes": "Never lead with tears or negativity. Full sentence, including second 'na'.",
+      "creditsPerGeneration": 10
     },
     {
       "id": "P02",
@@ -32,10 +33,11 @@
       "originalStillFilename": "sa_monica.jpeg",
       "speaker": "Monica",
       "spokenLine": "Ang saya naman dito…",
-      "sourceGenerationSeconds": 8,
+      "sourceGenerationSeconds": 10,
       "speechCompleteBySeconds": 2.8,
-      "silentTailAtLeastSeconds": 5.2,
-      "notes": "No fake Facebook app, invented text, or synthetic old-event footage."
+      "silentTailAtLeastSeconds": 7.2,
+      "notes": "No fake Facebook app, invented text, or synthetic old-event footage.",
+      "creditsPerGeneration": 10
     },
     {
       "id": "P03",
@@ -46,10 +48,11 @@
       "originalStillFilename": "n4_jessa.jpeg",
       "speaker": "Jessa",
       "spokenLine": "Gusto mo bang sumali?",
-      "sourceGenerationSeconds": 8,
+      "sourceGenerationSeconds": 10,
       "speechCompleteBySeconds": 2.8,
-      "silentTailAtLeastSeconds": 5.2,
-      "notes": "One visible speaker only. No other person speaking."
+      "silentTailAtLeastSeconds": 7.2,
+      "notes": "One visible speaker only. No other person speaking.",
+      "creditsPerGeneration": 10
     },
     {
       "id": "P04",
@@ -60,10 +63,11 @@
       "originalStillFilename": "w2_mischie_one.jpeg",
       "speaker": "Mischie",
       "spokenLine": "Besh! Sumali na kayo!",
-      "sourceGenerationSeconds": 8,
+      "sourceGenerationSeconds": 10,
       "speechCompleteBySeconds": 2.8,
-      "silentTailAtLeastSeconds": 5.2,
-      "notes": "Mischie is owner-confirmed. Choose one actual original photo (w2_mischie_one.jpeg or w2_mischie_two.jpeg). Previous speaking attempt was flagged by Flow; cause unknown. Simple spoken prompt prepared; if declined, use silent performance with consented real voiceover outside Flow."
+      "silentTailAtLeastSeconds": 7.2,
+      "notes": "Mischie is owner-confirmed. Choose one actual original photo (w2_mischie_one.jpeg or w2_mischie_two.jpeg). Previous speaking attempt was flagged by Flow; cause unknown. Simple spoken prompt prepared; if declined, use silent performance with consented real voiceover outside Flow.",
+      "creditsPerGeneration": 10
     },
     {
       "id": "P05",
@@ -74,10 +78,11 @@
       "originalStillFilename": "w2_mischie_one.jpeg",
       "speaker": null,
       "spokenLine": null,
-      "sourceGenerationSeconds": 8,
+      "sourceGenerationSeconds": 10,
       "speechCompleteBySeconds": 0,
       "silentTailAtLeastSeconds": null,
-      "notes": "Mischie is owner-confirmed. One simple silent hand-reaching action, based on w2_mischie_one.jpeg or w2_mischie_two.jpeg; transition is assembled in post."
+      "notes": "Mischie is owner-confirmed. One simple silent hand-reaching action, based on w2_mischie_one.jpeg or w2_mischie_two.jpeg; transition is assembled in post.",
+      "creditsPerGeneration": 10
     },
     {
       "id": "P09",
@@ -88,10 +93,11 @@
       "originalStillFilename": "n4_jessa.jpeg",
       "speaker": "Jessa",
       "spokenLine": "Gusto mo ba sumama?",
-      "sourceGenerationSeconds": 8,
+      "sourceGenerationSeconds": 10,
       "speechCompleteBySeconds": 2.6,
-      "silentTailAtLeastSeconds": 5.4,
-      "notes": "No second speaker, no inferred reverse shot."
+      "silentTailAtLeastSeconds": 7.4,
+      "notes": "No second speaker, no inferred reverse shot.",
+      "creditsPerGeneration": 10
     },
     {
       "id": "P10",
@@ -102,10 +108,11 @@
       "originalStillFilename": "sa_monica.jpeg",
       "speaker": "Monica",
       "spokenLine": "Of course, siyempre!",
-      "sourceGenerationSeconds": 8,
+      "sourceGenerationSeconds": 10,
       "speechCompleteBySeconds": 2.2,
-      "silentTailAtLeastSeconds": 5.8,
-      "notes": "If the whole line does not fit naturally in 2 seconds, protect dialogue and shorten adjacent music montage instead."
+      "silentTailAtLeastSeconds": 7.8,
+      "notes": "If the whole line does not fit naturally in 2 seconds, protect dialogue and shorten adjacent music montage instead.",
+      "creditsPerGeneration": 10
     },
     {
       "id": "P11",
@@ -116,10 +123,11 @@
       "originalStillFilename": "n4_jessa.jpeg",
       "speaker": null,
       "spokenLine": null,
-      "sourceGenerationSeconds": 8,
+      "sourceGenerationSeconds": 10,
       "speechCompleteBySeconds": 0,
       "silentTailAtLeastSeconds": null,
-      "notes": "NO spoken words, NO AI rules text. Insert the actual owner-provided rules image in post for 3+ readable seconds."
+      "notes": "NO spoken words, NO AI rules text. Insert the actual owner-provided rules image in post for 3+ readable seconds.",
+      "creditsPerGeneration": 10
     },
     {
       "id": "P12",
@@ -130,10 +138,11 @@
       "originalStillFilename": "sa_monica.jpeg",
       "speaker": "Monica",
       "spokenLine": "Walang problema, madali lang 'yan!",
-      "sourceGenerationSeconds": 8,
+      "sourceGenerationSeconds": 10,
       "speechCompleteBySeconds": 3,
-      "silentTailAtLeastSeconds": 5,
-      "notes": "Do not force an over-fast delivery; protect the complete final 'yan!'"
+      "silentTailAtLeastSeconds": 7,
+      "notes": "Do not force an over-fast delivery; protect the complete final 'yan!'",
+      "creditsPerGeneration": 10
     },
     {
       "id": "P13",
@@ -144,10 +153,11 @@
       "originalStillFilename": "w2_tere.jpeg",
       "speaker": "Mommy Tere",
       "spokenLine": "Tara na sa Paskong Pinoy Remix!",
-      "sourceGenerationSeconds": 8,
+      "sourceGenerationSeconds": 10,
       "speechCompleteBySeconds": 4,
-      "silentTailAtLeastSeconds": 4,
-      "notes": "PROVISIONAL: confirm w2_tere.jpeg is the intended Mommy Tere before generating; no Renee in this video."
+      "silentTailAtLeastSeconds": 6,
+      "notes": "PROVISIONAL: confirm w2_tere.jpeg is the intended Mommy Tere before generating; no Renee in this video.",
+      "creditsPerGeneration": 10
     },
     {
       "id": "P14",
@@ -158,10 +168,11 @@
       "originalStillFilename": "UNAVAILABLE",
       "speaker": "Renee",
       "spokenLine": "See you there!",
-      "sourceGenerationSeconds": 8,
+      "sourceGenerationSeconds": 10,
       "speechCompleteBySeconds": 1.5,
-      "silentTailAtLeastSeconds": 6.5,
-      "notes": "BLOCKED UNTIL RENEE ORIGINAL PHOTO IS SUPPLIED; single speaker; combine with Tere in post."
+      "silentTailAtLeastSeconds": 8.5,
+      "notes": "BLOCKED UNTIL RENEE ORIGINAL PHOTO IS SUPPLIED; single speaker; combine with Tere in post.",
+      "creditsPerGeneration": 10
     }
   ],
   "montage": [
@@ -229,6 +240,19 @@
     "confirmation": "User explicitly confirmed Mischie as P04/P05 performer.",
     "spokenPickupStatus": "PREPARED_UNTESTED",
     "policyFlagCause": "UNKNOWN",
-    "silenceFallback": "Use new silent portrait-based footage and a willing real speaker's recorded line in post."
+    "silenceFallback": "Use new silent portrait-based footage and a willing real speaker's recorded line in post.",
+    "preset": "Omni 1.2 Flash 360p / 10s / 10 credits; 5 generations per 50-credit account"
+  },
+  "generationPreset": {
+    "provider": "Google Flow",
+    "model": "Omni 1.2 Flash",
+    "resolution": "360p",
+    "aspectRatio": "9:16",
+    "sourceGenerationSeconds": 10,
+    "creditsPerGeneration": 10,
+    "budgetCreditsPerAccount": 50,
+    "maxGenerationsPerAccount": 5,
+    "enforcement": "Use this exact preset for every new Teaser 3 Flow generation, including retry attempts and dancer/cameo pickups. Check account's actual available credits and settings in Flow before launching. Do not use another model or upscale by default without explicit user approval; don't assume account balances or costs.",
+    "accountCreditAccounting": "Count every attempt that actually spends credits, including failed/aborted attempts if charged. Stop after 5 charges/50 credits on an account; do not assume free retries."
   }
 }
