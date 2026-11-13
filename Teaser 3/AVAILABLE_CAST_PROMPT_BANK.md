@@ -1,76 +1,291 @@
-# Teaser 3 — ready-to-fill scene prompt bank by screenshot filenames
+# Teaser 3 — Available cast prompt bank V4
 
-## Production reliability override — 2026-11-13 (V3)
+**Current, simplified Google Flow style (2026-11-13).** The owner reported that a short, natural-language P02 prompt worked. The blocks below use the same approach and are prepared, **not individually generation-tested**. The direct model-facing prompts are inside `text` blocks; the filenames, timing and QA instructions are editor/agent metadata only.
 
-**The definitive model-facing instructions for every shot are in [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md), and numeric timings in [PICKUP_TIMING_MANIFEST.json](PICKUP_TIMING_MANIFEST.json).** Earlier prose timings/prompts in this file are narrative background only where different. Use [PICKUP_PREFLIGHT.md](PICKUP_PREFLIGHT.md) before every generation; static checks: `node "Teaser 3/PICKUP_PREFLIGHT.mjs"`.
+**One character per generation.** Attach their actual original, consented photo, NOT the screenshot containing photo filenames and NOT a prior generated video. If two candidates are listed, choose ONE after checking the originals. These prompts are for *new* friendly holiday performances. Do not present an AI-generated dance as real historical footage.
 
-**Never try to add/change speech by editing a previously generated or uploaded video in Flow.** Every speaking pickup is a new generation referencing the original permitted portrait image; one speaker, one line, all speech finished before edit point, 8-second draft source when available, and 2+ seconds silent tail. If Flow refuses a policy-sensitive generation, stop retries and use real recorded dialogue in the editor. Google Flow policy outcomes cannot be guaranteed. This directive applies to **all** performers (Monica, Jessa, Mitch, Mommy Tere, Renee) and any additional voice pickup.
+**Order of authority:** [Flow pickup prompts V4](FLOW_PICKUP_PROMPTS.md) for dialogue and scene actions, [timing manifest](PICKUP_TIMING_MANIFEST.json) for final edit windows, [preflight checklist](PICKUP_PREFLIGHT.md) for production checks. All characters begin from positivity and love; maintain natural Filipino warmth.
 
-Latest exact 58-second time windows: Monica P01 00–06; Monica P02 06–11; Jessa P03 11–15; Mitch P04 15–19; transition P05 19–21; party P06–P08 21–32; Jessa P09 32–35; Monica P10 35–38; rules P11 38–43; Monica P12 43–47; Tere P13 47–52; Renee P14 52–55; end card 55–58.
+## Dialogue-role reference map
 
-**These are prompts READY IN TEXT ONLY, not executable without actual member portrait files.** For each generation, load the separate [stable agent instruction](GOOGLE_FLOW_AGENT_INSTRUCTION.md), follow the episode-level [agent prompt](GOOGLE_FLOW_AGENT_PROMPT.md), attach the exact original person photo below, and send the matching atomic pickup or dance/cameo template. Always use one primary speaker (or no speech), one action, one camera and an explicitly bounded silent tail.
-
-## AUTHORITATIVE PICKUP TEMPLATES (V3)
-The notes below are casting/reference slots, NOT complete generation prompts. For all character dialogue and silent dancer/cameo generation, the copy-ready atomic specifications and the shared restrictions in FLOW_PICKUP_PROMPTS.md take precedence. A dialogue performer must have a complete speech deadline and 2+ seconds of silent source tail; verify the full recorded sentence before accepting. Dancers/cameos have NO SPEECH. Never edit speech in an uploaded video.
-
-## Core dialogue / scene plates already filename-matched
-
-### Monica — `sa_monica.jpeg`
-- P01 WARM LOVE FIRST: tight close-up with warm golden Christmas lights, Monica already smiling affectionately at her phone. Speaker Monica. Exact proposed dialogue: "Merry Christmas sa inyo… miss na miss ko na kayo." Generate an eight-second source clip; all words completed before six seconds, then two seconds of silent smile. Final P01 is 0–6 seconds. One action: looks lovingly at phone, tiny joyful/wistful exhale. Tail holds soft appreciative smile, not tears. Phone text and family image added in post only.
-- P01B OPTIONAL REPAIR: if the complete P01 line cannot be finished, create a new independent original-photo pickup saying only "Miss na miss ko na kayo." Then edit the best takes together. Do not edit a generated video in Flow to add words; on repeated policy warnings use approved real spoken voiceover.
-- P02 DISCOVERY: same face and wardrobe in warm environment; Monica scrolls neutral phone plate, her eyes brighten as if discovering festive dance ad. Exact dialogue "Ang saya naman dito…" Tail gentle eager smile.
-- P10 REPLY: festive venue, exact dialogue "Of course, siyempre!" Immediate happy nod, silent tail.
-- P12 RULES REPLY: festive venue, exact dialogue "Walang problema, madali lang 'yan!" Immediate playful grin, silent tail.
-
-### Jessa — `n4_jessa.jpeg`
-- P03 INVITE: warm shoulder-level framing. Speaker Jessa. Gently reach toward Monica (Monica need not be visually generated), exact dialogue "Gusto mo bang sumali?" Tail friendly smile.
-- P09 INVITE AGAIN: warm party close-up, exact dialogue "Gusto mo ba sumama?" Tail warm grin.
-- P11 RULES PHONE PLATE: Jessa, no dialogue, raises phone with blank neutral face, holds still 3+ seconds. Exact owner-supplied rules graphic tracked and inserted later in post.
-
-### Mommy Tere — `w2_tere.jpeg` [PROVISIONAL ID: confirm this photo depicts the intended Mommy Tere]
-- P13 OUTRO: direct camera, warm party medium shot, leave room for Renee composite. Exact dialogue "Tara na sa Paskong Pinoy Remix!" Hold welcoming smile; no automatic Renee.
-
-## Dance montage — one-at-a-time prompt slots available from screenshot
-Use the single-person DANCE_<NAME> prompt in [GOOGLE_FLOW_AGENT_PROMPT.md](GOOGLE_FLOW_AGENT_PROMPT.md). Generate only when real dance footage is unavailable or inadequate and full-resolution selfie has been supplied and cleared.
-
-| Shot slot | Person | Attach ONE actual image from these candidate filenames |
+| Character | Existing filename | Pickup IDs |
 |---|---|---|
-| D-SUSIE | Susie | `sa_susie.jpeg` OR `sa_susie_2.JPG` (choose after inspection) |
-| D-MARGIE | Margie | `sa_margie.jpeg` |
-| D-FLOR | Flor | `sa_flor.jpeg` |
-| D-RIZA | Riza | `sa_riza.jpeg` OR `sa_riza_two.jpeg` |
-| D-LILIA | Lilia | `sa_lilia.jpeg` |
-| D-USHA | Usha | `n4_usha_1.jpeg` OR `n4_usha_2.jpeg` |
-| D-WILLY | Willy | `w2_willy.jpeg` |
-| D-ADRIAN | Adrian | `w2_adrian.jpeg` OR `w2_adrian_two.jpeg` |
-| D-DONNA | Donna | `n4_donna.jpeg` |
+| Monica | `sa_monica.jpeg` | P01, P02, P10, P12 |
+| Jessa | `n4_jessa.jpeg` | P03, P09, P11 |
+| Mommy Tere | `w2_tere.jpeg` (confirm that this is Mommy Tere) | P13 |
+| Mitch | **MISSING — hold** | P04, P05 |
+| Renee | **MISSING — hold** | P14 |
 
-**Do not create synthetic "old footage" of Susie.** The original old dance clip must come from owner-provided video. The portraits can generate a new current celebratory dance as a separate editorial insert, never mislabeled as historical footage.
+**Use the complete spoken lines exactly as shown in [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md).** The bank below is only for *silent* dancers and optional silent cameos.
 
-## Optional non-speaking supporting cameos — prepared, not newly cast
-Use the one-person CAMEO_<NAME> prompt in the agent prompt. Limit to short, editorially optional shots or a consented portrait grid. No added dialogue.
+## Dance pickups (nine photo-matched featured members)
 
-| Name | Exact file candidate(s) |
-|---|---|
-| Ally | `n4_ally_one.jpeg` / `n4_ally_two.jpeg` |
-| Charie | `n4_charie.jpeg` |
-| Christy | `n4_christy.jpeg` |
-| Dok Bing | `n4_dok_bing_1.jpeg` / `n4_dok_bing_three.jpeg` |
-| Malyn | `n4_malyn.jpeg` |
-| Rex | `n4_rex.jpeg` |
-| Shiela | `n4_shiela.jpeg` |
-| Anna | `sa_anna_v.jpeg` |
-| Cheska | `w2_cheska.jpeg` |
-| Kathleen | `w2_kathleen_one.jpeg` / `w2_kathleen_two.jpeg` |
-| Mischie | `w2_mischie_one.jpeg` / `w2_mischie_two.jpeg` |
-| Rowena Wheng | `w2_rowena_wheng.jpeg` / `w2_rowena_wheng_two.jpeg` |
+Use real event/practice footage whenever it already shows the intended dancer. Generate one of these **silent** pickups only if genuine usable footage is not available and the member approves AI likeness animation. Final cut may keep a 0.7–1.5-second segment; generation duration is selected in Flow UI.
 
-## HOLD: named story roles not represented by screenshot filenames
-- Mitch (first surprise interruption and transition): no clear file. **Do not equate Mischie to Mitch.**
-- Renee (final joint outro): no clear file.
-- Leizel, Anavee, Iad (required dance faces): no clear files.
+### Susie — silent Christmas dancing
 
-Owner may provide portrait files or genuine footage later. Leave those slots reserved and do not silently omit them from final editor timeline.
+**Attach one original:** `sa_susie.jpeg` or `sa_susie_2.JPG`
 
-## Atomic model prompt shared negative
-Single continuous take, static camera unless specifically authorized; exact linked reference person only; one simple action; zero added speech; no fabricated face; no outfit switch; no background crowd with random named identities; no generated subtitles, letters, posters, logo, raffle graphics, rules text or watermark. Post-production owns every actual graphic and final subtitle.
+```text
+Create a warm festive vertical 9:16 video of Susie using the attached reference photo.
+
+Susie is at a cheerful Filipino Christmas party with softly glowing golden lights in the background. Susie performs a simple, joyful dance move and smiles naturally.
+
+There is no speaking. Keep it as a single continuous shot, with only Susie visible. No subtitles, no logos, and no on-screen text.
+```
+
+### Margie — silent Christmas dancing
+
+**Attach one original:** `sa_margie.jpeg`
+
+```text
+Create a warm festive vertical 9:16 video of Margie using the attached reference photo.
+
+Margie is at a cheerful Filipino Christmas party with softly glowing golden lights in the background. Margie performs a simple, joyful dance move and smiles naturally.
+
+There is no speaking. Keep it as a single continuous shot, with only Margie visible. No subtitles, no logos, and no on-screen text.
+```
+
+### Flor — silent Christmas dancing
+
+**Attach one original:** `sa_flor.jpeg`
+
+```text
+Create a warm festive vertical 9:16 video of Flor using the attached reference photo.
+
+Flor is at a cheerful Filipino Christmas party with softly glowing golden lights in the background. Flor performs a simple, joyful dance move and smiles naturally.
+
+There is no speaking. Keep it as a single continuous shot, with only Flor visible. No subtitles, no logos, and no on-screen text.
+```
+
+### Riza — silent Christmas dancing
+
+**Attach one original:** `sa_riza.jpeg` or `sa_riza_two.jpeg`
+
+```text
+Create a warm festive vertical 9:16 video of Riza using the attached reference photo.
+
+Riza is at a cheerful Filipino Christmas party with softly glowing golden lights in the background. Riza performs a simple, joyful dance move and smiles naturally.
+
+There is no speaking. Keep it as a single continuous shot, with only Riza visible. No subtitles, no logos, and no on-screen text.
+```
+
+### Lilia — silent Christmas dancing
+
+**Attach one original:** `sa_lilia.jpeg`
+
+```text
+Create a warm festive vertical 9:16 video of Lilia using the attached reference photo.
+
+Lilia is at a cheerful Filipino Christmas party with softly glowing golden lights in the background. Lilia performs a simple, joyful dance move and smiles naturally.
+
+There is no speaking. Keep it as a single continuous shot, with only Lilia visible. No subtitles, no logos, and no on-screen text.
+```
+
+### Usha — silent Christmas dancing
+
+**Attach one original:** `n4_usha_1.jpeg` or `n4_usha_2.jpeg`
+
+```text
+Create a warm festive vertical 9:16 video of Usha using the attached reference photo.
+
+Usha is at a cheerful Filipino Christmas party with softly glowing golden lights in the background. Usha performs a simple, joyful dance move and smiles naturally.
+
+There is no speaking. Keep it as a single continuous shot, with only Usha visible. No subtitles, no logos, and no on-screen text.
+```
+
+### Willy — silent Christmas dancing
+
+**Attach one original:** `w2_willy.jpeg`
+
+```text
+Create a warm festive vertical 9:16 video of Willy using the attached reference photo.
+
+Willy is at a cheerful Filipino Christmas party with softly glowing golden lights in the background. Willy performs a simple, joyful dance move and smiles naturally.
+
+There is no speaking. Keep it as a single continuous shot, with only Willy visible. No subtitles, no logos, and no on-screen text.
+```
+
+### Adrian — silent Christmas dancing
+
+**Attach one original:** `w2_adrian.jpeg` or `w2_adrian_two.jpeg`
+
+```text
+Create a warm festive vertical 9:16 video of Adrian using the attached reference photo.
+
+Adrian is at a cheerful Filipino Christmas party with softly glowing golden lights in the background. Adrian performs a simple, joyful dance move and smiles naturally.
+
+There is no speaking. Keep it as a single continuous shot, with only Adrian visible. No subtitles, no logos, and no on-screen text.
+```
+
+### Donna — silent Christmas dancing
+
+**Attach one original:** `n4_donna.jpeg`
+
+```text
+Create a warm festive vertical 9:16 video of Donna using the attached reference photo.
+
+Donna is at a cheerful Filipino Christmas party with softly glowing golden lights in the background. Donna performs a simple, joyful dance move and smiles naturally.
+
+There is no speaking. Keep it as a single continuous shot, with only Donna visible. No subtitles, no logos, and no on-screen text.
+```
+
+## Required dancers not in the screenshot
+
+**Leizel, Anavee, and Iad** need their actual reference photos or usable real dance footage. Do not invent or substitute faces. A silent new-dance pickup can use the same short style above once the relevant original photo is provided.
+
+## Optional background cameos (12 additional photo-matched people)
+
+These are *not* newly added speaking characters and do not replace the 12 originally featured dancers. Include only if there is time and the member has given permission.
+
+### Ally — optional silent Christmas greeting
+
+**Attach one original:** `n4_ally_one.jpeg` or `n4_ally_two.jpeg`
+
+```text
+Create a warm festive vertical 9:16 video of Ally using the attached reference photo.
+
+Ally is at a cheerful Christmas gathering with warm golden lights. Ally gives a friendly smile and a small welcoming wave.
+
+There is no speaking. Keep it as a single continuous shot, with only Ally visible. No subtitles, no logos, and no on-screen text.
+```
+
+### Charie — optional silent Christmas greeting
+
+**Attach one original:** `n4_charie.jpeg`
+
+```text
+Create a warm festive vertical 9:16 video of Charie using the attached reference photo.
+
+Charie is at a cheerful Christmas gathering with warm golden lights. Charie gives a friendly smile and a small welcoming wave.
+
+There is no speaking. Keep it as a single continuous shot, with only Charie visible. No subtitles, no logos, and no on-screen text.
+```
+
+### Christy — optional silent Christmas greeting
+
+**Attach one original:** `n4_christy.jpeg`
+
+```text
+Create a warm festive vertical 9:16 video of Christy using the attached reference photo.
+
+Christy is at a cheerful Christmas gathering with warm golden lights. Christy gives a friendly smile and a small welcoming wave.
+
+There is no speaking. Keep it as a single continuous shot, with only Christy visible. No subtitles, no logos, and no on-screen text.
+```
+
+### Dok Bing — optional silent Christmas greeting
+
+**Attach one original:** `n4_dok_bing_1.jpeg` or `n4_dok_bing_three.jpeg`
+
+```text
+Create a warm festive vertical 9:16 video of Dok Bing using the attached reference photo.
+
+Dok Bing is at a cheerful Christmas gathering with warm golden lights. Dok Bing gives a friendly smile and a small welcoming wave.
+
+There is no speaking. Keep it as a single continuous shot, with only Dok Bing visible. No subtitles, no logos, and no on-screen text.
+```
+
+### Malyn — optional silent Christmas greeting
+
+**Attach one original:** `n4_malyn.jpeg`
+
+```text
+Create a warm festive vertical 9:16 video of Malyn using the attached reference photo.
+
+Malyn is at a cheerful Christmas gathering with warm golden lights. Malyn gives a friendly smile and a small welcoming wave.
+
+There is no speaking. Keep it as a single continuous shot, with only Malyn visible. No subtitles, no logos, and no on-screen text.
+```
+
+### Rex — optional silent Christmas greeting
+
+**Attach one original:** `n4_rex.jpeg`
+
+```text
+Create a warm festive vertical 9:16 video of Rex using the attached reference photo.
+
+Rex is at a cheerful Christmas gathering with warm golden lights. Rex gives a friendly smile and a small welcoming wave.
+
+There is no speaking. Keep it as a single continuous shot, with only Rex visible. No subtitles, no logos, and no on-screen text.
+```
+
+### Shiela — optional silent Christmas greeting
+
+**Attach one original:** `n4_shiela.jpeg`
+
+```text
+Create a warm festive vertical 9:16 video of Shiela using the attached reference photo.
+
+Shiela is at a cheerful Christmas gathering with warm golden lights. Shiela gives a friendly smile and a small welcoming wave.
+
+There is no speaking. Keep it as a single continuous shot, with only Shiela visible. No subtitles, no logos, and no on-screen text.
+```
+
+### Anna — optional silent Christmas greeting
+
+**Attach one original:** `sa_anna_v.jpeg`
+
+```text
+Create a warm festive vertical 9:16 video of Anna using the attached reference photo.
+
+Anna is at a cheerful Christmas gathering with warm golden lights. Anna gives a friendly smile and a small welcoming wave.
+
+There is no speaking. Keep it as a single continuous shot, with only Anna visible. No subtitles, no logos, and no on-screen text.
+```
+
+### Cheska — optional silent Christmas greeting
+
+**Attach one original:** `w2_cheska.jpeg`
+
+```text
+Create a warm festive vertical 9:16 video of Cheska using the attached reference photo.
+
+Cheska is at a cheerful Christmas gathering with warm golden lights. Cheska gives a friendly smile and a small welcoming wave.
+
+There is no speaking. Keep it as a single continuous shot, with only Cheska visible. No subtitles, no logos, and no on-screen text.
+```
+
+### Kathleen — optional silent Christmas greeting
+
+**Attach one original:** `w2_kathleen_one.jpeg` or `w2_kathleen_two.jpeg`
+
+```text
+Create a warm festive vertical 9:16 video of Kathleen using the attached reference photo.
+
+Kathleen is at a cheerful Christmas gathering with warm golden lights. Kathleen gives a friendly smile and a small welcoming wave.
+
+There is no speaking. Keep it as a single continuous shot, with only Kathleen visible. No subtitles, no logos, and no on-screen text.
+```
+
+### Mischie — optional silent Christmas greeting
+
+**Attach one original:** `w2_mischie_one.jpeg` or `w2_mischie_two.jpeg`
+
+```text
+Create a warm festive vertical 9:16 video of Mischie using the attached reference photo.
+
+Mischie is at a cheerful Christmas gathering with warm golden lights. Mischie gives a friendly smile and a small welcoming wave.
+
+There is no speaking. Keep it as a single continuous shot, with only Mischie visible. No subtitles, no logos, and no on-screen text.
+```
+
+### Rowena Wheng — optional silent Christmas greeting
+
+**Attach one original:** `w2_rowena_wheng.jpeg` or `w2_rowena_wheng_two.jpeg`
+
+```text
+Create a warm festive vertical 9:16 video of Rowena Wheng using the attached reference photo.
+
+Rowena Wheng is at a cheerful Christmas gathering with warm golden lights. Rowena Wheng gives a friendly smile and a small welcoming wave.
+
+There is no speaking. Keep it as a single continuous shot, with only Rowena Wheng visible. No subtitles, no logos, and no on-screen text.
+```
+
+## Production checks, separate from model prompts
+
+- The proven lesson is the **simple conversational format**, not a guarantee that Google Flow will accept all prompts.
+- Keep all time windows, reference verification, preview QA and silent tail decisions outside the pasted model prompt.
+- A model can still omit or alter words. For speaking lines, listen to the whole source clip; preserve exact audible dialogue in edit.
+- On a policy refusal, stop rerender attempts and use permitted real member footage or a willingly recorded voiceover, edited outside Flow.
+- An actual earlier-year performance of Susie must come from the real user-provided recording; never fake archival dance clips.
