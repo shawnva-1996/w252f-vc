@@ -26,3 +26,6 @@ Reference-only documentation for the Sunday Screens Instagram 9-slide Christmas 
 ## Paskong Pinoy Remix — Final Teaser 3 (2026)
 
 Pre-production story, 58-second Taglish script, Google Flow agent instructions, atomic pickup prompts and portrait/footage checklist live in [Teaser 3](Teaser%203/README.md). No video is marked rendered until actual approved member portraits and source clips have been supplied.
+
+
+**Locked Google Flow generation preset for Teaser 3:** **Omni 1.2 Flash / 360p / 10 seconds / 10 credits**, 9:16, one output. Under a 50-credit account balance, this permits **five charged generations maximum per account**, including any charged retries. The final edited teaser still targets 58 seconds. See [per-account budget and generation checklist](Teaser%203/FLOW_BUDGET.md) and [prompt instructions](Teaser%203/FLOW_PICKUP_PROMPTS.md).
