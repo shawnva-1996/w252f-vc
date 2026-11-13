@@ -1,6 +1,17 @@
 # Teaser 3 — ready-to-fill scene prompt bank by screenshot filenames
 
+## Production reliability override — 2026-11-13 (V3)
+
+**The definitive model-facing instructions for every shot are in [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md), and numeric timings in [PICKUP_TIMING_MANIFEST.json](PICKUP_TIMING_MANIFEST.json).** Earlier prose timings/prompts in this file are narrative background only where different. Use [PICKUP_PREFLIGHT.md](PICKUP_PREFLIGHT.md) before every generation; static checks: `node "Teaser 3/PICKUP_PREFLIGHT.mjs"`.
+
+**Never try to add/change speech by editing a previously generated or uploaded video in Flow.** Every speaking pickup is a new generation referencing the original permitted portrait image; one speaker, one line, all speech finished before edit point, 8-second draft source when available, and 2+ seconds silent tail. If Flow refuses a policy-sensitive generation, stop retries and use real recorded dialogue in the editor. Google Flow policy outcomes cannot be guaranteed. This directive applies to **all** performers (Monica, Jessa, Mitch, Mommy Tere, Renee) and any additional voice pickup.
+
+Latest exact 58-second time windows: Monica P01 00–06; Monica P02 06–11; Jessa P03 11–15; Mitch P04 15–19; transition P05 19–21; party P06–P08 21–32; Jessa P09 32–35; Monica P10 35–38; rules P11 38–43; Monica P12 43–47; Tere P13 47–52; Renee P14 52–55; end card 55–58.
+
 **These are prompts READY IN TEXT ONLY, not executable without actual member portrait files.** For each generation, load the separate [stable agent instruction](GOOGLE_FLOW_AGENT_INSTRUCTION.md), follow the episode-level [agent prompt](GOOGLE_FLOW_AGENT_PROMPT.md), attach the exact original person photo below, and send the matching atomic pickup or dance/cameo template. Always use one primary speaker (or no speech), one action, one camera and an explicitly bounded silent tail.
+
+## AUTHORITATIVE PICKUP TEMPLATES (V3)
+The notes below are casting/reference slots, NOT complete generation prompts. For all character dialogue and silent dancer/cameo generation, the copy-ready atomic specifications and the shared restrictions in FLOW_PICKUP_PROMPTS.md take precedence. A dialogue performer must have a complete speech deadline and 2+ seconds of silent source tail; verify the full recorded sentence before accepting. Dancers/cameos have NO SPEECH. Never edit speech in an uploaded video.
 
 ## Core dialogue / scene plates already filename-matched
 
