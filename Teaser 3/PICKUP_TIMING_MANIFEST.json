@@ -1,5 +1,5 @@
 {
-  "version": "3.0",
+  "version": "4.0",
   "created": "2026-11-13",
   "name": "Paskong Pinoy Remix Teaser 3",
   "durationSeconds": 58,
@@ -210,5 +210,13 @@
     "finalStartSec": 55,
     "finalEndSec": 58,
     "type": "EDIT_OWNER_APPROVED_FLYER"
+  },
+  "promptStyle": "SHORT_NATURAL_LANGUAGE_FROM_OWNER_SUCCESSFUL_P02_ATTEMPT",
+  "promptFormatAuthority": "FLOW_PICKUP_PROMPTS.md V4 text code blocks only",
+  "internalTimingNotModelFacing": true,
+  "ownerTestStatus": {
+    "scene": "P02",
+    "finding": "Owner reported that a simplified P02 Flow prompt worked; exact alternative and dialogue audit not independently verified",
+    "otherV4Shots": "PREPARED_NOT_RENDER_TESTED"
   }
 }
