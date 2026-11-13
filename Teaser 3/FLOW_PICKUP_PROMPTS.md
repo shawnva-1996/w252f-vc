@@ -74,41 +74,55 @@ Use a natural conversational Filipino tone. Keep it as a single continuous shot,
 
 **Editor / QA:** If a visible shoulder tap is desired, build it as a separate silent insert. This pickup contains only Jessa. Speech must be fully audible before the final cut.
 
-### P04 — Mitch's exuberant invitation (final 15–19s)
+### P04 — Mischie's cheerful invitation (final 15–19s)
 
-**Reference:** Not available yet — HOLD this scene.
+**Reference:** Attach ONE original approved Mischie photo: `w2_mischie_one.jpeg` or `w2_mischie_two.jpeg`. The screenshot listing the filenames is not itself a portrait reference.
+
+**Try the concise spoken version once, provided Flow permits this type of generation. Copy only this block:**
 
 ```text
-Create a warm Christmas-themed vertical 9:16 video of Mitch using the attached reference photo.
+Create a warm Christmas-themed vertical 9:16 video of Mischie using the attached reference photo.
 
-Mitch is in a cheerful Christmas setting with warm festive lights. He leans into the frame with lively, friendly barkada energy and a bright smile.
+Mischie is at a cheerful Christmas gathering with glowing golden lights. She notices friends nearby and gives them a bright, welcoming smile.
 
-He says naturally in Tagalog:
+Mischie says naturally in Tagalog:
 
 "Besh! Sumali na kayo!"
 
-After saying the line, he keeps smiling warmly for the rest of the clip.
+After speaking, she keeps smiling happily.
 
-Use a natural conversational Filipino tone. Keep it as a single continuous shot, with only Mitch visible. No subtitles, no logos, and no on-screen text.
+Keep it as a single continuous shot, with only Mischie visible. No subtitles, no logos, and no on-screen text.
 ```
 
-**Editor / QA:** ON HOLD. Mitch's original approved photo is not yet identified. Do not substitute Mischie. Speech must be fully audible before the final cut.
-
-### P05 — Mitch invites with hand gesture (final 19–21s)
-
-**Reference:** Not available yet — HOLD this scene.
+**If Flow flags the speaking shot again, do not keep rewriting it to defeat a restriction.** Use this **silent performance** alternative and add Mischie's own consented recording of the line during editing:
 
 ```text
-Create a warm Christmas-themed vertical 9:16 video of Mitch using the attached reference photo.
+Create a warm Christmas-themed vertical 9:16 video of Mischie using the attached reference photo.
 
-Mitch is in the same cozy Christmas setting with warm festive lights. He reaches one hand toward the camera in a playful inviting gesture. His hand comes close to the lens, as if leading into a joyful scene change.
+Mischie is at a cheerful Christmas gathering with glowing golden lights. She smiles excitedly and gives friends just outside the frame a friendly welcoming wave.
 
-Mitch does not speak. He holds a happy expression.
+She does not speak. The moment is joyful and natural.
 
-Keep it as a single continuous shot, with only Mitch visible. No subtitles, no logos, and no on-screen text.
+Keep it as a single continuous shot, with only Mischie visible. No subtitles, no logos, and no on-screen text.
 ```
 
-**Editor / QA:** ON HOLD. Use Mitch original photo when available. Build the transition and other characters in post-production. This is a silent performance pickup.
+**Editor / QA:** Final slot 15–19s. The words **"Besh! Sumali na kayo!"** must be clearly audible in the finished edit, either from a successful approved Flow generation or a genuine consented recording mixed separately. Do not change someone's speech in an uploaded video inside Flow. For silent footage, do not fake lip-sync; cut to the welcoming smile/gesture while the line plays.
+
+### P05 — Mischie's hand transition (final 19–21s)
+
+**Reference:** Attach ONE original approved Mischie photo: `w2_mischie_one.jpeg` or `w2_mischie_two.jpeg`.
+
+```text
+Create a warm Christmas-themed vertical 9:16 video of Mischie using the attached reference photo.
+
+Mischie is at a cheerful Christmas party with glowing golden lights. She happily reaches one hand toward the camera as a friendly invitation. Her hand moves gently closer to the lens.
+
+Mischie does not speak and keeps a cheerful smile.
+
+Keep it as a single continuous shot, with only Mischie visible. No subtitles, no logos, and no on-screen text.
+```
+
+**Editor / QA:** Final 19–21s. Complete the magical transition with a match cut and party footage in post. Do not ask Flow to generate a complicated multi-person transformation.
 
 ### P09 — Jessa renews the invitation (final 32–35s)
 
@@ -262,7 +276,7 @@ Do not continue generating alternate prompts after a Flow safety refusal.
 
 - Phone discovery insert: actual Paskong Pinoy Remix flyer plus genuine Susie archive.
 - Game rules: use the exact owner-supplied image as a composited phone screen; do not ask Flow to generate text.
-- Mitch reaches toward camera; composite edit creates the scene change; no requirement for multi-person model generation.
+- Mischie reaches toward camera; composite edit creates the scene change; no requirement for multi-person model generation.
 - Mommy Tere + Renee: separate reference still generations, combine in post.
 - Finish with the verified event end card. Licensed/original Christmas music. Subtitles from actual final spoken audio at a social-safe raised lower-third.
 - Exact master is **58 seconds**, with shot timings from the manifest. No single Flow output is the completed film.
