@@ -27,22 +27,22 @@
 | Adrian | `w2_adrian_two.jpeg`, `w2_adrian.jpeg` | FEATURED dancer |
 | Cheska | `w2_cheska.jpeg` | optional celebration cameo; no invented line |
 | Kathleen | `w2_kathleen_one.jpeg`, `w2_kathleen_two.jpeg` | optional celebration cameo; no invented line |
-| Mischie | `w2_mischie_one.jpeg`, `w2_mischie_two.jpeg` | optional celebration cameo ONLY; NOT automatically Mitch |
+| Mischie | `w2_mischie_one.jpeg`, `w2_mischie_two.jpeg` | MAIN STORY ROLE: cheerful invitation (P04) and transition reach (P05), owner-confirmed |
 | Rowena Wheng | `w2_rowena_wheng_two.jpeg`, `w2_rowena_wheng.jpeg` | optional celebration cameo; no invented line |
 | Tere | `w2_tere.jpeg` | provisional mapping to "Mommy Tere" for outro; confirm that same person |
 | Willy | `w2_willy.jpeg` | FEATURED dancer |
 
-**Production-role tally:** 12 of 17 previously specified principal/featured identities have a possible corresponding filename in screenshot. This is NOT verification of 12 reference images: the original image files were not supplied. The 12 matching names are Monica, Jessa, Tere (provisionally Mommy Tere), Susie, Margie, Flor, Riza, Lilia, Usha, Willy, Adrian, Donna.
+**Production-role tally:** 13 of 17 previously specified principal/featured identities have a possible corresponding filename in screenshot. This is NOT verification of 13 reference images: the original image files were not supplied. The 13 matching names are Monica, Jessa, Mischie, Tere (provisionally Mommy Tere), Susie, Margie, Flor, Riza, Lilia, Usha, Willy, Adrian, Donna.
 
-**Missing original teaser-cast names from screenshot:** Mitch, Renee, Leizel, Anavee, Iad. DO NOT substitute or mislabel a pictured person (especially **Mischie ≠ Mitch** without explicit confirmation). Missing roles remain placeholders; do not generate talking scenes for them yet. The 12 others from the screenshot are optional background/cameo candidates, not automatically approved changes to the agreed story.
+**Original teaser-cast names missing from screenshot:** Renee, Leizel, Anavee, Iad. The owner confirmed **Mischie** is the correct name for the previously mismatched speaking role, and her two portrait filenames are known. All 13 identified cast names still need their actual originals and permission to animate; the 11 additional people in the screenshot remain optional cameos.
 
 **Version selection:** when two names are available, `_one`, `_two`, `_1`, `_2` or `_three` only distinguish photo files. No assertion that the later version has better image quality. Choose the best original photo after checking recognisability, full face, unobstructed facial features, lighting, likeness, ownership consent. Log the actual chosen filename. Preserve exact .JPG capitalization for `sa_susie_2.JPG`.
 
 ## Current priority
-1. **Dialogue preparations:** Monica (`sa_monica.jpeg`), Jessa (`n4_jessa.jpeg`), Tere (`w2_tere.jpeg`, pending person confirmation).
+1. **Dialogue preparations:** Monica (`sa_monica.jpeg`), Jessa (`n4_jessa.jpeg`), Mischie (`w2_mischie_one.jpeg` or `w2_mischie_two.jpeg`, owner-confirmed role), Tere (`w2_tere.jpeg`, pending person confirmation).
 2. **Already matchable featured dancers:** Susie, Margie, Flor, Riza, Lilia, Usha, Willy, Adrian, Donna.
-3. **Missing scripted people:** Mitch, Renee, Leizel, Anavee, Iad — do not fabricate.
-4. **Optional cameos:** Ally, Charie, Christy, Dok Bing, Malyn, Rex, Shiela, Anna, Cheska, Kathleen, Mischie, Rowena Wheng.
+3. **Missing scripted people:** Renee, Leizel, Anavee, Iad — do not fabricate.
+4. **Optional cameos:** Ally, Charie, Christy, Dok Bing, Malyn, Rex, Shiela, Anna, Cheska, Kathleen, Rowena Wheng.
 5. **Nonportrait media still needed:** actual previous-year dance clip of Susie, real group footage, exact game rules image, approved final event flyer and suitable licensed/original music.
 
 ## One-person reference template
