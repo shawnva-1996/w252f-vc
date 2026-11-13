@@ -53,31 +53,31 @@
     },
     {
       "id": "P04",
-      "title": "Mitch's exuberant invitation",
+      "title": "Mischie's exuberant invitation",
       "finalStartSec": 15,
       "finalEndSec": 19,
       "type": "NEW_VIDEO_FROM_ORIGINAL_STILL",
-      "originalStillFilename": "UNAVAILABLE",
-      "speaker": "Mitch",
+      "originalStillFilename": "w2_mischie_one.jpeg",
+      "speaker": "Mischie",
       "spokenLine": "Besh! Sumali na kayo!",
       "sourceGenerationSeconds": 8,
       "speechCompleteBySeconds": 2.8,
       "silentTailAtLeastSeconds": 5.2,
-      "notes": "BLOCKED UNTIL ORIGINAL MITCH PHOTO IS SUPPLIED. w2_mischie is not proof of Mitch."
+      "notes": "Mischie is owner-confirmed. Choose one actual original photo (w2_mischie_one.jpeg or w2_mischie_two.jpeg). Previous speaking attempt was flagged by Flow; cause unknown. Simple spoken prompt prepared; if declined, use silent performance with consented real voiceover outside Flow."
     },
     {
       "id": "P05",
-      "title": "Mitch invites with hand gesture",
+      "title": "Mischie invites with hand gesture",
       "finalStartSec": 19,
       "finalEndSec": 21,
       "type": "NEW_VIDEO_FROM_ORIGINAL_STILL",
-      "originalStillFilename": "UNAVAILABLE",
+      "originalStillFilename": "w2_mischie_one.jpeg",
       "speaker": null,
       "spokenLine": null,
       "sourceGenerationSeconds": 8,
       "speechCompleteBySeconds": 0,
       "silentTailAtLeastSeconds": null,
-      "notes": "No actual pulling of multiple generated people. Transition made from post match-cut. BLOCKED UNTIL MITCH PHOTO IS SUPPLIED."
+      "notes": "Mischie is owner-confirmed. One simple silent hand-reaching action, based on w2_mischie_one.jpeg or w2_mischie_two.jpeg; transition is assembled in post."
     },
     {
       "id": "P09",
@@ -218,5 +218,17 @@
     "scene": "P02",
     "finding": "Owner reported that a simplified P02 Flow prompt worked; exact alternative and dialogue audit not independently verified",
     "otherV4Shots": "PREPARED_NOT_RENDER_TESTED"
+  },
+  "ownerCorrections": {
+    "characterName": "Mischie",
+    "replacesPreviousName": true,
+    "originalPortraitCandidates": [
+      "w2_mischie_one.jpeg",
+      "w2_mischie_two.jpeg"
+    ],
+    "confirmation": "User explicitly confirmed Mischie as P04/P05 performer.",
+    "spokenPickupStatus": "PREPARED_UNTESTED",
+    "policyFlagCause": "UNKNOWN",
+    "silenceFallback": "Use new silent portrait-based footage and a willing real speaker's recorded line in post."
   }
 }
