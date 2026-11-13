@@ -16,11 +16,14 @@
 
 This checklist applies to EVERY P01–P14 pickup and any later silent dancer/cameo. **No prompt can guarantee Google Flow policy approval or perfect speech.** The purpose is fewer failures, earlier identification of issues, and a dependable editing fallback.
 
+## Mischie P04 update (owner confirmed)
+The P04/P05 actor is **Mischie**. An earlier P04 speaking generation was flagged by Flow; the specific cause is unknown and the new V4 spoken version is **not yet tested**. Choose one real original photo of Mischie with permission. P04 provides a short spoken prompt and a safe **silent** performance alternative for use with Mischie's real recorded invitation in the editor. Do not repeatedly reword a refused prompt to defeat a platform filter.
+
 ## Gate A: Reference and permissions BEFORE paying any credits
 - [ ] Actual **original image file** attached as character ingredient, not the screenshot showing filenames, not a rendered video clip.
 - [ ] The individual consented to appearing / having their likeness animated for this community video. For children or high-profile persons, check current Flow eligibility instead of assuming support.
 - [ ] Filename matches CAST_REFERENCE_INDEX.md and the identity has been visually verified. `w2_tere.jpeg` is only provisionally Mommy Tere.
-- [ ] Never assign `w2_mischie_*` to Mitch without explicit owner confirmation. Mitch and Renee are still missing portraits; Leizel, Anavee, Iad are missing for dancer shots.
+- [ ] Owner confirmed Mischie is the P04/P05 character. Attach ONE actual approved original of `w2_mischie_one.jpeg` or `w2_mischie_two.jpeg`. Renee's portrait is still missing; Leizel, Anavee and Iad remain missing for the dance montage.
 - [ ] Model and current settings show Video mode, still-image ingredients or frames (not uploaded-video speech edit), 9:16, single output, source duration 8 seconds where supported; if not, choose duration that fits the full utterance **plus silent tail**. Verify visible credits before generating.
 
 ## Gate B: Audio-safe prompt BEFORE generating
@@ -56,7 +59,7 @@ Edit to [PICKUP_TIMING_MANIFEST.json](PICKUP_TIMING_MANIFEST.json): **58 seconds
 Do not shorten unreadable game-rules graphics or omit any required dancer. The party sequence comes from real archival or new consented content, not invented historical footage. Generate final subtitles from the audible final output; avoid obscuring phone screen. Keep the owner creative lock: **POSITIVITY AND LOVE FIRST**.
 
 ## Current screenshot readiness
-**Filename-known but original photos not mounted in this conversation:** Monica, Jessa, Mommy Tere (person unverified), Susie, Margie, Flor, Riza, Lilia, Usha, Willy, Adrian, Donna. No actual new Flow clips have been tested or verified by this repository update. Missing portrait filenames for Mitch, Renee, Leizel, Anavee, Iad.
+**Filename-known but original photos not mounted in this conversation:** Monica, Jessa, Mischie, Mommy Tere (person unverified), Susie, Margie, Flor, Riza, Lilia, Usha, Willy, Adrian, Donna. No actual new Flow clips have been tested or verified by this repository update. Known filename candidates exist for Mischie; missing portrait filenames for Renee, Leizel, Anavee and Iad.
 
 ## Platform references (current lookup 2026-11-13)
 - Google Flow create-video Help: https://support.google.com/flow/answer/16353334 (Video settings, ingredients/frames, references, clip length, best practices)
