@@ -34,6 +34,14 @@ This checklist applies to EVERY P01–P14 pickup and any later silent dancer/cam
 ## Mischie P04 update (owner confirmed)
 The P04/P05 actor is **Mischie**. An earlier P04 speaking generation was flagged by Flow; the specific cause is unknown and the new V4 spoken version is **not yet tested**. Choose one real original photo of Mischie with permission. P04 provides a short spoken prompt and a safe **silent** performance alternative for use with Mischie's real recorded invitation in the editor. Do not repeatedly reword a refused prompt to defeat a platform filter.
 
+## P11 phone-screen orientation QA (2026-11-13)
+- [ ] Start Jessa's shot **already holding** the phone upright at chest height beside her face. No lift-and-rotate gesture.
+- [ ] **Phone front glass faces the camera from the first frame; back of phone faces Jessa.**
+- [ ] The entire screen is front-on, portrait-oriented, large and unobstructed, suitable for later rules-image insertion.
+- [ ] Screen is blank pale neutral gray. The actual verified rules image is composited in post, never invented by Flow.
+- [ ] Jessa keeps the P09 outfit, and does not speak during P11.
+- [ ] If the already generated footage is otherwise good, use an editorial phone insert first to preserve the 10-credit budget.
+
 ## Continuity check — Jessa P09 and P11
 
 - [ ] P09's **approved** clip is the wardrobe anchor. Save a still from P09 where Jessa's outfit is clearly visible using Flow's **Save frame** feature.
