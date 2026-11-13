@@ -23,6 +23,15 @@ if (plan.creativeLock !== "POSITIVITY AND LOVE FIRST") fault("Owner creative loc
 const exact = "Merry Christmas sa inyo… miss na miss ko na kayo.";
 const opening = plan.shots.find(s => s.id === "P01");
 if (!opening || opening.spokenLine !== exact) fault("Monica P01 exact owner words not preserved");
+const mInv = plan.shots.find(s => s.id === "P04");
+const mReach = plan.shots.find(s => s.id === "P05");
+for (const shot of [mInv, mReach]) {
+ if (!shot) { fault("Missing Mischie scene P04/P05"); continue; }
+ if (!shot.title.includes("Mischie")) fault("Cast name mismatch " + shot.id);
+ if (!shot.originalStillFilename.startsWith("w2_mischie_")) fault("Wrong Mischie reference " + shot.id);
+}
+if (mInv?.speaker !== "Mischie" || mInv?.spokenLine !== "Besh! Sumali na kayo!") fault("P04 speaker/dialogue drift");
+if (mReach?.speaker !== null || mReach?.spokenLine !== null) fault("P05 must remain silent");
 const missing = [];
 for (const shot of plan.shots) {
  if (shot.type !== "NEW_VIDEO_FROM_ORIGINAL_STILL") fault("Found a non-still speaking clip " + shot.id);
