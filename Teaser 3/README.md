@@ -15,6 +15,12 @@ For **every Teaser 3 Flow video generation**, including speaking pickups, silent
 
 **Important:** 10 seconds refers to each generated source pickup, **not** the final edit. The completed teaser remains **58 seconds**. Model-facing prompts remain brief natural language; preset and credit controls belong in Flow UI / agent preflight, not the video text prompt.
 
+## Jessa outfit continuity — P09 → P11 (2026-11-13)
+
+The owner observed Jessa changes outfits between P09 and P11. **P09 is the wardrobe authority for both party shots.** In Google Flow, **Save frame** from the approved P09 clip where clothing is clearly visible. In the new P11 generation, attach original `n4_jessa.jpeg` for identity and the saved P09 still **only as outfit reference**, when the locked Omni 1.2 Flash settings support Ingredients with both images. The **P11 copy-ready prompt** specifies identical sleeves, colors, neckline and accessories. Confirm visually before approving a new 10-credit take.
+
+Do not use the generated P09 video as a replacement identity source. If the model cannot reliably preserve clothing or refuses a reference, keep the existing video, crop to Jessa's phone and overlay the real rules image in post rather than paying for many retries. For P03 use the P09 outfit target if the storyline implies the same wardrobe. The master remains 58 seconds; preset remains Omni 1.2 Flash · 360p · 10s · 10 credits.
+
 ## CURRENT PRODUCTION DOCTRINE — V4 (2026-11-13)
 
 **Current model-facing prompts:** [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md) V4 and [AVAILABLE_CAST_PROMPT_BANK.md](AVAILABLE_CAST_PROMPT_BANK.md) V4. A **short, natural-language P02 prompt style** worked in Google Flow according to the owner. The older densely structured `PICKUP / REFERENCE / SPEECH TIMING / NEGATIVES` text is internal planning format only and **must not be pasted into the video model**.
