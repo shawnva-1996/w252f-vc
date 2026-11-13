@@ -1,310 +1,268 @@
-# Teaser 3 — Google Flow atomic pickup prompts V3 (dialogue-safe)
+# Paskong Pinoy Remix — Teaser 3 | Flow pickup prompts V4
 
-**CURRENT AUTHORITY — 2026-11-13.** This file REPLACES older P01–P14 wording and timing. Full episode length **58 seconds**. First beat is **POSITIVITY AND LOVE**, not sadness or anger. Latest cast correction: **Iad**.
+**Updated 2026-11-13.** These are **short, plain-language video-generation prompts**, modeled on the exact P02 wording the owner reported working in Google Flow. This is a clarity/usability improvement; **it does not guarantee Flow policy approval**. If a prompt is refused, respect the refusal and use real, permitted footage or a consented human-recorded voiceover in the editor.
 
-## Read this before ANY generate
-1. Paste the stable [Agent Instruction](GOOGLE_FLOW_AGENT_INSTRUCTION.md) and [episode Agent Prompt](GOOGLE_FLOW_AGENT_PROMPT.md) into Agent mode ONCE. Then generate ONE standalone atomic pickup from below. The story paragraph is NOT itself a video-model prompt.
-2. The reference photo filename indicates which **original consented still** to attach. Screenshot thumbnails and filenames alone are not usable images. If its filename is UNAVAILABLE, that scene is ON HOLD; never guess an identity.
-3. In standard Flow video settings choose Video → Ingredients or Frames (as supported), attach the original STILL and choose **9:16, single output, 8-second source** if offered. Verify actual current model/credit cost and supported duration. **Never submit an already-generated or uploaded video with a request to change its speech.** That is a different, unsupported workflow.
-4. **Dialogue safety:** exact line, no filler, natural conversational Tagalog/Taglish, line begins immediately, all words finished by the specified speech deadline; the rest is SILENT smiling/eye-line. The generated *source* may be 8s even when the editor keeps only 2–6s. Finish speech before final edit's allotted length.
-5. Before accepting any spoken clip, LISTEN to the actual audio completely (especially last 3 words) and confirm correct voice and image. If the complete line exceeds the planned final cut, preserve the line and reclaim time from montage rather than cutting words.
-6. No prompted edits to speech in uploaded videos. If Flow flags policy, STOP attempted variants; identify why and use a willing person's **real recorded voice** under a silent performance clip in post. A policy warning is not an invitation to bypass safeguards.
-7. All real faces are used with consent; no celebrities/minors or invented family photographs; actual app screens, previous-year Susie footage, rules, logos and dates go into post.
-8. The [preflight checklist](PICKUP_PREFLIGHT.md) must pass and the [timing manifest](PICKUP_TIMING_MANIFEST.json) is the numeric timing authority. No generated subtitles/labels/graphics.
-9. Flow cannot guarantee exact words or policy acceptance: these prompts reduce risk and the post/voice fallback ensures deliverability without depending on synthetic speech.
+**Creative priority:** POSITIVITY AND LOVE FIRST. Filipino OFW community, warm Christmas family affection, natural Tagalog/Taglish, original member likeness with consent. **Iad** is the correct dancer's name.
 
-## Shared single-clip negative
-One real reference subject only. Fixed camera, one simple action, one speaker OR zero speakers. No additional characters, unscripted speech, extraneous narration, split scenes, internal cuts, synthetic on-screen text, social-platform UI, fake old footage, watermark or changed identity. For phones use a blank neutral screen; compositor inserts real graphics later.
+## One-time setup (agent), then one pickup at a time (video model)
+1. In Google Flow Agent mode, provide [Agent Instruction](GOOGLE_FLOW_AGENT_INSTRUCTION.md) once, then the [Episode Agent Prompt](GOOGLE_FLOW_AGENT_PROMPT.md) once.
+2. For each scene below, **attach the actual original, permitted photograph** listed under **Reference**. The screenshot of filenames is not a substitute. When an actor is missing, leave their scene on hold.
+3. In the VIDEO-generation interface, select 9:16 and an approximately 8-second source duration if supported. Verify your active model, features, and credits. The timing is an editor/agent setting, **not** part of the short model-facing prompt.
+4. **Copy only the text inside that pickup's `text` code block** into the video model. Do not paste the editorial notes, JSON, tables, large negative lists, or production metadata.
+5. Listen to the generated audio. Verify the whole sentence, particularly its final words. Accept only a shot that matches the reference person, expression and dialogue. Use the [preflight checklist](PICKUP_PREFLIGHT.md); numbers in [timing manifest](PICKUP_TIMING_MANIFEST.json) govern the final 58-second cut.
+6. Do not ask Flow to change what an existing uploaded/generated video says. If an audio version is refused or unsupported, use an approved real voice recording over a silent scene in post; never try to circumvent a safety refusal.
 
-## P01 — Monica sends love home | FINAL 00–06s
+## Dialogue pickups — one reference, one speaker, one simple action
 
-**Copy ONLY the block below as the model-facing pickup prompt.**
+### P01 — Monica sends love home (final 00–06s)
+
+**Reference:** `sa_monica.jpeg`
 
 ```text
-PICKUP: P01
-GENERATE: New 8-second video, vertical 9:16, from an uploaded original reference STILL. Do not edit an existing uploaded video.
-REFERENCE: Attach original permitted photograph sa_monica.jpeg = Monica. No other person/reference attached.
-VISIBLE PEOPLE: Monica ONLY.
-SPEAKER: Monica
-SILENT CHARACTERS: NONE.
-CAMERA / FRAMING: Warm golden Christmas lights, fixed 9:16 tight medium close-up; neutral phone screen, family photo inserted only in post.
-ONE ACTION: Monica is already smiling lovingly at her own phone, conveying an affectionate Christmas greeting to family.
-EXACT SPEECH: "Merry Christmas sa inyo… miss na miss ko na kayo."
-SPEECH TIMING: Begin the line immediately, in natural unhurried Filipino Tagalog/Taglish; complete the WHOLE sentence, including its last word, within 5.7 seconds of the 8-second source clip. Do not truncate, improvise, repeat, or add words. The remaining 2.3 seconds must be completely SILENT.
-PERFORMANCE: Warm human Christmas affection, gentle welcoming expression, restrained natural acting; no negativity or anger.
-ENDING / TAIL: Once final word is fully spoken, Monica silently holds a friendly smile and natural eyeline until clip ends.
-PACING: Start meaningful action at the very first frame. No setup pause or extra gestures.
-NEGATIVES: No subtitles, no logos, no fake text/UI, no internal cuts, no second voice, no added dialogue, no watermarks, no invented identity or family scene.
+Create a warm Christmas-themed vertical 9:16 video of Monica using the attached reference photo.
+
+Monica is in a cozy, warmly lit Singapore room with soft golden Christmas lights in the background. She is holding her phone and smiling lovingly, as if sending a Christmas greeting to her family.
+
+She says naturally in Tagalog:
+
+"Merry Christmas sa inyo… miss na miss ko na kayo."
+
+After saying the complete sentence, she keeps a soft loving smile and looks at the phone quietly for the rest of the clip.
+
+Use a natural conversational Filipino tone. Keep it as a single continuous shot, with only Monica visible. No subtitles, no logos, and no on-screen text.
 ```
 
-**Edit / QA:** Keep 6s in final timeline; audio must be completely finished before its end. Never lead with tears or negativity. Full sentence, including second 'na'.
+**Editor / QA:** Previously clipped in a 4-second target; keep full 8-second source where available, review every word, then trim to 6s in final edit. Speech must be fully audible before the final cut.
 
+### P02 — Monica discovers the celebration (final 06–11s)
 
-## P02 — Monica discovers the celebration | FINAL 06–11s
-
-**Copy ONLY the block below as the model-facing pickup prompt.**
+**Reference:** `sa_monica.jpeg`
 
 ```text
-PICKUP: P02
-GENERATE: New 8-second video, vertical 9:16, from an uploaded original reference STILL. Do not edit an existing uploaded video.
-REFERENCE: Attach original permitted photograph sa_monica.jpeg = Monica. No other person/reference attached.
-VISIBLE PEOPLE: Monica ONLY.
-SPEAKER: Monica
-SILENT CHARACTERS: NONE.
-CAMERA / FRAMING: Same warm holiday room and wardrobe as P01, fixed 9:16 three-quarter close-up; exact poster and real Susie clip composited in post.
-ONE ACTION: Monica notices something festive on a neutral phone screen, and smiles with happy curiosity.
-EXACT SPEECH: "Ang saya naman dito…"
-SPEECH TIMING: Begin the line immediately, in natural unhurried Filipino Tagalog/Taglish; complete the WHOLE sentence, including its last word, within 2.8 seconds of the 8-second source clip. Do not truncate, improvise, repeat, or add words. The remaining 5.2 seconds must be completely SILENT.
-PERFORMANCE: Warm human Christmas affection, gentle welcoming expression, restrained natural acting; no negativity or anger.
-ENDING / TAIL: Once final word is fully spoken, Monica silently holds a friendly smile and natural eyeline until clip ends.
-PACING: Start meaningful action at the very first frame. No setup pause or extra gestures.
-NEGATIVES: No subtitles, no logos, no fake text/UI, no internal cuts, no second voice, no added dialogue, no watermarks, no invented identity or family scene.
+Create a warm Christmas-themed vertical 9:16 video of Monica using the attached reference photo.
+
+Monica is in a cozy warmly lit room with soft golden Christmas lights in the background. She is holding and looking at her phone. She notices something joyful on the screen, and her face brightens with happy curiosity.
+
+She says naturally in Tagalog:
+
+"Ang saya naman dito…"
+
+After saying the line, she keeps a gentle happy smile and continues looking at the phone quietly for the rest of the clip.
+
+Use a natural conversational Filipino tone. Keep it as a single continuous shot, with only Monica visible. No subtitles, no logos, and no on-screen text.
 ```
 
-**Edit / QA:** Keep 5s in final timeline; audio must be completely finished before its end. No fake Facebook app, invented text, or synthetic old-event footage.
+**Editor / QA:** OWNER-REPORTED SUCCESSFUL PROMPT. Do not change its wording. The real Paskong Pinoy Remix ad and real Susie archival clip are inserted later in editing. Speech must be fully audible before the final cut.
 
+### P03 — Jessa invites Monica (final 11–15s)
 
-## P03 — Jessa invites Monica | FINAL 11–15s
-
-**Copy ONLY the block below as the model-facing pickup prompt.**
+**Reference:** `n4_jessa.jpeg`
 
 ```text
-PICKUP: P03
-GENERATE: New 8-second video, vertical 9:16, from an uploaded original reference STILL. Do not edit an existing uploaded video.
-REFERENCE: Attach original permitted photograph n4_jessa.jpeg = Jessa. No other person/reference attached.
-VISIBLE PEOPLE: Jessa ONLY.
-SPEAKER: Jessa
-SILENT CHARACTERS: NONE.
-CAMERA / FRAMING: Warm corridor matching P01; fixed 9:16 medium close-up; keep Monica entirely out of generated frame, insert shoulder tap separately if wanted.
-ONE ACTION: Jessa gently reaches toward someone just off-camera in a welcoming invitation.
-EXACT SPEECH: "Gusto mo bang sumali?"
-SPEECH TIMING: Begin the line immediately, in natural unhurried Filipino Tagalog/Taglish; complete the WHOLE sentence, including its last word, within 2.8 seconds of the 8-second source clip. Do not truncate, improvise, repeat, or add words. The remaining 5.2 seconds must be completely SILENT.
-PERFORMANCE: Warm human Christmas affection, gentle welcoming expression, restrained natural acting; no negativity or anger.
-ENDING / TAIL: Once final word is fully spoken, Jessa silently holds a friendly smile and natural eyeline until clip ends.
-PACING: Start meaningful action at the very first frame. No setup pause or extra gestures.
-NEGATIVES: No subtitles, no logos, no fake text/UI, no internal cuts, no second voice, no added dialogue, no watermarks, no invented identity or family scene.
+Create a warm Christmas-themed vertical 9:16 video of Jessa using the attached reference photo.
+
+Jessa is in a softly lit Christmas setting with warm golden lights. She looks toward a friend just outside the frame, offering a gentle and welcoming smile.
+
+She says naturally in Tagalog:
+
+"Gusto mo bang sumali?"
+
+After saying the line, she keeps her friendly, encouraging smile for the rest of the clip.
+
+Use a natural conversational Filipino tone. Keep it as a single continuous shot, with only Jessa visible. No subtitles, no logos, and no on-screen text.
 ```
 
-**Edit / QA:** Keep 4s in final timeline; audio must be completely finished before its end. One visible speaker only. No other person speaking.
+**Editor / QA:** If a visible shoulder tap is desired, build it as a separate silent insert. This pickup contains only Jessa. Speech must be fully audible before the final cut.
 
+### P04 — Mitch's exuberant invitation (final 15–19s)
 
-## P04 — Mitch's exuberant invitation | FINAL 15–19s
-
-**Copy ONLY the block below as the model-facing pickup prompt.**
+**Reference:** Not available yet — HOLD this scene.
 
 ```text
-PICKUP: P04
-GENERATE: New 8-second video, vertical 9:16, from an uploaded original reference STILL. Do not edit an existing uploaded video.
-REFERENCE: REFERENCE NOT SUPPLIED YET — HOLD THIS PICKUP until original Mitch portrait is provided.
-VISIBLE PEOPLE: Mitch ONLY.
-SPEAKER: Mitch
-SILENT CHARACTERS: NONE.
-CAMERA / FRAMING: Warm Christmas corridor, fixed 9:16 medium shot, enough space to add companions later.
-ONE ACTION: Mitch is already leaning into frame with a spontaneous joyful greeting.
-EXACT SPEECH: "Besh! Sumali na kayo!"
-SPEECH TIMING: Begin the line immediately, in natural unhurried Filipino Tagalog/Taglish; complete the WHOLE sentence, including its last word, within 2.8 seconds of the 8-second source clip. Do not truncate, improvise, repeat, or add words. The remaining 5.2 seconds must be completely SILENT.
-PERFORMANCE: Warm human Christmas affection, gentle welcoming expression, restrained natural acting; no negativity or anger.
-ENDING / TAIL: Once final word is fully spoken, Mitch silently holds a friendly smile and natural eyeline until clip ends.
-PACING: Start meaningful action at the very first frame. No setup pause or extra gestures.
-NEGATIVES: No subtitles, no logos, no fake text/UI, no internal cuts, no second voice, no added dialogue, no watermarks, no invented identity or family scene.
+Create a warm Christmas-themed vertical 9:16 video of Mitch using the attached reference photo.
+
+Mitch is in a cheerful Christmas setting with warm festive lights. He leans into the frame with lively, friendly barkada energy and a bright smile.
+
+He says naturally in Tagalog:
+
+"Besh! Sumali na kayo!"
+
+After saying the line, he keeps smiling warmly for the rest of the clip.
+
+Use a natural conversational Filipino tone. Keep it as a single continuous shot, with only Mitch visible. No subtitles, no logos, and no on-screen text.
 ```
 
-**Edit / QA:** Keep 4s in final timeline; audio must be completely finished before its end. BLOCKED UNTIL ORIGINAL MITCH PHOTO IS SUPPLIED. w2_mischie is not proof of Mitch.
+**Editor / QA:** ON HOLD. Mitch's original approved photo is not yet identified. Do not substitute Mischie. Speech must be fully audible before the final cut.
 
+### P05 — Mitch invites with hand gesture (final 19–21s)
 
-## P05 — Mitch invites with hand gesture | FINAL 19–21s
-
-**Copy ONLY the block below as the model-facing pickup prompt.**
+**Reference:** Not available yet — HOLD this scene.
 
 ```text
-PICKUP: P05
-GENERATE: New 8-second video, vertical 9:16, from an uploaded original reference STILL. Do not edit an existing uploaded video.
-REFERENCE: REFERENCE NOT SUPPLIED YET — HOLD THIS PICKUP until original Mitch portrait is provided.
-VISIBLE PEOPLE: Mitch ONLY.
-SPEAKER: NONE — silent action.
-SILENT CHARACTERS: NONE.
-CAMERA / FRAMING: Same warm hallway, fixed 9:16 medium framing, one person only.
-ONE ACTION: Mitch reaches a hand toward the camera in a warm invitation; the hand fills the lens near the end for an editorial cut.
-EXACT SPEECH: NONE — absolutely no speech.
-SPEECH TIMING: NO SPEECH OR LIP-SYNC. Entire source is silent. Optional ambient sound in editor only.
-PERFORMANCE: Warm human Christmas affection, gentle welcoming expression, restrained natural acting; no negativity or anger.
-ENDING / TAIL: Hold the final gesture quietly with no speaking until clip ends.
-PACING: Start meaningful action at the very first frame. No setup pause or extra gestures.
-NEGATIVES: No subtitles, no logos, no fake text/UI, no internal cuts, no second voice, no added dialogue, no watermarks, no invented identity or family scene.
+Create a warm Christmas-themed vertical 9:16 video of Mitch using the attached reference photo.
+
+Mitch is in the same cozy Christmas setting with warm festive lights. He reaches one hand toward the camera in a playful inviting gesture. His hand comes close to the lens, as if leading into a joyful scene change.
+
+Mitch does not speak. He holds a happy expression.
+
+Keep it as a single continuous shot, with only Mitch visible. No subtitles, no logos, and no on-screen text.
 ```
 
-**Edit / QA:** Keep 3s in final timeline; audio must be completely finished before its end. No actual pulling of multiple generated people. Transition made from post match-cut. BLOCKED UNTIL MITCH PHOTO IS SUPPLIED.
+**Editor / QA:** ON HOLD. Use Mitch original photo when available. Build the transition and other characters in post-production. This is a silent performance pickup.
 
+### P09 — Jessa renews the invitation (final 32–35s)
 
-## P09 — Jessa renews the invitation | FINAL 32–35s
-
-**Copy ONLY the block below as the model-facing pickup prompt.**
+**Reference:** `n4_jessa.jpeg`
 
 ```text
-PICKUP: P09
-GENERATE: New 8-second video, vertical 9:16, from an uploaded original reference STILL. Do not edit an existing uploaded video.
-REFERENCE: Attach original permitted photograph n4_jessa.jpeg = Jessa. No other person/reference attached.
-VISIBLE PEOPLE: Jessa ONLY.
-SPEAKER: Jessa
-SILENT CHARACTERS: NONE.
-CAMERA / FRAMING: Coherent red-gold Christmas party background, fixed 9:16 close-up, same person and outfit as P03.
-ONE ACTION: Jessa faces an off-camera friend and warmly asks the question.
-EXACT SPEECH: "Gusto mo ba sumama?"
-SPEECH TIMING: Begin the line immediately, in natural unhurried Filipino Tagalog/Taglish; complete the WHOLE sentence, including its last word, within 2.6 seconds of the 8-second source clip. Do not truncate, improvise, repeat, or add words. The remaining 5.4 seconds must be completely SILENT.
-PERFORMANCE: Warm human Christmas affection, gentle welcoming expression, restrained natural acting; no negativity or anger.
-ENDING / TAIL: Once final word is fully spoken, Jessa silently holds a friendly smile and natural eyeline until clip ends.
-PACING: Start meaningful action at the very first frame. No setup pause or extra gestures.
-NEGATIVES: No subtitles, no logos, no fake text/UI, no internal cuts, no second voice, no added dialogue, no watermarks, no invented identity or family scene.
+Create a warm Christmas-themed vertical 9:16 video of Jessa using the attached reference photo.
+
+Jessa is now in a lively Christmas party setting with warm golden lights. She looks toward Monica just outside the frame and smiles as she warmly invites her.
+
+She says naturally in Tagalog:
+
+"Gusto mo ba sumama?"
+
+After saying the line, she remains smiling quietly for the rest of the clip.
+
+Use a natural conversational Filipino tone. Keep it as a single continuous shot, with only Jessa visible. No subtitles, no logos, and no on-screen text.
 ```
 
-**Edit / QA:** Keep 3s in final timeline; audio must be completely finished before its end. No second speaker, no inferred reverse shot.
+**Editor / QA:** Use same original Jessa photo as P03 for identity continuity. Speech must be fully audible before the final cut.
 
+### P10 — Monica says yes (final 35–38s)
 
-## P10 — Monica says yes | FINAL 35–38s
-
-**Copy ONLY the block below as the model-facing pickup prompt.**
+**Reference:** `sa_monica.jpeg`
 
 ```text
-PICKUP: P10
-GENERATE: New 8-second video, vertical 9:16, from an uploaded original reference STILL. Do not edit an existing uploaded video.
-REFERENCE: Attach original permitted photograph sa_monica.jpeg = Monica. No other person/reference attached.
-VISIBLE PEOPLE: Monica ONLY.
-SPEAKER: Monica
-SILENT CHARACTERS: NONE.
-CAMERA / FRAMING: Warm party 9:16 locked close-up, same Monica as P01/P02.
-ONE ACTION: Monica immediately beams and nods once toward Jessa, off-camera.
-EXACT SPEECH: "Of course, siyempre!"
-SPEECH TIMING: Begin the line immediately, in natural unhurried Filipino Tagalog/Taglish; complete the WHOLE sentence, including its last word, within 2.2 seconds of the 8-second source clip. Do not truncate, improvise, repeat, or add words. The remaining 5.8 seconds must be completely SILENT.
-PERFORMANCE: Warm human Christmas affection, gentle welcoming expression, restrained natural acting; no negativity or anger.
-ENDING / TAIL: Once final word is fully spoken, Monica silently holds a friendly smile and natural eyeline until clip ends.
-PACING: Start meaningful action at the very first frame. No setup pause or extra gestures.
-NEGATIVES: No subtitles, no logos, no fake text/UI, no internal cuts, no second voice, no added dialogue, no watermarks, no invented identity or family scene.
+Create a warm Christmas-themed vertical 9:16 video of Monica using the attached reference photo.
+
+Monica is in the happy Christmas party setting with warm festive lights. She looks toward someone just outside the frame and reacts with delight, smiling brightly.
+
+She says naturally in conversational Taglish:
+
+"Of course, siyempre!"
+
+After saying the line, she keeps her happy, excited smile for the rest of the clip.
+
+Use a natural conversational Filipino tone. Keep it as a single continuous shot, with only Monica visible. No subtitles, no logos, and no on-screen text.
 ```
 
-**Edit / QA:** Keep 3s in final timeline; audio must be completely finished before its end. If the whole line does not fit naturally in 3 seconds, protect dialogue and shorten adjacent music montage instead.
+**Editor / QA:** The final cut gives this short reply 3 seconds; preserve the full phrase. Speech must be fully audible before the final cut.
 
+### P11 — Jessa displays the actual rules image (final 38–43s)
 
-## P11 — Jessa displays the actual rules image | FINAL 38–43s
-
-**Copy ONLY the block below as the model-facing pickup prompt.**
+**Reference:** `n4_jessa.jpeg`
 
 ```text
-PICKUP: P11
-GENERATE: New 8-second video, vertical 9:16, from an uploaded original reference STILL. Do not edit an existing uploaded video.
-REFERENCE: Attach original permitted photograph n4_jessa.jpeg = Jessa. No other person/reference attached.
-VISIBLE PEOPLE: Jessa ONLY.
-SPEAKER: NONE — silent action.
-SILENT CHARACTERS: NONE.
-CAMERA / FRAMING: Warm 9:16 medium close-up, phone kept large and frontal enough to replace in editor.
-ONE ACTION: Jessa lifts a phone showing a blank neutral screen toward the lens, then holds it stationary.
-EXACT SPEECH: NONE — absolutely no speech.
-SPEECH TIMING: NO SPEECH OR LIP-SYNC. Entire source is silent. Optional ambient sound in editor only.
-PERFORMANCE: Warm human Christmas affection, gentle welcoming expression, restrained natural acting; no negativity or anger.
-ENDING / TAIL: Hold the final gesture quietly with no speaking until clip ends.
-PACING: Start meaningful action at the very first frame. No setup pause or extra gestures.
-NEGATIVES: No subtitles, no logos, no fake text/UI, no internal cuts, no second voice, no added dialogue, no watermarks, no invented identity or family scene.
+Create a warm Christmas-themed vertical 9:16 video of Jessa using the attached reference photo.
+
+Jessa is in a warm, festive Christmas party setting. She lifts her phone toward the camera and holds it steady, as if showing a friend some event information. The phone screen is blank and neutral.
+
+Jessa does not speak. She continues holding the phone with a cheerful expression.
+
+Keep it as a single continuous shot, with only Jessa visible. No subtitles, no logos, and no on-screen text.
 ```
 
-**Edit / QA:** Keep 5s in final timeline; audio must be completely finished before its end. NO spoken words, NO AI rules text. Insert the actual owner-provided rules image in post for 3+ readable seconds.
+**Editor / QA:** The actual supplied rules graphic is inserted in post. The image must remain readable in the final 5-second slot. This is a silent performance pickup.
 
+### P12 — Monica says the rules are easy (final 43–47s)
 
-## P12 — Monica says the rules are easy | FINAL 43–47s
-
-**Copy ONLY the block below as the model-facing pickup prompt.**
+**Reference:** `sa_monica.jpeg`
 
 ```text
-PICKUP: P12
-GENERATE: New 8-second video, vertical 9:16, from an uploaded original reference STILL. Do not edit an existing uploaded video.
-REFERENCE: Attach original permitted photograph sa_monica.jpeg = Monica. No other person/reference attached.
-VISIBLE PEOPLE: Monica ONLY.
-SPEAKER: Monica
-SILENT CHARACTERS: NONE.
-CAMERA / FRAMING: Warm 9:16 close-up matching P10; fixed lens and framing.
-ONE ACTION: Monica glances up from an off-camera phone and responds with friendly confidence.
-EXACT SPEECH: "Walang problema, madali lang 'yan!"
-SPEECH TIMING: Begin the line immediately, in natural unhurried Filipino Tagalog/Taglish; complete the WHOLE sentence, including its last word, within 3 seconds of the 8-second source clip. Do not truncate, improvise, repeat, or add words. The remaining 5 seconds must be completely SILENT.
-PERFORMANCE: Warm human Christmas affection, gentle welcoming expression, restrained natural acting; no negativity or anger.
-ENDING / TAIL: Once final word is fully spoken, Monica silently holds a friendly smile and natural eyeline until clip ends.
-PACING: Start meaningful action at the very first frame. No setup pause or extra gestures.
-NEGATIVES: No subtitles, no logos, no fake text/UI, no internal cuts, no second voice, no added dialogue, no watermarks, no invented identity or family scene.
+Create a warm Christmas-themed vertical 9:16 video of Monica using the attached reference photo.
+
+Monica is at the Christmas party with warm colorful festive lights behind her. She glances up from a phone and responds with a confident, cheerful smile.
+
+She says naturally in Tagalog:
+
+"Walang problema, madali lang 'yan!"
+
+After saying the complete line, she keeps a friendly confident smile for the rest of the clip.
+
+Use a natural conversational Filipino tone. Keep it as a single continuous shot, with only Monica visible. No subtitles, no logos, and no on-screen text.
 ```
 
-**Edit / QA:** Keep 4s in final timeline; audio must be completely finished before its end. Do not force an over-fast delivery; protect the complete final 'yan!'
+**Editor / QA:** Preserve the entire ending 'yan!' before cut. Speech must be fully audible before the final cut.
 
+### P13 — Mommy Tere invites everyone (final 47–52s)
 
-## P13 — Mommy Tere invites everyone | FINAL 47–52s
-
-**Copy ONLY the block below as the model-facing pickup prompt.**
+**Reference:** `w2_tere.jpeg`
 
 ```text
-PICKUP: P13
-GENERATE: New 8-second video, vertical 9:16, from an uploaded original reference STILL. Do not edit an existing uploaded video.
-REFERENCE: Attach original permitted photograph w2_tere.jpeg = Mommy Tere. No other person/reference attached.
-VISIBLE PEOPLE: Mommy Tere ONLY.
-SPEAKER: Mommy Tere
-SILENT CHARACTERS: NONE.
-CAMERA / FRAMING: Festive warm Christmas lighting, locked 9:16 medium shot; leave open compositing area at frame right.
-ONE ACTION: Mommy Tere looks at the viewer with an open welcoming gesture.
-EXACT SPEECH: "Tara na sa Paskong Pinoy Remix!"
-SPEECH TIMING: Begin the line immediately, in natural unhurried Filipino Tagalog/Taglish; complete the WHOLE sentence, including its last word, within 4 seconds of the 8-second source clip. Do not truncate, improvise, repeat, or add words. The remaining 4 seconds must be completely SILENT.
-PERFORMANCE: Warm human Christmas affection, gentle welcoming expression, restrained natural acting; no negativity or anger.
-ENDING / TAIL: Once final word is fully spoken, Mommy Tere silently holds a friendly smile and natural eyeline until clip ends.
-PACING: Start meaningful action at the very first frame. No setup pause or extra gestures.
-NEGATIVES: No subtitles, no logos, no fake text/UI, no internal cuts, no second voice, no added dialogue, no watermarks, no invented identity or family scene.
+Create a warm Christmas-themed vertical 9:16 video of Mommy Tere using the attached reference photo.
+
+Mommy Tere is at a bright, welcoming Christmas gathering decorated with warm festive lights. She looks toward the camera with an open, cheerful expression and warmly invites everyone.
+
+She says naturally in Tagalog:
+
+"Tara na sa Paskong Pinoy Remix!"
+
+After saying the line, she keeps a warm welcoming smile for the rest of the clip.
+
+Use a natural conversational Filipino tone. Keep it as a single continuous shot, with only Mommy Tere visible. No subtitles, no logos, and no on-screen text.
 ```
 
-**Edit / QA:** Keep 5s in final timeline; audio must be completely finished before its end. PROVISIONAL: confirm w2_tere.jpeg is the intended Mommy Tere before generating; no Renee in this video.
+**Editor / QA:** Confirm that w2_tere.jpeg actually depicts the intended Mommy Tere before generating. Renee will be composited separately. Speech must be fully audible before the final cut.
 
+### P14 — Renee joins the outro (final 52–55s)
 
-## P14 — Renee joins the outro | FINAL 52–55s
-
-**Copy ONLY the block below as the model-facing pickup prompt.**
+**Reference:** Not available yet — HOLD this scene.
 
 ```text
-PICKUP: P14
-GENERATE: New 8-second video, vertical 9:16, from an uploaded original reference STILL. Do not edit an existing uploaded video.
-REFERENCE: REFERENCE NOT SUPPLIED YET — HOLD THIS PICKUP until original Renee portrait is provided.
-VISIBLE PEOPLE: Renee ONLY.
-SPEAKER: Renee
-SILENT CHARACTERS: NONE.
-CAMERA / FRAMING: Match P13 lights and lens, locked 9:16 medium shot, leave room at frame left to composite Mommy Tere.
-ONE ACTION: Renee leans into frame from the right and smiles toward the camera.
-EXACT SPEECH: "See you there!"
-SPEECH TIMING: Begin the line immediately, in natural unhurried Filipino English; complete the WHOLE sentence, including its last word, within 1.5 seconds of the 8-second source clip. Do not truncate, improvise, repeat, or add words. The remaining 6.5 seconds must be completely SILENT.
-PERFORMANCE: Warm human Christmas affection, gentle welcoming expression, restrained natural acting; no negativity or anger.
-ENDING / TAIL: Once final word is fully spoken, Renee silently holds a friendly smile and natural eyeline until clip ends.
-PACING: Start meaningful action at the very first frame. No setup pause or extra gestures.
-NEGATIVES: No subtitles, no logos, no fake text/UI, no internal cuts, no second voice, no added dialogue, no watermarks, no invented identity or family scene.
+Create a warm Christmas-themed vertical 9:16 video of Renee using the attached reference photo.
+
+Renee is in a joyful Christmas party setting with warm golden lighting. Renee leans gently into the frame with a cheerful smile and looks toward the camera.
+
+Renee says naturally in English:
+
+"See you there!"
+
+After saying the line, Renee keeps smiling quietly for the rest of the clip.
+
+Use a natural conversational Filipino tone. Keep it as a single continuous shot, with only Renee visible. No subtitles, no logos, and no on-screen text.
 ```
 
-**Edit / QA:** Keep 3s in final timeline; audio must be completely finished before its end. BLOCKED UNTIL RENEE ORIGINAL PHOTO IS SUPPLIED; single speaker; combine with Tere in post.
+**Editor / QA:** ON HOLD until Renee's approved original photo is provided. Compose with Mommy Tere in post. Speech must be fully audible before the final cut.
 
-## P06 — Dancers group A | FINAL 21–24s
+## Real-footage montage (P06–P08) — final 21–32 seconds
 
-**Post-production from authentic, consented media first.** Required visible members: **Leizel, Susie, Margie, Flor**. 
+This section is predominantly **post-production**, not one AI video prompt. Use genuine consented dance/practice footage and give every required named dancer a recognisable moment. No invented historical videos.
 
-No generated historical video, no invented visible identity. If footage is absent, use approved original single-person portrait with a SILENT one-step dance animation (one person, one camera, 8-second source; select 0.5–1.5s in post) or a static photo with editorial movement. Do not fabricate their voice. Reserve the absent members' slots pending source reference.
+| Scene | Final seconds | People to show |
+|---|---|---|
+| P06 | 21–24 | Leizel, Susie, Margie, Flor |
+| P07 | 24–27 | Riza, Anavee, Lilia, Usha |
+| P08 | 27–32 | Iad, Willy, Adrian, Donna |
 
+If genuine footage is unavailable for an individual, use that person's original approved portrait and a **single-person silent dancer prompt** from [Available Cast Prompt Bank](AVAILABLE_CAST_PROMPT_BANK.md). Missing photos for Leizel, Anavee, and Iad remain on hold. Prefer existing real video for Susie's past performance; do not invent a historical clip.
 
-## P07 — Dancers group B | FINAL 24–27s
+## Optional P01B voice recovery
 
-**Post-production from authentic, consented media first.** Required visible members: **Riza, Anavee, Lilia, Usha**. 
+Monica's owner-corrected full line is **"Merry Christmas sa inyo… miss na miss ko na kayo."** If any actual generation cuts the ending, keep good image footage and record the complete line with an approved willing human speaker in post. If the model accepts a separate fresh still-based dialogue pickup, this shorter line is an alternative (it is **not** a request to edit an uploaded clip):
 
-No generated historical video, no invented visible identity. If footage is absent, use approved original single-person portrait with a SILENT one-step dance animation (one person, one camera, 8-second source; select 0.5–1.5s in post) or a static photo with editorial movement. Do not fabricate their voice. Reserve the absent members' slots pending source reference.
+```text
+Create a warm Christmas-themed vertical 9:16 video of Monica using the attached reference photo.
 
+Monica is in a cozy Christmas setting with soft golden lights. She looks at her phone and smiles lovingly.
 
-## P08 — Dancers group C and joy montage | FINAL 27–32s
+She says naturally in Tagalog:
 
-**Post-production from authentic, consented media first.** Required visible members: **Iad, Willy, Adrian, Donna**. 28-31 dancers, 31-33 happy Monica/food/raffle inserts where confirmed
+"Miss na miss ko na kayo."
 
-No generated historical video, no invented visible identity. If footage is absent, use approved original single-person portrait with a SILENT one-step dance animation (one person, one camera, 8-second source; select 0.5–1.5s in post) or a static photo with editorial movement. Do not fabricate their voice. Reserve the absent members' slots pending source reference.
+After speaking, she keeps smiling softly and stays quiet.
 
-## P01B optional editorial recovery
-If the entire P01 line was correctly spoken except that its ending clipped, do NOT upload the failed clip to Flow and ask for extra speech. Preserve what already works. Either record the complete P01 dialogue with a willing real speaker and sync in an editor over a silent Monica shot, OR (only if Flow policy allows) independently generate a NEW photo-referenced one-speaker clip with exact words: **"Miss na miss ko na kayo."** Start immediately; finish by 3s, silent smiling tail. Stop if policy warning occurs. Do not join mismatched voices deceptively; prefer authentic performance.
+Use a natural conversational Filipino tone. Keep it as a single continuous shot, with only Monica visible. No subtitles, no logos, and no on-screen text.
+```
 
-## Final edit
-- **00–06** Monica love; **06–11** ad discovery; **11–15** Jessa invite; **15–19** Mitch invite; **19–21** arm transition; **21–32** dance + food/raffle (only confirmed), featuring all 12 designated dancers; **32–35** Jessa asks; **35–38** Monica answers; **38–43** actual rules image; **43–47** Monica reacts; **47–52** Mommy Tere invite; **52–55** Renee joins (separate composite); **55–58** verified flyer end card.
-- Target 58s; never exceed 60s. Finish one line BEFORE each hard cut; trim music and dancing first if needed.
-- Actual final audio, not prompt, controls final subtitles; raised safe region around 65% from top, avoid obscuring phone screen.
-- Source portraits for Mitch, Renee, Leizel, Anavee, Iad remain unavailable in screenshot; w2_tere.jpeg identification needs confirmation.
-- If a model will not speak an exact Tagalog line, fallback to a consented live performer recording dubbed externally over a SILENT clip, rather than repeated unproductive rerenders.
+Do not continue generating alternate prompts after a Flow safety refusal.
+
+## Finishing notes (editor only, not model-facing)
+
+- Phone discovery insert: actual Paskong Pinoy Remix flyer plus genuine Susie archive.
+- Game rules: use the exact owner-supplied image as a composited phone screen; do not ask Flow to generate text.
+- Mitch reaches toward camera; composite edit creates the scene change; no requirement for multi-person model generation.
+- Mommy Tere + Renee: separate reference still generations, combine in post.
+- Finish with the verified event end card. Licensed/original Christmas music. Subtitles from actual final spoken audio at a social-safe raised lower-third.
+- Exact master is **58 seconds**, with shot timings from the manifest. No single Flow output is the completed film.
