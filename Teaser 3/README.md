@@ -1,8 +1,20 @@
 # Paskong Pinoy Remix — Teaser 3: "Malayo sa Pamilya, Pero Hindi Nag-iisa"
 
-## Production reliability override — 2026-11-13 (V3)
+## CURRENT PRODUCTION DOCTRINE — V4 (2026-11-13)
 
-**The definitive model-facing instructions for every shot are in [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md), and numeric timings in [PICKUP_TIMING_MANIFEST.json](PICKUP_TIMING_MANIFEST.json).** Earlier prose timings/prompts in this file are narrative background only where different. Use [PICKUP_PREFLIGHT.md](PICKUP_PREFLIGHT.md) before every generation; static checks: `node "Teaser 3/PICKUP_PREFLIGHT.mjs"`.
+**Current model-facing prompts:** [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md) V4 and [AVAILABLE_CAST_PROMPT_BANK.md](AVAILABLE_CAST_PROMPT_BANK.md) V4. A **short, natural-language P02 prompt style** worked in Google Flow according to the owner. The older densely structured `PICKUP / REFERENCE / SPEECH TIMING / NEGATIVES` text is internal planning format only and **must not be pasted into the video model**.
+
+**Persistent agent setup:** [GOOGLE_FLOW_AGENT_INSTRUCTION.md](GOOGLE_FLOW_AGENT_INSTRUCTION.md) V4, followed by [GOOGLE_FLOW_AGENT_PROMPT.md](GOOGLE_FLOW_AGENT_PROMPT.md) V4, once per new agent conversation. Then choose one scene and paste only its `text` model prompt, attaching the original approved member photograph.
+
+**Timing/QA remain unchanged:** [PICKUP_TIMING_MANIFEST.json](PICKUP_TIMING_MANIFEST.json) defines the 58s final cut. [PICKUP_PREFLIGHT.md](PICKUP_PREFLIGHT.md) describes reference checks, audio completion and platform restrictions; [PICKUP_PREFLIGHT.mjs](PICKUP_PREFLIGHT.mjs) validates structural timing. Voice deadlines and retries are agent/editor decisions, not long commands in the video-model text.
+
+**Creative lock:** POSITIVITY AND LOVE FIRST. Monica's full opening is **"Merry Christmas sa inyo… miss na miss ko na kayo."** Iad is the correct spelling. Missing roles (Mitch, Renee, Leizel, Anavee, Iad) are not fabricated. Reuse the actual original photos for each new pickup. If a particular Flow generation is refused, respect the platform decision and edit permitted footage plus a consented human recording externally. A successful P02 attempt does not prove every other V4 shot will work.
+
+**Status:** GitHub text prompts updated; **other V4 generations remain untested**. No final video is claimed rendered.
+
+## Historical production reliability notes — V3 (superseded by V4 above)
+
+**The current simplified model-facing prompts are in [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md) V4, and numeric timings in [PICKUP_TIMING_MANIFEST.json](PICKUP_TIMING_MANIFEST.json).** Earlier prose timings/prompts in this file are narrative background only where different. Use [PICKUP_PREFLIGHT.md](PICKUP_PREFLIGHT.md) before every generation; static checks: `node "Teaser 3/PICKUP_PREFLIGHT.mjs"`.
 
 **Never try to add/change speech by editing a previously generated or uploaded video in Flow.** Every speaking pickup is a new generation referencing the original permitted portrait image; one speaker, one line, all speech finished before edit point, 8-second draft source when available, and 2+ seconds silent tail. If Flow refuses a policy-sensitive generation, stop retries and use real recorded dialogue in the editor. Google Flow policy outcomes cannot be guaranteed. This directive applies to **all** performers (Monica, Jessa, Mitch, Mommy Tere, Renee) and any additional voice pickup.
 
