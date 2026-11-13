@@ -45,7 +45,7 @@ The user has confirmed a **simple, conversational P02 prompt approach worked** i
 ## Current generation procedure
 
 1. Load this Agent Instruction ONCE, then load [GOOGLE_FLOW_AGENT_PROMPT.md](GOOGLE_FLOW_AGENT_PROMPT.md) ONCE for this episode.
-2. For each new VIDEO output, choose the single intended original still; verify the relevant model, 9:16 aspect ratio, supported approximately ten-second source duration, and price/credits in the Flow UI.
+2. For each new VIDEO output, choose the single intended original still; verify the relevant model, 9:16 aspect ratio, exact 10-second source duration, Omni 1.2 Flash model, 360p output and 10-credit price in the Flow UI.
 3. Copy **one** `text` prompt from [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md), or a **silent** cast prompt from [AVAILABLE_CAST_PROMPT_BANK.md](AVAILABLE_CAST_PROMPT_BANK.md). Never paste the whole file or the episode prompt directly into the generator.
 4. Generate from the original permitted **still**. Do not ask Flow to change what a previously uploaded/generated video says; use new video from original stills or do human speech edits externally.
 5. Audition the entire generated audio. Check the correct person, all exact words (including sentence endings), one speaker, natural Filipino delivery, and a quiet smile after the final word. A short unhurried line is preferred; never accept a truncated sentence.
@@ -57,7 +57,7 @@ The user has confirmed a **simple, conversational P02 prompt approach worked** i
 
 ## Budget and retry discipline
 
-The previous JoblessDev baseline is superseded for this Teaser 3 workflow by the owner-locked **Omni 1.2 Flash, 360p, 10-second clip, 10-credit preset**. Confirm that the live Flow UI is showing those exact settings and the credit cost before generating. Do not assume multiple accounts combine credits or that old credit costs remain valid. Select first, upscale the winner if supported. Classify failures (policy, service, missing reference, incorrect speaker, cut-off words, continuity, audio) before deciding whether a *permitted* new attempt is worthwhile.
+The previous JoblessDev baseline is superseded for this Teaser 3 workflow by the owner-locked **Omni 1.2 Flash, 360p, 10-second clip, 10-credit preset**. Confirm that the live Flow UI is showing those exact settings and the credit cost before generating. Do not assume multiple accounts combine credits or that old credit costs remain valid. Select and keep 360p for all default generations; upscale only after explicit owner approval and a separate credit check. Classify failures (policy, service, missing reference, incorrect speaker, cut-off words, continuity, audio) before deciding whether a *permitted* new attempt is worthwhile.
 
 ## Updated story and names
 
