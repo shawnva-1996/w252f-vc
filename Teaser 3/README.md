@@ -31,7 +31,7 @@ For **every Teaser 3 Flow video generation**, including speaking pickups, silent
 
 **The current simplified model-facing prompts are in [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md) V4, and numeric timings in [PICKUP_TIMING_MANIFEST.json](PICKUP_TIMING_MANIFEST.json).** Earlier prose timings/prompts in this file are narrative background only where different. Use [PICKUP_PREFLIGHT.md](PICKUP_PREFLIGHT.md) before every generation; static checks: `node "Teaser 3/PICKUP_PREFLIGHT.mjs"`.
 
-**Never try to add/change speech by editing a previously generated or uploaded video in Flow.** Every speaking pickup is a new generation referencing the original permitted portrait image; one speaker, one line, all speech finished before edit point, 10-second draft source when available, and 2+ seconds silent tail. If Flow refuses a policy-sensitive generation, stop retries and use real recorded dialogue in the editor. Google Flow policy outcomes cannot be guaranteed. This directive applies to **all** performers (Monica, Jessa, Mischie, Mommy Tere, Renee) and any additional voice pickup.
+**Never try to add/change speech by editing a previously generated or uploaded video in Flow.** Every speaking pickup is a new generation referencing the original permitted portrait image; one speaker, one line, all speech finished before edit point, 10-second source clip with the locked preset, and 2+ seconds silent tail. If Flow refuses a policy-sensitive generation, stop retries and use real recorded dialogue in the editor. Google Flow policy outcomes cannot be guaranteed. This directive applies to **all** performers (Monica, Jessa, Mischie, Mommy Tere, Renee) and any additional voice pickup.
 
 Latest exact 58-second time windows: Monica P01 00–06; Monica P02 06–11; Jessa P03 11–15; Mischie P04 15–19; transition P05 19–21; party P06–P08 21–32; Jessa P09 32–35; Monica P10 35–38; rules P11 38–43; Monica P12 43–47; Tere P13 47–52; Renee P14 52–55; end card 55–58.
 
@@ -57,7 +57,7 @@ Source transcript contained approximate variants "Liza" vs "Leizel", "Floor" vs 
 Optional real video of Susie: only insert owner-supplied licensed/consented archival footage; do not fabricate a past event clip.
 
 ## Monica P01 audio fix — 2026-11-13
-The owner corrected the exact spoken line to **"Merry Christmas sa inyo… miss na miss ko na kayo."** This includes the additional "na". Generate an 10-second clip from her original approved still. Finish all speech within approximately six seconds, then hold a silent loving smile for about four seconds. Final timeline gives P01 0–6 seconds (two extra seconds recovered from the dance montage), keeping the entire video 58 seconds.
+The owner corrected the exact spoken line to **"Merry Christmas sa inyo… miss na miss ko na kayo."** This includes the additional "na". Generate a 10-second clip from her original approved still. Finish all speech within approximately six seconds, then hold a silent loving smile for about four seconds. Final timeline gives P01 0–6 seconds (two extra seconds recovered from the dance montage), keeping the entire video 58 seconds.
 
 If Flow drops the last words, preserve the successful opening footage; generate a separate, single-speaker P01B pickup with only **"Miss na miss ko na kayo."** using the original still image, or record a consenting person's real Tagalog voice to add in post. A policy error is not equivalent to clipped speech: do not repeatedly attempt to evade a safety refusal. Google Flow does not support changing what someone says in an uploaded video. If the photo-based generation is rejected again, use real human voice and edit it outside Flow.
 
@@ -123,6 +123,6 @@ Do not use logos, exact camera setups, scripts, or audio of reference campaigns.
 1. Receive portraits, obtain permission to use and AI-animate likenesses, fill manifest.
 2. Receive approved real archive/dance clips including Susie; the exact rules PNG/JPG; final flyer with date/venue.
 3. Confirm final script wording, card details, and shot order with owner.
-4. In each Flow account: verify model/credit price and image-to-video identity support; run 360p draft pickups independently; no generated video as next pickup's identity reference.
+4. In each Flow account: select Omni 1.2 Flash, 360p, 10-second duration, one 9:16 output and 10-credit price; confirm the available credit balance and count at most 5 charged generations per 50-credit account. Never use a generated video as the next pickup's identity reference.
 5. Review all output identities, speech, blocking; assemble in Remotion/FFmpeg/editor with exact overlaid images and real clips; derive subtitles from actual audio.
 6. Validate 9:16, 58s target / <60s hard, at least one recognisable shot for each dancer, readable image/rules, sound transitions, consent and final approval.
