@@ -179,27 +179,27 @@ Use a natural conversational Filipino tone. Keep it as a single continuous shot,
 
 **Editor / QA:** The final cut gives this short reply 3 seconds; preserve the full phrase. Speech must be fully audible before the final cut.
 
-### P11 — Jessa displays the actual rules image (final 38–43s)
+### P11 — Jessa presents her phone SCREEN to the camera (final 38–43s)
 
-**References / continuity:** Use `n4_jessa.jpeg` as Jessa's **original identity image** and a clean **saved still frame from the approved P09 clip** as her **wardrobe reference**, if the selected model supports two image ingredients. Choose a P09 frame showing her outfit clearly and without distracting characters. Save the frame in Flow using **Save frame**, then add it through Ingredients. If only one image is supported, prioritize an identity-accurate still with the approved P09 outfit visible, subject to permission and Flow support. Never treat a prior generated video as the canonical identity asset.
+**References / wardrobe continuity:** Attach original approved `n4_jessa.jpeg` for identity and, if supported by Omni 1.2 Flash Ingredients, a saved still from the approved P09 clip to match her outfit. Keep the locked preset **Omni 1.2 Flash · 360p · 10 seconds · 10 credits · 9:16 · one output**. This is a new generation from still images, not an edit to a video.
 
-**Copy only this text into the video prompt:**
+**Copy only this short prompt into Flow:**
 
 ```text
 Create a warm Christmas-themed vertical 9:16 video of Jessa using the attached reference images.
 
-Jessa is at a cheerful Christmas party with soft golden lights.
+Jessa is smiling at a cheerful Christmas party with soft golden lights. She wears the same outfit as in the previous party reference image.
 
-She wears exactly the same outfit shown in the reference frame from the previous Christmas party scene, including the same colors, neckline, sleeves, and accessories.
+She is already holding her smartphone vertically at chest level, next to her face. The phone's FRONT GLASS DISPLAY faces straight toward the camera from the first frame, like someone showing the viewer a photo. The BACK of the phone faces Jessa. The screen is completely visible, flat toward the lens, with a plain light-grey display.
 
-Jessa smiles warmly and gently raises her phone toward the camera, holding it steady.
+Jessa holds this pose naturally and smiles. She does not speak.
 
-She does not speak.
-
-Keep it as a single continuous shot, with only Jessa visible. No subtitles, no logos, and no on-screen text.
+One steady shot, with only Jessa visible. No subtitles or on-screen text.
 ```
 
-**Editor / QA:** P11 final 38–43s. Approve only when Jessa's **face and clothing match the P09 approved visual**. If retake would waste 10 credits or Flow refuses the reference, reuse the existing scene and cut to a close-up of the phone/rules graphic in post; do not repeatedly retry prohibited generations. Compositing adds the actual owner-approved rules image on the phone. Do not generate the rules text with Flow.
+**Critical framing QA:** The viewer MUST see the **front screen/glass**, NOT the back of the handset and NOT a screen turned toward Jessa. The display must stay near-front-on, upright portrait orientation, unobstructed and large enough to composite the real rules graphic. Avoid the previous **"raises phone toward camera"** action because it encouraged the model to show the screen facing her. Starting in the final screen-forward pose is safer than generating a rotation. The screen itself is **blank / neutral** in Flow; overlay the exact owner-approved rules image later in the editor. Keep clothing consistent with approved P09.
+
+**If already rendered and otherwise usable:** You may avoid spending another 10 credits by using a phone-screen cutaway / an editorial insert showing the verified game-rules image, rather than forcing a new model generation. Do not retry repeatedly after policy refusal.
 
 ### P12 — Monica says the rules are easy (final 43–47s)
 
