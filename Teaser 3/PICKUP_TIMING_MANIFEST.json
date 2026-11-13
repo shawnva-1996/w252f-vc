@@ -1,0 +1,214 @@
+{
+  "version": "3.0",
+  "created": "2026-11-13",
+  "name": "Paskong Pinoy Remix Teaser 3",
+  "durationSeconds": 58,
+  "creativeLock": "POSITIVITY AND LOVE FIRST",
+  "policyGuard": "Generate dialogue only as a NEW VIDEO from consented original reference stills. Never edit speech in an uploaded video; if the platform refuses a prompt, stop attempts, use human voiceover in external editor.",
+  "toolSettings": "Video, 9:16, supported 8-second generation if available; verify model, clip duration and credits in current Google Flow UI. Prefer economical draft rendering.",
+  "voiceVerification": "Listen to generated file and compare complete words including ending, correct single speaker, and no speech in silent tail. Do not count prompt text as actual transcription.",
+  "fallback": "If words clip: salvage existing good footage, use an approved willing human-recorded voiceover over silent footage OR independent shorter pickup if policy-permitted. If platform policy warning repeats, stop new Flow dialogue generation; no filter bypass.",
+  "shots": [
+    {
+      "id": "P01",
+      "title": "Monica sends love home",
+      "finalStartSec": 0,
+      "finalEndSec": 6,
+      "type": "NEW_VIDEO_FROM_ORIGINAL_STILL",
+      "originalStillFilename": "sa_monica.jpeg",
+      "speaker": "Monica",
+      "spokenLine": "Merry Christmas sa inyo… miss na miss ko na kayo.",
+      "sourceGenerationSeconds": 8,
+      "speechCompleteBySeconds": 5.7,
+      "silentTailAtLeastSeconds": 2.3,
+      "notes": "Never lead with tears or negativity. Full sentence, including second 'na'."
+    },
+    {
+      "id": "P02",
+      "title": "Monica discovers the celebration",
+      "finalStartSec": 6,
+      "finalEndSec": 11,
+      "type": "NEW_VIDEO_FROM_ORIGINAL_STILL",
+      "originalStillFilename": "sa_monica.jpeg",
+      "speaker": "Monica",
+      "spokenLine": "Ang saya naman dito…",
+      "sourceGenerationSeconds": 8,
+      "speechCompleteBySeconds": 2.8,
+      "silentTailAtLeastSeconds": 5.2,
+      "notes": "No fake Facebook app, invented text, or synthetic old-event footage."
+    },
+    {
+      "id": "P03",
+      "title": "Jessa invites Monica",
+      "finalStartSec": 11,
+      "finalEndSec": 15,
+      "type": "NEW_VIDEO_FROM_ORIGINAL_STILL",
+      "originalStillFilename": "n4_jessa.jpeg",
+      "speaker": "Jessa",
+      "spokenLine": "Gusto mo bang sumali?",
+      "sourceGenerationSeconds": 8,
+      "speechCompleteBySeconds": 2.8,
+      "silentTailAtLeastSeconds": 5.2,
+      "notes": "One visible speaker only. No other person speaking."
+    },
+    {
+      "id": "P04",
+      "title": "Mitch's exuberant invitation",
+      "finalStartSec": 15,
+      "finalEndSec": 19,
+      "type": "NEW_VIDEO_FROM_ORIGINAL_STILL",
+      "originalStillFilename": "UNAVAILABLE",
+      "speaker": "Mitch",
+      "spokenLine": "Besh! Sumali na kayo!",
+      "sourceGenerationSeconds": 8,
+      "speechCompleteBySeconds": 2.8,
+      "silentTailAtLeastSeconds": 5.2,
+      "notes": "BLOCKED UNTIL ORIGINAL MITCH PHOTO IS SUPPLIED. w2_mischie is not proof of Mitch."
+    },
+    {
+      "id": "P05",
+      "title": "Mitch invites with hand gesture",
+      "finalStartSec": 19,
+      "finalEndSec": 22,
+      "type": "NEW_VIDEO_FROM_ORIGINAL_STILL",
+      "originalStillFilename": "UNAVAILABLE",
+      "speaker": null,
+      "spokenLine": null,
+      "sourceGenerationSeconds": 8,
+      "speechCompleteBySeconds": 0,
+      "silentTailAtLeastSeconds": null,
+      "notes": "No actual pulling of multiple generated people. Transition made from post match-cut. BLOCKED UNTIL MITCH PHOTO IS SUPPLIED."
+    },
+    {
+      "id": "P09",
+      "title": "Jessa renews the invitation",
+      "finalStartSec": 33,
+      "finalEndSec": 36,
+      "type": "NEW_VIDEO_FROM_ORIGINAL_STILL",
+      "originalStillFilename": "n4_jessa.jpeg",
+      "speaker": "Jessa",
+      "spokenLine": "Gusto mo ba sumama?",
+      "sourceGenerationSeconds": 8,
+      "speechCompleteBySeconds": 2.6,
+      "silentTailAtLeastSeconds": 5.4,
+      "notes": "No second speaker, no inferred reverse shot."
+    },
+    {
+      "id": "P10",
+      "title": "Monica says yes",
+      "finalStartSec": 36,
+      "finalEndSec": 38,
+      "type": "NEW_VIDEO_FROM_ORIGINAL_STILL",
+      "originalStillFilename": "sa_monica.jpeg",
+      "speaker": "Monica",
+      "spokenLine": "Of course, siyempre!",
+      "sourceGenerationSeconds": 8,
+      "speechCompleteBySeconds": 1.6,
+      "silentTailAtLeastSeconds": 6.4,
+      "notes": "If the whole line does not fit naturally in 2 seconds, protect dialogue and shorten adjacent music montage instead."
+    },
+    {
+      "id": "P11",
+      "title": "Jessa displays the actual rules image",
+      "finalStartSec": 38,
+      "finalEndSec": 43,
+      "type": "NEW_VIDEO_FROM_ORIGINAL_STILL",
+      "originalStillFilename": "n4_jessa.jpeg",
+      "speaker": null,
+      "spokenLine": null,
+      "sourceGenerationSeconds": 8,
+      "speechCompleteBySeconds": 0,
+      "silentTailAtLeastSeconds": null,
+      "notes": "NO spoken words, NO AI rules text. Insert the actual owner-provided rules image in post for 3+ readable seconds."
+    },
+    {
+      "id": "P12",
+      "title": "Monica says the rules are easy",
+      "finalStartSec": 43,
+      "finalEndSec": 47,
+      "type": "NEW_VIDEO_FROM_ORIGINAL_STILL",
+      "originalStillFilename": "sa_monica.jpeg",
+      "speaker": "Monica",
+      "spokenLine": "Walang problema, madali lang 'yan!",
+      "sourceGenerationSeconds": 8,
+      "speechCompleteBySeconds": 3,
+      "silentTailAtLeastSeconds": 5,
+      "notes": "Do not force an over-fast delivery; protect the complete final 'yan!'"
+    },
+    {
+      "id": "P13",
+      "title": "Mommy Tere invites everyone",
+      "finalStartSec": 47,
+      "finalEndSec": 52,
+      "type": "NEW_VIDEO_FROM_ORIGINAL_STILL",
+      "originalStillFilename": "w2_tere.jpeg",
+      "speaker": "Mommy Tere",
+      "spokenLine": "Tara na sa Paskong Pinoy Remix!",
+      "sourceGenerationSeconds": 8,
+      "speechCompleteBySeconds": 4,
+      "silentTailAtLeastSeconds": 4,
+      "notes": "PROVISIONAL: confirm w2_tere.jpeg is the intended Mommy Tere before generating; no Renee in this video."
+    },
+    {
+      "id": "P14",
+      "title": "Renee joins the outro",
+      "finalStartSec": 52,
+      "finalEndSec": 55,
+      "type": "NEW_VIDEO_FROM_ORIGINAL_STILL",
+      "originalStillFilename": "UNAVAILABLE",
+      "speaker": "Renee",
+      "spokenLine": "See you there!",
+      "sourceGenerationSeconds": 8,
+      "speechCompleteBySeconds": 1.5,
+      "silentTailAtLeastSeconds": 6.5,
+      "notes": "BLOCKED UNTIL RENEE ORIGINAL PHOTO IS SUPPLIED; single speaker; combine with Tere in post."
+    }
+  ],
+  "montage": [
+    {
+      "id": "P06",
+      "type": "EDIT_REAL_FOOTAGE",
+      "finalStartSec": 22,
+      "finalEndSec": 25,
+      "requiredPeople": [
+        "Leizel",
+        "Susie",
+        "Margie",
+        "Flor"
+      ],
+      "notes": "Prefer actual consented footage; original photo stills for silent inserts as necessary"
+    },
+    {
+      "id": "P07",
+      "type": "EDIT_REAL_FOOTAGE",
+      "finalStartSec": 25,
+      "finalEndSec": 28,
+      "requiredPeople": [
+        "Riza",
+        "Anavee",
+        "Lilia",
+        "Usha"
+      ],
+      "notes": "Prefer actual consented footage; original photo stills for silent inserts as necessary"
+    },
+    {
+      "id": "P08",
+      "type": "EDIT_REAL_FOOTAGE",
+      "finalStartSec": 28,
+      "finalEndSec": 33,
+      "requiredPeople": [
+        "Iad",
+        "Willy",
+        "Adrian",
+        "Donna"
+      ],
+      "notes": "28-31 dancers, 31-33 happy Monica/food/raffle inserts where confirmed"
+    }
+  ],
+  "endCard": {
+    "id": "END",
+    "finalStartSec": 55,
+    "finalEndSec": 58,
+    "type": "EDIT_OWNER_APPROVED_FLYER"
+  }
+}
