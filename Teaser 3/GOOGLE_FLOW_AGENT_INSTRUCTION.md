@@ -1,5 +1,13 @@
 # TEASER 3 — REUSABLE GOOGLE FLOW AGENT INSTRUCTION
 
+## Production reliability override — 2026-11-13 (V3)
+
+**The definitive model-facing instructions for every shot are in [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md), and numeric timings in [PICKUP_TIMING_MANIFEST.json](PICKUP_TIMING_MANIFEST.json).** Earlier prose timings/prompts in this file are narrative background only where different. Use [PICKUP_PREFLIGHT.md](PICKUP_PREFLIGHT.md) before every generation; static checks: `node "Teaser 3/PICKUP_PREFLIGHT.mjs"`.
+
+**Never try to add/change speech by editing a previously generated or uploaded video in Flow.** Every speaking pickup is a new generation referencing the original permitted portrait image; one speaker, one line, all speech finished before edit point, 8-second draft source when available, and 2+ seconds silent tail. If Flow refuses a policy-sensitive generation, stop retries and use real recorded dialogue in the editor. Google Flow policy outcomes cannot be guaranteed. This directive applies to **all** performers (Monica, Jessa, Mitch, Mommy Tere, Renee) and any additional voice pickup.
+
+Latest exact 58-second time windows: Monica P01 00–06; Monica P02 06–11; Jessa P03 11–15; Mitch P04 15–19; transition P05 19–21; party P06–P08 21–32; Jessa P09 32–35; Monica P10 35–38; rules P11 38–43; Monica P12 43–47; Tere P13 47–52; Renee P14 52–55; end card 55–58.
+
 Status: DRAFT FOR OPERATOR. Same instruction across Flow accounts. Adapted from canonical JoblessDev Google Flow operating rules, NOT a verbatim replacement for the JoblessDev stable agent instruction. JoblessDev's stable file remains unmodified.
 
 Paste this entire section as the persistent **agent instruction** for all renders in this episode. Put one individual pickup from FLOW_PICKUP_PROMPTS.md into Flow for each generation; never paste this entire production strategy into the actual video model's shot prompt.
@@ -43,6 +51,9 @@ Target: Filipino OFWs in Singapore, especially domestic workers. Represent them 
 
 ## Dialogue-completion and policy-failure lock — 2026-11-13
 P01 Monica exact dialogue is **"Merry Christmas sa inyo… miss na miss ko na kayo."** (second "na" is mandatory). Generate an eight-second source clip, finishing the whole sentence by about 6s with ~2s silent smile. Final P01 timeline 0–6s; trim two seconds from dance montage. Review actual rendered speech before declaring PASS. If clipped, do a distinct short P01B one-speaker pickup of **"Miss na miss ko na kayo."**, or record an approved natural Tagalog voiceover over silent footage in post. Never repeatedly spend credits on identical broken prompts. Do not use generated or uploaded video as a speech-editing target; Flow may refuse such edits. Respect content policies; if a photo-animated pickup is blocked, stop and use real footage/voiceover rather than trying to bypass the filter.
+
+## ALL SPEAKING SHOTS: UNIFORM COMPLIANCE GATE
+For **P01, P02, P03, P04, P09, P10, P12, P13, P14** (every speaking pickup), apply the precise source length, speech deadline and silent tail in PICKUP_TIMING_MANIFEST.json. Generate each one independently from an original consented STILL. Validate exact Tagalog/Taglish final words and speaker by listening to generated audio. Speech starts promptly and must finish before the final edit cut; source 8 seconds where Flow supports it, final cut duration shorter. Never ask the model to repair an existing video's speech. If generated output is blocked for policy reasons, do not keep rewording to evade filters; use a consenting human voice recording added externally. P05 and P11 are strictly SILENT. The dance montage P06–P08 is primarily real owner-provided footage and no generated member speech.
 
 ## SPEECH / LANGUAGE
 - Natural Filipino Tagalog/Taglish as spoken by Filipinos living in Singapore. **NOT** exaggerated Singlish, generic American English, theatrical dubbing, caricatured helper accent, or unnecessary English translation.
