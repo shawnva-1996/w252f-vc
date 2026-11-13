@@ -69,7 +69,7 @@
       "id": "P05",
       "title": "Mitch invites with hand gesture",
       "finalStartSec": 19,
-      "finalEndSec": 22,
+      "finalEndSec": 21,
       "type": "NEW_VIDEO_FROM_ORIGINAL_STILL",
       "originalStillFilename": "UNAVAILABLE",
       "speaker": null,
@@ -82,8 +82,8 @@
     {
       "id": "P09",
       "title": "Jessa renews the invitation",
-      "finalStartSec": 33,
-      "finalEndSec": 36,
+      "finalStartSec": 32,
+      "finalEndSec": 35,
       "type": "NEW_VIDEO_FROM_ORIGINAL_STILL",
       "originalStillFilename": "n4_jessa.jpeg",
       "speaker": "Jessa",
@@ -96,15 +96,15 @@
     {
       "id": "P10",
       "title": "Monica says yes",
-      "finalStartSec": 36,
+      "finalStartSec": 35,
       "finalEndSec": 38,
       "type": "NEW_VIDEO_FROM_ORIGINAL_STILL",
       "originalStillFilename": "sa_monica.jpeg",
       "speaker": "Monica",
       "spokenLine": "Of course, siyempre!",
       "sourceGenerationSeconds": 8,
-      "speechCompleteBySeconds": 1.6,
-      "silentTailAtLeastSeconds": 6.4,
+      "speechCompleteBySeconds": 2.2,
+      "silentTailAtLeastSeconds": 5.8,
       "notes": "If the whole line does not fit naturally in 2 seconds, protect dialogue and shorten adjacent music montage instead."
     },
     {
@@ -168,8 +168,8 @@
     {
       "id": "P06",
       "type": "EDIT_REAL_FOOTAGE",
-      "finalStartSec": 22,
-      "finalEndSec": 25,
+      "finalStartSec": 21,
+      "finalEndSec": 24,
       "requiredPeople": [
         "Leizel",
         "Susie",
@@ -181,8 +181,8 @@
     {
       "id": "P07",
       "type": "EDIT_REAL_FOOTAGE",
-      "finalStartSec": 25,
-      "finalEndSec": 28,
+      "finalStartSec": 24,
+      "finalEndSec": 27,
       "requiredPeople": [
         "Riza",
         "Anavee",
@@ -194,15 +194,15 @@
     {
       "id": "P08",
       "type": "EDIT_REAL_FOOTAGE",
-      "finalStartSec": 28,
-      "finalEndSec": 33,
+      "finalStartSec": 27,
+      "finalEndSec": 32,
       "requiredPeople": [
         "Iad",
         "Willy",
         "Adrian",
         "Donna"
       ],
-      "notes": "28-31 dancers, 31-33 happy Monica/food/raffle inserts where confirmed"
+      "notes": "27-30 dancers, 30-32 confirmed food/raffle and happy Monica reaction"
     }
   ],
   "endCard": {
