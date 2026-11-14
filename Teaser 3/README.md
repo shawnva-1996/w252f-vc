@@ -2,7 +2,7 @@
 
 ## LATEST CAST OVERRIDE — 2026-11-14: Ate Susie replaces Mischie (P04/P05)
 
-**Production decision:** P04 (15–19s spoken invitation) and P05 (19–21s silent hand transition) now feature **Ate Susie**, using her approved original `sa_susie.jpeg` or `sa_susie_2.JPG` (or owner-verified real footage). Keep the original P04 line **"Besh! Sumali na kayo!"**, subject to audio review. Ate Susie still appears in the featured dance roster and the genuine historical dance insert as originally planned. **Mischie is no longer a main scripted character** (optional cameo only).
+**Production decision:** P04 (15–19s spoken invitation) and P05 (19–21s silent friendly wave; zoom/light-flash transition composited later) now feature **Ate Susie**, using her approved original `sa_susie.jpeg` or `sa_susie_2.JPG` (or owner-verified real footage). Keep the original P04 line **"Besh! Sumali na kayo!"**, subject to audio review. Ate Susie still appears in the featured dance roster and the genuine historical dance insert as originally planned. **Mischie is no longer a main scripted character** (optional cameo only).
 
 **CRITICAL FOR EDITING:** The existing Google Drive files `p04.mp4` and `p05.mp4` show the PREVIOUS Mischie character. Those assets and the first [proof-of-concept edit](POC_PREVIEW_2026-11-14.md) are now **legacy previews**, not the current approved character cut. Do not simply change file labels or suggest the person in those videos is Ate Susie. The revised final requires authentic approved Ate Susie footage/new pickups for P04/P05. A new character-consistent proof of concept cannot claim those shots are fulfilled until real Susie footage is available or owner-verified. See [current pickup prompts](FLOW_PICKUP_PROMPTS.md), [manifest](PICKUP_TIMING_MANIFEST.json), and [preflight](PICKUP_PREFLIGHT.md).
 
@@ -86,7 +86,7 @@ If Flow drops the last words, preserve the successful opening footage; generate 
 | 06.0–11.0 | Her phone scrolls onto an event ad; phone insert uses the REAL Paskong Pinoy Remix poster plus REAL clip of Susie dancing in last year's event. | MONICA, voice lifting: "Ang saya naman dito…" |
 | 11.0–15.0 | Jessa taps her shoulder gently; Monica looks up. | JESSA: "Gusto mo bang sumali?" |
 | 15.0–19.0 | Ate Susie pops into frame unexpectedly, exuberant but not screaming. | ATE SUSIE: "Besh! Sumali na kayo!" |
-| 19.0–21.0 | Ate Susie offers a hand and playfully pulls Monica and Jessa forward; hand-swipe / whip-pan / Christmas-light match cut. Composite if necessary. | Festive musical whoosh; NO dialogue. |
+| 19.0–21.0 | Ate Susie smiles and gives a small friendly wave. Add a quick push-in/Christmas-light flash into genuine dance footage in post, without hand-to-lens movement. | Festive musical whoosh; NO dialogue. |
 | 22.0–25.0 | Magical arrival in vibrant decorated event space; dance montage group A: Leizel, Susie, Margie, Flor. | Festive music; live cheering. |
 | 25.0–28.0 | Dance montage group B: Riza, Anavee, Lilia, Usha. | Music. |
 | 28.0–31.0 | Dance montage group C: Iad, Willy, Adrian, Donna. | Music. |
