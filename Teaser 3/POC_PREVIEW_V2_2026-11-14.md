@@ -1,5 +1,7 @@
 # Paskong Pinoy Remix — Teaser 3 | Proof of concept V2 (2026-11-14)
 
+> **Drive filename rename note — 2026-11-14:** The same rendered V2 preview file was subsequently **renamed in place** on Google Drive to `Paskong_Pinoy_Remix_Final_Teaser_V2_POC.mp4`, in accordance with the current **FINAL TEASER** production name. Its original filename below is preserved for historical provenance; the underlying MP4 bytes and Drive file ID are unchanged. **Director-facing source-of-truth is now [Final Teaser V2 production script](../Final%20Teaser/PRODUCTION_SCRIPT_V2.md)**.
+
 ## Status and delivery
 
 **Actual rendered preview:** `Paskong_Pinoy_Remix_Teaser3_POC_v2_Susie_Archive.mp4`. Uploaded to the user's **W252F Media Team** Google Drive. Drive returned a verified MP4: **6,023,779 bytes**, H.264/AAC, **540×960**, ~30 fps, **58.023 seconds**. Download/preview are in Drive; participant files and authenticated Drive links are intentionally **not** committed to this repository.
