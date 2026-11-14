@@ -1,3 +1,6 @@
+## CURRENT PRODUCTION OVERRIDE — 14 NOV 2026
+**P04, P05A, P05B and P06 source MP4s are present and visually inspected** in [the supplied Drive folder](https://drive.google.com/drive/folders/1w6XDHaDKkQ_kPIzWxChT8bBBN202KXpg). Their actual visual content and tech specifications are indexed in [RENDERED_CLIPS_MANIFEST_2026-11-14.md](RENDERED_CLIPS_MANIFEST_2026-11-14.md). The current **90-second timecoded director's draft** is [DIRECTORS_SCRIPT_V1.md](DIRECTORS_SCRIPT_V1.md), which supersedes older speculative shot wording. No more Flow generations needed for P04/P05/P06. **P05B has already been received.** P07 real footage and P14 actual messages still needed. No 90-second finished MP4 exists yet.
+
 
 ## LATEST REFERENCE-PHOTO CLARIFICATION — 2026-11-14
 User clarified that Teaser 3 P02 successfully used Monica's original photo. For P05, use the **same short, natural-language single-actor prompt structure** with Ate Joy's original consented photo where the current Flow mode permits. One earlier, more elaborate P05 request was refused for an unknown reason; this cannot guarantee approval. On further safety refusal, stop and use authorized original photo/real footage in Remotion. The up-to-date exact prompt is in [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md) V3 and [Agent Prompt](GOOGLE_FLOW_AGENT_PROMPT_POC.md) V5.
@@ -9,7 +12,7 @@ User clarified that Teaser 3 P02 successfully used Monica's original photo. For 
 **Latest owner format override (2026-11-14):** 9:16 vertical / Omni Flash 1.2 / 360p / 10s source shots / 50 credits per account, ~8 owner-reported accounts. See [FLOW_CONTINUITY_CREDITS_V3.md](FLOW_CONTINUITY_CREDITS_V3.md) for saved-last-frame continuation, native Extend eligibility, Frames to Video fallback and separate credit ledger.
 
 **Prepared:** 2026-11-14 (Asia/Singapore)  
-**Status:** DRAFT for owner approval; no Flow render, TTS audio or final MP4 claimed.  
+**Status:** DRAFT director's cut for owner approval; P04/P05A/P05B/P06 Flow sources received, but **no Gemini TTS or final 90-second MP4 claimed**.  
 **Format:** 90 seconds exact; **9:16 vertical**, final composition 1080×1920 at 30fps; original Flow pickups **360p** (upscale only when available and approved).  
 **Audience:** Filipino OFW / W2, N4 and Sunday Groups; upbeat and loving Taglish.  
 **Kuya:** disembodied VO only, synthesized separately via **Gemini TTS**, never an on-camera actor; original voice (not PBB imitation).
@@ -75,7 +78,7 @@ User clarified that Teaser 3 P02 successfully used Monica's original photo. For 
 ## Continuity and budget — mandatory V3 addition
 - **Same-action sequence only:** accepted PxxA footage → pause at clean final frame → **Save frame** → use as PxxB **start frame** in Frames to Video (or native **Extend** if account is eligible). Include the approved original member photograph where Flow supports it and the member consents; keep exact original still for QA. Do not feed a different celebrant a prior actor's face/frame.
 - **Scene changes:** P04 N4, P05 W2, P06 Love and P07 Hope are **different people/groups**; start independent from each approved original portrait or use non-identifiable/live footage. Do not chain their last frames.
-- **P05B:** optional paid continuation of P05A, must not be run without separate approval. P05 remains a five-second final slot unless owner changes the edit.
+- **P05B:** Continuation source is already uploaded; don't spend credits regenerating it. Use as the final ~2 seconds of P05's existing five-second slot if the visual cut passes QA.
 - **Account ledger:** [ACCOUNT_CREDIT_LEDGER.csv](ACCOUNT_CREDIT_LEDGER.csv); nominal 10 credits per 10s at 360p = at most five per actual 50-credit balance, separately per account. Track failed charged attempts, don't bypass Google restrictions, never commit credentials.
 - **Original photos, narration and dates:** authorized original portraits may be used as Flow reference when supported and must remain available for Remotion; separate Gemini TTS Kuya voice; Catherine date check remains pending.
 - **Portrait delivery on landscape PowerPoint:** display the vertical video inside a designed wide slide with non-stretched borders/side graphics, or in a portrait display. Earlier landscape PDF is superseded only for the video aspect ratio, not the event's physical projector orientation.
