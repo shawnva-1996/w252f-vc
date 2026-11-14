@@ -1,7 +1,7 @@
 {
   "version": "4.1",
   "created": "2026-11-13",
-  "name": "Paskong Pinoy Remix Teaser 3",
+  "name": "Paskong Pinoy Remix — Final Teaser",
   "durationSeconds": 58,
   "creativeLock": "POSITIVITY AND LOVE FIRST",
   "policyGuard": "Generate dialogue only as a NEW VIDEO from consented original reference stills. Never edit speech in an uploaded video; if the platform refuses a prompt, stop attempts, use human voiceover in external editor.",
@@ -262,7 +262,7 @@
     "creditsPerGeneration": 10,
     "budgetCreditsPerAccount": 50,
     "maxGenerationsPerAccount": 5,
-    "enforcement": "Use this exact preset for every new Teaser 3 Flow generation, including retry attempts and dancer/cameo pickups. Check account's actual available credits and settings in Flow before launching. Do not use another model or upscale by default without explicit user approval; don't assume account balances or costs.",
+    "enforcement": "Use this exact preset for every new Final Teaser V2 Flow generation, including retry attempts and dancer/cameo pickups. Check account's actual available credits and settings in Flow before launching. Do not use another model or upscale by default without explicit user approval; don't assume account balances or costs.",
     "accountCreditAccounting": "Count every attempt that actually spends credits, including failed/aborted attempts if charged. Stop after 5 charges/50 credits on an account; do not assume free retries."
   },
   "continuityLocks": {
@@ -303,7 +303,7 @@
   "latestProofOfConcept": {
     "version": "v2",
     "date": "2026-11-14",
-    "fileName": "Paskong_Pinoy_Remix_Teaser3_POC_v2_Susie_Archive.mp4",
+    "fileName": "Paskong_Pinoy_Remix_Final_Teaser_V2_POC.mp4",
     "driveFileId": "1cvFbwp9CVi7a9wAY_EdZ6nH2LG_LWy_d",
     "status": "RENDERED_IN_DRIVE_FOR_REVIEW_NOT_FINAL",
     "videoSeconds": 58.023,
@@ -316,6 +316,11 @@
     },
     "visualQA": "Key frames sampled; no individual dancer identity proof",
     "dialogueQA": "NOT VERIFIED: need listen to full lines",
-    "posterAndEnd": "TEMPORARY MOCKUPS"
-  }
+    "posterAndEnd": "TEMPORARY MOCKUPS",
+    "originalFileName": "Paskong_Pinoy_Remix_Teaser3_POC_v2_Susie_Archive.mp4",
+    "label": "FINAL TEASER V2 — preview only"
+  },
+  "productionLabel": "FINAL TEASER — V2",
+  "authoritativeDirectorScript": "../Final Teaser/PRODUCTION_SCRIPT_V2.md",
+  "historicalDirectoryNotice": "The folder Teaser 3 is an archived technical source path only; the production and director-facing title is Final Teaser."
 }
