@@ -1,5 +1,7 @@
 # Paskong Pinoy Remix — Teaser 3: "Malayo sa Pamilya, Pero Hindi Nag-iisa"
 
+> **CURRENT PROJECT NAME (2026-11-14): FINAL TEASER — VERSION 2.** The current director-facing production script and project index now live at **[Final Teaser / Production Script V2](../Final%20Teaser/PRODUCTION_SCRIPT_V2.md)**. This `Teaser 3/` directory is retained as a historical/technical archive so old source clips, pickup IDs, timing, prompts and V1/V2 edit records remain traceable. Do **not** call the current deliverable "Teaser 3".
+
 ## CURRENT PREVIEW — V2 Ate Susie + real archive montage (2026-11-14)
 
 **V2 is rendered and uploaded to W252F Media Team Google Drive.** It supersedes the older V1 preview, using owner-supplied `p04_susie.mp4` for Ate Susie's spoken P04 scene and the real past-event `sa_dance_past_vids.mp4` for P06–P08 instead of the earlier rehearsal. P05 uses a **two-second silent smiling take derived from the same Susie video**, with a zoom / light-flash transition **made in editing**, because Flow repeatedly rejected the independent P05 generation. Do not spend additional credits regenerating P05.
