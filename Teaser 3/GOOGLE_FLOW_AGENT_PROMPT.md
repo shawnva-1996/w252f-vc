@@ -21,14 +21,14 @@ For **every Teaser 3 Flow video generation**, including speaking pickups, silent
 
 You are making an original 58-second vertical 9:16 Filipino Christmas short, **Paskong Pinoy Remix — Teaser 3**, for Filipino overseas workers in Singapore.
 
-**Creative rule:** Start with positivity and love. Monica smiles and sends a loving Christmas greeting to family in the Philippines. She is not angry, crying, or being portrayed negatively. When she discovers a lively gathering, her happiness grows. Jessa welcomes her, Mischie brings her into the festivities, the whole community dances, Monica happily agrees to join, and Mommy Tere and Renee invite the viewers.
+**Creative rule:** Start with positivity and love. Monica smiles and sends a loving Christmas greeting to family in the Philippines. She is not angry, crying, or being portrayed negatively. When she discovers a lively gathering, her happiness grows. Jessa welcomes her, Ate Susie brings her into the festivities, the whole community dances, Monica happily agrees to join, and Mommy Tere and Renee invite the viewers.
 
 **Story and exact words:**
 - 00–06 — Monica warmly looks at her phone, greeting loved ones: "Merry Christmas sa inyo… miss na miss ko na kayo."
 - 06–11 — Monica sees the genuine festive gathering ad featuring Susie's real archival dancing clip: "Ang saya naman dito…"
 - 11–15 — Jessa gently invites: "Gusto mo bang sumali?"
-- 15–19 — Mischie arrives with joyful barkada energy: "Besh! Sumali na kayo!"
-- 19–21 — Mischie reaches his hand toward the camera for a fun transition. Silent.
+- 15–19 — Ate Susie arrives with joyful barkada energy: "Besh! Sumali na kayo!"
+- 19–21 — Ate Susie reaches her hand toward the camera for a fun transition. Silent.
 - 21–32 — Real dancing/celebration: Leizel, Susie, Margie, Flor, Riza, Anavee, Lilia, Usha, Iad, Willy, Adrian, Donna; real food/raffle/prizes only if actually confirmed.
 - 32–35 — Jessa: "Gusto mo ba sumama?"
 - 35–38 — Monica: "Of course, siyempre!"
@@ -40,11 +40,11 @@ You are making an original 58-second vertical 9:16 Filipino Christmas short, **P
 
 **How to produce:** We know from an owner report that one **simple conversational P02 prompt** succeeded in Flow after a heavily structured prompt had been refused. Therefore send one short, human-readable individual shot prompt at a time, copied verbatim from the `text` block for that pickup in [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md). **Do not embed the detailed planning instructions in the individual video prompt.** Real dancer and optional cameo one-person silent prompts live in [AVAILABLE_CAST_PROMPT_BANK.md](AVAILABLE_CAST_PROMPT_BANK.md).
 
-**Reference-photo map:** Mischie `w2_mischie_one.jpeg` / `w2_mischie_two.jpeg`; Monica `sa_monica.jpeg`; Jessa `n4_jessa.jpeg`; Mommy Tere candidate `w2_tere.jpeg` (confirm identity); Susie `sa_susie.jpeg`; Margie `sa_margie.jpeg`; Flor `sa_flor.jpeg`; Riza `sa_riza.jpeg`; Lilia `sa_lilia.jpeg`; Usha `n4_usha_1.jpeg`; Willy `w2_willy.jpeg`; Adrian `w2_adrian.jpeg`; Donna `n4_donna.jpeg`. Alternative photo filenames are in the cast index.
+**Reference-photo map:** Ate Susie `sa_susie.jpeg` / `sa_susie_2.JPG`; Monica `sa_monica.jpeg`; Jessa `n4_jessa.jpeg`; Mommy Tere candidate `w2_tere.jpeg` (confirm identity); Susie `sa_susie.jpeg`; Margie `sa_margie.jpeg`; Flor `sa_flor.jpeg`; Riza `sa_riza.jpeg`; Lilia `sa_lilia.jpeg`; Usha `n4_usha_1.jpeg`; Willy `w2_willy.jpeg`; Adrian `w2_adrian.jpeg`; Donna `n4_donna.jpeg`. Alternative photo filenames are in the cast index.
 
-**On hold (no filename in screenshot):** Renee, Leizel, Anavee, Iad. **Mischie is confirmed** as the P04/P05 character; her filename candidates are `w2_mischie_one.jpeg` and `w2_mischie_two.jpeg`. Actual images still need attaching. A screenshot of filenames is NOT an actual portrait; attach the original approved photo for each member and obtain likeness permission.
+**On hold (no filename in screenshot):** Renee, Leizel, Anavee, Iad. **Latest owner correction (2026-11-14): Ate Susie replaces the previous P04/P05 performer.** Her original portrait candidates are `sa_susie.jpeg` and `sa_susie_2.JPG`; the previous `p04.mp4`/`p05.mp4` in Drive are obsolete for these two roles. Actual images still need attaching. A screenshot of filenames is NOT an actual portrait; attach the original approved photo for each member and obtain likeness permission.
 
-**Mischie's P04 voice issue:** Google Flow flagged a prior spoken version. The cause is not confirmed. Use the short V4 spoken prompt only if the model permits this kind of image-to-video generation. If refused, stop generating spoken variants; instead create a permitted SILENT festive visual (see P04 fallback) and add Mischie's consented real recorded line in post.
+**Legacy P04 voice issue:** Google Flow flagged an earlier version with the previous performer. The cause is not confirmed. Use the short V4 spoken prompt only if the model permits this kind of image-to-video generation. If refused, stop generating spoken variants; instead create a permitted SILENT festive visual (see P04 fallback) and add Ate Susie's own consented real recorded line in post.
 
 **Quality and safety:** A new scene generated from original still photos is different from asking Flow to edit the speech of an uploaded video. If Flow refuses a prompt, respect it; use legitimate real footage and a consenting human-recorded voice in editing if necessary. There is no guaranteed passing prompt. Listen to each generated line completely before approving the take. Check facial identity, natural Tagalog/Taglish voice, complete final words, one action, one camera and warm holiday mood.
 
