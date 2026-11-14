@@ -1,7 +1,7 @@
-# Mission Pasko — Practical Production and Delivery Plan
+# Mission Pasko — Practical Production and Delivery Plan (V3 2026-11-14)
 
 **Status:** preproduction only; no Flow clips/audio/render completed yet.  
-**Final master:** H.264 MP4, **1920×1080, 16:9, 30fps**, exactly **90 seconds**, high-quality audio appropriate for church hall + PowerPoint.
+**Final master:** H.264 MP4, **1080×1920 final edit canvas, 9:16 portrait, 30fps**, exactly **90 seconds**, high-quality audio appropriate for church hall + PowerPoint.
 
 ## Inputs
 - Primary original photographs: 12 listed in [CAST_ASSET_MANIFEST.md](CAST_ASSET_MANIFEST.md), stored in owner Google Drive.
@@ -35,8 +35,8 @@ Identity and consent check -> selective Google Flow comedy pickups
 
 ## Flow generation plan (proposal, NOT a locked preset for this new film)
 - **Use 3–4 short original fantasy-comedy shots maximum in first pass** for group missions, rather than 10 expensive individual portrait animations.
-- Draft generation in 16:9 if the selected Flow model permits it. **Do not inherit Teaser 3's 9:16 aspect ratio lock**; that preset applied specifically to the other vertical 58s teaser.
-- Teaser 3 currently documents Omni 1.2 Flash / 360p / 10s, 10 credits per clip at owner-reported cost; use those as previous workflow evidence **not guaranteed current pricing/availability**. Confirm model, resolution, duration, aspect ratio and actual displayed credits before any charged attempt.
+- **Owner-locked new preset:** Omni Flash 1.2 / **360p** / **9:16 portrait** / **10 seconds per Flow source** / one output. Birthday uses 9:16 by independent explicit instruction; the related Teaser 3 has a different 58s runtime.
+- Official current Omni Flash 1.2 pricing is **1 credit per generated second at 360p**, so **10 credits for each 10s generation** when offered. Confirm actual UI before spending. User reports 50 credits each for ~8 separate accounts; use [ACCOUNT_CREDIT_LEDGER.csv](ACCOUNT_CREDIT_LEDGER.csv) and follow Google's terms/limits.
 - Face/identity reference = uploaded original approved portrait, not generated previous clip.
 - Narrator audio generated separately (or acted by real volunteer) for exact timing and reliable Taglish.
 - Most reveal shots require **static photos + motion graphics**, not lipsync.
@@ -46,8 +46,8 @@ Identity and consent check -> selective Google Flow comedy pickups
 ## QA / event playback
 - [ ] Every December person is visible and legibly labeled **at least once** in final video.
 - [ ] Exact date and name verification; **Catherine Dec 18 vs filename Dec 16** cleared.
-- [ ] 16:9 1920×1080 master at exactly 90.0 seconds.
-- [ ] On a PowerPoint projector, all texts and faces are visible at a distance; keep title safe areas.
+- [ ] 9:16 1080×1920 final canvas at exactly 90.0 seconds.
+- [ ] On a portrait playback or a portrait-safe landscape PowerPoint frame, all texts and faces are visible at a distance; keep title safe areas.
 - [ ] Filipino dialogue intelligible and natural; VO ends before video cuts.
 - [ ] User-approved music licence and family footage consent.
 - [ ] No TV PBB logo/stolen master audio unless permission obtained.
@@ -64,3 +64,9 @@ Identity and consent check -> selective Google Flow comedy pickups
 5. Build deterministic Remotion name/date montage and motion-graphic sample.
 6. Collect voluntary genuine messages, replace provisional emotional edit with approved real recordings.
 7. Render, review, finalise and deliver.
+
+## V3 continuous-scene Flow procedure (MANDATORY)
+- For any **continuing action with the same cast, environment and wardrobe**, inspect accepted PxxA video; **save a clear last frame**. For an eligible paid account choose Omni Flash 1.2 **Extend** (additional charge). Otherwise use web **Frames to Video** with that saved image as PxxB **start frame** (additional generation). Include original portrait as identity reference where available; generated frame is for temporal continuity, not person identification.
+- **Do not chain unrelated group/celebrant scenes**; each starts from its own original photo or other consented footage. Never auto-generate P05B/extra clips without owner approval; source duration 10s and final selected edit is ~5s.
+- Check **model 1.2 Flash, 9:16, 360p, 10s, one output, live credit quote** before every attempt. 50 owner-reported credits per account, ~8 accounts; log actual charges (including unsuccessful attempts) separately, never store credentials or treat accounts as pooled/bypasses.
+- Save source MP4s, last-frame stills, exact source timecode and per-pickup QA; Remotion assembles a **9:16 vertical 90s** result using only licensed audio and real messages. For landscape PowerPoint display, use side art/pillarbox rather than stretching portrait film. See [FLOW_CONTINUITY_CREDITS_V3.md](FLOW_CONTINUITY_CREDITS_V3.md).
