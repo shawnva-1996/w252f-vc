@@ -1,14 +1,14 @@
-# Mission Pasko — Google Flow Pickup Prompts V1 (P01–P15)
+# Mission Pasko — Google Flow Pickup Prompts V2 (P01–P15)
 
-**Date:** 2026-11-14. **Status:** full prompt bank prepared; **only P05A is the first proposed proof-of-concept**, other paid generations must be individually approved. Source: [Filming Plan V3](FILMING_PLAN_V2.md), [Flow continuity and credits V3](FLOW_CONTINUITY_CREDITS_V3.md), [Agent Instruction](GOOGLE_FLOW_AGENT_INSTRUCTION_POC.md).
+**Date:** 2026-11-14. **Policy update:** [P05 refusal and safer plan](FLOW_POLICY_REVIEW_P05.md). **Status:** full prompt bank prepared; **only P05A is the first proposed proof-of-concept**, other paid generations must be individually approved. Source: [Filming Plan V3](FILMING_PLAN_V2.md), [Flow continuity and credits V3](FLOW_CONTINUITY_CREDITS_V3.md), [Agent Instruction](GOOGLE_FLOW_AGENT_INSTRUCTION_POC.md).
 
 ## How to use (same pattern as W252F-VC Teaser 3)
 1. In a new **Google Flow Agent** session, supply **[GOOGLE_FLOW_AGENT_INSTRUCTION_POC.md](GOOGLE_FLOW_AGENT_INSTRUCTION_POC.md)** as **Agent Instruction**.
 2. Supply **[GOOGLE_FLOW_AGENT_PROMPT_POC.md](GOOGLE_FLOW_AGENT_PROMPT_POC.md)** as **first Agent Prompt** (episode context).
-3. For each Flow pickup, attach **its specified original authorized portrait/image** and copy **only the text inside that pickup's `text` code block** below into the Flow VIDEO generator. The editor/agent handles references, costs, timing, QA and audio.
+3. For each Flow pickup, attach **only a permitted non-identifying scene reference where explicitly requested** (P05A requires NO photograph) and copy **only the text inside that pickup's `text` code block** below into the Flow VIDEO generator. The editor/agent handles references, costs, timing, QA and audio.
 4. For graphics-only and real-footage pickups below **there is intentionally NO Flow video prompt**; Remotion/FFmpeg assembles them without spending credits. Do not generate unrelated AI video merely to fill a numbered pickup.
 5. **Preset for all Flow pickups:** **Omni Flash 1.2, 360p, 9:16, 10s source, one output**. Confirm model/options and actual debit in user's Flow interface before each paid operation. User-reported budget **50 credits/account, ~8 accounts**, current expected 10 credits per 10s, accounts separate; track actual credits. Do not bypass usage/content restrictions or automatically retry.
-6. After successful **same-person/same-action** PxxA, **Save frame** on the last clean frame; for an approved PxxB, use **Extend** where eligible or **Frames to Video** with the saved frame as the start image, plus the original identity photo where supported. Different people/groups start from their own photos, **never previous person's last frame**.
+6. After a permitted **same-environment/same-object** PxxA, **Save frame** on the last clean frame; for an approved PxxB, use **Extend** where eligible or **Frames to Video** with the saved frame as the start image, plus the original identity photo where supported. For named celebrants, use their authentic photos and real footage in **post-production**, not identity recreation in Flow. Different scenes use independent new footage; **never previous person's last frame** as identity reference.
 7. Kuya is **never a visual character**, and all narration is produced **separately using Gemini Filipino TTS**. Do not have Flow speak lines, print titles, add subtitles, or insert copyrighted soundtrack. Music must be original/cleared rather than PBB recordings unless rights obtained.
 8. Upload the generated MP4(s) and saved last-frame PNG(s) to user-approved storage with the pickup filenames and actual credit charges. No result from any of these prompts has yet been claimed rendered.
 
@@ -20,8 +20,8 @@
 | P02 | 04–09s | 5s | **Remotion only** | Christmas envelope / title graphics |
 | P03 | 09–14s | 5s | **Remotion only** | Four groups, 0/10 meter |
 | P04 | 14–19s | 5s | **Optional Flow** | N4 cake rescue: anonymous hands, or a consented N4 portrait |
-| P05A | 19–24s | 5s chosen from 10s | **Flow POC — FIRST TEST** | Ate Joy original portrait |
-| P05B | not separately scheduled | optional | **Flow continuation if approved** | P05A saved last frame + original portrait |
+| P05A | 19–24s | 5s chosen from 10s | **Flow POC — FIRST TEST (gifts only)** | No human reference; Ate Joy authentic portrait composited in Remotion |
+| P05B | not separately scheduled | optional | **Flow continuation if approved** | P05A gift-only saved last frame |
 | P06 | 24–29s | 5s | **Optional Flow** | Karaoke mic close-up, no visible member face |
 | P07 | 29–34s | 5s | **Real rehearsal preferred**; optional Flow backup | Consent-based authentic footage or abstract dance silhouettes |
 | P08 | 34–40s | 6s | **Remotion only** | Ally, Doc Bing |
@@ -53,7 +53,7 @@ Create a lively cinematic vertical 9:16 close-up of a ridiculously tall stack of
 
 ### P04 — N4 CAKE RESCUE (optional Flow, final 14–19s)
 
-**Reference:** no specific member yet selected. **Safe no-portrait version:** two anonymous hands only, face never visible, cake and plates. An identifiable N4 person can replace the shot only with their real portrait, correct identity and permission. Kuya TTS: “N4, protektahan ang birthday cake!”
+**Reference:** no member identity photograph. Use two anonymous hands only, face never visible, cake and plates. If a particular N4 member should appear, use their existing consented real footage or original still in **Remotion**, not a new likeness-generation request. Kuya TTS: “N4, protektahan ang birthday cake!”
 
 ```text
 Create a funny cinematic 9:16 vertical Christmas party close-up. An extravagant Filipino birthday cake on a small serving table begins leaning gently, and a pair of hands quickly steadies it with a colorful party plate. The cake remains safe, a tiny frosting decoration wiggles comically, and warm Christmas fairy lights sparkle behind. Focus only on the cake and the hands, with no visible faces or identifiable people. One smooth continuous shot, no dialogue, titles, logos, subtitles or on-screen text.
@@ -61,29 +61,33 @@ Create a funny cinematic 9:16 vertical Christmas party close-up. An extravagant 
 
 **Continuity:** If another cake shot genuinely follows with same anonymous hands and table, save last clean frame and make P04B only with approval; otherwise transition editorially into P05.
 
-### P05A — ATE JOY / W2 EXCESS BAGGAGE (FIRST FLOW TEST, final 19–24s)
+### P05A — W2 GIFT TOWER / REAL PHOTO COMPOSITE (FIRST FLOW TEST, final 19–24s)
 
-**Identity reference:** Original user-uploaded [`ate_joy_dec_4_2.jpg`](https://drive.google.com/file/d/1OpcRef1T70YPZQkUKVEwq8i8pPMazcta/view) — primary face; optional second original [`ate_joy_dec_4_1.jpg`](https://drive.google.com/file/d/1_dNOb91bqaeC-DadZsZqO3tB2_eojcbu/view) if mode supports an additional ingredient. **Consent before generation.** Kuya voice (Gemini TTS): “W2! Ilabas ang mga regalo! Ate Joy… excess baggage na ’yan!” Consider shortening or moving the first words across P04 if more than 5s.
+**Safety update 2026-11-14:** Previous P05A request for Flow to animate **Ate Joy's uploaded photograph** was reported blocked for policy reasons; specific cause unconfirmed. **Do not resubmit the prior image-to-video identity request.** See [FLOW_POLICY_REVIEW_P05.md](FLOW_POLICY_REVIEW_P05.md).
 
-```text
-Create a cheerful cinematic 9:16 vertical Christmas party video using the attached original photograph of Ate Joy as her face reference.
+**Flow reference:** **NONE — DO NOT attach anyone's photo.** This is only an anonymous gift-stack shot. **Ate Joy remains the featured celebrant** in the finished edit by using her authentic [photo 2](https://drive.google.com/file/d/1OpcRef1T70YPZQkUKVEwq8i8pPMazcta/view) in **Remotion**, with her permission. Keep the original photo visually unaltered except framing/pan/zoom/overlays.
 
-Ate Joy is at a warmly lit Filipino Christmas gathering in Singapore surrounded by golden fairy lights and colorful red, green and gold wrapped presents. She is already holding a comically tall but harmless stack of wrapped gift boxes. The tower starts wobbling, and she balances it with a delighted, surprised expression. A small ribbon bow slips off the stack. She laughs with relief.
-
-Use one smooth medium shot and a gentle camera push-in. Keep her real face recognizable and clearly visible, and the gifts within the vertical frame. End on a steady smiling moment with the gift tower still visible, suitable for a later continuation. Only Ate Joy is visible. She does not speak. No subtitles, logos, music or on-screen text.
-```
-
-**Generation QA:** select a clean last frame after visual acceptance; save **`P05A_LAST_FRAME.png`** and record timestamp, but **do not generate P05B without new owner approval**.
-
-### P05B — GIFT-TOWER CONTINUATION (OPTIONAL ONLY; no final extra slot allocated)
-
-**Reference:** accepted P05A **Save frame** as start frame via Frames to Video (or native Extend if eligible), plus original Joy portrait as extra identity reference where supported. Maintain the exact same person, outfit, set, gifts, lighting, direction. Another paid operation requiring explicit permission.
+**Separate Gemini TTS (post):** “W2! Ilabas ang mga regalo! Ate Joy… excess baggage na ’yan!” Adjust timing in the editor so the entire sentence is heard.
 
 ```text
-Continue the exact same Christmas party moment from the starting image with the same woman, face, outfit, gift stack, camera angle and warm lighting. The gift tower is now balanced. A tiny present on top slowly opens and harmless colorful ribbon curls float out. She smiles in delighted surprise and laughs quietly, while everything stays in the same room. One smooth continuous vertical 9:16 shot. No dialogue, logos, subtitles or on-screen text.
+Create a cheerful cinematic 9:16 vertical video of a tall tower of colorful red, green and gold wrapped Christmas gifts on a decorated party table. Warm golden fairy lights and festive Filipino Christmas lanterns glow softly in the background.
+
+The gift tower wobbles playfully but remains upright. A small ribbon bow slips off the top and floats down as the boxes settle safely. Use a smooth medium shot with a gentle camera push-in, keeping the presents in frame. End on a stable shot with the gift tower still in place, suitable for a continuation.
+
+There are no people or human faces in this scene. No dialogue, subtitles, logos, music or on-screen text.
 ```
 
-**Do not run by default.** This is a continuity demonstration, not a requirement to finish the 90-second edit.
+**Post/editor:** composite Ate Joy's *actual still photo*, her name/birthday graphics, and separate gift-only visual in Remotion. Use animated wipes and gentle movement to create the gag. Do not imply the synthetic motion was genuine footage of her. First test = one shot only; log output/cost and stop on safety refusal.
+
+### P05B — CONTINUE SAME GIFT TABLE (OPTIONAL ONLY, new approval required)
+
+**Flow reference:** selected clean gift-only `P05A_LAST_FRAME.png` (not a member photo). Use Frames to Video start frame or native Extend if eligible. **No human/identity reference is necessary.**
+
+```text
+Continue the exact same vertical Christmas gift-table shot from the supplied starting frame. The tower of wrapped gifts has settled safely. One small box on top opens gently and colorful ribbons float out, while the warm golden fairy lights keep glowing. Preserve the same camera angle, gift arrangement, lighting and room. Keep the scene playful and continuous. No people, dialogue, subtitles, logos, music or on-screen text.
+```
+
+**Do not run automatically.** Last-frame continuity is for previously accepted, compliant gift-only scenes and is not a technique for getting blocked likeness requests through the filter.
 
 ### P06 — LOVE / KARAOKE RESCUE (optional Flow, final 24–29s)
 
@@ -150,7 +154,7 @@ Create a lively 9:16 vertical Christmas party stage with beautiful warm parol li
 
 ## Cost-conscious generation queue
 
-**Run now only after confirming permission:** **P05A** — *one* 10-second source render.
+**Run now:** **P05A gift-only source** — *one* 10-second source render with NO member photograph attached. Confirm credit cost before generation.
 **Only if the first is approved and desired:** P04 and P06 are the most useful additional low-cost original Flow inserts. P01 is optional; P07 should be real footage if available. P05B is only if an actual continuous second shot materially improves the scene and is explicitly authorized.
 
 Full cut needs **15 editorial pickups**, **not 15 paid Flow generations**. Static name reveals and real testimony don't consume Google Flow credits.
@@ -158,7 +162,7 @@ Full cut needs **15 editorial pickups**, **not 15 paid Flow generations**. Stati
 ## Files to hand back for each Flow pickup
 - `PxxA_..._360p_9x16_10s.mp4`
 - When continuation is planned, `PxxA_LAST_FRAME.png` and chosen timestamp.
-- Original photo ID/file used; model, resolution, aspect, duration, output count, price shown and actual charged account-alias credits; consent status and QC result.
+- Whether any reference was used (P05A: none), model, resolution, aspect, duration, output count, displayed cost and actual charged account-alias credits; consent status for real photo display in Remotion and QC result.
 - Keep photos in user's Google Drive, not private portraits inside GitHub; no credentials in any GitHub file.
 
 **No render/output claims:** This document contains production prompts and post-production instructions only.
