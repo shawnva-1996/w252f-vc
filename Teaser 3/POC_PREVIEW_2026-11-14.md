@@ -1,5 +1,7 @@
 # Paskong Pinoy Remix — Teaser 3 | 58-second proof of concept
 
+> **SUPERSEDED CAST NOTE — 2026-11-14:** This is an archival record of the FIRST POC, which still visually includes **Mischie** at P04 (15–19s) and P05 (19–21s). The user has since **recast those parts to Ate Susie**. The original MP4 is not a cast-accurate current version; do not rename old character footage or present it as Ate Susie. New approved Susie footage is required for those slots. All other clip observations and technical details below refer to the historical POC and remain accurate.
+
 **Date:** 2026-11-14 (Asia/Singapore)
 
 **Status:** An actual local MP4 proof-of-concept has been rendered and playback-checked. **NOT a final release approval.** Video is delivered as a conversation download, not uploaded into this GitHub repository or Google Drive. Never commit participant video, images, private URLs, or raw footage in a public repo.
