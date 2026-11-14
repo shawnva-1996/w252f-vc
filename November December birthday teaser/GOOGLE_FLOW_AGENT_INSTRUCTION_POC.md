@@ -56,3 +56,6 @@ Create warm and funny Google Flow source clips for the Filipino W2/N4/Sunday Gro
 
 ## Success criteria
 One user-approved P05A 10s 9:16, 360p video source suitable for a ~5s final birthday scene. A stable last frame is saved *for possible approved P05B continuation*, and account credits are accounted for with no unauthorized extra charge.
+
+## Cross-project or cross-account continuation (only where legitimately permitted)
+Native **Extend** requires access to the source video in the same account/project and eligible paid subscription. Where only a new Frames to Video operation is available, export/download the approved source video and saved clean last-frame PNG, then upload the PNG as the **start frame** in the destination project. If needed, derive the PNG from the locally saved authorized MP4 at the QA-approved timestamp. Include the original source portrait as an additional ingredient where available, never as a generated-video substitute. This is a **new separately charged generation** and must meet the destination account's actual permitted credits/terms; do not change accounts to bypass refusals or limits.
