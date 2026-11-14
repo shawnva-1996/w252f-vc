@@ -1,5 +1,8 @@
 # November–December Birthday Teaser — Mission Pasko (2026)
 
+**START HERE FOR ACTUAL GOOGLE FLOW SHOT PROMPTS:** [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md) — P01–P15, with copy-pastable short generator prompts for Flow footage and explicit **Remotion-only / real-video** pickups. Agent workflow is **Agent Instruction → First Agent Prompt → individual pickup prompt**. P05A first; do not auto-generate all shots.
+
+
 ## LATEST OWNER LOCK — FLOW V3 (2026-11-14)
 - **This birthday project is 9:16 vertical** with **360p Omni Flash 1.2, 10-second Flow source pickups**, one output each, and a **90-second 9:16 final**. This explicitly supersedes the earlier 16:9/landscape birthday plan. The source event brief requested landscape PowerPoint; a vertical film will need a deliberate portrait window/side panels in that deck.
 - **Continuous scenes:** use Flow **Extend** when the account has eligible Google AI Plus/Pro/Ultra access; otherwise **Save frame** at end of PxxA → use that saved still as **start frame** of PxxB via **Frames to Video** on web; keep original real portrait as identity reference wherever supported. Never chain frames from a different celebrant.
