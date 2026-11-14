@@ -71,7 +71,7 @@
     },
     {
       "id": "P05",
-      "title": "Ate Susie invites with silent hand transition",
+      "title": "Ate Susie gives a silent friendly wave",
       "finalStartSec": 19,
       "finalEndSec": 21,
       "type": "NEW_VIDEO_FROM_ORIGINAL_STILL",
@@ -81,7 +81,7 @@
       "sourceGenerationSeconds": 10,
       "speechCompleteBySeconds": 0,
       "silentTailAtLeastSeconds": null,
-      "notes": "LATEST OWNER CHANGE: Ate Susie replaces Mischie. Silent reaching hand transition. Original still sa_susie.jpeg or sa_susie_2.JPG. Existing Drive p05.mp4 depicts earlier Mischie performer and MUST NOT be treated as Susie. Use new Susie take or owner-verified real Susie footage. Editors must not fabricate identity.",
+      "notes": "LATEST P05: new permitted actual Susie portrait + natural silent friendly wave. Remove hand-to-lens/reach prompt after owner-reported Google Flow policy warning; cause UNKNOWN. Make push-in/light-flash transition in editor. New short waving prompt UNTESTED. Previous Drive p05.mp4 shows Mischie and remains obsolete. If Flow refuses, use genuine approved footage or an editor-animated still rather than retrying refused generations.",
       "creditsPerGeneration": 10
     },
     {
@@ -246,7 +246,12 @@
       "p04.mp4",
       "p05.mp4"
     ],
-    "legacyCast": "Mischie"
+    "legacyCast": "Mischie",
+    "P05Prompts": {
+      "lastKnownWarning": "Ate Susie/Mischie hand-toward-lens movement prompt rejected by Flow (user report); root cause unconfirmed",
+      "replacement": "Silent Ate Susie smiling and small wave; editor creates transition; untested",
+      "credits": "Do not spend retries circumventing a refusal"
+    }
   },
   "generationPreset": {
     "provider": "Google Flow",
