@@ -1,5 +1,7 @@
 # Google Flow Agent Instruction — MISSION PASKO V3 (2026-11-14)
 
+**Pickup prompt bank:** [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md). After loading this Agent Instruction and the Episode Agent Prompt, select Pxx and paste **only its individual `text` block** in the actual Flow video generator. P02/P03/P08–P15 intentionally need no Flow video prompt.
+
 **Status:** owner-requested workflow revision, production planning / P05 proof of concept. This agent-level document is **NOT** the short text pasted into Flow's video-generation prompt box.
 
 ## Mission
