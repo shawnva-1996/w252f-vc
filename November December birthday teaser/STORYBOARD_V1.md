@@ -1,6 +1,8 @@
 # MISSION PASKO — 90-Second Birthday Film
 
-**POLICY SAFETY V4:** The original-photo-to-Flow-animation request for P05A was flagged. This birthday film now uses anonymous/objects-only Flow footage and **real member photos in Remotion only**. See [FLOW_POLICY_REVIEW_P05.md](FLOW_POLICY_REVIEW_P05.md).\n\n**DRAFT STORYBOARD V1 — amended by owner override V3 (2026-11-14).** For the authoritative numbered pickups and last-frame extension workflow, see [FILMING_PLAN_V2.md](FILMING_PLAN_V2.md) and [FLOW_CONTINUITY_CREDITS_V3.md](FLOW_CONTINUITY_CREDITS_V3.md).  
+**POLICY SAFETY V4:** The original-photo-to-Flow-animation request for P05A was flagged. This birthday film now uses anonymous/objects-only Flow footage and **real member photos in Remotion only**. See [FLOW_POLICY_REVIEW_P05.md](FLOW_POLICY_REVIEW_P05.md).
+
+**DRAFT STORYBOARD V1 — amended by owner override V3 (2026-11-14).** For the authoritative numbered pickups and last-frame extension workflow, see [FILMING_PLAN_V2.md](FILMING_PLAN_V2.md) and [FLOW_CONTINUITY_CREDITS_V3.md](FLOW_CONTINUITY_CREDITS_V3.md).  
 **Format:** 9:16 portrait final composition 1080×1920, Flow pickup sources Omni Flash 1.2 at 360p 10s each, 30 fps editing; **exactly 90 seconds**.  
 **Voice:** one unseen/bodiless **Kuya-style narrator**, naturally Filipino/Taglish, clearly a fictional homage rather than a recording of the actual PBB voice.  
 **Theme:** Paskong Pinoy Remix. **Positive and loving**, comedy first and sincere human ending.  
