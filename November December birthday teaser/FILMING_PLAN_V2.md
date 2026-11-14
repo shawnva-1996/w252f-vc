@@ -59,7 +59,7 @@
 
 ## Dependencies
 1. **Owner approval** of this filming plan, P05 script, and consent for chosen real-person animation. No final full video generation yet.
-2. One original Ate Joy file from the existing Drive folder. Prefer `ate_joy_dec_4_1.jpg` as candidate; inspect the two alternatives before choosing final source.
+2. One original Ate Joy file from the existing Drive folder. **Photo inspection completed:** prefer `ate_joy_dec_4_2.jpg` as primary because the close-up face is considerably clearer; `ate_joy_dec_4_1.jpg` is a secondary full-body/hairstyle reference if supported. The close-up includes a cap; maintain recognizable identity, and avoid paying for unnecessary hat/clothing changes.
 3. User runs **one** 16:9 10-second Flow P05 generation in their account (we do not have a directly connected Google Flow renderer). They upload the MP4 to the Drive folder or back to chat.
 4. Gemini TTS can be generated from Google AI Studio / Gemini API using their own access, separately from Flow; never paste API keys into GitHub or this repo.
 5. Later: loved-one recordings, November names/images and Catherine date clarification.
