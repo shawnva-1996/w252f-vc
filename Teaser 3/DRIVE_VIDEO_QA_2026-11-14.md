@@ -1,5 +1,7 @@
 # Teaser 3 — Google Drive video review / editing handoff (2026-11-14)
 
+> **POST-REVIEW CAST CHANGE — 2026-11-14:** The original observations below accurately describe the P04/P05 video assets as **Mischie**. The owner subsequently switched the scripted P04/P05 performer to **Ate Susie**. The old source `p04.mp4`/`p05.mp4` cannot substitute for Susie; the casting override lives in [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md). Keep this QA report as historical evidence instead of rewriting who appears in the source files.
+
 **Source location:** connected Google Drive → `W252F Media Team / flow-vids`. This repository records **only filenames and visual/technical observations**; do **not** commit participant video files, thumbnails, member images or private Drive download URLs to a public repository.
 
 ## Method and verification boundary
