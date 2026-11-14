@@ -113,21 +113,21 @@ Keep it as a single continuous shot, with only Ate Susie visible. No subtitles, 
 
 **Editor / QA:** 15–19s. Confirm actual person is Ate Susie using approved reference media. The entire Tagalog line must be audibly complete before the cut. Her role in P04/P05 is separate from, but complementary to, her already-planned dance montage and real historical dance insert.
 
-### P05 — Ate Susie's silent hand transition (final 19–21s)
+### P05 — Ate Susie's friendly wave (final 19–21s)
 
-**Reference:** attach one actual permitted original Ate Susie photo, `sa_susie.jpeg` or `sa_susie_2.JPG`.
+**Reference:** Attach one original approved Ate Susie photo, `sa_susie.jpeg` or `sa_susie_2.JPG`. **Latest update:** the former hand-reaching-toward-the-camera prompt triggered a Google Flow policy warning according to the owner. The cause is unknown. The short waving prompt below is **UNTESTED**, not a policy-approval guarantee.
 
 ```text
-Create a warm Christmas-themed vertical 9:16 video of Ate Susie using the attached reference photo.
+Create a cheerful vertical 9:16 Christmas video of Ate Susie using the attached reference photo.
 
-Ate Susie is at a cheerful Christmas gathering with warm golden lights. She smiles and reaches one hand toward the camera as a friendly invitation.
+Ate Susie is surrounded by warm golden Christmas lights. She smiles happily at the camera and gives a small, friendly wave.
 
-Ate Susie does not speak. Keep her happy expression natural.
+She holds her smile naturally for the rest of the video.
 
-Keep it as a single continuous shot, with only Ate Susie visible. No subtitles, no logos, and no on-screen text.
+A single continuous shot. No dialogue or on-screen text.
 ```
 
-**Editor / QA:** 19–21s. Compose the party match-cut in post. The existing Drive `p05.mp4` is also an **obsolete Mischie clip**, and cannot be reused to depict Ate Susie. Save credits by using genuine, owner-verified footage of Ate Susie if available.
+**Editor / QA:** Final 19–21s. Add a quick push-in / festive light-flash transition into the genuine dance rehearsal **in the editor**, not through Flow's hand-to-lens motion. The current Drive `p05.mp4` is a legacy **Mischie** clip and must NOT be labeled as Ate Susie. Reuse genuine permitted footage if available rather than spending 10 credits on repeated refused generations. If Flow refuses this image-based generation too, stop retrying and use a still-image Ken Burns animation or real approved Susie footage.
 
 ### P09 — Jessa renews the invitation (final 32–35s)
 
@@ -287,7 +287,7 @@ Do not continue generating alternate prompts after a Flow safety refusal.
 
 - Phone discovery insert: actual Paskong Pinoy Remix flyer plus genuine Susie archive.
 - Game rules: use the exact owner-supplied image as a composited phone screen; do not ask Flow to generate text.
-- Ate Susie reaches toward camera; composite edit creates the scene change; no requirement for multi-person model generation.
+- Ate Susie gives a small wave; the editor creates the zoom / Christmas-light-flash transition. No model-generated hand-to-lens move required.
 - Mommy Tere + Renee: separate reference still generations, combine in post.
 - Finish with the verified event end card. Licensed/original Christmas music. Subtitles from actual final spoken audio at a social-safe raised lower-third.
 - Exact master is **58 seconds**, with shot timings from the manifest. No single Flow output is the completed film.
