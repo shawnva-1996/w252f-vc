@@ -77,7 +77,7 @@ P01 Monica loving greeting: **"Merry Christmas sa inyo… miss na miss ko na kay
 P02 Monica discovers festive ad: **"Ang saya naman dito…"** (owner-reported successful simplified prompt style).
 P03 Jessa invites: **"Gusto mo bang sumali?"**
 P04 Ate Susie: **"Besh! Sumali na kayo!"** (choose an approved original Susie portrait; if speaking is refused, use permitted real Susie footage plus her genuine recorded voice in post).
-P05 Ate Susie silent transition reach (use original approved Susie photo or permitted authentic footage).
+P05 Ate Susie gives a small silent friendly wave (use actual approved Susie photo or genuine footage); create the festive push-in/light-flash transition in the editor. The prior hand-reaching prompt triggered a policy warning (exact cause unknown); new concise version remains untested.
 P06–P08 real festive footage includes **Leizel, Susie, Margie, Flor, Riza, Anavee, Lilia, Usha, Iad, Willy, Adrian, Donna**.
 P09 Jessa: **"Gusto mo ba sumama?"**
 P10 Monica: **"Of course, siyempre!"**
