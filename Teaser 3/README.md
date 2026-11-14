@@ -1,5 +1,11 @@
 # Paskong Pinoy Remix — Teaser 3: "Malayo sa Pamilya, Pero Hindi Nag-iisa"
 
+## CURRENT PREVIEW — V2 Ate Susie + real archive montage (2026-11-14)
+
+**V2 is rendered and uploaded to W252F Media Team Google Drive.** It supersedes the older V1 preview, using owner-supplied `p04_susie.mp4` for Ate Susie's spoken P04 scene and the real past-event `sa_dance_past_vids.mp4` for P06–P08 instead of the earlier rehearsal. P05 uses a **two-second silent smiling take derived from the same Susie video**, with a zoom / light-flash transition **made in editing**, because Flow repeatedly rejected the independent P05 generation. Do not spend additional credits regenerating P05.
+
+**Current authoritative detailed render handoff:** [POC_PREVIEW_V2_2026-11-14.md](POC_PREVIEW_V2_2026-11-14.md). V2 is ~58.02s, 540×960, H.264/AAC, uploaded to Drive and verified. V1 remains an explicitly labeled legacy Mischie preview. V2 is **not final**: P04 dialogue and full clip audio remain unaudited, named dancers need individual confirmation, and the advertisement/final flyer are temporary mockups pending approved artwork.
+
 ## LATEST CAST OVERRIDE — 2026-11-14: Ate Susie replaces Mischie (P04/P05)
 
 **Production decision:** P04 (15–19s spoken invitation) and P05 (19–21s silent friendly wave; zoom/light-flash transition composited later) now feature **Ate Susie**, using her approved original `sa_susie.jpeg` or `sa_susie_2.JPG` (or owner-verified real footage). Keep the original P04 line **"Besh! Sumali na kayo!"**, subject to audio review. Ate Susie still appears in the featured dance roster and the genuine historical dance insert as originally planned. **Mischie is no longer a main scripted character** (optional cameo only).
