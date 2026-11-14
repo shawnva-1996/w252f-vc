@@ -1,18 +1,24 @@
 # November–December Birthday Teaser — Mission Pasko (2026)
 
-## CURRENT APPROVED DIRECTION / DRAFT PACKAGE (2026-11-14)
+## LATEST OWNER LOCK — FLOW V3 (2026-11-14)
+- **This birthday project is 9:16 vertical** with **360p Omni Flash 1.2, 10-second Flow source pickups**, one output each, and a **90-second 9:16 final**. This explicitly supersedes the earlier 16:9/landscape birthday plan. The source event brief requested landscape PowerPoint; a vertical film will need a deliberate portrait window/side panels in that deck.
+- **Continuous scenes:** use Flow **Extend** when the account has eligible Google AI Plus/Pro/Ultra access; otherwise **Save frame** at end of PxxA → use that saved still as **start frame** of PxxB via **Frames to Video** on web; keep original real portrait as identity reference wherever supported. Never chain frames from a different celebrant.
+- **Credits:** owner reports 50 per account and ~8 accounts. Current official Omni Flash 1.2 price at 360p is **1 credit per second** (10 per 10-second clip), so nominal max **5 charged shots per confirmed 50-credit account**. Keep accounts separate; don't pool credits or circumvent Google restrictions, and never auto-spend/retry. See [FLOW_CONTINUITY_CREDITS_V3.md](FLOW_CONTINUITY_CREDITS_V3.md) and [ACCOUNT_CREDIT_LEDGER.csv](ACCOUNT_CREDIT_LEDGER.csv).
+- Updated [Google Flow Agent Instruction](GOOGLE_FLOW_AGENT_INSTRUCTION_POC.md) and [Agent Prompt](GOOGLE_FLOW_AGENT_PROMPT_POC.md) include P05A and an **optional unapproved** last-frame continuation P05B.
+
+## CURRENT PRODUCTION PACKAGE (2026-11-14)
 - **Gemini TTS** selected for the bodiless Kuya narrator; an ElevenLabs free-tier API key exists but **will not be used for this prototype**. Do not request or commit keys.
-- Full director pickup plan: [FILMING_PLAN_V2.md](FILMING_PLAN_V2.md) — 15 segments P01–P15, 90-second horizontal cut, precise timings, person coverage, voice/music cues.
-- First practical test: **P05 — Ate Joy, W2 Christmas gift tower** ([POC_P05_W2_GIFTS.md](POC_P05_W2_GIFTS.md)). Shoot **one** 10-second clean Flow video in 16:9 to yield ~5s in final edit.
+- Full director pickup plan: [FILMING_PLAN_V2.md](FILMING_PLAN_V2.md) — 15 segments P01–P15, 90-second vertical cut, precise timings, person coverage, voice/music cues.
+- First practical test: **P05 — Ate Joy, W2 Christmas gift tower** ([POC_P05_W2_GIFTS.md](POC_P05_W2_GIFTS.md)). Shoot **one** 10-second clean Flow video in 9:16 to yield ~5s in final edit.
 - Agent handoff: [Google Flow Agent Instruction POC](GOOGLE_FLOW_AGENT_INSTRUCTION_POC.md) and [Google Flow Agent Prompt POC](GOOGLE_FLOW_AGENT_PROMPT_POC.md), both drafts pending owner creative approval. Paste only the short individual pickup prompt in Flow's video generator.
-- Existing Teaser 3 uses 9:16 / 58s but this **birthday video is a different 16:9 / 90s project**. Source-image/production process can be reused, not aspect ratio.
+- Existing Teaser 3 uses 9:16 / 58s but this **birthday video is a separate 9:16 / 90s project**. Source-image/production process can be reused, not aspect ratio.
 - No Flow output, Gemini TTS WAV/MP3 or mixed prototype has yet been generated. User runs Flow in their own account, then uploads MP4 for post.
 - Source portraits stay in Google Drive; we never commit personal images.
 
 **Status:** PREPRODUCTION / CREATIVE V1 (not rendered or published)  
 **Last reviewed:** 2026-11-14 (Singapore)  
 **Owner brief:** W2 × N4 × Sunday Group birthday celebration, **Paskong Pinoy Remix**.  
-**Final deliverable:** one **90-second, 16:9 landscape (1920×1080) MP4** for PowerPoint/event playback. This birthday film is separate from the 58-second vertical *Teaser 3*.
+**Final deliverable:** one **90-second, 9:16 vertical (1080×1920 composition) MP4**, for event playback in a portrait-safe PowerPoint layout. Source Flow clips are 360p drafts; output quality/upscale must be verified. This birthday film is separate from the 58-second vertical *Teaser 3*.
 
 ## Creative decision
 Working title: **MISSION PASKO: THE BIRTHDAY HOUSEMATES**.
@@ -46,7 +52,7 @@ Tonality: **warm, positive, funny, Taglish, Singapore-Filipino/OFW relatable, af
 
 ## Production direction inherited from project sources
 - Same-family methodology from [Teaser 3](../Teaser%203/README.md): identity always from the original user-provided photograph, stable wardrobe/visual continuity, consent, simple model-facing prompts, cost-aware independent pickups.
-- The **Teaser 3** locked 9:16 / 58s generation and final export constraints are **not** automatically inherited by this new 16:9 / 90s film. We may borrow the draft-first 360p and 10s-pickup strategy as a proposal; confirm Flow model, costs, aspect ratio and per-account budget before any paid generation.
+- Teaser 3 is separately locked to 9:16 / 58s; this birthday film is **independently owner-locked to 9:16 / 90s** and uses a new continuation and per-account credit workflow. We may borrow the draft-first 360p and 10s-pickup strategy as a proposal; confirm Flow model, costs, aspect ratio and per-account budget before any paid generation.
 - No rendering without owner-approved screenplay/storyboard, per related repository production rules.
 
 ## Next actions
