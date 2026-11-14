@@ -1,6 +1,8 @@
-# MISSION PASKO — Filming Plan V3 / Director Shot List (filename retained for existing links)
+# MISSION PASKO — Filming Plan V4 / Director Shot List (filename retained for stable links)
 
-**Latest owner override (2026-11-14):** 9:16 vertical / Omni Flash 1.2 / 360p / 10s source shots / 50 credits per account, ~8 owner-reported accounts. See [FLOW_CONTINUITY_CREDITS_V3.md](FLOW_CONTINUITY_CREDITS_V3.md) for saved-last-frame continuation, native Extend eligibility, Frames to Video fallback and separate credit ledger.
+**Latest safety override (2026-11-14):** A real-person likeness-generation request for P05A was blocked in Flow. **All new Flow prompts in this birthday project now use anonymous or non-identifying footage only; member photos and real videos are added in Remotion**. See [FLOW_POLICY_REVIEW_P05.md](FLOW_POLICY_REVIEW_P05.md), [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md) V2. Never retry a refused real-member animation through rewording/account changes.
+
+**Latest owner format override (2026-11-14):** 9:16 vertical / Omni Flash 1.2 / 360p / 10s source shots / 50 credits per account, ~8 owner-reported accounts. See [FLOW_CONTINUITY_CREDITS_V3.md](FLOW_CONTINUITY_CREDITS_V3.md) for saved-last-frame continuation, native Extend eligibility, Frames to Video fallback and separate credit ledger.
 
 **Prepared:** 2026-11-14 (Asia/Singapore)  
 **Status:** DRAFT for owner approval; no Flow render, TTS audio or final MP4 claimed.  
@@ -23,7 +25,7 @@
 | P02 | 00:04–00:09 | 5s | Giant glowing red-and-gold mystery mission envelope hovers over Christmas lights; no PBB trademarks. Hold safe empty space for title in Remotion | **KUYA:** “Sampung birthday VIP ang dapat pasayahin!” | Original still/motion graphics, no generation required |
 | P03 | 00:09–00:14 | 5s | **FOUR GROUPS. ONE SECRET MISSION.** Four neon Christmas doors/board lights: N4, W2, LOVE, HOPE; progress bar 0/10, “FINAL SURPRISE” envelope deliberately unopened | **KUYA:** “Apat na grupo, isang misyon… at may sorpresa!” | Remotion motion graphics |
 | P04 | 00:14–00:19 | 5s | **N4 — CAKE RESCUE.** Birthday cake tilts precariously and a member saves it with a festive plate; real N4 portrait or simple anonymous hands-only cut; joyful reaction | **KUYA:** “N4, protektahan ang birthday cake!” | Flow optional, pending cast reference/consent |
-| P05 | **00:19–00:24** | **5s** | **W2 — EXCESS BAGGAGE / PROOF OF CONCEPT P05A.** Ate Joy holds an absurd stack of colorful Christmas gifts in a 9:16 medium shot. It wobbles; her delighted comic reaction; keep face unobscured. End on stable frame suitable for optional later last-frame continuation P05B | **KUYA (Gemini TTS):** “W2! Ilabas ang mga regalo! Ate Joy… excess baggage na ’yan!” | **Google Flow 9:16, 360p, 10s silent source**, one original Ate Joy photo. See [POC_P05_W2_GIFTS.md](POC_P05_W2_GIFTS.md) |
+| P05 | **00:19–00:24** | **5s** | **W2 — EXCESS BAGGAGE P05A (V4 safe version).** Flow generates ONLY an anonymous, wobbly tower of Christmas gifts with no people or photo references; Ate Joy’s genuine original portrait is layered into the edit with a modest camera move and name graphic in Remotion. Optional stable last frame for a gifts-only continuation P05B | **KUYA (Gemini TTS):** “W2! Ilabas ang mga regalo! Ate Joy… excess baggage na ’yan!” | **Google Flow 9:16, 360p, 10s silent anonymous gift-only source, NO member photo uploaded** + real original portrait in Remotion. See [POC_P05_W2_GIFTS.md](POC_P05_W2_GIFTS.md) |
 | P06 | 00:24–00:29 | 5s | **LOVE — KARAOKE RESCUE.** Mic suddenly stops, then karaoke comes back to life; cheerful clap/reaction; avoid showing real person without reference consent | **KUYA:** “Group Love, buhayin ang karaoke!” | Flow optional; could be hand/mic insert plus Remotion |
 | P07 | 00:29–00:34 | 5s | **HOPE — DANCE FLOOR.** Flash of joyful real rehearsal if supplied/consented, or original silhouettes with lights; single comic freeze pose; wipe into birthday photos | **KUYA:** “Group Hope… pakiligtas ang dance floor!” | Prefer real authorized rehearsal footage; Flow fallback |
 | P08 | 00:34–00:40 | 6s | **REVEAL 1 — N4 (sequential vertical cards):** Ally (Dec 6) then Doc Bing (Dec 20). Use actual original portraits, names and big dates. Progress counter lands 2/10 | Music hit and applause | Remotion, original Drive stills |
@@ -46,30 +48,30 @@
 
 ## Camera and identity continuity
 - Film style: glossy Filipino Christmas special, energetic stage-light warmth, red/gold/green with festive practical lighting, playful reactions; not a direct PBB set/logo recreation.
-- For identifiable members, original approved photo is **identity authority** each time; do not use an AI output as substitute reference.
+- For identifiable members, show original approved photos and real recordings **in post, not Flow**. Never ask Flow to animate their photographs after the reported P05 refusal.
 - Fewer Flow generations, more strong editing. Not everyone needs to talk or be animated; every person **must** appear by original portrait at least once.
-- One named person per real-person Flow shot; do not ask Flow to fabricate multi-person crowds or new family faces.
+- No identifiable member Flow shots for the birthday project; use people-free inserts, anonymous hands/objects or genuine recordings.
 
 ## POC evaluation gates — P05
-- Original **Ate Joy** photo successfully preserves recognizable face, hair/age/skin and non-exaggerated body proportions.
+- Original **Ate Joy** still remains authentic and recognizable in Remotion; Flow must NOT synthesize her face or moving body.
 - Strong, readable comedy without making her look foolish or threatening her safety.
 - Christmas set feels appropriate to SG Filipino fellowship; naturally lit, vertical 9:16 safe for portrait display; projector/PowerPoint layout needs side artwork, not distortion.
-- Clear 5-second usable middle/ending in raw 10s pickup; can lay a separate 4–5s Gemini TTS voiceover without visual lipsync.
+- Clear 3–5s usable anonymous gift wobble in raw 10s pickup; authentic photo and Gemini TTS composited separately in post.
 - The photo and final output have explicit owner/member permission for this use.
 - Actual Google Flow cost, model/resolution and credit balance must be checked in **Flow UI** and logged prior to spending. No auto-retries.
 - If Flow declines or is unreliable, animate the two original Joy photos with editor camera moves and gift/particle motion graphics instead.
 
 ## Dependencies
-1. **Owner approval** of this filming plan, P05 script, and consent for chosen real-person animation. No final full video generation yet.
-2. One original Ate Joy file from the existing Drive folder. **Photo inspection completed:** use `ate_joy_dec_4_2.jpg` as primary because the close-up face is clearer; `ate_joy_dec_4_1.jpg` is an optional original secondary full-body/hairstyle reference. The close-up includes a cap; maintain recognizable identity, and avoid paying for unnecessary hat/clothing changes.
-3. User runs **one** 9:16, 360p, 10-second Flow P05A generation in their account (we do not have a directly connected Google Flow renderer). They upload the MP4 to the Drive folder or back to chat.
+1. **Owner approval** of this filming plan, P05 gift-only scene, and consent to display original member photos at the event. No member likeness-generation planned. No final full video generation yet.
+2. Keep Ate Joy's original `ate_joy_dec_4_2.jpg` for the Remotion editor ONLY (or `ate_joy_dec_4_1.jpg` for wide photo). **Do not attach either original photo to Google Flow**; the person appears through a genuine still, not a generated likeness.
+3. User runs **one** 9:16, 360p, 10-second **no-person, no-photo** gift-only Flow P05A generation in their account (we do not have a directly connected Google Flow renderer). They upload the MP4 to the Drive folder or back to chat.
 4. Gemini TTS can be generated from Google AI Studio / Gemini API using their own access, separately from Flow; never paste API keys into GitHub or this repo.
 5. Later: loved-one recordings, November names/images and Catherine date clarification.
 
 ## Continuity and budget — mandatory V3 addition
-- **Same-action sequence only:** PxxA accepted video → pause at clean final frame → **Save frame** → use as PxxB **start frame** in Frames to Video (or native **Extend** if account is eligible). Reattach original person photograph as identity ingredient where supported. Do not feed a different celebrant a prior actor's face/frame.
+- **Same-action sequence only:** accepted **non-identifying** PxxA footage → pause at clean final frame → **Save frame** → use as PxxB **start frame** in Frames to Video (or native **Extend** if account is eligible). Do not attach member photographs to Flow; identity is handled with authentic stills in the Remotion editor. Do not feed a different celebrant a prior actor's face/frame.
 - **Scene changes:** P04 N4, P05 W2, P06 Love and P07 Hope are **different people/groups**; start independent from each approved original portrait or use non-identifiable/live footage. Do not chain their last frames.
 - **P05B:** optional paid continuation of P05A, must not be run without separate approval. P05 remains a five-second final slot unless owner changes the edit.
 - **Account ledger:** [ACCOUNT_CREDIT_LEDGER.csv](ACCOUNT_CREDIT_LEDGER.csv); nominal 10 credits per 10s at 360p = at most five per actual 50-credit balance, separately per account. Track failed charged attempts, don't bypass Google restrictions, never commit credentials.
-- **Original photos, narration and dates:** original still is the subject identity authority; separate Gemini TTS Kuya voice; user/PDF date check for Catherine remains pending.
+- **Original photos, narration and dates:** originals shown directly in Remotion only; separate Gemini TTS Kuya voice; user/PDF date check for Catherine remains pending.
 - **Portrait delivery on landscape PowerPoint:** display the vertical video inside a designed wide slide with non-stretched borders/side graphics, or in a portrait display. Earlier landscape PDF is superseded only for the video aspect ratio, not the event's physical projector orientation.
