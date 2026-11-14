@@ -1,11 +1,11 @@
 asset_id,subject,media_type,expected_filename,status,purpose,notes
 REF_MONICA,Monica,portrait,sa_monica.jpeg,FILENAME_SEEN_ONLY,lead identity and continuity,"One face clearly visible; explicit consent for AI animation"
 REF_JESSA,Jessa,portrait,n4_jessa.jpeg,FILENAME_SEEN_ONLY,invitation and rules reveal,"Same approved face and wardrobe across scenes"
-REF_MISCHIE,Mischie,portrait,w2_mischie_one.jpeg|w2_mischie_two.jpeg,FILENAME_SEEN_ONLY,energetic invitation and transition,"Owner-confirmed name Mischie; attach one actual permitted portrait; speaking shot previously flagged; use consented real voiceover if unsupported"
+REF_MISCHIE,Mischie,portrait,w2_mischie_one.jpeg|w2_mischie_two.jpeg,FILENAME_SEEN_ONLY,OPTIONAL silent cameo only,"Previously featured in legacy p04.mp4 and p05.mp4; owner replaced with Ate Susie; do NOT mislabel old footage"
 REF_TERE,Mommy Tere,portrait,w2_tere.jpeg,IDENTITY_CONFIRM_FILENAME_ONLY,outro CTA,"Consent to likeness use"
 REF_RENEE,Renee,portrait,MISSING_FROM_SCREENSHOT,MISSING,outro co-frame composite,"Spelling RENEE"
 REF_LEIZEL,Leizel,portrait,MISSING_FROM_SCREENSHOT,MISSING,dance montage A,"Confirm distinct from Riza; original note had variant Liza"
-REF_SUSIE,Susie,portrait,sa_susie.jpeg|sa_susie_2.JPG,FILENAME_SEEN_ONLY,dance montage A and ad,"Past-year archive is separate video"
+REF_SUSIE,Ate Susie,portrait,sa_susie.jpeg|sa_susie_2.JPG,FILENAME_SEEN_ONLY,P04/P05 invitation and transition plus dance montage A and ad,"Latest owner cast update 2026-11-14; existing p04/p05 in Drive show former performer and must be replaced"
 REF_MARGIE,Margie,portrait,sa_margie.jpeg,FILENAME_SEEN_ONLY,dance montage A,"Consent"
 REF_FLOR,Flor,portrait,sa_flor.jpeg,FILENAME_SEEN_ONLY,dance montage A,"Spelling based on initial note; later heard as Floor"
 REF_RIZA,Riza,portrait,sa_riza.jpeg|sa_riza_two.jpeg,FILENAME_SEEN_ONLY,dance montage B,"Distinct cast member"
