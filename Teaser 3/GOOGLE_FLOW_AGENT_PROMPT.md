@@ -28,7 +28,7 @@ You are making an original 58-second vertical 9:16 Filipino Christmas short, **P
 - 06–11 — Monica sees the genuine festive gathering ad featuring Susie's real archival dancing clip: "Ang saya naman dito…"
 - 11–15 — Jessa gently invites: "Gusto mo bang sumali?"
 - 15–19 — Ate Susie arrives with joyful barkada energy: "Besh! Sumali na kayo!"
-- 19–21 — Ate Susie reaches her hand toward the camera for a fun transition. Silent.
+- 19–21 — Ate Susie smiles and gives a small friendly wave. Silent. Make a gentle push-in / Christmas-light-flash transition to the authentic dancing footage in editing; no hand-to-camera motion in Flow.
 - 21–32 — Real dancing/celebration: Leizel, Susie, Margie, Flor, Riza, Anavee, Lilia, Usha, Iad, Willy, Adrian, Donna; real food/raffle/prizes only if actually confirmed.
 - 32–35 — Jessa: "Gusto mo ba sumama?"
 - 35–38 — Monica: "Of course, siyempre!"
