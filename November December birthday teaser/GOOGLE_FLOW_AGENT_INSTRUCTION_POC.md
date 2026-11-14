@@ -16,7 +16,7 @@ Produce one believable and amusing **10-second silent, landscape 16:9** original
 ## References and safe treatment
 - Exact human identity comes only from **the approved original real photo** of Ate Joy, available in user's birthday Google Drive:
   https://drive.google.com/drive/folders/1TOi8K_7LHbyw4rhBp-8chj791yDhtdYU
-- Candidate: `ate_joy_dec_4_1.jpg`. If the owner prefers `ate_joy_dec_4_2.jpg`, use that original instead. Confirm likeness and consent before generating.
+- **Visually inspected recommendation:** use `ate_joy_dec_4_2.jpg` as primary identity reference (close-up clear facial features), and optionally `ate_joy_dec_4_1.jpg` as a secondary original full-body/hairstyle reference if Flow supports it. The second photo includes a black cap; don't make speculative wardrobe changes at the cost of identity consistency. Confirm likeness and consent before generating.
 - Keep face, apparent age, hair, skin tone and general characteristics recognizable. Do not beautify, age-shift, invent extra people, or transform into a cartoon.
 - Depict warm affectionate physical comedy, not teasing or humiliation. No harm, falling, broken glass, accidents or public embarrassment.
 - Use the exact same real original photo if any later independent pickup also features her. Do NOT use a generated prior video as the face identity source.
