@@ -42,11 +42,13 @@ if (!opening || opening.spokenLine !== exact) fault("Monica P01 exact owner word
 const mInv = plan.shots.find(s => s.id === "P04");
 const mReach = plan.shots.find(s => s.id === "P05");
 for (const shot of [mInv, mReach]) {
- if (!shot) { fault("Missing Mischie scene P04/P05"); continue; }
- if (!shot.title.includes("Mischie")) fault("Cast name mismatch " + shot.id);
- if (!shot.originalStillFilename.startsWith("w2_mischie_")) fault("Wrong Mischie reference " + shot.id);
+ if (!shot) { fault("Missing Ate Susie scene P04/P05"); continue; }
+ if (!shot.title.includes("Ate Susie")) fault("Cast name mismatch " + shot.id);
+ if (!/^sa_susie(?:\.jpeg|_2\.JPG)$/.test(shot.originalStillFilename)) fault("Wrong Ate Susie reference " + shot.id);
 }
-if (mInv?.speaker !== "Mischie" || mInv?.spokenLine !== "Besh! Sumali na kayo!") fault("P04 speaker/dialogue drift");
+if (mInv?.speaker !== "Ate Susie" || mInv?.spokenLine !== "Besh! Sumali na kayo!") fault("P04 speaker/dialogue drift");
+if (!plan.ownerCorrections?.obsoleteClipIds?.includes("p04.mp4") || !plan.ownerCorrections?.obsoleteClipIds?.includes("p05.mp4"))
+ fault("Legacy Mischie P04/P05 clips must be held out of revised final");
 if (mReach?.speaker !== null || mReach?.spokenLine !== null) fault("P05 must remain silent");
 const missing = [];
 for (const shot of plan.shots) {
