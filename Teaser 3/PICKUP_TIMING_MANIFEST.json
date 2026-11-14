@@ -81,7 +81,7 @@
       "sourceGenerationSeconds": 10,
       "speechCompleteBySeconds": 0,
       "silentTailAtLeastSeconds": null,
-      "notes": "LATEST: Both hand-to-lens and simplified smile/wave Flow attempts were rejected per owner. STOP further P05 Flow prompt rerolls. V2 uses 6.30–8.30s from owner's p04_susie.mp4 with editor-created push-in+white-light-flash, replacing the old Mischie p05.mp4. No new Flow credits.",
+      "notes": "DO NOT use Flow for P05 after repeated owner-reported refusals. LATEST: Both hand-to-lens and simplified smile/wave Flow attempts were rejected per owner. STOP further P05 Flow prompt rerolls. V2 uses 6.30–8.30s from owner's p04_susie.mp4 with editor-created push-in+white-light-flash, replacing the old Mischie p05.mp4. No new Flow credits.",
       "creditsPerGeneration": 10
     },
     {
