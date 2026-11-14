@@ -9,7 +9,7 @@
 **Format:** 90 seconds exact; **9:16 vertical**, final composition 1080×1920 at 30fps; original Flow pickups **360p** (upscale only when available and approved).  
 **Audience:** Filipino OFW / W2, N4 and Sunday Groups; upbeat and loving Taglish.  
 **Kuya:** disembodied VO only, synthesized separately via **Gemini TTS**, never an on-camera actor; original voice (not PBB imitation).
-**Live POC:** P05, using the original user-uploaded photo of **Ate Joy** from Google Drive; 10-second **source** video, trimmed to 5 seconds in the final.
+**Live POC:** P05, **Google Flow renders anonymous gift-only footage** without her photograph (10-second source trimmed to ~5 seconds). **Ate Joy’s authentic uploaded photo is used separately in the Remotion edit**, never as a Flow identity reference.
 
 ## Two production layers
 1. **Google Flow pickup footage:** clean, original, silent narrative video; no captions, titles, logos, narrator or copyrighted soundtrack baked in.
