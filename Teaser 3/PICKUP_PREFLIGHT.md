@@ -32,6 +32,8 @@ For **every Teaser 3 Flow video generation**, including speaking pickups, silent
 This checklist applies to EVERY P01–P14 pickup and any later silent dancer/cameo. **No prompt can guarantee Google Flow policy approval or perfect speech.** The purpose is fewer failures, earlier identification of issues, and a dependable editing fallback.
 
 ## LATEST 2026-11-14: Ate Susie replaces Mischie in P04/P05
+**P05 policy-warning workaround:** The former hand-reaching prompt was flagged according to the owner (cause unknown). The new short, friendly silent-wave prompt is untested. No need for AI-generated hand covering the lens: create the zoom / Christmas-light flash in editing. If a platform refusal recurs, stop and use permitted real Susie footage or an editor-animated still, without repeated rewording to evade safeguards.
+
 The P04/P05 performer is now **Ate Susie** (latest owner correction). Use her real consented photo `sa_susie.jpeg` or `sa_susie_2.JPG`. The previously approved uploaded P04 and P05 clips depict Mischie and are NO LONGER valid for the revised cast. Do NOT simply rename them. New permitted Susie pickup(s), actual Susie footage, and an owner-approved performance of the same line 'Besh! Sumali na kayo!' are required before release. Previous Flow policy refusals have unknown causes; do not attempt to circumvent them.
 
 ## P11 phone-screen orientation QA (2026-11-13)
