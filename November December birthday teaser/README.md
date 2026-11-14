@@ -1,5 +1,14 @@
 # November–December Birthday Teaser — Mission Pasko (2026)
 
+## CURRENT APPROVED DIRECTION / DRAFT PACKAGE (2026-11-14)
+- **Gemini TTS** selected for the bodiless Kuya narrator; an ElevenLabs free-tier API key exists but **will not be used for this prototype**. Do not request or commit keys.
+- Full director pickup plan: [FILMING_PLAN_V2.md](FILMING_PLAN_V2.md) — 15 segments P01–P15, 90-second horizontal cut, precise timings, person coverage, voice/music cues.
+- First practical test: **P05 — Ate Joy, W2 Christmas gift tower** ([POC_P05_W2_GIFTS.md](POC_P05_W2_GIFTS.md)). Shoot **one** 10-second clean Flow video in 16:9 to yield ~5s in final edit.
+- Agent handoff: [Google Flow Agent Instruction POC](GOOGLE_FLOW_AGENT_INSTRUCTION_POC.md) and [Google Flow Agent Prompt POC](GOOGLE_FLOW_AGENT_PROMPT_POC.md), both drafts pending owner creative approval. Paste only the short individual pickup prompt in Flow's video generator.
+- Existing Teaser 3 uses 9:16 / 58s but this **birthday video is a different 16:9 / 90s project**. Source-image/production process can be reused, not aspect ratio.
+- No Flow output, Gemini TTS WAV/MP3 or mixed prototype has yet been generated. User runs Flow in their own account, then uploads MP4 for post.
+- Source portraits stay in Google Drive; we never commit personal images.
+
 **Status:** PREPRODUCTION / CREATIVE V1 (not rendered or published)  
 **Last reviewed:** 2026-11-14 (Singapore)  
 **Owner brief:** W2 × N4 × Sunday Group birthday celebration, **Paskong Pinoy Remix**.  
