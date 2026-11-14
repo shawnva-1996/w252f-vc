@@ -22,7 +22,7 @@ Identity and consent check -> selective Google Flow comedy pickups
                 |
        FFmpeg audio mix, export, strict runtime QA
                 |
-       90s PowerPoint-ready 16:9 birthday film
+       90s 9:16 portrait birthday film, displayed in a portrait-safe PowerPoint layout
 ```
 
 ## Applied learnings from source repositories
@@ -30,7 +30,7 @@ Identity and consent check -> selective Google Flow comedy pickups
 - **JoblessDev**: draft cheapest workable resolution first, select/correct one shot rather than paying for repeated unproductive generations. Exact model/credits checked in Flow UI; do not assume Teaser 3's 9:16 format carries over.
 - **Faceless Channels**: hook immediately, keep movement, visual change and SFX active every few seconds, no needless intro card, hold audience with small payoffs and a mystery reveal.
 - **LTSG**: use real footage as source of emotional credibility; select clean usable segments and compose fresh edits.
-- **Remotion**: deterministic 16:9 edit, readable name/date typography, pair-split birthday reveals, numbered 10/10 progression, virtual game-show overlays, confetti and subtitles.
+- **Remotion**: deterministic 9:16 edit, readable name/date typography, sequential three-second portrait reveals, numbered 10/10 progression, virtual game-show overlays, confetti and subtitles.
 - **HyperFrames**: optional source-driven motion design layer; confirm environment/package compatibility before use.
 
 ## Flow generation plan (proposal, NOT a locked preset for this new film)
