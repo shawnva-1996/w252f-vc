@@ -89,55 +89,45 @@ Use a natural conversational Filipino tone. Keep it as a single continuous shot,
 
 **Editor / QA:** If a visible shoulder tap is desired, build it as a separate silent insert. This pickup contains only Jessa. Speech must be fully audible before the final cut.
 
-### P04 — Mischie's cheerful invitation (final 15–19s)
+### P04 — Ate Susie's cheerful invitation (final 15–19s)
 
-**Reference:** Attach ONE original approved Mischie photo: `w2_mischie_one.jpeg` or `w2_mischie_two.jpeg`. The screenshot listing the filenames is not itself a portrait reference.
+**LATEST OWNER CAST UPDATE — 2026-11-14:** Ate Susie replaces Mischie. **Reference:** attach ONE actual consented photo of Ate Susie, `sa_susie.jpeg` or `sa_susie_2.JPG`, not an earlier person's clip. The existing Drive `p04.mp4` shows the earlier Mischie performer and is **OBSOLETE for this scene**.
 
-**Try the concise spoken version once, provided Flow permits this type of generation. Copy only this block:**
+**Copy only this model-facing text into Google Flow:**
 
 ```text
-Create a warm Christmas-themed vertical 9:16 video of Mischie using the attached reference photo.
+Create a warm Christmas-themed vertical 9:16 video of Ate Susie using the attached reference photo.
 
-Mischie is at a cheerful Christmas gathering with glowing golden lights. She notices friends nearby and gives them a bright, welcoming smile.
+Ate Susie is at a cheerful Christmas celebration with glowing golden lights. She sees her friends nearby, smiles brightly, and welcomes them with a friendly gesture.
 
-Mischie says naturally in Tagalog:
+She says naturally in Tagalog:
 
 "Besh! Sumali na kayo!"
 
 After speaking, she keeps smiling happily.
 
-Keep it as a single continuous shot, with only Mischie visible. No subtitles, no logos, and no on-screen text.
+Keep it as a single continuous shot, with only Ate Susie visible. No subtitles, no logos, and no on-screen text.
 ```
 
-**If Flow flags the speaking shot again, do not keep rewriting it to defeat a restriction.** Use this **silent performance** alternative and add Mischie's own consented recording of the line during editing:
+**If a platform safety refusal occurs, respect it.** Use a real permitted silent Susie clip with an actual consented voice recording in the editor, rather than repeated prompts to defeat a refusal.
+
+**Editor / QA:** 15–19s. Confirm actual person is Ate Susie using approved reference media. The entire Tagalog line must be audibly complete before the cut. Her role in P04/P05 is separate from, but complementary to, her already-planned dance montage and real historical dance insert.
+
+### P05 — Ate Susie's silent hand transition (final 19–21s)
+
+**Reference:** attach one actual permitted original Ate Susie photo, `sa_susie.jpeg` or `sa_susie_2.JPG`.
 
 ```text
-Create a warm Christmas-themed vertical 9:16 video of Mischie using the attached reference photo.
+Create a warm Christmas-themed vertical 9:16 video of Ate Susie using the attached reference photo.
 
-Mischie is at a cheerful Christmas gathering with glowing golden lights. She smiles excitedly and gives friends just outside the frame a friendly welcoming wave.
+Ate Susie is at a cheerful Christmas gathering with warm golden lights. She smiles and reaches one hand toward the camera as a friendly invitation.
 
-She does not speak. The moment is joyful and natural.
+Ate Susie does not speak. Keep her happy expression natural.
 
-Keep it as a single continuous shot, with only Mischie visible. No subtitles, no logos, and no on-screen text.
+Keep it as a single continuous shot, with only Ate Susie visible. No subtitles, no logos, and no on-screen text.
 ```
 
-**Editor / QA:** Final slot 15–19s. The words **"Besh! Sumali na kayo!"** must be clearly audible in the finished edit, either from a successful approved Flow generation or a genuine consented recording mixed separately. Do not change someone's speech in an uploaded video inside Flow. For silent footage, do not fake lip-sync; cut to the welcoming smile/gesture while the line plays.
-
-### P05 — Mischie's hand transition (final 19–21s)
-
-**Reference:** Attach ONE original approved Mischie photo: `w2_mischie_one.jpeg` or `w2_mischie_two.jpeg`.
-
-```text
-Create a warm Christmas-themed vertical 9:16 video of Mischie using the attached reference photo.
-
-Mischie is at a cheerful Christmas party with glowing golden lights. She happily reaches one hand toward the camera as a friendly invitation. Her hand moves gently closer to the lens.
-
-Mischie does not speak and keeps a cheerful smile.
-
-Keep it as a single continuous shot, with only Mischie visible. No subtitles, no logos, and no on-screen text.
-```
-
-**Editor / QA:** Final 19–21s. Complete the magical transition with a match cut and party footage in post. Do not ask Flow to generate a complicated multi-person transformation.
+**Editor / QA:** 19–21s. Compose the party match-cut in post. The existing Drive `p05.mp4` is also an **obsolete Mischie clip**, and cannot be reused to depict Ate Susie. Save credits by using genuine, owner-verified footage of Ate Susie if available.
 
 ### P09 — Jessa renews the invitation (final 32–35s)
 
@@ -297,7 +287,7 @@ Do not continue generating alternate prompts after a Flow safety refusal.
 
 - Phone discovery insert: actual Paskong Pinoy Remix flyer plus genuine Susie archive.
 - Game rules: use the exact owner-supplied image as a composited phone screen; do not ask Flow to generate text.
-- Mischie reaches toward camera; composite edit creates the scene change; no requirement for multi-person model generation.
+- Ate Susie reaches toward camera; composite edit creates the scene change; no requirement for multi-person model generation.
 - Mommy Tere + Renee: separate reference still generations, combine in post.
 - Finish with the verified event end card. Licensed/original Christmas music. Subtitles from actual final spoken audio at a social-safe raised lower-third.
 - Exact master is **58 seconds**, with shot timings from the manifest. No single Flow output is the completed film.
