@@ -1,50 +1,46 @@
-# Google Flow Agent Prompt — Mission Pasko P05 (DRAFT V1)
+# Google Flow Agent Prompt — MISSION PASKO P05 V3 (2026-11-14)
 
-**Use after reviewing [FILMING_PLAN_V2.md](FILMING_PLAN_V2.md) and [GOOGLE_FLOW_AGENT_INSTRUCTION_POC.md](GOOGLE_FLOW_AGENT_INSTRUCTION_POC.md).**
+**Agent project brief, not a raw model prompt.** Read [GOOGLE_FLOW_AGENT_INSTRUCTION_POC.md](GOOGLE_FLOW_AGENT_INSTRUCTION_POC.md) and [FLOW_CONTINUITY_CREDITS_V3.md](FLOW_CONTINUITY_CREDITS_V3.md) once. The actual Flow VIDEO input receives *only one* short natural-language prompt below.
 
-## Agent episode brief (not for the raw generation text box)
-Film: *Mission Pasko: The Birthday Housemates*. One pre-approved 10-second source video for five-second final slot P05 00:19–00:24. It features **Ate Joy**, one December celebrant, in a warm, fun Christmas gift-delivery mission. The narrator “Kuya” is **offscreen and generated separately using Gemini TTS**. Retain her genuine identity from the single attached approved photo; no speaking or on-screen typography. The agent should check 16:9, model, 360p draft, 10 seconds, one output and credits in Flow settings. Do not generate other shots or audio automatically.
+## Approved planning context, not generation approval
+Film *Mission Pasko: The Birthday Housemates*, 90s final, **9:16 vertical**. Test only **P05A**, an approximately 10-second **360p Omni Flash 1.2** Flow source featuring Ate Joy (W2), ultimately trimmed to **5 seconds** at 00:19–00:24. One output, one account charge only; verify cost and ask owner before running. Original identity from [`ate_joy_dec_4_2.jpg`](https://drive.google.com/file/d/1OpcRef1T70YPZQkUKVEwq8i8pPMazcta/view); her secondary original full-body image is [`ate_joy_dec_4_1.jpg`](https://drive.google.com/file/d/1_dNOb91bqaeC-DadZsZqO3tB2_eojcbu/view). **Photograph consent required.**
 
-**Identity reference (chosen after visual inspection):** `ate_joy_dec_4_2.jpg` from owner Drive. [View preferred close-up](https://drive.google.com/file/d/1OpcRef1T70YPZQkUKVEwq8i8pPMazcta/view); [view secondary full-body image](https://drive.google.com/file/d/1_dNOb91bqaeC-DadZsZqO3tB2_eojcbu/view). Primary face reference is the preferred close-up. The black cap in that photo is acceptable for this test; keep facial identity accurate.
-
-## Copy ONLY the paragraph below into the VIDEO generator
-
+## P05A — COPY ONLY THIS SHORT BLOCK INTO FLOW VIDEO MODEL
 ```text
-Create a cheerful cinematic Christmas party video in horizontal 16:9 using the attached original photograph of Ate Joy as the person reference.
+Create a cheerful, cinematic 9:16 vertical Christmas party video using the attached original photograph of Ate Joy as the face reference.
 
-Ate Joy is at a warmly lit Filipino Christmas gathering in Singapore, surrounded by glowing fairy lights and beautiful colorful wrapped Christmas gifts. She is already holding a ridiculously tall but harmless stack of wrapped gift boxes. The pile starts to wobble gently. Her eyes widen with a funny, delighted expression, and she tries to balance it. One small ribbon bow floats off the stack and she laughs naturally with relief. Keep her face visible and recognizable throughout.
+Ate Joy is at a warm Filipino Christmas celebration in Singapore, surrounded by golden fairy lights and colorful red, green and gold wrapped presents. She is already holding a comically tall but harmless tower of gift boxes. The tower starts to wobble, and she catches it with an amused, surprised expression. A small ribbon bow slips off the stack. She laughs with relief.
 
-Film this as one smooth medium-wide shot with a gentle camera push-in, warm festive lighting and natural human expressions. Only Ate Joy is visible. She does not speak. No subtitles, logos or on-screen text.
+Use one smooth medium shot with a gentle push-in. Keep Ate Joy's face clearly visible and recognizable, and keep the gifts within the vertical frame. End on a steady, natural smiling moment with the gift stack still visible, suitable to continue into another shot. Only Ate Joy is visible, and she does not speak. No subtitles, logos, music or on-screen text.
 ```
 
-## Separate Gemini TTS narration (NOT part of the Flow video prompt)
+**Expected source performance:** 0–2s gift stack already visible → 2–5s begins wobbling → 5–7s funny reaction → 7–9s bow slips/laugh → 9–10s stable smiling last frame. **No hard cut, scene change or disappearing person/prop.**
 
-**Provisional script:**
+## P05B — OPTIONAL CONTINUATION; DO NOT RUN without separate owner approval
+
+### How to choose the continuation method
+- **Eligible paid account:** choose P05A video → **Extend** under Omni Flash 1.2, choose additional 10s at 360p if supported, attach real photo where permitted, check cost.
+- **No eligible subscription / no Extend:** choose Flow web **Frames to Video**, set saved **`P05A_LAST_FRAME.png` as START FRAME**, add real original Ate Joy photo as extra reference if supported, choose 9:16, 360p, 10s, one output, check cost.
+- A saved video final frame maintains motion/camera continuity; original real photo maintains face identity. This is not a guarantee of identical faces or wardrobes. Review every generated shot.
+
+### Only after attaching the last frame, copy this single short model prompt
+```text
+Continue the exact same Christmas party moment with the same woman, same outfit, gift stack, camera position and warm lighting shown in the starting image. The gift tower is now balanced. A small wrapped present on top slowly opens, and harmless colorful ribbon curls pop out. She reacts with a delighted smile and laughs quietly. Keep the same person, face, framing, wardrobe and room. One smooth continuous vertical 9:16 shot, no dialogue, logos, subtitles or on-screen text.
+```
+
+For native **Extend**, you can omit repeated set-up and describe only the continuation action if Flow gives better continuity. Do not paste the account/budget/workflow instructions into the video model.
+
+## Separate Gemini TTS narrator, outside Flow
+**Kuya script — provisional until sound check:**
 ```text
 W2! Ilabas ang mga regalo! Ate Joy… excess baggage na ’yan!
 ```
 
-Suggested Gemini TTS direction:
-```text
-Speak in natural Filipino/Taglish, like a warm mature Filipino man announcing a funny Christmas game mission. Start playfully authoritative, then pause briefly after “Ate Joy” and deliver “excess baggage na ’yan!” with smiling deadpan humour. Keep it short and natural. Do not imitate any actual celebrity or television host.
-```
+Direction: Original, mature Filipino male narrator, naturally conversational Taglish, humorous but kind; smile through the punchline; **do not imitate the actual PBB narrator**. Gemini TTS audio is assembled with the Flow source using Remotion/FFmpeg, not injected into Flow. If speech doesn't fit five seconds, re-time in the edit or ask for a shorter approved line; don't truncate words.
 
-Suggested current product: **Gemini 3.8 Flash TTS** (`gemini-3.8-flash-tts`) through Google AI Studio or the Gemini API; it currently has a documented free tier subject to actual account availability. Try **Gacrux** (mature) and **Charon** (informative) as initial voices; audition natural Tagalog pronunciation before choosing. Use only a Gemini TTS key privately in approved secrets configuration; **do not post the key into GitHub or chat**.
-
-Current docs:
-- https://ai.google.dev/gemini-api/docs/speech-generation
-- https://ai.google.dev/gemini-api/docs/pricing
-
-## Editing preview (5s)
-- 0–1s: already wobbling gift tower; narrator starts “W2!”
-- 1–3s: wobble, Ate Joy amused surprise; narrator “Ilabas ang mga regalo!”
-- 3–5s: ribbon bow flies, laughing reaction; narrator says punchline with speech spanning adjacent cut if needed.
-- SFX: cartoony festive wobble + sparkling bow chime.
-- Voiceover, any names/date overlays and cleared music placed in post-production.
-- If the separate narration exceeds this final slot, redistribute it across the previous pickup transition or shorten **after owner approval** instead of cutting off speech.
-
-## What to return to the owner
-- One 10-second MP4 original Flow output.
-- Actual selected model, aspect ratio, resolution, output duration, credits spent.
-- A short note saying whether image identity, gifts, visible face, emotional expression and usable 5s pass.
-- Do not promise a finished 90-second render from this one pickup.
+## Result handoff
+- Original 10-second P05A MP4 at 9:16 360p, ideally retaining 5s usable comedy.
+- For possible continuation: still `P05A_LAST_FRAME.png` and exact source timestamp.
+- Actual model, aspect ratio, resolution, generated duration, output count, cost and current-account remaining credits (no private credential details).
+- Face-match / framing / hands / gift continuity / safe last frame acceptance notes.
+- **No P05B generation or additional shots unless separately approved.**
