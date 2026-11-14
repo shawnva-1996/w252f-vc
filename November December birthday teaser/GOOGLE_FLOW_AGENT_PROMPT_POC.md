@@ -5,7 +5,7 @@
 ## Agent episode brief (not for the raw generation text box)
 Film: *Mission Pasko: The Birthday Housemates*. One pre-approved 10-second source video for five-second final slot P05 00:19–00:24. It features **Ate Joy**, one December celebrant, in a warm, fun Christmas gift-delivery mission. The narrator “Kuya” is **offscreen and generated separately using Gemini TTS**. Retain her genuine identity from the single attached approved photo; no speaking or on-screen typography. The agent should check 16:9, model, 360p draft, 10 seconds, one output and credits in Flow settings. Do not generate other shots or audio automatically.
 
-**Identity reference:** `ate_joy_dec_4_1.jpg` from owner Drive. [View original file](https://drive.google.com/file/d/1_dNOb91bqaeC-DadZsZqO3tB2_eojcbu/view); owner may select `ate_joy_dec_4_2.jpg` instead.
+**Identity reference (chosen after visual inspection):** `ate_joy_dec_4_2.jpg` from owner Drive. [View preferred close-up](https://drive.google.com/file/d/1OpcRef1T70YPZQkUKVEwq8i8pPMazcta/view); [view secondary full-body image](https://drive.google.com/file/d/1_dNOb91bqaeC-DadZsZqO3tB2_eojcbu/view). Primary face reference is the preferred close-up. The black cap in that photo is acceptable for this test; keep facial identity accurate.
 
 ## Copy ONLY the paragraph below into the VIDEO generator
 
