@@ -38,8 +38,8 @@ The user has confirmed a **simple, conversational P02 prompt approach worked** i
 - The original identity photo (never a generated video) remains the authority for every independent pickup.
 - One visible named speaker per speaking pickup. If a listener should be shown, shoot them as a separate silent pickup or cut together existing footage.
 - Preserve face, approximate age, skin tone, hairstyle and other identifying features. Match wardrobe, lens, lighting and emotional tone across repeat shots.
-- Do not substitute another person for a missing reference. **Mischie's portrait filenames are now identified (`w2_mischie_one.jpeg` / `w2_mischie_two.jpeg`), while Renee's portrait and Leizel, Anavee and Iad's dancer portraits remain missing.** `w2_tere.jpeg` is provisionally Mommy Tere and must be checked before generating.
-- Owner confirmed **Mischie** is the P04/P05 performer. Mischie is a principal story character, not an optional cameo.
+- Do not substitute another person for a missing reference. **Ate Susie's original portrait filenames are known (`sa_susie.jpeg` / `sa_susie_2.JPG`), and she is now the P04/P05 performer, also appearing in the featured dancer roster. Renee's portrait and Leizel, Anavee and Iad's dancer portraits remain missing.** `w2_tere.jpeg` is provisionally Mommy Tere and must be checked before generating.
+- **Latest owner correction (2026-11-14): Ate Susie replaces Mischie as P04/P05 performer.** Mischie is no longer a story speaking character (optional cameo only). The existing Drive p04.mp4/p05.mp4 depict the old cast; do not claim they show Ate Susie.
 - Consent is required before animating identifiable member photographs, and any real family images need permission.
 
 ## Jessa wardrobe continuity lock (P03 / P09 / P11)
@@ -76,8 +76,8 @@ The previous JoblessDev baseline is superseded for this Teaser 3 workflow by the
 P01 Monica loving greeting: **"Merry Christmas sa inyo… miss na miss ko na kayo."** Both `na` words matter.
 P02 Monica discovers festive ad: **"Ang saya naman dito…"** (owner-reported successful simplified prompt style).
 P03 Jessa invites: **"Gusto mo bang sumali?"**
-P04 Mischie: **"Besh! Sumali na kayo!"** (choose an actual original approved Mischie portrait; if speaking is refused, use a silent shot plus her genuine recorded voice in post).
-P05 Mischie silent transition reach (use original approved Mischie photo).
+P04 Ate Susie: **"Besh! Sumali na kayo!"** (choose an approved original Susie portrait; if speaking is refused, use permitted real Susie footage plus her genuine recorded voice in post).
+P05 Ate Susie silent transition reach (use original approved Susie photo or permitted authentic footage).
 P06–P08 real festive footage includes **Leizel, Susie, Margie, Flor, Riza, Anavee, Lilia, Usha, Iad, Willy, Adrian, Donna**.
 P09 Jessa: **"Gusto mo ba sumama?"**
 P10 Monica: **"Of course, siyempre!"**
