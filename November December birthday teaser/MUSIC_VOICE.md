@@ -1,5 +1,15 @@
 # Music and Voice Decision Log — Birthday Film
 
+## Decision update — 2026-11-14
+**Owner selects Gemini TTS for the bodiless Kuya narrator for the P05 proof-of-concept and birthday film.** ElevenLabs free-tier API credentials exist but are not part of this production choice. The voice must be a distinctive Filipino male, not the original PBB announcer.
+
+**Current Gemini option:** `gemini-3.8-flash-tts` via Google AI Studio/Gemini API, with documented free-tier quotas (subject to account and current availability). **Gacrux** (mature) and **Charon** (informative) are voice audition candidates. Filipino supported in official docs. No API key has been supplied, accessed or stored. See [Google Flow POC agent prompt](GOOGLE_FLOW_AGENT_PROMPT_POC.md) for the first 5-second voice line and [Filming plan V2](FILMING_PLAN_V2.md) for its timecode.
+
+**Source footage and narrator audio are separate:** Google Flow generates silent visuals, Gemini TTS makes narration, Remotion/FFmpeg compose final audio/visual. No TTS generation has happened yet.
+
+**Prototype music** must be independently composed or properly cleared; PBB `Pinoy Ako` remains requested reference **pending rights/permission for the original recording**.
+
+
 **Status:** options researched, no audio generated, no music downloaded or licensed yet.
 
 ## Bodyless Kuya narrator
