@@ -1,51 +1,49 @@
-# Google Flow Agent Prompt — MISSION PASKO P05 V3 (2026-11-14)
+# Google Flow Agent Prompt — MISSION PASKO P05 V4 (2026-11-14)
 
-**Next step after entering this first Agent Prompt:** open [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md), select **P05A** for the first trial (or another individually approved shot), attach its original reference photo, and paste **only the shot's `text` model prompt** into Flow. This project brief isn't itself the individual pickup bank. For P01–P15 see the separate file.
+**Status:** revised after user-reported Google Flow policy refusal on real-photo → identifiable-person video generation. **Do not resubmit the old Ate Joy face-animation prompt.** See [FLOW_POLICY_REVIEW_P05.md](FLOW_POLICY_REVIEW_P05.md).
 
-**Agent project brief, not a raw model prompt.** Read [GOOGLE_FLOW_AGENT_INSTRUCTION_POC.md](GOOGLE_FLOW_AGENT_INSTRUCTION_POC.md) and [FLOW_CONTINUITY_CREDITS_V3.md](FLOW_CONTINUITY_CREDITS_V3.md) once. The actual Flow VIDEO input receives *only one* short natural-language prompt below.
+## Agent project brief (NOT for video generator)
+Film: *Mission Pasko: The Birthday Housemates*. 90 seconds final, **9:16 portrait**. **P05A** is a proposed **one 10-second 360p Omni Flash 1.2**, one-output **gift-only** source shot for the W2 comedy segment at 00:19–00:24 (final uses ~5 sec). We will separately show **Ate Joy's real original photograph** in the edit, paired with these gift visuals; Flow itself does NOT receive her photograph or any other identifiable portrait.
 
-## Approved planning context, not generation approval
-Film *Mission Pasko: The Birthday Housemates*, 90s final, **9:16 vertical**. Test only **P05A**, an approximately 10-second **360p Omni Flash 1.2** Flow source featuring Ate Joy (W2), ultimately trimmed to **5 seconds** at 00:19–00:24. One output, one account charge only; verify cost and ask owner before running. Original identity from [`ate_joy_dec_4_2.jpg`](https://drive.google.com/file/d/1OpcRef1T70YPZQkUKVEwq8i8pPMazcta/view); her secondary original full-body image is [`ate_joy_dec_4_1.jpg`](https://drive.google.com/file/d/1_dNOb91bqaeC-DadZsZqO3tB2_eojcbu/view). **Photograph consent required.**
+**Music and voices:** Bodyless Kuya voice via **Gemini TTS** in post, independent original/cleared instrumental, names/date graphics added in Remotion. Do not make Flow narrate, sing or render any on-screen words. The original PBB recording is not cleared by this production brief.
 
-## P05A — COPY ONLY THIS SHORT BLOCK INTO FLOW VIDEO MODEL
+**Production settings:** Omni Flash 1.2 / 360p / 9:16 vertical / 10 seconds / one output, if available. Verify model and live credit quote before generating. 50 credits per user-reported account; account balances separate. No second attempt or switch of accounts to override a policy refusal.
+
+## P05A — Copy ONLY this block into the VIDEO generator
+
+**Reference uploads:** **NONE**. Do not attach `ate_joy_dec_4_1.jpg`, `ate_joy_dec_4_2.jpg`, or any human photograph.
+
 ```text
-Create a cheerful, cinematic 9:16 vertical Christmas party video using the attached original photograph of Ate Joy as the face reference.
+Create a cheerful cinematic 9:16 vertical video of a tall tower of colorful red, green and gold wrapped Christmas gifts on a decorated party table. Warm golden fairy lights and festive Filipino Christmas lanterns glow softly in the background.
 
-Ate Joy is at a warm Filipino Christmas celebration in Singapore, surrounded by golden fairy lights and colorful red, green and gold wrapped presents. She is already holding a comically tall but harmless tower of gift boxes. The tower starts to wobble, and she catches it with an amused, surprised expression. A small ribbon bow slips off the stack. She laughs with relief.
+The gift tower wobbles playfully but remains upright. A small ribbon bow slips off the top and floats down as the boxes settle safely. Use a smooth medium shot with a gentle camera push-in, keeping the presents in frame. End on a stable shot with the gift tower still in place, suitable for a continuation.
 
-Use one smooth medium shot with a gentle push-in. Keep Ate Joy's face clearly visible and recognizable, and keep the gifts within the vertical frame. End on a steady, natural smiling moment with the gift stack still visible, suitable to continue into another shot. Only Ate Joy is visible, and she does not speak. No subtitles, logos, music or on-screen text.
+There are no people or human faces in this scene. No dialogue, subtitles, logos, music or on-screen text.
 ```
 
-**Expected source performance:** 0–2s gift stack already visible → 2–5s begins wobbling → 5–7s funny reaction → 7–9s bow slips/laugh → 9–10s stable smiling last frame. **No hard cut, scene change or disappearing person/prop.**
+**Post edit (not Flow):** show Ate Joy's genuine original still photo [photo 2](https://drive.google.com/file/d/1OpcRef1T70YPZQkUKVEwq8i8pPMazcta/view) as a prominent portrait overlay/panel in Remotion, with a subtle natural camera zoom; cut to the gift tower and a separate gift-box wobble animation. We do **not** imply this generated clip is literal footage of Ate Joy. With consent, pair it with her photo/name/date in a visible birthday context.
 
-## P05B — OPTIONAL CONTINUATION; DO NOT RUN without separate owner approval
-
-### How to choose the continuation method
-- **Eligible paid account:** choose P05A video → **Extend** under Omni Flash 1.2, choose additional 10s at 360p if supported, attach real photo where permitted, check cost.
-- **No eligible subscription / no Extend:** choose Flow web **Frames to Video**, set saved **`P05A_LAST_FRAME.png` as START FRAME**, add real original Ate Joy photo as extra reference if supported, choose 9:16, 360p, 10s, one output, check cost.
-- A saved video final frame maintains motion/camera continuity; original real photo maintains face identity. This is not a guarantee of identical faces or wardrobes. Review every generated shot.
-
-### Only after attaching the last frame, copy this single short model prompt
-```text
-Continue the exact same Christmas party moment with the same woman, same outfit, gift stack, camera position and warm lighting shown in the starting image. The gift tower is now balanced. A small wrapped present on top slowly opens, and harmless colorful ribbon curls pop out. She reacts with a delighted smile and laughs quietly. Keep the same person, face, framing, wardrobe and room. One smooth continuous vertical 9:16 shot, no dialogue, logos, subtitles or on-screen text.
-```
-
-For native **Extend**, you can omit repeated set-up and describe only the continuation action if Flow gives better continuity. Do not paste the account/budget/workflow instructions into the video model.
-
-## Separate Gemini TTS narrator, outside Flow
-**Kuya script — provisional until sound check:**
+**Audio (outside Flow):** Original mature Filipino narrator:
 ```text
 W2! Ilabas ang mga regalo! Ate Joy… excess baggage na ’yan!
 ```
+Gemini TTS timing needs audition; if too long for 5 seconds, retime across P04/P05, or shorten after approval. Don't cut off speech or ask Flow to lip-sync an uploaded member's face.
 
-Direction: Original, mature Filipino male narrator, naturally conversational Taglish, humorous but kind; smile through the punchline; **do not imitate the actual PBB narrator**. Gemini TTS audio is assembled with the Flow source using Remotion/FFmpeg, not injected into Flow. If speech doesn't fit five seconds, re-time in the edit or ask for a shorter approved line; don't truncate words.
+## P05B — Optional anonymous gift continuation (NOT approved to generate automatically)
 
-## Result handoff
-- Original 10-second P05A MP4 at 9:16 360p, ideally retaining 5s usable comedy.
-- For possible continuation: still `P05A_LAST_FRAME.png` and exact source timestamp.
-- Actual model, aspect ratio, resolution, generated duration, output count, cost and current-account remaining credits (no private credential details).
-- Face-match / framing / hands / gift continuity / safe last frame acceptance notes.
-- **No P05B generation or additional shots unless separately approved.**
+If P05A is accepted and another shot materially helps, choose a clean P05A last frame and save as `P05A_LAST_FRAME.png`. Native Extend is only for eligible accounts/projects; otherwise use Frames to Video with the gift-only image as the start frame. No face/identity references should be attached to either option.
 
-## If a permitted next scene occurs in another account/project
-The native **Extend** control does not carry a video between unrelated accounts. Use the downloadable saved P05A final-frame PNG, or extract the chosen clear frame from the authorized P05A MP4, and upload it as the **start frame** for a **new Frames to Video** generation. Reuse the original `ate_joy_dec_4_2.jpg` face reference where supported. Verify the destination account's model, 9:16 orientation, 360p, duration, credit price and eligibility before any charge. The same short P05B continuation prompt applies. Do not use new accounts to bypass platform restrictions, and don't run P05B without owner approval.
+```text
+Continue the exact same vertical Christmas gift-table shot from the supplied starting frame. The tower of wrapped gifts has settled safely. One small box on top opens gently and colorful ribbons float out, while the warm golden fairy lights keep glowing. Preserve the same camera angle, gift arrangement, lighting and room. Keep the scene playful and continuous. No people, dialogue, subtitles, logos, music or on-screen text.
+```
+
+## When Flow reports policy violation
+- Do not retry the blocked likeness generation or ask another account to bypass the same restriction.
+- Note exact error text, selected model/mode, attachment type, charge if any; consider reporting an unexpected refusal using Google's feedback feature.
+- Move to authentic footage, Remotion still-photo compositing and non-identifying object-only cinematics.
+- No one can guarantee that any specific prompt will pass Flow's dynamic checks.
+
+## Return
+- One 10-second **object-only** P05A MP4 at 9:16 360p if generated, chosen clean last-frame still (optional), actual settings and charges, and visual QA.
+- No actual person appears in generated footage; original Ate Joy photograph is a **separate editing layer**.
+- Do not generate P05B or the other pickups without explicit new approval.
