@@ -1,5 +1,7 @@
 # Google Flow Agent Prompt — MISSION PASKO P05 V3 (2026-11-14)
 
+**Next step after entering this first Agent Prompt:** open [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md), select **P05A** for the first trial (or another individually approved shot), attach its original reference photo, and paste **only the shot's `text` model prompt** into Flow. This project brief isn't itself the individual pickup bank. For P01–P15 see the separate file.
+
 **Agent project brief, not a raw model prompt.** Read [GOOGLE_FLOW_AGENT_INSTRUCTION_POC.md](GOOGLE_FLOW_AGENT_INSTRUCTION_POC.md) and [FLOW_CONTINUITY_CREDITS_V3.md](FLOW_CONTINUITY_CREDITS_V3.md) once. The actual Flow VIDEO input receives *only one* short natural-language prompt below.
 
 ## Approved planning context, not generation approval
