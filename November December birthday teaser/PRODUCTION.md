@@ -1,10 +1,14 @@
+
+## LATEST REFERENCE-PHOTO CLARIFICATION — 2026-11-14
+User clarified that Teaser 3 P02 successfully used Monica's original photo. For P05, use the **same short, natural-language single-actor prompt structure** with Ate Joy's original consented photo where the current Flow mode permits. One earlier, more elaborate P05 request was refused for an unknown reason; this cannot guarantee approval. On further safety refusal, stop and use authorized original photo/real footage in Remotion. The up-to-date exact prompt is in [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md) V3 and [Agent Prompt](GOOGLE_FLOW_AGENT_PROMPT_POC.md) V5.
+
 # Mission Pasko — Practical Production and Delivery Plan (V4 2026-11-14)
 
 **Status:** preproduction only; no Flow clips/audio/render completed yet.  
 **Final master:** H.264 MP4, **1080×1920 final edit canvas, 9:16 portrait, 30fps**, exactly **90 seconds**, high-quality audio appropriate for church hall + PowerPoint.
 
 ## LATEST SAFETY LOCK — P05 IDENTIFIABLE-PERSON FLOW REFUSAL
-**Reported Flow policy violation:** P05A requested new video animation of an uploaded Ate Joy photo; exact filter cause unconfirmed. For this birthday project, **do not feed member portraits into Flow for video reconstruction**. Use object-only/anonymous Flow footage and original member photos or genuine consented recordings in Remotion. See [FLOW_POLICY_REVIEW_P05.md](FLOW_POLICY_REVIEW_P05.md) and [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md) V2. Stop and record any policy refusal instead of rewording/resubmitting or switching accounts to evade it. No prompt is guaranteed to pass.
+**Reported Flow policy violation:** P05A requested new video animation of an uploaded Ate Joy photo; exact filter cause unconfirmed. For this birthday project, **owner reports that reference-photo animation did work for Teaser 3 P02**, so permit a consented original photo in a supported Flow mode using simple one-person prompts. The prior P05 refusal has an unknown cause; stop if a further policy refusal occurs. See [FLOW_POLICY_REVIEW_P05.md](FLOW_POLICY_REVIEW_P05.md) and [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md) V2. Stop and record any policy refusal instead of rewording/resubmitting or switching accounts to evade it. No prompt is guaranteed to pass.
 
 ## Inputs
 - Primary original photographs: 12 listed in [CAST_ASSET_MANIFEST.md](CAST_ASSET_MANIFEST.md), stored in owner Google Drive.
@@ -29,7 +33,7 @@ Identity and consent check -> generic, NON-IDENTIFYING Google Flow comedy pickup
 ```
 
 ## Applied learnings from source repositories
-- **Teaser 3**: independent pickups, simple natural-language prompts, clean footage without titles, respect policy refusals and permissions. Here **member likeness-generation is retired** after P05 refusal; identities come from real photos and recordings composited in editor.
+- **Teaser 3**: independent pickups, simple natural-language prompts, clean footage without titles, respect policy refusals and permissions. Here a simple reference-image workflow is now chosen based on the verified Teaser 3 P02 result; member permission, product restrictions and QA still apply.
 - **JoblessDev**: draft cheapest workable resolution first, select/correct one shot rather than paying for repeated unproductive generations. Exact model/credits checked in Flow UI; do not assume Teaser 3's 9:16 format carries over.
 - **Faceless Channels**: hook immediately, keep movement, visual change and SFX active every few seconds, no needless intro card, hold audience with small payoffs and a mystery reveal.
 - **LTSG**: use real footage as source of emotional credibility; select clean usable segments and compose fresh edits.
@@ -37,10 +41,10 @@ Identity and consent check -> generic, NON-IDENTIFYING Google Flow comedy pickup
 - **HyperFrames**: optional source-driven motion design layer; confirm environment/package compatibility before use.
 
 ## Flow generation plan (proposal, NOT a locked preset for this new film)
-- **Use 3–4 short anonymous/object-only fantasy-comedy shots maximum in first pass** for group missions, rather than any identifiable portrait animation in Flow.
+- **Use only a few short, approved Flow shots in first pass (some may use a consented member photo, others can be objects)** for group missions, rather than any identifiable portrait animation in Flow.
 - **Owner-locked new preset:** Omni Flash 1.2 / **360p** / **9:16 portrait** / **10 seconds per Flow source** / one output. Birthday uses 9:16 by independent explicit instruction; the related Teaser 3 has a different 58s runtime.
 - Official current Omni Flash 1.2 pricing is **1 credit per generated second at 360p**, so **10 credits for each 10s generation** when offered. Confirm actual UI before spending. User reports 50 credits each for ~8 separate accounts; use [ACCOUNT_CREDIT_LEDGER.csv](ACCOUNT_CREDIT_LEDGER.csv) and follow Google's terms/limits.
-- Real member identity = authentic approved portrait/photo or genuine footage used **directly in post**, not attached as a Flow video-generation reference.
+- Real member identity = authentic approved portrait; it can serve as a Flow reference where supported and consented, and should also be used for QA and post.
 - Narrator audio generated separately (or acted by real volunteer) for exact timing and reliable Taglish.
 - Most reveal shots require **static photos + motion graphics**, not lipsync.
 - Keep final labels, names, birthdays, sound and music in post-production (not hallucinated into video by Flow).
@@ -69,7 +73,7 @@ Identity and consent check -> generic, NON-IDENTIFYING Google Flow comedy pickup
 7. Render, review, finalise and deliver.
 
 ## V3 continuous-scene Flow procedure (MANDATORY)
-- For any **continuing anonymous/object-only scene with the same environment and props**, inspect accepted PxxA video; **save a clear last frame**. For an eligible paid account choose Omni Flash 1.2 **Extend** (additional charge). Otherwise use web **Frames to Video** with that saved image as PxxB **start frame** (additional generation). No portraits are attached in Flow after the P05 refusal; generated frame is for prop/environment continuity only.
-- **Do not chain unrelated group/celebrant scenes**; any real-person segment uses authentic media in the editor, not Flow-generated identity. Never auto-generate P05B/extra clips without owner approval; source duration 10s and final selected edit is ~5s.
+- For any **continuing anonymous/object-only scene with the same environment and props**, inspect accepted PxxA video; **save a clear last frame**. For an eligible paid account choose Omni Flash 1.2 **Extend** (additional charge). Otherwise use web **Frames to Video** with that saved image as PxxB **start frame** (additional generation). For same-person continuation, keep the original approved portrait as identity reference where Flow permits it; the last frame bridges action/setting continuity.
+- **Do not chain unrelated group/celebrant scenes**; different real-person shots begin with their own original approved photo, while real footage remains a supported editorial fallback. Never auto-generate P05B/extra clips without owner approval; source duration 10s and final selected edit is ~5s.
 - Check **model 1.2 Flash, 9:16, 360p, 10s, one output, live credit quote** before every attempt. 50 owner-reported credits per account, ~8 accounts; log actual charges (including unsuccessful attempts) separately, never store credentials or treat accounts as pooled/bypasses.
 - Save source MP4s, last-frame stills, exact source timecode and per-pickup QA; Remotion assembles a **9:16 vertical 90s** result using only licensed audio and real messages. For landscape PowerPoint display, use side art/pillarbox rather than stretching portrait film. See [FLOW_CONTINUITY_CREDITS_V3.md](FLOW_CONTINUITY_CREDITS_V3.md).
