@@ -71,7 +71,7 @@ for (const person of ["Leizel","Susie","Margie","Flor","Riza","Anavee","Lilia","
 }
 if (named.includes("Eyad")) fault("Obsolete transcription Eyad");
 
-if (plan.version !== "4.0") fault("Expected V4 manifest");
+if (plan.version !== "4.1") fault("Expected V4.1 manifest");
 const prompts = readFileSync(new URL("./FLOW_PICKUP_PROMPTS.md", import.meta.url), "utf8");
 if (!prompts.includes("V4")) fault("V4 prompt bank not found");
 for (const shot of plan.shots) {
