@@ -1,4 +1,6 @@
-# MISSION PASKO — Google Flow Continuity + Credit Workflow V3
+# MISSION PASKO — Google Flow Continuity + Credit Workflow V3 (V4 safety override)
+
+**Policy-safety override (2026-11-14):** Original P05A Flow video generation from a real member's photo was blocked. This file's identity-reference guidance is superseded for the birthday project: **only anonymous/object-only Flow content; display authentic celebrant portraits in Remotion post only**. Do not retry/refashion that real-person request. See [FLOW_POLICY_REVIEW_P05.md](FLOW_POLICY_REVIEW_P05.md).
 
 **Owner override: 2026-11-14.** Applies to the **November December birthday teaser** project only. The adjacent 58-second Teaser 3 retains its own separate owner-locked settings.
 
@@ -21,11 +23,11 @@ Official docs checked 2026-11-14:
 
 **A. Same action, same person, same environment, continuous time:** use **CONTINUATION**, not an unrelated text-to-video pickup.
 
-1. Render **PxxA** using the **original owner-approved portrait** as the person's identity reference. Check face, hair, clothing, lighting, location, framing and natural last frame.
+1. Render **PxxA** using a permitted **non-identifiable scene reference** such as a gift table, or no reference. Check props, lighting, location, framing and natural last frame; no real member generated face.
 2. Choose an **intentional clean final frame** in the actual clip: same pose/camera/light, no mid-blink, motion blur, mangled hands or face. Pause at that frame and choose **Save frame** in Flow. Name `PxxA_LAST_FRAME.png`; log which source clip and timestamp it came from.
-3. **Preferred, only when eligible:** select the PxxA video in Flow and **Extend** with Omni Flash 1.2. Official help indicates **Extend requires Google AI Plus, Pro or Ultra**. Prompt **only what happens next**. Extension itself remains a new charge; confirm duration and cost. Add original cast image as a reference where available (official docs allow up to 3 images for Extend). Do not interpret **Extend** as a free action.
-4. **Free-tier/web fallback:** create **PxxB** in **Frames to Video**, 9:16 360p, using the SAVED FINAL FRAME of PxxA as the **start frame**. Add the **same original cast portrait** as an additional ingredient/reference if the selected mode allows it. Prompt only the next action without reintroducing the person/location. **Frames to Video** in both aspect ratios is listed for non-subscribers; verify the account's actual UI.
-5. The original real portrait remains the **identity authority**. The last frame is a **temporal/camera/wardrobe continuity bridge**, **not** a replacement for identity authority. Use both where supported; if Flow only accepts one, compare resulting face to the original before accepting.
+3. **Preferred, only when eligible:** select the PxxA video in Flow and **Extend** with Omni Flash 1.2. Official help indicates **Extend requires Google AI Plus, Pro or Ultra**. Prompt **only what happens next**. Extension itself remains a new charge; confirm duration and cost. Do not attach original birthday-celebrant images when extending generic scenes. Do not interpret **Extend** as a free action.
+4. **Free-tier/web fallback:** create **PxxB** in **Frames to Video**, 9:16 360p, using the SAVED FINAL FRAME of PxxA as the **start frame**. Only a permitted non-identifying environment reference may be attached; **not a person's portrait**. Prompt only the next action without reintroducing the person/location. **Frames to Video** in both aspect ratios is listed for non-subscribers; verify the account's actual UI.
+5. Use the last frame only for **environment/prop/camera continuity**. Actual member identity remains the genuine photo or recording shown in post. No real-person face reconstruction is requested in Flow.
 6. Check first frame of PxxB vs final frame of PxxA for visual match, wardrobe/prop locations, lighting, camera direction, background, number of hands and people, and age/face. Trim at a clean edit point or use a hidden match cut in Remotion; no claim of guaranteed seamlessness.
 7. Save/output both independent original MP4s plus the frame asset and log exactly how they link. Never overwrite the accepted previous video with a retry without owner review.
 
@@ -34,8 +36,8 @@ Official docs checked 2026-11-14:
 **C. Graphic name reveals / montages / counters:** use **Remotion / optional HyperFrames** with original photographs. Do not burn credits to synthesize unnecessary video footage.
 
 ## Example: P05 W2 gift tower — possible continuous P05A→P05B
-- **P05A (first, requested proof of concept):** attached `ate_joy_dec_4_2.jpg` original primary face reference; in one warm Christmas room Ate Joy balances absurd wrapped gifts, they wobble, she reacts, ends with a stable smile and still-visible stack. One 10s silent Flow source, 9:16, 360p.
-- **P05B (OPTIONAL; NOT approved to render automatically):** only if a follow-on joke is needed and owner approves spending. Use P05A's **last usable frame** via native Extend (paid eligible account) or Frames to Video start-frame (web/free-tier fallback). Action could be “the top gift opens and a shower of harmless ribbon curls appears while she smiles.” Do not generate a new environment or person, and do not make her speak.
+- **P05A (replacement proof of concept):** NO member photo or face reference; warm Christmas room, a wobbling gift tower on a table, falling ribbon, stable gift-stack final frame. One 10s silent Flow source, 9:16, 360p. Authentic Ate Joy portrait is composited later in Remotion.
+- **P05B (OPTIONAL; NOT approved to render automatically):** only if a follow-on joke is needed and owner approves spending. Use P05A's **last usable frame** via native Extend (paid eligible account) or Frames to Video start-frame (web/free-tier fallback). Action could be “the top gift opens and a shower of harmless ribbon curls appears (no people).” Do not generate people, change set or add speech.
 - **In the current 90-second cut**, P05's allocated final screen time remains **00:19–00:24 (5 seconds)**; the second source can provide options or replace shots if explicitly recut. Do **not** automatically increase the 90s runtime.
 
 ## Account credits: separate accounting only
@@ -57,7 +59,7 @@ A machine-readable ledger lives in [ACCOUNT_CREDIT_LEDGER.csv](ACCOUNT_CREDIT_LE
 `P05B_W2_JOY_CONTINUE_360p_9x16_10s.mp4` (only after separate approval)
 
 ## Quality gates
-- Source identity matches actual photograph and is used with permission.
+- Flow shot remains non-identifying; actual member photograph used in editor with permission.
 - Continuations preserve cast, props, set, direction and framing; no automatic face replacement.
 - 9:16 portrait safe-zone crop, 360p draft accepted before optional upscale.
 - Source pickup duration 10s, final film exactly 90s; on-screen names/dates readable and complete.
