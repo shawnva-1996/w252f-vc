@@ -1,5 +1,11 @@
 # Paskong Pinoy Remix — Teaser 3: "Malayo sa Pamilya, Pero Hindi Nag-iisa"
 
+## LATEST CAST OVERRIDE — 2026-11-14: Ate Susie replaces Mischie (P04/P05)
+
+**Production decision:** P04 (15–19s spoken invitation) and P05 (19–21s silent hand transition) now feature **Ate Susie**, using her approved original `sa_susie.jpeg` or `sa_susie_2.JPG` (or owner-verified real footage). Keep the original P04 line **"Besh! Sumali na kayo!"**, subject to audio review. Ate Susie still appears in the featured dance roster and the genuine historical dance insert as originally planned. **Mischie is no longer a main scripted character** (optional cameo only).
+
+**CRITICAL FOR EDITING:** The existing Google Drive files `p04.mp4` and `p05.mp4` show the PREVIOUS Mischie character. Those assets and the first [proof-of-concept edit](POC_PREVIEW_2026-11-14.md) are now **legacy previews**, not the current approved character cut. Do not simply change file labels or suggest the person in those videos is Ate Susie. The revised final requires authentic approved Ate Susie footage/new pickups for P04/P05. A new character-consistent proof of concept cannot claim those shots are fulfilled until real Susie footage is available or owner-verified. See [current pickup prompts](FLOW_PICKUP_PROMPTS.md), [manifest](PICKUP_TIMING_MANIFEST.json), and [preflight](PICKUP_PREFLIGHT.md).
+
 ## 2026-11-14 uploaded Flow videos — 11-clip visual QA
 
 The user uploaded **11 MP4s** to Google Drive `W252F Media Team / flow-vids`: P01, P02, P03, P04, P05, P09, P10, P11, P12, P13, P14. All 11 actual video files were examined (metadata + sampled frames), not just the filenames. See **[DRIVE_VIDEO_QA_2026-11-14.md](DRIVE_VIDEO_QA_2026-11-14.md)** for the full per-file observations, continuity review, confirmed/uncertain statuses, and the remaining editing gates.
@@ -35,17 +41,17 @@ Do not use the generated P09 video as a replacement identity source. If the mode
 
 **Timing/QA remain unchanged:** [PICKUP_TIMING_MANIFEST.json](PICKUP_TIMING_MANIFEST.json) defines the 58s final cut. [PICKUP_PREFLIGHT.md](PICKUP_PREFLIGHT.md) describes reference checks, audio completion and platform restrictions; [PICKUP_PREFLIGHT.mjs](PICKUP_PREFLIGHT.mjs) validates structural timing. Voice deadlines and retries are agent/editor decisions, not long commands in the video-model text.
 
-**Creative lock:** POSITIVITY AND LOVE FIRST. Monica's full opening is **"Merry Christmas sa inyo… miss na miss ko na kayo."** Iad is the correct spelling. Mischie is owner-confirmed and has two candidate portrait filenames. Still-missing names are Renee, Leizel, Anavee and Iad; no replacements are fabricated. Reuse the actual original photos for each new pickup. If a particular Flow generation is refused, respect the platform decision and edit permitted footage plus a consented human recording externally. A successful P02 attempt does not prove every other V4 shot will work.
+**Creative lock:** POSITIVITY AND LOVE FIRST. Monica's full opening is **"Merry Christmas sa inyo… miss na miss ko na kayo."** Iad is the correct spelling. Ate Susie is the latest owner-confirmed P04/P05 performer; her two original portrait filenames are known. Still-missing original character-name/photo matches are Renee, Leizel, Anavee and Iad; no replacements are fabricated. Reuse the actual original photos for each new pickup. If a particular Flow generation is refused, respect the platform decision and edit permitted footage plus a consented human recording externally. A successful P02 attempt does not prove every other V4 shot will work.
 
-**Current Mischie P04:** Previous spoken Flow attempt was flagged (specific cause unknown); V4 simplified spoken prompt and silent alternative with consented real voiceover are recorded. **Status:** GitHub text prompts updated; **other V4 generations remain untested**. No final video is claimed rendered.
+**Current Ate Susie P04/P05:** Replacement prompts are prepared, not rendered; existing Drive clips are from the former performer and must be replaced. Previous spoken Flow attempt with former performer was flagged (cause unknown). **Status:** GitHub text prompts updated; **other V4 generations remain untested**. No final video is claimed rendered.
 
 ## Historical production reliability notes — V3 (superseded by V4 above)
 
 **The current simplified model-facing prompts are in [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md) V4, and numeric timings in [PICKUP_TIMING_MANIFEST.json](PICKUP_TIMING_MANIFEST.json).** Earlier prose timings/prompts in this file are narrative background only where different. Use [PICKUP_PREFLIGHT.md](PICKUP_PREFLIGHT.md) before every generation; static checks: `node "Teaser 3/PICKUP_PREFLIGHT.mjs"`.
 
-**Never try to add/change speech by editing a previously generated or uploaded video in Flow.** Every speaking pickup is a new generation referencing the original permitted portrait image; one speaker, one line, all speech finished before edit point, 10-second source clip with the locked preset, and 2+ seconds silent tail. If Flow refuses a policy-sensitive generation, stop retries and use real recorded dialogue in the editor. Google Flow policy outcomes cannot be guaranteed. This directive applies to **all** performers (Monica, Jessa, Mischie, Mommy Tere, Renee) and any additional voice pickup.
+**Never try to add/change speech by editing a previously generated or uploaded video in Flow.** Every speaking pickup is a new generation referencing the original permitted portrait image; one speaker, one line, all speech finished before edit point, 10-second source clip with the locked preset, and 2+ seconds silent tail. If Flow refuses a policy-sensitive generation, stop retries and use real recorded dialogue in the editor. Google Flow policy outcomes cannot be guaranteed. This directive applies to **all** performers (Monica, Jessa, Ate Susie, Mommy Tere, Renee) and any additional voice pickup.
 
-Latest exact 58-second time windows: Monica P01 00–06; Monica P02 06–11; Jessa P03 11–15; Mischie P04 15–19; transition P05 19–21; party P06–P08 21–32; Jessa P09 32–35; Monica P10 35–38; rules P11 38–43; Monica P12 43–47; Tere P13 47–52; Renee P14 52–55; end card 55–58.
+Latest exact 58-second time windows: Monica P01 00–06; Monica P02 06–11; Jessa P03 11–15; Ate Susie P04 15–19; transition P05 19–21; party P06–P08 21–32; Jessa P09 32–35; Monica P10 35–38; rules P11 38–43; Monica P12 43–47; Tere P13 47–52; Renee P14 52–55; end card 55–58.
 
 Created: 2026-11-10 (Asia/Singapore); revised 2026-11-13
 > **LATEST OWNER OVERRIDE — 2026-11-13: POSITIVITY AND LOVE FIRST.** This version supersedes the previously drafted tearful/negative opening. First frame: Monica lovingly sends a Christmas greeting or smiles at her family's memory. Loneliness stays a tender subtext, not a negative lead. See the current [Agent Instruction](GOOGLE_FLOW_AGENT_INSTRUCTION.md), [Episode Agent Prompt](GOOGLE_FLOW_AGENT_PROMPT.md), [Available Cast Prompt Bank](AVAILABLE_CAST_PROMPT_BANK.md) and [screenshot filename index](CAST_REFERENCE_INDEX.md).
@@ -55,7 +61,7 @@ Source of truth: W252F-VC. V3 dialogue-safe plan dated 2026-11-13. Google Flow p
 
 ## Owner intent (do not erase)
 - This is the **third and final** Paskong Pinoy Remix teaser for Singapore-based Filipinos, particularly overseas Filipino workers and domestic workers.
-- Story: Monica warmly expresses love for her family in the Philippines while spending Christmas in Singapore; she gently misses them, but the very first beat is positive; she discovers the event via festive advertisement featuring Susie's dancing in archival footage; Jessa invites her; Mischie exuberantly brings them into the celebration; 12 named dancers appear; food, raffle and prizes; Jessa shows the real game rules on a phone without reading them aloud; Monica happily agrees; Mommy Tere and Renee share the outro.
+- Story: Monica warmly expresses love for her family in the Philippines while spending Christmas in Singapore; she gently misses them, but the very first beat is positive; she discovers the event via festive advertisement featuring Susie's dancing in archival footage; Jessa invites her; Ate Susie joyfully brings them into the celebration; 12 named dancers appear; food, raffle and prizes; Jessa shows the real game rules on a phone without reading them aloud; Monica happily agrees; Mommy Tere and Renee share the outro.
 - Tonal curve: immediate loving warmth -> curious hope -> friendly Filipino humour -> magical transition -> warmth, dancing and belonging -> human CTA.
 - Narrative truth: a community celebration does not replace family back home; it makes Christmas abroad feel less lonely. Portray domestic workers with dignity, warmth, agency, and authenticity. Do not invent individual life circumstances.
 - Maximum final duration 60 seconds HARD. Recommended 58-second vertical 9:16 master. Produce a shorter ~30-35s cut only by trimming without changing the meaning.
@@ -63,7 +69,7 @@ Source of truth: W252F-VC. V3 dialogue-safe plan dated 2026-11-13. Google Flow p
 - The owner's accounts may have different Flow credit balances; do not assume credits can be pooled or auto-transferred.
 
 ## Casting and canonical spelling
-Story roles: Monica (sad protagonist), Jessa (gentle invitation), Mischie (spelled M-I-S-C-H-I-E, owner-confirmed P04/P05 speaking character, enthusiastic "Besh!"), Mommy Tere (outro), Renee (spelled R-E-N-E-E, joins Tere's outro).
+Story roles: Monica (sad protagonist), Jessa (gentle invitation), Ate Susie (owner-confirmed latest P04/P05 speaker, enthusiastic "Besh!", reference `sa_susie.jpeg` or `sa_susie_2.JPG`), Mommy Tere (outro), Renee (spelled R-E-N-E-E, joins Tere's outro).
 Featured dancers, cover every member: Leizel, Susie, Margie, Flor, Riza, Anavee, Lilia, Usha, Iad, Willy, Adrian, Donna.
 Source transcript contained approximate variants "Liza" vs "Leizel", "Floor" vs "Flor", "Anavi" vs "Anavee", "Suzy" vs "Susie"; use the established initial/project spellings **Leizel, Flor, Anavee, Susie** provisionally until the portrait filenames confirm. Do not silently collapse Riza and Leizel into one person.
 Optional real video of Susie: only insert owner-supplied licensed/consented archival footage; do not fabricate a past event clip.
@@ -79,8 +85,8 @@ If Flow drops the last words, preserve the successful opening footage; generate 
 | 00.0–06.0 | IN MEDIA RES: Monica already smiling tenderly at her phone/family image, warm fairy lights reflecting in her eyes; positive affection first, wistful love only as subtext. | MONICA (natural, tender smile): "Merry Christmas sa inyo… miss na miss ko na kayo." |
 | 06.0–11.0 | Her phone scrolls onto an event ad; phone insert uses the REAL Paskong Pinoy Remix poster plus REAL clip of Susie dancing in last year's event. | MONICA, voice lifting: "Ang saya naman dito…" |
 | 11.0–15.0 | Jessa taps her shoulder gently; Monica looks up. | JESSA: "Gusto mo bang sumali?" |
-| 15.0–19.0 | Mischie pops into frame unexpectedly, exuberant but not screaming. | MISCHIE: "Besh! Sumali na kayo!" |
-| 19.0–21.0 | Mischie offers a hand and playfully pulls Monica and Jessa forward; hand-swipe / whip-pan / Christmas-light match cut. Composite if necessary. | Festive musical whoosh; NO dialogue. |
+| 15.0–19.0 | Ate Susie pops into frame unexpectedly, exuberant but not screaming. | ATE SUSIE: "Besh! Sumali na kayo!" |
+| 19.0–21.0 | Ate Susie offers a hand and playfully pulls Monica and Jessa forward; hand-swipe / whip-pan / Christmas-light match cut. Composite if necessary. | Festive musical whoosh; NO dialogue. |
 | 22.0–25.0 | Magical arrival in vibrant decorated event space; dance montage group A: Leizel, Susie, Margie, Flor. | Festive music; live cheering. |
 | 25.0–28.0 | Dance montage group B: Riza, Anavee, Lilia, Usha. | Music. |
 | 28.0–31.0 | Dance montage group C: Iad, Willy, Adrian, Donna. | Music. |
@@ -127,8 +133,8 @@ Do not use logos, exact camera setups, scripts, or audio of reference campaigns.
 
 ## 2026-11-13 readiness update
 - Screenshot-only reference filenames are indexed in CAST_REFERENCE_INDEX.md; 33 files / 24 distinct people.
-- 13 of 17 previously required cast names have filename matches (Tere identity provisional), including Mischie; missing names are Renee, Leizel, Anavee and Iad.
-- Mischie is explicitly owner-confirmed as the invitation/transition performer, with `w2_mischie_one.jpeg` and `w2_mischie_two.jpeg` as candidate reference files. Eleven other names are optional silent cameos, not replacements.
+- 12 of 16 currently required unique cast names have filename matches (Tere identity provisional), including Ate Susie; missing names are Renee, Leizel, Anavee and Iad.
+- Ate Susie is the latest owner-confirmed invitation/transition performer, with `sa_susie.jpeg` and `sa_susie_2.JPG` as candidate reference files. Mischie returns to optional silent cameo status along with eleven other possible cameos.
 - No named member can be used in Flow until an original reference image (or consented actual video) has been supplied.
 
 ## Next production gates
