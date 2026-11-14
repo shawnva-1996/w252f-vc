@@ -1,48 +1,49 @@
-# Google Flow Agent Instruction — MISSION PASKO V4 (2026-11-14)
+# Google Flow Agent Instruction — MISSION PASKO V5 (2026-11-14)
 
-**CURRENT.** Copy this into the **Agent Instruction** field. Follow with [Agent Prompt](GOOGLE_FLOW_AGENT_PROMPT_POC.md); after that use the copy-ready individual scenes in [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md).
+**Current version.** This instruction is for the **Google Flow agent**, not the short text entered into the video generator.
 
-## Policy incident and new production boundary — highest priority
-Owner reported that Google Flow flagged **P05A requesting the animation of Ate Joy's identifiable photograph** as a policy violation. Google's Flow help says special safeguards apply to uploaded images of people, but **the precise reason for this refusal is unknown**. We must respect the refusal.
+## Goal and workflow
+Make a 90-second, 9:16 Filipino birthday mini-film, **Mission Pasko: The Birthday Housemates**, with comedy, individual birthday reveals, and genuine family messages. Follow the method that worked for W252F-VC **Teaser 3 P02**: a brief, warm, natural-language model-facing prompt with one original approved reference photograph, one person, one action, a natural expression, and a quiet ending.
 
-**For this birthday project, default Google Flow content to anonymous, fictional, environmental and object-focused visuals with no uploaded identifiable-person photographs. Do NOT send the original photo of Ate Joy or any other birthday celebrant to Flow to generate invented facial actions.** Do not rephrase a blocked likeness request as a disguised equivalent, or submit it through another account in order to bypass the restriction.
+**Source of truth:** [Full pickup bank](FLOW_PICKUP_PROMPTS.md), [Filming Plan](FILMING_PLAN_V2.md), [Episode Agent Prompt](GOOGLE_FLOW_AGENT_PROMPT_POC.md), [Flow continuity and credits](FLOW_CONTINUITY_CREDITS_V3.md), [P05 refusal diagnostic](FLOW_POLICY_REVIEW_P05.md).
 
-Instead, the REAL birthday celebrants appear via **their original authorized still photographs and consented real video footage in Remotion/FFmpeg**, with modest nondestructive pan/zoom, graphics and cutaways. The animated gift-tower video is a separate generic illustrative insert; don't claim it is a real video of Ate Joy.
+### Preset and budget
+- Google Flow **Omni 1.2 Flash** (verify availability in the UI), **360p**, **vertical 9:16**, **10 seconds per source pickup**, **one output**.
+- User reports **50 credits per account, roughly 8 accounts**. Record balances separately. At 10 credits/10 seconds where quoted, a full 50-credit balance provides *at most five charged attempts*. Verify live charge and balance before every generation, including extensions. Never pool balances or use account changes to evade restrictions/refusals.
+- Start with **one P05A** source clip for the birthday-film proof of concept. P05B optional only after separate approval.
 
-When Flow issues a policy refusal: **STOP**, preserve the exact user-visible error, selected model, mode and reference details; log any debit. Consult Google's support and use its feedback process if an apparent false positive. Choose genuine member footage, traditional photo animation, or independently permissible object-only scenes. **Never promise a prompt cannot trigger policy checks.**
+### User-uploaded real-member references
+- **Reference portraits are allowed as source ingredients only if the owner/member has permitted their use and the active Flow mode accepts them**. This worked for the user's Teaser 3 P02 reference-photo workflow.
+- For **P05A**, use original `ate_joy_dec_4_2.jpg` as the preferred member photograph, with explicit permission. The original photograph is the authority for identity; do not substitute a generated video as an independent identity source.
+- Preserve the person's recognizable appearance and dignity. Depict affectionate, positive, ordinary comedy; no fabricated testimonials, harmful events or claims about the person's real life.
+- Do not send portraits into other apps or publish private photos without permission.
 
-References: [incident analysis / replacement prompt](FLOW_POLICY_REVIEW_P05.md), Google [Flow policies](https://support.google.com/flow/answer/16353333), [feature restrictions](https://support.google.com/flow/answer/16353544), [generative AI prohibited use policy](https://policies.google.com/terms/generative-ai/use-policy).
+### Important lessons from Teaser 3 P02
+- Keep **one short natural-language paragraph group** for the actual video model: who, warm Christmas setting, **one simple action**, natural reaction, smile/hold.
+- No long lists of camera instructions, split-scene sequencing, internal file names, budget details, edit timing or "identity lock" technical statements inside the model-facing prompt.
+- Prefer the **same one-person, one-setting format** over elaborate gift physics and multiple visual effects. The successful P02 example asked for a person looking at a phone and smiling.
+- No generated subtitles, text, logos or soundtrack. All editable labels, dates, music and voiceovers belong in post.
 
-## Creative goal
-Produce a **90-second 9:16** Taglish Christmas birthday film for W2, N4 and Sunday Group, *Mission Pasko: The Birthday Housemates*. Comedy transitions into a sincere ending with actual messages from loved ones. The **Kuya-style narrator is a fictional, bodiless original voice**, generated in **Gemini Filipino TTS** separately and added in post; do not impersonate the actual TV show's voice or add copyright music in Flow.
+### Safety/rejection handling (no workaround attempts)
+- The user reports a prior P05 prompt was rejected; **the exact filter reason was not supplied**, so no cause is confirmed. The current P05 wording is a **normal simplified scene brief modeled on a previously successful format**, not a guarantee of acceptance or a method to defeat a filter.
+- If Google Flow rejects the new request under its safety policy, **stop and record the exact message/model/mode/reference**, including whether credits were charged. Do not keep rephrasing the blocked request, switch accounts to bypass the refusal, or imply approval is guaranteed.
+- Fallback: genuine photo in Remotion with animation/cutaways, real consented member footage, or separate non-identifying holiday footage.
 
-## Model, duration, budget
-- Owner requested **Omni Flash 1.2 / 360p / 9:16 portrait / 10-second Flow source / one output**. Check feature availability and cost in actual Flow account before generating. Do not choose a different preset without user direction.
-- Owner reports **50 credits per account**, approximately **8 accounts**; balance/cost must be verified independently per account. At a reported ~10 credits per ten-second clip, nominal five generations per fully funded account is an estimate, **not permission or a guarantee**.
-- Count failed charged attempts; never pool credits or store passwords/tokens. Do not switch accounts to evade content filters, rate limits, paid-feature restrictions or account restrictions.
-- **Only P05A object-only scene is the first planned test.** Never automatically render P05B or all P01–P15 from this instruction.
+### Continuous-scene method
+1. For **same person, same location, same action**, finish PxxA, QA the entire clip, pause at a clear stable last frame and choose **Save frame**.
+2. To continue PxxB where eligible, use native **Extend** on the accepted clip, or **Frames to Video** with the saved frame as the next shot's start frame. Use the original person portrait as additional identity reference where supported.
+3. Keep the same wardrobe, face, camera axis and setting; verify that the first frame of B connects with the last frame of A. Flow does **not** guarantee seamlessness.
+4. When switching to another celebrant, begin an **independent pickup with that celebrant's own original photo**; never transfer another person's generated face.
+5. P05B is **not required for the P05A proof of concept** and cannot be auto-generated. Continuation is separately charged.
 
-## Source footage vs final editor
-**Google Flow:** abstract Christmas environments, gifts, cake, karaoke equipment, parol décor, generic or anonymous visuals. No celebrant image references. No text, subtitles, logos, narrated speech, music or fake family messages.
+### Audio and compositing
+- **Kuya** is a bodiless, original Filipino male narrator created **separately via Gemini TTS**, not a copy of the PBB TV announcer. Don't make Ate Joy speak for the P05A source shot.
+- Remotion/FFmpeg handles Gemini voiceover, music/SFX, photo reveals, names, exact birthday dates and final 90-second timing.
+- Original PBB music remains a reference only unless the proper music rights are in place. Real family testimony remains genuine recorded audio.
 
-**Remotion / FFmpeg:** original birthday portraits (with permission), actual family recordings, true member names/dates, name cards, progress meter, caption overlays, animated portrait framing, the photo-to-gift-tower joke, music/SFX and Gemini TTS. The full 90s video at 9:16, source Flow 360p if selected. Don't imply abstract visuals are actual member footage.
-
-## Continuity: only for eligible, non-identifying scene footage
-- If PxxA and PxxB are **continuous shots of the same gift tower or room**, QA the accepted PxxA clip, pause on a sharp/stable frame and **Save frame**. Use native **Extend** when account eligible, or new **Frames to Video** with the saved frame as START FRAME. Check charge and duration before each new generation.
-- **Do not carry identifiable member photos or faces through generated frames**. Face/identity continuity is handled using original stills or real member footage in post.
-- For a new scene/group, do not reuse the last frame from an unrelated person, face or location. Generate independently or transition in Remotion.
-- When using another permitted project/account, native Extend may not preserve the source project. Export an authorized *non-identifying* last-frame PNG and start a new Frames to Video shot if eligible; respect all account/platform rules. Never bypass a refusal by moving accounts.
-
-## One-pickup execution workflow
-1. Read [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md) **V2**. Pick one owner-approved **Flow-generated** pickup. P02/P03/P08–P15 are not Flow generation and should not be charged.
-2. **P05A:** do not attach Ate Joy's photo. No image reference is required. Copy **only the P05A gift-only prompt** from the pickup bank into the model. Keep input short and focused on the physical scene.
-3. Verify requested 360p 9:16 10s single output, model, current cost, consent/legal status where relevant, and account balance; start one generation if authorized.
-4. Check resulting source footage and credit charge, stop on any policy warning. If accepted, save MP4 and optionally clean gift-only last frame for possible later P05B, which requires separate approval.
-5. Add real Ate Joy photo from [Drive](https://drive.google.com/file/d/1OpcRef1T70YPZQkUKVEwq8i8pPMazcta/view) **only in the final editor** (with member permission). Overlay it with the gift clip, real portrait identity maintained.
-6. Report chosen settings, output filename, visual QA, charges and precise rejection text if blocked. Never fabricate success.
-
-## QA
-- All ten celebrants receive their genuine portrait + on-screen name/date in post; Catherine date conflicting in source PDF vs photo filename must be confirmed.
-- 9:16 full video, readable typography, festive upbeat ending, real loving family messages, separated narration, original/cleared music.
-- No synthetic member face, involuntary likeness, invented audio attributed to relatives or direct copy of TV show's logo/voice/music without permission.
-- Any safety refusal = record + stop affected request + switch to legitimate non-generative/authorized production methods, not reworded filter evasion.
+### Operating sequence
+1. Agent Instruction (this file).
+2. First [Agent Prompt](GOOGLE_FLOW_AGENT_PROMPT_POC.md).
+3. One **individual text block** from the [P01–P15 pickup bank](FLOW_PICKUP_PROMPTS.md), starting at **P05A**, with its user-approved original portrait attached.
+4. Generate one 360p 9:16 10-second Flow source; review identity, face visibility, natural reaction, hands and gift continuity.
+5. Save video and optional stable last frame, record real credit charge and model/settings, ask owner to review before any other paid pickup.
