@@ -1,5 +1,15 @@
 # Teaser 3 — Mandatory generation preflight (2026-11-13)
 
+## V2 current production rule — no more P05 Flow retries (2026-11-14)
+
+- [ ] The owner confirmed another Google Flow refusal for the **simplified P05 silent-wave prompt**. Reason not established. Respect the decision and DO NOT continue alternative prompt retries for P05.
+- [ ] Use `p04_susie.mp4` (owner-supplied source) for P04 and a later **silent** 2-second smile from this same source for P05; make zoom / festive light flash purely in editing.
+- [ ] Use **`sa_dance_past_vids.mp4` real past-event footage** for P06/P07/P08. It REPLACES the older landscape `practice_video.mp4` in V2. Label archival footage honestly and mute incidental past-event soundtrack.
+- [ ] **Old `p04.mp4`/`p05.mp4` are Mischie, not Ate Susie**, and are excluded from V2.
+- [ ] Review complete audible speech in P04 (especially the ending of "Besh! Sumali na kayo!") and verify permission before final.
+- [ ] P06–P08 show group footage only; do not mark each of the 12 specified dancer identities confirmed without owner verification.
+- [ ] Event ad and event end-card imagery remain temporary until owner supplies official designs.
+
 ## LOCKED GOOGLE FLOW GENERATION PRESET — OWNER REQUIREMENT (2026-11-13)
 
 For **every Teaser 3 Flow video generation**, including speaking pickups, silent gestures, dancers, cameos, and charged retries, select in Flow's UI:
