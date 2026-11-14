@@ -1,7 +1,11 @@
+
+## LATEST REFERENCE-PHOTO CLARIFICATION — 2026-11-14
+User clarified that Teaser 3 P02 successfully used Monica's original photo. For P05, use the **same short, natural-language single-actor prompt structure** with Ate Joy's original consented photo where the current Flow mode permits. One earlier, more elaborate P05 request was refused for an unknown reason; this cannot guarantee approval. On further safety refusal, stop and use authorized original photo/real footage in Remotion. The up-to-date exact prompt is in [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md) V3 and [Agent Prompt](GOOGLE_FLOW_AGENT_PROMPT_POC.md) V5.
+
 # November–December Birthday Teaser — Mission Pasko (2026)
 
 ## LATEST POLICY-SAFETY PRODUCTION CHANGE (2026-11-14)
-**The owner reports Google Flow refused the old P05A image-to-video request animating Ate Joy's identifiable photograph.** Specific trigger unknown. **Retired all new identifiable-member Flow animation in this project.** Generate anonymous Christmas gift/party clips in Flow; show actual original member photos and genuine recordings through Remotion, with proper permissions. Do not reword blocked likeness requests or move accounts to bypass a refusal. [Policy review and replacement P05 prompt](FLOW_POLICY_REVIEW_P05.md), [Pickup prompts V2](FLOW_PICKUP_PROMPTS.md), [Agent Instruction V4](GOOGLE_FLOW_AGENT_INSTRUCTION_POC.md), [Agent Prompt V4](GOOGLE_FLOW_AGENT_PROMPT_POC.md). No guarantee any specific Flow prompt will be accepted.
+**Clarified after review of the actually successful Teaser 3 P02 prompt:** Original, approved member photographs can be used as Flow references where Google permits. Use the same concise one-person, one-action prompt style. One earlier P05 attempt was refused for unknown reasons; no future acceptance is guaranteed, and if a similar refusal recurs stop rather than attempting to evade it. [Policy review and replacement P05 prompt](FLOW_POLICY_REVIEW_P05.md), [Pickup prompts V2](FLOW_PICKUP_PROMPTS.md), [Agent Instruction V4](GOOGLE_FLOW_AGENT_INSTRUCTION_POC.md), [Agent Prompt V4](GOOGLE_FLOW_AGENT_PROMPT_POC.md). No guarantee any specific Flow prompt will be accepted.
 
 
 **START HERE FOR ACTUAL GOOGLE FLOW SHOT PROMPTS:** [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md) — P01–P15, with copy-pastable short generator prompts for Flow footage and explicit **Remotion-only / real-video** pickups. Agent workflow is **Agent Instruction → First Agent Prompt → individual pickup prompt**. P05A first; do not auto-generate all shots.
@@ -9,14 +13,14 @@
 
 ## LATEST OWNER LOCK — FLOW V3 (2026-11-14)
 - **This birthday project is 9:16 vertical** with **360p Omni Flash 1.2, 10-second Flow source pickups**, one output each, and a **90-second 9:16 final**. This explicitly supersedes the earlier 16:9/landscape birthday plan. The source event brief requested landscape PowerPoint; a vertical film will need a deliberate portrait window/side panels in that deck.
-- **Continuous scenes:** use Flow **Extend** when the account has eligible Google AI Plus/Pro/Ultra access; otherwise **Save frame** at end of PxxA → use that saved still as **start frame** of PxxB via **Frames to Video** on web; never attach original member portraits to Flow after this project's rejected likeness request; preserve identities using original stills in Remotion. Never chain frames from a different celebrant.
+- **Continuous scenes:** use Flow **Extend** when the account has eligible Google AI Plus/Pro/Ultra access; otherwise **Save frame** at end of PxxA → use that saved still as **start frame** of PxxB via **Frames to Video** on web; original consented member portraits can be used as references where the active Flow mode permits, with exact source photo retained as identity authority; stop if a further policy refusal appears. Never chain frames from a different celebrant.
 - **Credits:** owner reports 50 per account and ~8 accounts. Current official Omni Flash 1.2 price at 360p is **1 credit per second** (10 per 10-second clip), so nominal max **5 charged shots per confirmed 50-credit account**. Keep accounts separate; don't pool credits or circumvent Google restrictions, and never auto-spend/retry. See [FLOW_CONTINUITY_CREDITS_V3.md](FLOW_CONTINUITY_CREDITS_V3.md) and [ACCOUNT_CREDIT_LEDGER.csv](ACCOUNT_CREDIT_LEDGER.csv).
 - Updated [Google Flow Agent Instruction](GOOGLE_FLOW_AGENT_INSTRUCTION_POC.md) and [Agent Prompt](GOOGLE_FLOW_AGENT_PROMPT_POC.md) include P05A and an **optional unapproved** last-frame continuation P05B.
 
 ## CURRENT PRODUCTION PACKAGE (2026-11-14)
 - **Gemini TTS** selected for the bodiless Kuya narrator; an ElevenLabs free-tier API key exists but **will not be used for this prototype**. Do not request or commit keys.
 - Full director pickup plan: [FILMING_PLAN_V2.md](FILMING_PLAN_V2.md) — 15 segments P01–P15, 90-second vertical cut, precise timings, person coverage, voice/music cues.
-- First practical test: **P05 — anonymous Christmas gift tower with Ate Joy’s REAL portrait separately in Remotion** ([POC_P05_W2_GIFTS.md](POC_P05_W2_GIFTS.md)). Shoot **one** 10-second clean Flow video with **NO real-person photo attached** in 9:16 to yield ~5s in final edit.
+- First practical test: **P05 — Ate Joy reference-photo Christmas gift reaction, using Teaser 3 P02 concise wording** ([POC_P05_W2_GIFTS.md](POC_P05_W2_GIFTS.md)). Shoot **one** 10-second clean Flow video with **the consented original Ate Joy photo attached** in 9:16 to yield ~5s in final edit.
 - Agent handoff: [Google Flow Agent Instruction POC](GOOGLE_FLOW_AGENT_INSTRUCTION_POC.md) and [Google Flow Agent Prompt POC](GOOGLE_FLOW_AGENT_PROMPT_POC.md), both drafts pending owner creative approval. Paste only the short individual pickup prompt in Flow's video generator.
 - Existing Teaser 3 uses 9:16 / 58s but this **birthday video is a separate 9:16 / 90s project**. Source-image/production process can be reused, not aspect ratio.
 - No Flow output, Gemini TTS WAV/MP3 or mixed prototype has yet been generated. User runs Flow in their own account, then uploads MP4 for post.
@@ -67,7 +71,7 @@ Tonality: **warm, positive, funny, Taglish, Singapore-Filipino/OFW relatable, af
 2. Approve or revise [STORYBOARD_V1.md](STORYBOARD_V1.md), the first draft of Mission Pasko.
 3. Select original licensed **narrator voice** and approved music route; test one 5–8s Tagalog/Taglish sample.
 4. Ask family/friends for voluntary 5–8s genuine birthday voice/video submissions, if feasible, with consent for event screening.
-5. Review original photo quality and member permission for Remotion identity/photo cards; **do not use those photos as Flow generation references**.
+5. Review original photo quality and member permission for Remotion identity/photo cards; use those photos in Flow only if permitted by member consent and the active mode.
 6. Generate only the essential, approved comedic pickups; use Remotion for name/date reveals (avoid ten expensive portrait animations by default).
 7. Assemble, QC, then play in PowerPoint; November material remains pending and can be added later if owner requests a combined cut.
 
