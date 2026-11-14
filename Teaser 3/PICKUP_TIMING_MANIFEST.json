@@ -66,7 +66,7 @@
       "sourceGenerationSeconds": 10,
       "speechCompleteBySeconds": 2.8,
       "silentTailAtLeastSeconds": 7.2,
-      "notes": "LATEST OWNER CHANGE: Ate Susie replaces Mischie. Attach genuine approved Susie portrait sa_susie.jpeg or sa_susie_2.JPG (actual image, not filename). Preserve 'Besh! Sumali na kayo!' unless owner changes dialogue. Current Drive p04.mp4 is a legacy Mischie clip and NOT valid for this role; new authentic Susie take/consented real recording required.",
+      "notes": "V2: owner supplied actual 10s source p04_susie.mp4, visually sampled, used 2.00–6.00s in 58s POC v2. Verify audible complete 'Besh! Sumali na kayo!' and identity/consent; the legacy p04.mp4 is Mischie and obsolete.",
       "creditsPerGeneration": 10
     },
     {
@@ -81,7 +81,7 @@
       "sourceGenerationSeconds": 10,
       "speechCompleteBySeconds": 0,
       "silentTailAtLeastSeconds": null,
-      "notes": "LATEST P05: new permitted actual Susie portrait + natural silent friendly wave. Remove hand-to-lens/reach prompt after owner-reported Google Flow policy warning; cause UNKNOWN. Make push-in/light-flash transition in editor. New short waving prompt UNTESTED. Previous Drive p05.mp4 shows Mischie and remains obsolete. If Flow refuses, use genuine approved footage or an editor-animated still rather than retrying refused generations.",
+      "notes": "LATEST: Both hand-to-lens and simplified smile/wave Flow attempts were rejected per owner. STOP further P05 Flow prompt rerolls. V2 uses 6.30–8.30s from owner's p04_susie.mp4 with editor-created push-in+white-light-flash, replacing the old Mischie p05.mp4. No new Flow credits.",
       "creditsPerGeneration": 10
     },
     {
@@ -187,7 +187,7 @@
         "Margie",
         "Flor"
       ],
-      "notes": "Prefer actual consented footage; original photo stills for silent inserts as necessary"
+      "notes": "V2 montage: use the actual prior-event owner-supplied sa_dance_past_vids.mp4 (43-46s original), replacing practice_video.mp4 in current POC. Archive label; original archive audio muted to avoid music rights. Individually verify dancer roster later."
     },
     {
       "id": "P07",
@@ -200,7 +200,7 @@
         "Lilia",
         "Usha"
       ],
-      "notes": "Prefer actual consented footage; original photo stills for silent inserts as necessary"
+      "notes": "V2 montage: use the actual prior-event owner-supplied sa_dance_past_vids.mp4 (59-62s original), replacing practice_video.mp4 in current POC. Archive label; original archive audio muted to avoid music rights. Individually verify dancer roster later."
     },
     {
       "id": "P08",
@@ -213,7 +213,7 @@
         "Adrian",
         "Donna"
       ],
-      "notes": "27-30 dancers, 30-32 confirmed food/raffle and happy Monica reaction"
+      "notes": "V2 montage: use the actual prior-event owner-supplied sa_dance_past_vids.mp4 (69-74s original), replacing practice_video.mp4 in current POC. Archive label; original archive audio muted to avoid music rights. Individually verify dancer roster later."
     }
   ],
   "endCard": {
@@ -248,9 +248,9 @@
     ],
     "legacyCast": "Mischie",
     "P05Prompts": {
-      "lastKnownWarning": "Ate Susie/Mischie hand-toward-lens movement prompt rejected by Flow (user report); root cause unconfirmed",
-      "replacement": "Silent Ate Susie smiling and small wave; editor creates transition; untested",
-      "credits": "Do not spend retries circumventing a refusal"
+      "lastKnownWarning": "Owner reports even the simplified silent-wave Flow P05 attempt was rejected on 2026-11-14. Cause unknown.",
+      "replacement": "DO NOT use Flow for P05; derive 2-second silent shot from approved P04 Susie footage in editor with zoom+white flash.",
+      "credits": "No further P05 Flow credits. V2 used 0 new Flow generations."
     }
   },
   "generationPreset": {
@@ -299,5 +299,23 @@
       ],
       "effects": "Existing clips p04.mp4 and p05.mp4 are legacy Mischie and NOT approved as Ate Susie footage; preserve for historical QA only."
     }
-  ]
+  ],
+  "latestProofOfConcept": {
+    "version": "v2",
+    "date": "2026-11-14",
+    "fileName": "Paskong_Pinoy_Remix_Teaser3_POC_v2_Susie_Archive.mp4",
+    "driveFileId": "1cvFbwp9CVi7a9wAY_EdZ6nH2LG_LWy_d",
+    "status": "RENDERED_IN_DRIVE_FOR_REVIEW_NOT_FINAL",
+    "videoSeconds": 58.023,
+    "editingSource": "POC_PREVIEW_V2_2026-11-14.md",
+    "sources": {
+      "P04": "p04_susie.mp4 owner-provided",
+      "P05": "editor derived from p04_susie.mp4 6.3-8.3s; no new Flow generation",
+      "P06-P08": "sa_dance_past_vids.mp4 real prior-event footage",
+      "P01-P03 + P09-P14": "prior POC v1 unchanged"
+    },
+    "visualQA": "Key frames sampled; no individual dancer identity proof",
+    "dialogueQA": "NOT VERIFIED: need listen to full lines",
+    "posterAndEnd": "TEMPORARY MOCKUPS"
+  }
 }
