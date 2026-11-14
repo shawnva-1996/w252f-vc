@@ -1,3 +1,6 @@
+## Subsequent user clarification — 2026-11-14
+The owner confirmed **Teaser 3 P02** successfully used a real member's reference photograph with a short, simple prompt. This weakens any previous conclusion that person-photo reference is categorically unsupported in their Flow workflow. The earlier P05 refusal's actual cause remains unknown. The current P05A plan is a concise **one-person, one-setting, one-action** brief with original, consented Ate Joy photo where Flow permits it, modeled on successful P02: [Prompt V5](GOOGLE_FLOW_AGENT_PROMPT_POC.md) and [Pickup bank V3](FLOW_PICKUP_PROMPTS.md). **The rejected P05 attempt stays documented below as historical evidence.** A new safety refusal should be recorded and respected; don't evade it with rewording or account changes.
+
 # Policy Review — P05A Google Flow rejection (2026-11-14)
 
 **Status:** User-reported "violation of policies" on Google Flow, **specific error category not supplied**. No successful new output claimed. This record preserves one reported failure and a conservative production pivot, **not proof of why the filter fired**.
