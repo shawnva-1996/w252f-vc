@@ -1,7 +1,7 @@
 # Proof of Concept — P05 W2 Christmas Gift Tower
 
 **Status:** preflight / ready for user-approval.  
-**Purpose:** validate **one source shot** with real December celebrant identity, natural physical comedy, 16:9 Flow cinematography and separate **Gemini TTS** narrator in a draft 5-second composition.
+**Purpose:** validate **one source shot** with real December celebrant identity, natural physical comedy, **9:16 portrait** Flow cinematography and separate **Gemini TTS** narrator in a draft 5-second composition.
 
 ### Source photo
 - Cast: **Ate Joy (W2), Dec 4**, from provided birthday PDF.
@@ -14,10 +14,10 @@
 ### Final visual / precise performance target
 - **Final slot:** 00:19–00:24 in the 90-second film (5 seconds).
 - **Generated source:** 10 seconds, clean silent footage, intended to be trimmed in the editor.
-- **Aspect ratio:** horizontal 16:9; 360p draft is proposed, not an inflexible constraint if unsupported in Flow's live controls.
+- **Aspect ratio:** **9:16 vertical, 360p Omni Flash 1.2 draft** (verify actual options, eligible account credits and model in Flow).
 - **Cast:** one real member only: Ate Joy.
 - **Setting:** cheerfully decorated Singapore Filipino church Christmas party; warm glowing parols, gold fairy lights, red/green wrapped gifts and festive bokeh. No fake logos/people.
-- **Camera:** start medium-wide, soft gradual push-in, face always visible and unobstructed.
+- **Camera:** start medium, soft gradual push-in, face always visible and unobstructed.
 - **Action timeline in 10-second source:** 0–2s Ate Joy already balancing a tall pile of gift boxes; 2–5s gift tower sways in a ridiculous but harmless way; 5–7s she freezes and raises eyebrows; 7–9s laughs as one small bow pops off; 9–10s holds smile. **No crashing, injury, fall or angry humiliation.**
 - **Silent performance:** she does not speak or move her lips as if addressing the camera. No audio from Flow required for final.
 - **No generated subtitles, title cards, names or dates.** Added later with Remotion.
@@ -36,7 +36,7 @@
 ### How user runs the shot in Google Flow
 1. Open [Google Flow](https://labs.google/flow/about/) in browser; add a new birthday video project.
 2. Choose **video / image reference (Frames to Video or supported Ingredients)**; attach the **original Ate Joy** portrait above from Drive (with consent).
-3. Set **16:9 landscape**, **Omni Flash 1.2** if offered, **360p draft**, **10 seconds**, **one output**. Confirm exact current credits and balance in the UI before generating; do not substitute 9:16 from Teaser 3.
+3. Set **9:16 portrait**, **Omni Flash 1.2** if offered, **360p draft**, **10 seconds**, **one output**. Confirm exact current credits and balance in the UI before generating; do not switch back to 16:9 from the older birthday planning draft.
 4. Put the full [POC agent instruction](GOOGLE_FLOW_AGENT_INSTRUCTION_POC.md) in the agent instruction space and [episode prompt](GOOGLE_FLOW_AGENT_PROMPT_POC.md) in agent prompt space. The **video-generator text box** receives **ONLY** the single concise pickup prompt within [GOOGLE_FLOW_AGENT_PROMPT_POC.md](GOOGLE_FLOW_AGENT_PROMPT_POC.md), not the long instruction files.
 5. Generate **one** candidate. Do not spend retries automatically; review face match, natural smile, composition, hand count, safe gifts and whether at least 5s are usable.
 6. Download MP4. Place it in the existing Drive folder (prefer a dedicated `POC` subfolder if the owner chooses to create one) or attach here.
@@ -46,12 +46,19 @@
 | Category | Must pass |
 |---|---|
 | Identity | Original face clearly resembles Ate Joy |
-| Framing | Correct 16:9, face visible, no hands/boxes hiding face |
+| Framing | Correct 9:16, face visible, no hands/boxes hiding face |
 | Comedy | Obvious, positive gift-tower wobble and natural reaction |
 | Continuity | Warm Christmas setting, clothing not shifting mid-shot |
 | Timing | 5 seconds worth of usable action inside 10-second output |
 | Safety/permission | Consented depiction, no physical harm or humiliating action |
 | Audio plan | Separate Gemini TTS and post audio, not baked into generated video |
 | Credits | Model, resolution and actual charge verified in user account |
+
+## V3 continuation and per-account credit rules
+- **P05A:** Generate just one 10s 9:16 360p source shot (no auto-retries); after checking identity and natural smile, pause at the last stable usable frame and select **Save frame**. Save as `P05A_LAST_FRAME.png` with source timestamp.
+- **P05B optional, requires new approval:** Same Ate Joy and Christmas room. If eligible on Google AI Plus/Pro/Ultra, use Omni Flash 1.2 **Extend** on P05A. Otherwise use web **Frames to Video** with the saved final frame as **start frame**; add the ORIGINAL approved Ate Joy photo as separate identity ingredient if supported. This costs a new generation/extension charge. Never silently render P05B.
+- **Different member/group = new original portrait** rather than previous person's last frame. Last frames are for time/location continuity, not identity authority.
+- Current official Omni Flash 1.2 360p price is **1 credit/sec**, so **10 credits for a 10s clip** if that matches the actual user Flow UI. User reports 50 credits per account, ~8 accounts; track each account separately, never pool balances, don't circumvent restrictions or auto-spend.
+- See [FLOW_CONTINUITY_CREDITS_V3.md](FLOW_CONTINUITY_CREDITS_V3.md), [ACCOUNT_CREDIT_LEDGER.csv](ACCOUNT_CREDIT_LEDGER.csv), and updated [Agent Instruction](GOOGLE_FLOW_AGENT_INSTRUCTION_POC.md) / [Agent Prompt](GOOGLE_FLOW_AGENT_PROMPT_POC.md).
 
 **No completed Flow render or synthesized voice is implied by this document.**
