@@ -1,3 +1,10 @@
+## CURRENT STATUS — ACTUAL DRIVE VIDEO REVIEW (2026-11-14)
+- **Four actual MP4s are RECEIVED and visually reviewed:** [P04 cake](https://drive.google.com/file/d/18aQcldUeKPAc8CpYB0L3zH3FgppYLHUd/view), [P05A gifts](https://drive.google.com/file/d/16wCuP0LnyuGOpghutQ7Kqp3x3W_7tm1j/view), [P05B continuation](https://drive.google.com/file/d/18d5hJ9QX_x6THzQxo-Oa6bvr0UaDW4fr/view), [P06 microphone](https://drive.google.com/file/d/1bzuG2vK1FfKDijO1ZsB2nKStebpyWfDY/view). Each ~10.03s at 360×640 24fps. Do not claim the complete 90s master exists.
+- **Current director's script:** [DIRECTORS_SCRIPT_V1.md](DIRECTORS_SCRIPT_V1.md) — final TC 00:00–01:30, actual footage placement, all ten December names/dates, complete proposed Kuya Taglish lines, musical/emotional arc.
+- **Observed source inventory and rough trim points:** [RENDERED_CLIPS_MANIFEST_2026-11-14.md](RENDERED_CLIPS_MANIFEST_2026-11-14.md). Full visual frames were sampled; source audio not audited.
+- **Still needed:** P07 real rehearsal video, genuine family/fellowship greeting footage P14, actual Gemini TTS audio, music rights/cleared music, Remotion montage and all edits, Catherine date resolution. November list still not received.
+- **The four accepted source clips should not be re-rendered for the first rough cut.** Build the edit with available footage and placeholders.
+
 
 ## LATEST REFERENCE-PHOTO CLARIFICATION — 2026-11-14
 User clarified that Teaser 3 P02 successfully used Monica's original photo. For P05, use the **same short, natural-language single-actor prompt structure** with Ate Joy's original consented photo where the current Flow mode permits. One earlier, more elaborate P05 request was refused for an unknown reason; this cannot guarantee approval. On further safety refusal, stop and use authorized original photo/real footage in Remotion. The up-to-date exact prompt is in [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md) V3 and [Agent Prompt](GOOGLE_FLOW_AGENT_PROMPT_POC.md) V5.
@@ -23,10 +30,10 @@ User clarified that Teaser 3 P02 successfully used Monica's original photo. For 
 - First practical test: **P05 — Ate Joy reference-photo Christmas gift reaction, using Teaser 3 P02 concise wording** ([POC_P05_W2_GIFTS.md](POC_P05_W2_GIFTS.md)). Shoot **one** 10-second clean Flow video with **the consented original Ate Joy photo attached** in 9:16 to yield ~5s in final edit.
 - Agent handoff: [Google Flow Agent Instruction POC](GOOGLE_FLOW_AGENT_INSTRUCTION_POC.md) and [Google Flow Agent Prompt POC](GOOGLE_FLOW_AGENT_PROMPT_POC.md), both drafts pending owner creative approval. Paste only the short individual pickup prompt in Flow's video generator.
 - Existing Teaser 3 uses 9:16 / 58s but this **birthday video is a separate 9:16 / 90s project**. Source-image/production process can be reused, not aspect ratio.
-- No Flow output, Gemini TTS WAV/MP3 or mixed prototype has yet been generated. User runs Flow in their own account, then uploads MP4 for post.
+- Four Flow source MP4s have now been uploaded by user and visually reviewed. Gemini TTS WAV/MP3 and mixed rough cut have **not** been verified or generated.
 - Source portraits stay in Google Drive; we never commit personal images.
 
-**Status:** PREPRODUCTION / CREATIVE V1 (not rendered or published)  
+**Status:** FOUR SOURCE CLIPS RECEIVED + DIRECTOR SCRIPT V1; 90-second final edit not rendered or published  
 **Last reviewed:** 2026-11-14 (Singapore)  
 **Owner brief:** W2 × N4 × Sunday Group birthday celebration, **Paskong Pinoy Remix**.  
 **Final deliverable:** one **90-second, 9:16 vertical (1080×1920 composition) MP4**, for event playback in a portrait-safe PowerPoint layout. Source Flow clips are 360p drafts; output quality/upscale must be verified. This birthday film is separate from the 58-second vertical *Teaser 3*.
@@ -75,4 +82,4 @@ Tonality: **warm, positive, funny, Taglish, Singapore-Filipino/OFW relatable, af
 6. Generate only the essential, approved comedic pickups; use Remotion for name/date reveals (avoid ten expensive portrait animations by default).
 7. Assemble, QC, then play in PowerPoint; November material remains pending and can be added later if owner requests a combined cut.
 
-**No rendered video, purchased music, generated audio, or uploaded assets are claimed by this planning commit.**
+**Source clips were uploaded and visually inspected (P04/P05A/P05B/P06); no edited 90s final, licensed music or generated narrator audio is claimed.**
