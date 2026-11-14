@@ -1,18 +1,22 @@
 # November–December Birthday Teaser — Mission Pasko (2026)
 
+## LATEST POLICY-SAFETY PRODUCTION CHANGE (2026-11-14)
+**The owner reports Google Flow refused the old P05A image-to-video request animating Ate Joy's identifiable photograph.** Specific trigger unknown. **Retired all new identifiable-member Flow animation in this project.** Generate anonymous Christmas gift/party clips in Flow; show actual original member photos and genuine recordings through Remotion, with proper permissions. Do not reword blocked likeness requests or move accounts to bypass a refusal. [Policy review and replacement P05 prompt](FLOW_POLICY_REVIEW_P05.md), [Pickup prompts V2](FLOW_PICKUP_PROMPTS.md), [Agent Instruction V4](GOOGLE_FLOW_AGENT_INSTRUCTION_POC.md), [Agent Prompt V4](GOOGLE_FLOW_AGENT_PROMPT_POC.md). No guarantee any specific Flow prompt will be accepted.
+
+
 **START HERE FOR ACTUAL GOOGLE FLOW SHOT PROMPTS:** [FLOW_PICKUP_PROMPTS.md](FLOW_PICKUP_PROMPTS.md) — P01–P15, with copy-pastable short generator prompts for Flow footage and explicit **Remotion-only / real-video** pickups. Agent workflow is **Agent Instruction → First Agent Prompt → individual pickup prompt**. P05A first; do not auto-generate all shots.
 
 
 ## LATEST OWNER LOCK — FLOW V3 (2026-11-14)
 - **This birthday project is 9:16 vertical** with **360p Omni Flash 1.2, 10-second Flow source pickups**, one output each, and a **90-second 9:16 final**. This explicitly supersedes the earlier 16:9/landscape birthday plan. The source event brief requested landscape PowerPoint; a vertical film will need a deliberate portrait window/side panels in that deck.
-- **Continuous scenes:** use Flow **Extend** when the account has eligible Google AI Plus/Pro/Ultra access; otherwise **Save frame** at end of PxxA → use that saved still as **start frame** of PxxB via **Frames to Video** on web; keep original real portrait as identity reference wherever supported. Never chain frames from a different celebrant.
+- **Continuous scenes:** use Flow **Extend** when the account has eligible Google AI Plus/Pro/Ultra access; otherwise **Save frame** at end of PxxA → use that saved still as **start frame** of PxxB via **Frames to Video** on web; never attach original member portraits to Flow after this project's rejected likeness request; preserve identities using original stills in Remotion. Never chain frames from a different celebrant.
 - **Credits:** owner reports 50 per account and ~8 accounts. Current official Omni Flash 1.2 price at 360p is **1 credit per second** (10 per 10-second clip), so nominal max **5 charged shots per confirmed 50-credit account**. Keep accounts separate; don't pool credits or circumvent Google restrictions, and never auto-spend/retry. See [FLOW_CONTINUITY_CREDITS_V3.md](FLOW_CONTINUITY_CREDITS_V3.md) and [ACCOUNT_CREDIT_LEDGER.csv](ACCOUNT_CREDIT_LEDGER.csv).
 - Updated [Google Flow Agent Instruction](GOOGLE_FLOW_AGENT_INSTRUCTION_POC.md) and [Agent Prompt](GOOGLE_FLOW_AGENT_PROMPT_POC.md) include P05A and an **optional unapproved** last-frame continuation P05B.
 
 ## CURRENT PRODUCTION PACKAGE (2026-11-14)
 - **Gemini TTS** selected for the bodiless Kuya narrator; an ElevenLabs free-tier API key exists but **will not be used for this prototype**. Do not request or commit keys.
 - Full director pickup plan: [FILMING_PLAN_V2.md](FILMING_PLAN_V2.md) — 15 segments P01–P15, 90-second vertical cut, precise timings, person coverage, voice/music cues.
-- First practical test: **P05 — Ate Joy, W2 Christmas gift tower** ([POC_P05_W2_GIFTS.md](POC_P05_W2_GIFTS.md)). Shoot **one** 10-second clean Flow video in 9:16 to yield ~5s in final edit.
+- First practical test: **P05 — anonymous Christmas gift tower with Ate Joy’s REAL portrait separately in Remotion** ([POC_P05_W2_GIFTS.md](POC_P05_W2_GIFTS.md)). Shoot **one** 10-second clean Flow video with **NO real-person photo attached** in 9:16 to yield ~5s in final edit.
 - Agent handoff: [Google Flow Agent Instruction POC](GOOGLE_FLOW_AGENT_INSTRUCTION_POC.md) and [Google Flow Agent Prompt POC](GOOGLE_FLOW_AGENT_PROMPT_POC.md), both drafts pending owner creative approval. Paste only the short individual pickup prompt in Flow's video generator.
 - Existing Teaser 3 uses 9:16 / 58s but this **birthday video is a separate 9:16 / 90s project**. Source-image/production process can be reused, not aspect ratio.
 - No Flow output, Gemini TTS WAV/MP3 or mixed prototype has yet been generated. User runs Flow in their own account, then uploads MP4 for post.
