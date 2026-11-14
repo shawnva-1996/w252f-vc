@@ -1,5 +1,11 @@
 # Paskong Pinoy Remix — Teaser 3: "Malayo sa Pamilya, Pero Hindi Nag-iisa"
 
+## 2026-11-14 uploaded Flow videos — 11-clip visual QA
+
+The user uploaded **11 MP4s** to Google Drive `W252F Media Team / flow-vids`: P01, P02, P03, P04, P05, P09, P10, P11, P12, P13, P14. All 11 actual video files were examined (metadata + sampled frames), not just the filenames. See **[DRIVE_VIDEO_QA_2026-11-14.md](DRIVE_VIDEO_QA_2026-11-14.md)** for the full per-file observations, continuity review, confirmed/uncertain statuses, and the remaining editing gates.
+
+**Key findings:** Jessa P09/P11 wardrobe matches and P11 phone display faces camera; P04/P05 are 720p, P04 is 7.93 seconds; P14 shows a man in a cap, whose assignment to scripted Renee needs confirmation. All 11 clips have audio streams, but actual Tagalog dialogue and performer identities have NOT been verified in this review. **P06–P08 authentic dancers montage, rules image, event poster/archival Susie video, verified end flyer and music** are not in the uploaded `flow-vids` folder. **No finished render or acceptance was claimed.**
+
 ## LOCKED GOOGLE FLOW GENERATION PRESET — OWNER REQUIREMENT (2026-11-13)
 
 For **every Teaser 3 Flow video generation**, including speaking pickups, silent gestures, dancers, cameos, and charged retries, select in Flow's UI:
