@@ -64,3 +64,10 @@ A machine-readable ledger lives in [ACCOUNT_CREDIT_LEDGER.csv](ACCOUNT_CREDIT_LE
 - Off-screen narration via Gemini TTS in Filipino, not actual TV presenter impersonation.
 - Real family greetings only; no fabricated loved-one voices/quotes.
 - Confirm the user's current Google Flow access and permitted features before running.
+
+## If a project must be continued in a different authorized account
+- **Native Extend** acts on the source video in the same accessible Flow project/account; do not assume the original clip or its project will appear in a different login.
+- If permitted under Google's terms and both accounts have the feature, **download/export the approved PxxA video and saved last-frame image** (Flow asset More → Download where available). If the frame itself cannot be downloaded, extract a PNG from the locally saved authorized MP4 at the verified clean frame/timestamp using an ordinary offline editor/FFmpeg; avoid taking a blurred final frame.
+- In the destination account, start a **new Frames to Video** project. Upload **PxxA_LAST_FRAME.png** as start frame and the **same original member portrait** as an extra reference if the product mode permits. Use the identical short continuation prompt. This yields a **new** clip and may incur credits; it is not native Extend, and continuity is only a target, not guaranteed.
+- Move only user-authorized photos/video assets across accounts. Do not share login credentials or change accounts to evade content refusals, subscription eligibility or usage limits. Preserve per-account balance and access rules.
+- Keep **PxxA MP4, saved PNG, PxxB MP4 and continuity metadata together in approved storage** so Remotion can join them regardless of which valid Flow project created each.
