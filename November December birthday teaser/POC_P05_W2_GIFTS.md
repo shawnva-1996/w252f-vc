@@ -5,8 +5,9 @@
 
 ### Source photo
 - Cast: **Ate Joy (W2), Dec 4**, from provided birthday PDF.
-- Candidate original file: [ate_joy_dec_4_1.jpg](https://drive.google.com/file/d/1_dNOb91bqaeC-DadZsZqO3tB2_eojcbu/view).
-- Backup: [ate_joy_dec_4_2.jpg](https://drive.google.com/file/d/1OpcRef1T70YPZQkUKVEwq8i8pPMazcta/view).
+- **Preferred original identity file (visually inspected):** [ate_joy_dec_4_2.jpg](https://drive.google.com/file/d/1OpcRef1T70YPZQkUKVEwq8i8pPMazcta/view). This is a closer, clearer face photo; the person wears a black baseball cap.
+- **Secondary, full-body/hairstyle reference (visually inspected):** [ate_joy_dec_4_1.jpg](https://drive.google.com/file/d/1_dNOb91bqaeC-DadZsZqO3tB2_eojcbu/view). This photo has a distant face, a date stamp and distracting signage; don't use those background graphics.
+- Start with **one** preferred original image to minimize complexity; add the second only if Flow accepts multiple ingredient images and it materially improves identity/body continuity.
 - Google Drive: https://drive.google.com/drive/folders/1TOi8K_7LHbyw4rhBp-8chj791yDhtdYU
 - Confirm photo depicts Ate Joy and that she consents to this fictional, comedic motion portrayal.
 
