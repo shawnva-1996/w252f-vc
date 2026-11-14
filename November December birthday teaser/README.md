@@ -67,7 +67,7 @@ Tonality: **warm, positive, funny, Taglish, Singapore-Filipino/OFW relatable, af
 2. Approve or revise [STORYBOARD_V1.md](STORYBOARD_V1.md), the first draft of Mission Pasko.
 3. Select original licensed **narrator voice** and approved music route; test one 5–8s Tagalog/Taglish sample.
 4. Ask family/friends for voluntary 5–8s genuine birthday voice/video submissions, if feasible, with consent for event screening.
-5. Review image quality, face matches and permission; create an identity-reference list before Flow prompts.
+5. Review original photo quality and member permission for Remotion identity/photo cards; **do not use those photos as Flow generation references**.
 6. Generate only the essential, approved comedic pickups; use Remotion for name/date reveals (avoid ten expensive portrait animations by default).
 7. Assemble, QC, then play in PowerPoint; November material remains pending and can be added later if owner requests a combined cut.
 
