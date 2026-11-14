@@ -44,3 +44,6 @@ Direction: Original, mature Filipino male narrator, naturally conversational Tag
 - Actual model, aspect ratio, resolution, generated duration, output count, cost and current-account remaining credits (no private credential details).
 - Face-match / framing / hands / gift continuity / safe last frame acceptance notes.
 - **No P05B generation or additional shots unless separately approved.**
+
+## If a permitted next scene occurs in another account/project
+The native **Extend** control does not carry a video between unrelated accounts. Use the downloadable saved P05A final-frame PNG, or extract the chosen clear frame from the authorized P05A MP4, and upload it as the **start frame** for a **new Frames to Video** generation. Reuse the original `ate_joy_dec_4_2.jpg` face reference where supported. Verify the destination account's model, 9:16 orientation, 360p, duration, credit price and eligibility before any charge. The same short P05B continuation prompt applies. Do not use new accounts to bypass platform restrictions, and don't run P05B without owner approval.
