@@ -1,4 +1,4 @@
-# Paskong Pinoy Remix — Teaser 3 | Flow pickup prompts V4
+# Paskong Pinoy Remix — Teaser 3 | Flow pickup prompts V5
 
 ## LOCKED GOOGLE FLOW GENERATION PRESET — OWNER REQUIREMENT (2026-11-13)
 
@@ -15,9 +15,11 @@ For **every Teaser 3 Flow video generation**, including speaking pickups, silent
 
 **Important:** 10 seconds refers to each generated source pickup, **not** the final edit. The completed teaser remains **58 seconds**. Model-facing prompts remain brief natural language; preset and credit controls belong in Flow UI / agent preflight, not the video text prompt.
 
-**Updated 2026-11-13.** These are **short, plain-language video-generation prompts**, modeled on the exact P02 wording the owner reported working in Google Flow. This is a clarity/usability improvement; **it does not guarantee Flow policy approval**. If a prompt is refused, respect the refusal and use real, permitted footage or a consented human-recorded voiceover in the editor.
+**Updated 2026-11-15 (V5: V3 cast and line changes — owner, 15 Nov 2026).** These are **short, plain-language video-generation prompts**, modeled on the exact P02 wording the owner reported working in Google Flow. This is a clarity/usability improvement; **it does not guarantee Flow policy approval**. If a prompt is refused, respect the refusal and use real, permitted footage or a consented human-recorded voiceover in the editor.
 
 **Creative priority:** POSITIVITY AND LOVE FIRST. Filipino OFW community, warm Christmas family affection, natural Tagalog/Taglish, original member likeness with consent. **Iad** is the correct dancer's name.
+
+**V3 changes in this version:** P04 Ate Susie line is now "Mga Pangga, sumali na kayo!"; P09 is Ate Margie (`ate_margie.jpeg`); P11 is Ate Leizel (photo TBC — HOLD) with the program poster on the phone screen; P14 is Ate Renee, Ate Joy and Ate Anna (photos TBC — HOLD). The 09–11s invitation poster and the 39.5–43s Contest Rules poster are real supplied images, not generations.
 
 ## One-time setup (agent), then one pickup at a time (video model)
 1. In Google Flow Agent mode, provide [Agent Instruction](GOOGLE_FLOW_AGENT_INSTRUCTION.md) once, then the [Episode Agent Prompt](GOOGLE_FLOW_AGENT_PROMPT.md) once.
@@ -67,7 +69,7 @@ After saying the line, she keeps a gentle happy smile and continues looking at t
 Use a natural conversational Filipino tone. Keep it as a single continuous shot, with only Monica visible. No subtitles, no logos, and no on-screen text.
 ```
 
-**Editor / QA:** OWNER-REPORTED SUCCESSFUL PROMPT. Do not change its wording. The real Paskong Pinoy Remix ad and real Susie archival clip are inserted later in editing. Speech must be fully audible before the final cut.
+**Editor / QA:** OWNER-REPORTED SUCCESSFUL PROMPT. Do not change its wording. The real invitation/program poster (09–11s) is inserted later in editing. Speech must be fully audible before the final cut.
 
 ### P03 — Jessa invites Monica (final 11–15s)
 
@@ -87,11 +89,13 @@ After saying the line, she keeps her friendly, encouraging smile for the rest of
 Use a natural conversational Filipino tone. Keep it as a single continuous shot, with only Jessa visible. No subtitles, no logos, and no on-screen text.
 ```
 
-**Editor / QA:** If a visible shoulder tap is desired, build it as a separate silent insert. This pickup contains only Jessa. Speech must be fully audible before the final cut.
+**Editor / QA:** If a visible shoulder tap is desired, build it as a separate silent insert. This pickup contains only Jessa. Speech must be fully audible before the final cut. **P03 is now the only Jessa shot in V3** — P09 is Ate Margie and P11 is Ate Leizel.
 
 ### P04 — Ate Susie's cheerful invitation (final 15–19s)
 
-**LATEST OWNER CAST UPDATE — 2026-11-14:** Ate Susie replaces Mischie. **Reference:** attach ONE actual consented photo of Ate Susie, `sa_susie.jpeg` or `sa_susie_2.JPG`, not an earlier person's clip. The existing Drive `p04.mp4` shows the earlier Mischie performer and is **OBSOLETE for this scene**.
+**V3 LINE CHANGE — OWNER, 2026-11-15:** The line is now **"Mga Pangga, sumali na kayo!"** (warm, encouraging tone), replacing "Besh! Sumali na kayo!". **Reference:** attach ONE actual consented photo of Ate Susie, `sa_susie.jpeg` or `sa_susie_2.JPG`, not an earlier person's clip. The existing Drive `p04.mp4` shows the earlier Mischie performer and is **OBSOLETE for this scene**; the existing `p04_susie.mp4` audio says the OLD line and must NOT be used for the new line.
+
+**New generation attempted 15 Nov 2026 (first-frame approach) — QA PENDING. Do not claim a result until the clip is listened to and verified.**
 
 **Copy only this model-facing text into Google Flow:**
 
@@ -100,9 +104,9 @@ Create a warm Christmas-themed vertical 9:16 video of Ate Susie using the attach
 
 Ate Susie is at a cheerful Christmas celebration with glowing golden lights. She sees her friends nearby, smiles brightly, and welcomes them with a friendly gesture.
 
-She says naturally in Tagalog:
+She says naturally in Tagalog, in a warm encouraging tone:
 
-"Besh! Sumali na kayo!"
+"Mga Pangga, sumali na kayo!"
 
 After speaking, she keeps smiling happily.
 
@@ -129,14 +133,16 @@ A single continuous shot. No dialogue or on-screen text.
 
 **Editor / QA:** Final 19–21s. Add a quick push-in / festive light-flash transition into the genuine dance rehearsal **in the editor**, not through Flow's hand-to-lens motion. The current Drive `p05.mp4` is a legacy **Mischie** clip and must NOT be labeled as Ate Susie. Reuse genuine permitted footage if available rather than spending 10 credits on repeated refused generations. If Flow refuses this image-based generation too, stop retrying and use a still-image Ken Burns animation or real approved Susie footage.
 
-### P09 — Jessa renews the invitation (final 32–35s)
+### P09 — Ate Margie renews the invitation (final 32–35s)
 
-**Reference:** `n4_jessa.jpeg`
+**V3 RECAST — OWNER, 2026-11-15:** P09 is now **Ate Margie** (was Jessa). **Reference:** `ate_margie.jpeg` (Drive refs folder).
+
+**New generation attempted 15 Nov 2026 — QA PENDING. Do not claim a result until the clip is listened to and verified.** The old Flow `p09.mp4` shows Jessa and must NOT be used for this slot.
 
 ```text
-Create a warm Christmas-themed vertical 9:16 video of Jessa using the attached reference photo.
+Create a warm Christmas-themed vertical 9:16 video of Ate Margie using the attached reference photo.
 
-Jessa is now in a lively Christmas party setting with warm golden lights. She looks toward Monica just outside the frame and smiles as she warmly invites her.
+Ate Margie is now in a lively Christmas party setting with warm golden lights. She looks toward Monica just outside the frame and smiles as she warmly invites her.
 
 She says naturally in Tagalog:
 
@@ -144,10 +150,10 @@ She says naturally in Tagalog:
 
 After saying the line, she remains smiling quietly for the rest of the clip.
 
-Use a natural conversational Filipino tone. Keep it as a single continuous shot, with only Jessa visible. No subtitles, no logos, and no on-screen text.
+Use a natural conversational Filipino tone. Keep it as a single continuous shot, with only Ate Margie visible. No subtitles, no logos, and no on-screen text.
 ```
 
-**Editor / QA:** Use same original Jessa photo as P03 for identity continuity. Speech must be fully audible before the final cut.
+**Editor / QA:** Speech must be fully audible before the final cut. Confirm the performer is Ate Margie using the approved reference photo.
 
 ### P10 — Monica says yes (final 35–38s)
 
@@ -169,27 +175,29 @@ Use a natural conversational Filipino tone. Keep it as a single continuous shot,
 
 **Editor / QA:** The final cut gives this short reply 3 seconds; preserve the full phrase. Speech must be fully audible before the final cut.
 
-### P11 — Jessa presents her phone SCREEN to the camera (final 38–43s)
+### P11 — Ate Leizel presents her phone SCREEN to the camera (final 38–43s)
 
-**References / wardrobe continuity:** Attach original approved `n4_jessa.jpeg` for identity and, if supported by Omni 1.2 Flash Ingredients, a saved still from the approved P09 clip to match her outfit. Keep the locked preset **Omni 1.2 Flash · 360p · 10 seconds · 10 credits · 9:16 · one output**. This is a new generation from still images, not an edit to a video.
+**V3 RECAST — OWNER, 2026-11-15:** P11 is now **Ate Leizel** (was Jessa). **Reference: NOT available yet — HOLD this scene until Ate Leizel's approved original photo is supplied.** Do not generate with a substitute photo.
 
-**Copy only this short prompt into Flow:**
+**References / continuity:** Attach original approved Ate Leizel photo for identity when it arrives. Keep the locked preset **Omni 1.2 Flash · 360p · 10 seconds · 10 credits · 9:16 · one output**. This is a new generation from still images, not an edit to a video.
+
+**Copy only this short prompt into Flow (once the photo arrives):**
 
 ```text
-Create a warm Christmas-themed vertical 9:16 video of Jessa using the attached reference images.
+Create a warm Christmas-themed vertical 9:16 video of Ate Leizel using the attached reference images.
 
-Jessa is smiling at a cheerful Christmas party with soft golden lights. She wears the same outfit as in the previous party reference image.
+Ate Leizel is smiling at a cheerful Christmas party with soft golden lights.
 
-She is already holding her smartphone vertically at chest level, next to her face. The phone's FRONT GLASS DISPLAY faces straight toward the camera from the first frame, like someone showing the viewer a photo. The BACK of the phone faces Jessa. The screen is completely visible, flat toward the lens, with a plain light-grey display.
+She is already holding her smartphone vertically at chest level, next to her face. The phone's FRONT GLASS DISPLAY faces straight toward the camera from the first frame, like someone showing the viewer a photo. The BACK of the phone faces Ate Leizel. The screen is completely visible, flat toward the lens, with a plain light-grey display.
 
-Jessa holds this pose naturally and smiles. She does not speak.
+Ate Leizel holds this pose naturally and smiles. She does not speak.
 
-One steady shot, with only Jessa visible. No subtitles or on-screen text.
+One steady shot, with only Ate Leizel visible. No subtitles or on-screen text.
 ```
 
-**Critical framing QA:** The viewer MUST see the **front screen/glass**, NOT the back of the handset and NOT a screen turned toward Jessa. The display must stay near-front-on, upright portrait orientation, unobstructed and large enough to composite the real rules graphic. Avoid the previous **"raises phone toward camera"** action because it encouraged the model to show the screen facing her. Starting in the final screen-forward pose is safer than generating a rotation. The screen itself is **blank / neutral** in Flow; overlay the exact owner-approved rules image later in the editor. Keep clothing consistent with approved P09.
+**Critical framing QA:** The viewer MUST see the **front screen/glass**, NOT the back of the handset and NOT a screen turned toward Ate Leizel. The display must stay near-front-on, upright portrait orientation, unobstructed and large enough to composite the real program poster. Avoid the previous **"raises phone toward camera"** action because it encouraged the model to show the screen facing her. Starting in the final screen-forward pose is safer than generating a rotation. The screen itself is **blank / neutral** in Flow; the editor composites the exact owner-approved program poster (`paskong_pinoy_remix_program.jpeg`) onto it later. Do not ask Flow to generate poster text. The old Flow `p11.mp4` shows Jessa and must NOT be used for this slot.
 
-**If already rendered and otherwise usable:** You may avoid spending another 10 credits by using a phone-screen cutaway / an editorial insert showing the verified game-rules image, rather than forcing a new model generation. Do not retry repeatedly after policy refusal.
+**If already rendered and otherwise usable:** You may avoid spending another 10 credits by using a phone-screen cutaway / an editorial insert showing the program poster, rather than forcing a new model generation. Do not retry repeatedly after policy refusal.
 
 ### P12 — Monica says the rules are easy (final 43–47s)
 
@@ -229,27 +237,27 @@ After saying the line, she keeps a warm welcoming smile for the rest of the clip
 Use a natural conversational Filipino tone. Keep it as a single continuous shot, with only Mommy Tere visible. No subtitles, no logos, and no on-screen text.
 ```
 
-**Editor / QA:** Confirm that w2_tere.jpeg actually depicts the intended Mommy Tere before generating. Renee will be composited separately. Speech must be fully audible before the final cut.
+**Editor / QA:** Confirm that w2_tere.jpeg actually depicts the intended Mommy Tere before generating. Renee, Joy and Anna will be composited separately (P14 trio). Speech must be fully audible before the final cut.
 
-### P14 — Renee joins the outro (final 52–55s)
+### P14 — Renee, Joy and Anna join the outro (final 52–55s)
 
-**Reference:** Not available yet — HOLD this scene.
+**V3 RECAST — OWNER, 2026-11-15:** P14 is now **three people — Ate Renee, Ate Joy and Ate Anna** (was a single René). **References: Not available yet — HOLD this scene until their approved original photos are supplied.** Use the spelling **"Renee"** as the owner wrote it. The old Flow `p14.mp4` (single René) must NOT be used for this slot.
 
 ```text
-Create a warm Christmas-themed vertical 9:16 video of Renee using the attached reference photo.
+Create a warm Christmas-themed vertical 9:16 video of Ate Renee, Ate Joy and Ate Anna using the attached reference photos.
 
-Renee is in a joyful Christmas party setting with warm golden lighting. Renee leans gently into the frame with a cheerful smile and looks toward the camera.
+Ate Renee, Ate Joy and Ate Anna are together in a joyful Christmas party setting with warm golden lighting. They lean gently into the frame with cheerful smiles and look toward the camera.
 
-Renee says naturally in English:
+They say naturally in English, together:
 
 "See you there!"
 
-After saying the line, Renee keeps smiling quietly for the rest of the clip.
+After saying the line, they keep smiling quietly for the rest of the clip.
 
-Use a natural conversational Filipino tone. Keep it as a single continuous shot, with only Renee visible. No subtitles, no logos, and no on-screen text.
+Use a natural conversational Filipino tone. Keep it as a single continuous shot, with only Renee, Joy and Anna visible. No subtitles, no logos, and no on-screen text.
 ```
 
-**Editor / QA:** ON HOLD until Renee's approved original photo is provided. Compose with Mommy Tere in post. Speech must be fully audible before the final cut.
+**Editor / QA:** ON HOLD until Renee's, Joy's and Anna's approved original photos are provided. Compose with Mommy Tere in post. Speech must be fully audible before the final cut.
 
 ## Real-footage montage (P06–P08) — final 21–32 seconds
 
@@ -285,9 +293,10 @@ Do not continue generating alternate prompts after a Flow safety refusal.
 
 ## Finishing notes (editor only, not model-facing)
 
-- Phone discovery insert: actual Paskong Pinoy Remix flyer plus genuine Susie archive.
-- Game rules: use the exact owner-supplied image as a composited phone screen; do not ask Flow to generate text.
+- Invitation poster (09–11s): actual Paskong Pinoy Remix program poster (`paskong_pinoy_remix_program.jpeg`) — or a filmed real person's iPhone showing it.
+- Phone discovery insert: the program poster composited onto the P11 phone screen; do not ask Flow to generate poster text.
+- Game rules: use the exact owner-supplied Contest Rules poster (`contest_rules_poster.jpeg`) as the full-screen insert; do not ask Flow to generate text.
 - Ate Susie gives a small wave; the editor creates the zoom / Christmas-light-flash transition. No model-generated hand-to-lens move required.
-- Mommy Tere + Renee: separate reference still generations, combine in post.
+- Mommy Tere + Renee/Joy/Anna: separate reference still generations, combine in post.
 - Finish with the verified event end card. Licensed/original Christmas music. Subtitles from actual final spoken audio at a social-safe raised lower-third.
 - Exact master is **58 seconds**, with shot timings from the manifest. No single Flow output is the completed film.

@@ -25,9 +25,10 @@ Reference-only documentation for the Sunday Screens Instagram 9-slide Christmas 
 
 ## Paskong Pinoy Remix — FINAL TEASER (2026)
 
-**Current production title: FINAL TEASER — Version 2** (not Teaser 3). The director-ready 58-second script, complete with spoken lines, clip trims, montage sources, transitions, graphics, music and QA, is in the **[Final Teaser production folder](Final%20Teaser/README.md)** and **[director's production script V2](Final%20Teaser/PRODUCTION_SCRIPT_V2.md)**.
+**Current production title: FINAL TEASER — Version 3** (not Teaser 3). The director-ready 58-second script, complete with spoken lines, clip trims, montage sources, transitions, graphics, music and QA, is in the **[Final Teaser production folder](Final%20Teaser/README.md)** and **[director's production script V3](Final%20Teaser/PRODUCTION_SCRIPT_V3.md)** (previous version: [V2](Final%20Teaser/PRODUCTION_SCRIPT_V2.md)).
 
-The older `Teaser 3/` directory stays as the technical/source-history archive; it is not the current presentation title. The actual V2 proof of concept has been rendered to Google Drive. The official event advertisement/final flyer and final dialogue approval are still pending.
+**V3 changes (owner, 15 Nov 2026):** 09–11s is the real invitation/program poster (or a filmed iPhone showing it); Ate Susie's line is now "Mga Pangga, sumali na kayo!"; P09 is Ate Margie; P11 is Ate Leizel (photo TBC); the P11 phone shows the program poster; the rules insert is the new Contest Rules poster; P14 is Ate Renee, Ate Joy and Ate Anna (photos TBC).
+
+The older `Teaser 3/` directory stays as the technical/source-history archive; it is not the current presentation title. The V2 proof of concept has been rendered to Google Drive and remains the visual reference; the V3 cut has not been rendered yet. The official end-card flyer and final dialogue approval are still pending.
 
 **Flow setting if any new pickup becomes necessary:** Omni 1.2 Flash / 360p / 10 seconds / 10 credits, 9:16, one output; no new P05 Flow generations after repeated refusals.
-
