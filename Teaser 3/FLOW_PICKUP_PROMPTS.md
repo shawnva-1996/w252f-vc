@@ -19,7 +19,7 @@ For **every Teaser 3 Flow video generation**, including speaking pickups, silent
 
 **Creative priority:** POSITIVITY AND LOVE FIRST. Filipino OFW community, warm Christmas family affection, natural Tagalog/Taglish, original member likeness with consent. **Iad** is the correct dancer's name.
 
-**V3 changes in this version:** P04 Ate Susie line is now "Mga Pangga, sumali na kayo!"; P09 is Ate Margie (`ate_margie.jpeg`); P11 is Ate Leizel (photo TBC — HOLD) with the program poster on the phone screen; P14 is Ate Renee, Ate Joy and Ate Anna (photos TBC — HOLD). The 09–11s invitation poster and the 39.5–43s Contest Rules poster are real supplied images, not generations.
+**V3 changes in this version:** P04 Ate Susie line is now "Mga Pangga, sumali na kayo!"; P09 is Ate Margie (`ate_margie.jpeg`); P11 is Ate Leizel (photo TBC — HOLD) with the program poster on the phone screen; P14 is ONE group shot of Kuya Rene, Ate Ana and Ate Joy together (52–55s), saying "See you there!" together — via Google Flow (multi-reference) or a self-recorded group clip. Solo generations are alternates only (Ana + Joy verified 15 Nov 2026; Rene solo generation failed — do NOT retry). The 09–11s invitation poster and the 39.5–43s Contest Rules poster are real supplied images, not generations.
 
 ## One-time setup (agent), then one pickup at a time (video model)
 1. In Google Flow Agent mode, provide [Agent Instruction](GOOGLE_FLOW_AGENT_INSTRUCTION.md) once, then the [Episode Agent Prompt](GOOGLE_FLOW_AGENT_PROMPT.md) once.
@@ -237,16 +237,20 @@ After saying the line, she keeps a warm welcoming smile for the rest of the clip
 Use a natural conversational Filipino tone. Keep it as a single continuous shot, with only Mommy Tere visible. No subtitles, no logos, and no on-screen text.
 ```
 
-**Editor / QA:** Confirm that w2_tere.jpeg actually depicts the intended Mommy Tere before generating. Renee, Joy and Anna will be composited separately (P14 trio). Speech must be fully audible before the final cut.
+**Editor / QA:** Confirm that w2_tere.jpeg actually depicts the intended Mommy Tere before generating. Kuya Rene, Ate Ana and Ate Joy appear together in the P14 group shot. Speech must be fully audible before the final cut.
 
-### P14 — Renee, Joy and Anna join the outro (final 52–55s)
+### P14 — Kuya Rene, Ate Ana and Ate Joy together in one group shot (final 52–55s)
 
-**V3 RECAST — OWNER, 2026-11-15:** P14 is now **three people — Ate Renee, Ate Joy and Ate Anna** (was a single René). **References: Not available yet — HOLD this scene until their approved original photos are supplied.** Use the spelling **"Renee"** as the owner wrote it. The old Flow `p14.mp4` (single René) must NOT be used for this slot.
+**V3 CORRECTION — OWNER, 2026-11-15 (evening):** P14 is three people — **Kuya Rene (male), Ate Ana (spelled "Ana"), Ate Joy** — NOT "Ate Renee, Ate Joy, Ate Anna" as first recorded in V3. **CORRECTED ~21:35: P14 is ONE group shot (52–55s, 3 seconds) — all three together, saying "See you there!" together — NOT three ~1-second cuts.** **References: supplied — `kuya_rene.jpeg`, `ate_ana.jpeg`, `ate_joy.jpeg` (Drive refs folder).** The old Flow `p14.mp4` (single René) must NOT be used for this slot.
+
+**Planned routes for the group shot: Google Flow (multi-reference — attach all three photos) or a self-recorded group clip.**
+
+**Copy only this model-facing text into Google Flow (multi-reference):**
 
 ```text
-Create a warm Christmas-themed vertical 9:16 video of Ate Renee, Ate Joy and Ate Anna using the attached reference photos.
+Create a warm Christmas-themed vertical 9:16 video of Kuya Rene, Ate Ana and Ate Joy together using the attached reference photos.
 
-Ate Renee, Ate Joy and Ate Anna are together in a joyful Christmas party setting with warm golden lighting. They lean gently into the frame with cheerful smiles and look toward the camera.
+Kuya Rene, Ate Ana and Ate Joy are together in a joyful Christmas party setting with warm golden lighting. They lean gently into the frame with cheerful smiles and look toward the camera.
 
 They say naturally in English, together:
 
@@ -254,10 +258,76 @@ They say naturally in English, together:
 
 After saying the line, they keep smiling quietly for the rest of the clip.
 
-Use a natural conversational Filipino tone. Keep it as a single continuous shot, with only Renee, Joy and Anna visible. No subtitles, no logos, and no on-screen text.
+Use a natural conversational Filipino tone. Keep it as a single continuous shot, with only Kuya Rene, Ate Ana and Ate Joy visible. No subtitles, no logos, and no on-screen text.
 ```
 
-**Editor / QA:** ON HOLD until Renee's, Joy's and Anna's approved original photos are provided. Compose with Mommy Tere in post. Speech must be fully audible before the final cut.
+**Note on Joy's photo:** `ate_joy.jpeg` is a studio cut-out on a checkerboard background. The generation places her in a Christmas scene instead of using that background.
+
+**Editor / QA:** One 3-second group shot (52–55s), all three together, saying "See you there!" together. Compose with Mommy Tere in post. Speech must be fully audible before the final cut. The group clip is still needed (Flow multi-reference or self-recorded).
+
+### P14 solo alternates (fallback only — NOT the final P14 structure)
+
+The solo generations below are **alternates only**. Do not cut P14 as three solo shots.
+
+#### P14a — Kuya Rene (solo alternate)
+
+**Reference:** `kuya_rene.jpeg`
+
+**Generation FAILED 15 Nov 2026 (integrity check) — do NOT retry this route. Use the group shot (Flow multi-reference or self-recorded) instead.**
+
+```text
+Create a warm Christmas-themed vertical 9:16 video of Kuya Rene using the attached reference photo.
+
+Kuya Rene is in a joyful Christmas party setting with warm golden lighting. He looks toward the camera with a cheerful smile.
+
+He says naturally in English:
+
+"See you there!"
+
+After saying the line, he keeps smiling quietly for the rest of the clip.
+
+Use a natural conversational Filipino tone. Keep it as a single continuous shot, with only Kuya Rene visible. No subtitles, no logos, and no on-screen text.
+```
+
+#### P14b — Ate Ana (solo alternate)
+
+**Reference:** `ate_ana.jpeg`
+
+**Generated + verified 15 Nov 2026 — `clips/p14-ana.mp4` (720×1280, 10s, "See you there!" confirmed, likeness holds).**
+
+```text
+Create a warm Christmas-themed vertical 9:16 video of Ate Ana using the attached reference photo.
+
+Ate Ana is in a joyful Christmas party setting with warm golden lighting. She looks toward the camera with a cheerful smile.
+
+She says naturally in English:
+
+"See you there!"
+
+After saying the line, she keeps smiling quietly for the rest of the clip.
+
+Use a natural conversational Filipino tone. Keep it as a single continuous shot, with only Ate Ana visible. No subtitles, no logos, and no on-screen text.
+```
+
+#### P14c — Ate Joy (solo alternate)
+
+**Reference:** `ate_joy.jpeg` — note: Joy's photo is a studio cut-out on a checkerboard background. The generation places her in a Christmas scene instead of using that background.
+
+**Generated + verified 15 Nov 2026 — `clips/p14-joy.mp4` (720×1280, 10s, "See you there!" confirmed, likeness holds).**
+
+```text
+Create a warm Christmas-themed vertical 9:16 video of Ate Joy using the attached reference photo.
+
+Ate Joy is in a joyful Christmas party setting with warm golden lighting. She looks toward the camera with a cheerful smile.
+
+She says naturally in English:
+
+"See you there!"
+
+After saying the line, she keeps smiling quietly for the rest of the clip.
+
+Use a natural conversational Filipino tone. Keep it as a single continuous shot, with only Ate Joy visible. No subtitles, no logos, and no on-screen text.
+```
 
 ## Real-footage montage (P06–P08) — final 21–32 seconds
 
@@ -297,6 +367,6 @@ Do not continue generating alternate prompts after a Flow safety refusal.
 - Phone discovery insert: the program poster composited onto the P11 phone screen; do not ask Flow to generate poster text.
 - Game rules: use the exact owner-supplied Contest Rules poster (`contest_rules_poster.jpeg`) as the full-screen insert; do not ask Flow to generate text.
 - Ate Susie gives a small wave; the editor creates the zoom / Christmas-light-flash transition. No model-generated hand-to-lens move required.
-- Mommy Tere + Renee/Joy/Anna: separate reference still generations, combine in post.
+- Mommy Tere + the P14 group shot (Kuya Rene, Ate Ana, Ate Joy together): Google Flow multi-reference or a self-recorded group clip; solo clips are alternates only.
 - Finish with the verified event end card. Licensed/original Christmas music. Subtitles from actual final spoken audio at a social-safe raised lower-third.
 - Exact master is **58 seconds**, with shot timings from the manifest. No single Flow output is the completed film.

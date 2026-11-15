@@ -18,7 +18,7 @@
 4. P11 becomes Ate Leizel (was Jessa), photo TBC — ON HOLD.
 5. P11 phone screen now displays the program poster (`paskong_pinoy_remix_program.jpeg`), composited by the editor — not a blank screen.
 6. Rules insert (39.5–43s) uses the new Contest Rules poster (`contest_rules_poster.jpeg`), replacing the old `contest_rules.jpg`.
-7. P14 becomes three people — Ate Renee, Ate Joy and Ate Anna (was a single René) — photos TBC, ON HOLD.
+7. P14 is ONE group shot — Kuya Rene, Ate Ana and Ate Joy TOGETHER (52–55s, 3 seconds), saying "See you there!" together (was a single René). (CORRECTED 15 Nov 2026 evening: the trio is Kuya Rene — male, not "Ate Renee" — Ate Ana — spelled "Ana", not "Anna" — and Ate Joy; the first V3 record named them wrong. CORRECTED 15 Nov 2026 ~21:35: P14 is ONE group shot, NOT three ~1-second cuts.) The group shot will come from Google Flow (multi-reference) or a self-recorded group clip. Solo generations 15 Nov 2026 are alternates only: Ate Ana and Ate Joy GENERATED + VERIFIED (`clips/p14-ana.mp4`, `clips/p14-joy.mp4` — 720×1280, 10s, "See you there!" confirmed, likeness holds); Kuya Rene solo generation FAILED (integrity check — do NOT retry).
 
 ## 1. Narrative at a glance
 
@@ -26,7 +26,7 @@
 2. **The invitation (11–21):** Jessa reaches out; Ate Susie brings infectious barkada energy ("Mga Pangga!") and leads into the celebration.
 3. **The celebration (21–32):** Authentic past Christmas dance footage shows Filipino community joy.
 4. **"Sama ka!" (32–47):** Ate Margie invites Monica again; Monica agrees; the real contest rules poster is displayed, and Monica reacts positively.
-5. **Everyone's invited (47–58):** Mommy Tere and Renee, Joy and Anna invite the audience; show event details and finish with warmth.
+5. **Everyone's invited (47–58):** Mommy Tere and Kuya Rene, Ate Ana and Ate Joy invite the audience; show event details and finish with warmth.
 
 ## 2. Locked picture & dialogue rundown — V3
 
@@ -49,7 +49,7 @@
 | **00:39.5–00:43** | **ACTUAL RULES** \`contest_rules_poster.jpeg\` | New Contest Rules poster, full screen. | Music only, no narrator reading rules. | **NEW POSTER in V3 — use the exact supplied image** rather than AI-generated/retyped wording. At 3.5s, complete fine print is difficult to read on mobile. Optional editor improvement: readable key-area crop/hold without changing exact words, subject to director/owner approval. |
 | **00:43–00:47** | **P12** \`p12.mp4\`; source approx. **1.85–5.85s** | Monica responds brightly after seeing rules. | **MONICA:** "Walang problema, madali lang 'yan!" | Protect the end of "'yan!" from a hard cut. |
 | **00:47–00:52** | **P13** \`p13.mp4\`; source approx. **1.10–6.10s** | Mommy Tere warmly addresses camera, festive expression. | **MOMMY TERE:** "Tara na sa Paskong Pinoy Remix!" | Slight music build underneath final invitation. Confirm this is the intended performer and original pronunciation. |
-| **00:52–00:55** | **P14 ATE RENEE, ATE JOY, ATE ANNA (new)** | The three of them face the camera smiling, together. | **ALL THREE:** "See you there!" | **RECAST in V3 (was a single René) — ON HOLD until photos of Renee, Joy and Anna are supplied.** Use the spelling "Renee" as the owner wrote it. The old Flow \`p14.mp4\` (single René) must NOT be used for this slot. |
+| **00:52–00:55** | **P14 GROUP SHOT — KUYA RENE + ATE ANA + ATE JOY TOGETHER (new)** | All three face the camera smiling, together in one shot. | **ALL THREE TOGETHER:** "See you there!" | **RECAST in V3 (was a single René). CORRECTED 15 Nov 2026 evening: Kuya Rene (male), Ate Ana (spelled "Ana"), Ate Joy — not "Ate Renee, Ate Joy, Ate Anna" as first recorded. CORRECTED 15 Nov 2026 ~21:35: P14 is ONE group shot (52–55s), NOT three ~1-second cuts.** The group shot will come from Google Flow (multi-reference) or a self-recorded group clip. Solo generations are alternates only: Ana + Joy verified (`clips/p14-ana.mp4`, `clips/p14-joy.mp4` — 720×1280, 10s, "See you there!" confirmed, likeness holds); Rene solo generation FAILED (integrity check — do NOT retry). Joy's reference (\\`ate_joy.jpeg\\`) is a studio cut-out on a checkerboard background — the generation places her in a Christmas scene instead of using that background. The old Flow \\`p14.mp4\\` (single René) must NOT be used for this slot. |
 | **00:55–00:58** | **TEMPORARY END FLYER / END CARD** | Festive event title with clear factual logistical information. Hold for roughly three seconds. | Final musical lift and clean finish. | **TEMPORARY MOCKUP ONLY.** Use confirmed data from supplied program poster: **Paskong Pinoy Remix · 6 Dec 2026 · Suntec Room 606A&B · 1–5 PM**. Replace with approved flyer before release. |
 
 **Total:** 58 seconds. The detailed archive source windows and visual cuts above were recorded from the rendered **V2** proof-of-concept, not inferred from its filenames alone; the V3 rows are owner-directed changes on top of that edit.
@@ -69,13 +69,13 @@ Show this as **past Christmas highlights**, explicitly archival. Favor recogniza
 Come back to Ate Margie and Monica to give story continuity. P03 is Jessa's only shot in V3. Monica says yes. Make sure the P11 phone has its front-facing display clearly visible, showing the program poster. The supplied contest rules poster appears as a separate full-screen insert in V3; do not replace it with fake or paraphrased rules.
 
 ### Final call to join — 47 to 58 seconds
-Mommy Tere's line should feel like a wholehearted invitation. Renee, Joy and Anna deliver the quick English closing line together. Land on the temporary end-card information with enough time to register the date and venue; replace it with actual official art when supplied.
+Mommy Tere's line should feel like a wholehearted invitation. Kuya Rene, Ate Ana and Ate Joy deliver the quick English closing line together in one group shot. Land on the temporary end-card information with enough time to register the date and venue; replace it with actual official art when supplied.
 
 ## 4. Sound, titles, effects and continuity
 
 **Music:** Keep the simple original instrumental bed already used in POC V2, unless the director supplies an approved replacement. Avoid unlicensed popular Christmas remixes. Increase musical energy during 11–32s, duck music for speech, then let the ending rise. Mute the historical dance archive's original audio unless specifically cleared.
 
-**Dialogue:** Keep natural Tagalog/Taglish and the actual voice audio from the correct Flow performance. Most crucial audio QA: Monica P01 complete "na kayo", Ate Susie's P04 NEW line "Mga Pangga, sumali na kayo!" (verify — new generation, QA pending), Ate Margie P09 (verify actual variant), Monica P12 full "'yan!", plus Tere and the Renee/Joy/Anna trio. If a current POC edit trims the final word, adjust source in/out points rather than inventing new dialogue. Do not turn scripted words into claimed recordings.
+**Dialogue:** Keep natural Tagalog/Taglish and the actual voice audio from the correct Flow performance. Most crucial audio QA: Monica P01 complete "na kayo", Ate Susie's P04 NEW line "Mga Pangga, sumali na kayo!" (verify — new generation, QA pending), Ate Margie P09 (verify actual variant), Monica P12 full "'yan!", plus Tere and the Kuya Rene / Ate Ana / Ate Joy trio. If a current POC edit trims the final word, adjust source in/out points rather than inventing new dialogue. Do not turn scripted words into claimed recordings.
 
 **Subtitles:** Add accurate subtitles from what each person actually says; one clear line or at most two short lines. Use bold high-contrast text with a subtle shadow, avoid covering faces/phones. Subtitle timing should follow spoken syllables, not the start/end of the whole scene.
 
@@ -92,11 +92,11 @@ Mommy Tere's line should feel like a wholehearted invitation. Renee, Joy and Ann
 **Principal videos:**
 \`p01.mp4\`, \`p02.mp4\`, \`p03.mp4\`, **\`p04_susie.mp4\` (V2 audio = old line; new-line generation attempted 15 Nov 2026, QA pending)**, \`p10.mp4\`, \`p12.mp4\`, \`p13.mp4\`.
 
-**New / pending generations:** P04 new line ("Mga Pangga, sumali na kayo!"); P09 Ate Margie (\`ate_margie.jpeg\`, generation attempted 15 Nov 2026, QA pending); P11 Ate Leizel (photo TBC — HOLD); P14 Renee, Joy and Anna (photos TBC — HOLD).
+**New / pending generations:** P04 new line ("Mga Pangga, sumali na kayo!"); P09 Ate Margie (\\`ate_margie.jpeg\\`, generation attempted 15 Nov 2026, QA pending); P11 Ate Leizel (photo TBC — HOLD); P14 GROUP SHOT — Kuya Rene, Ate Ana and Ate Joy together (52–55s) — planned via Google Flow (multi-reference) or a self-recorded group clip. Solo generations are alternates only: Ana + Joy generated + verified 15 Nov 2026; Rene solo generation failed (do not retry).
 
 **Other content:** \`sa_dance_past_vids.mp4\` (real previous event), **`contest_rules_poster.jpeg`** (new Contest Rules poster), **`paskong_pinoy_remix_program.jpeg`** (invitation poster at 09–11s and P11 phone screen), temporary end-card artwork from V2 POC (replace later), original POC soundtrack/effects.
 
-**Do NOT use for the current edit:** old \`p04.mp4\` and \`p05.mp4\` showing Mischie; landscape rehearsal \`practice_video.mp4\` (replaced by the archival video in V2); Flow \`p09.mp4\` and \`p11.mp4\` (Jessa versions — superseded by the V3 recast); Flow \`p14.mp4\` (single René — superseded by the V3 trio); old \`contest_rules.jpg\` (superseded by \`contest_rules_poster.jpeg\`). Do not regenerate P05 using Google Flow.
+**Do NOT use for the current edit:** old \`p04.mp4\` and \`p05.mp4\` showing Mischie; landscape rehearsal \`practice_video.mp4\` (replaced by the archival video in V2); Flow \`p09.mp4\` and \`p11.mp4\` (Jessa versions — superseded by the V3 recast); Flow \`p14.mp4\` (single René — superseded by the V3 trio: Kuya Rene, Ate Ana, Ate Joy); old \`contest_rules.jpg\` (superseded by \`contest_rules_poster.jpeg\`). Do not regenerate P05 using Google Flow.
 
 ## 6. Director's acceptance checklist / approvals
 
@@ -106,11 +106,11 @@ Mommy Tere's line should feel like a wholehearted invitation. Renee, Joy and Ann
 - [ ] 09–11s shows the real invitation/program poster (or the filmed iPhone alternative), not the temporary ad concept.
 - [ ] Ate Susie used for both 15–19 and 19–21 source moments; no legacy Mischie frames; P04 new line "Mga Pangga, sumali na kayo!" verified complete.
 - [ ] P09 is Ate Margie (not Jessa); P11 is Ate Leizel (photo supplied) with the program poster on the phone screen.
-- [ ] P14 is Renee, Joy and Anna (photos supplied), spelling "Renee".
+- [ ] P14 is ONE group shot of Kuya Rene, Ate Ana and Ate Joy together (52–55s), saying "See you there!" together (Rene is male, Ana spelled "Ana"); group clip via Google Flow (multi-reference) or self-recorded — Ana + Joy solo clips are alternates only.
 - [ ] Archive sections actually use \`sa_dance_past_vids.mp4\`, with **PAST CHRISTMAS HIGHLIGHTS** label and verified participant permissions.
 - [ ] Contest rules are exactly the owner-supplied image (\`contest_rules_poster.jpeg\`); mobile legibility reviewed.
 - [ ] Real poster and final official event flyer provided and inserted before publication (the program poster is supplied; end card still a placeholder for internal preview only).
-- [ ] Mommy Tere / Renee / Joy / Anna names and actual source identities confirmed by owner.
+- [ ] Mommy Tere / Kuya Rene / Ate Ana / Ate Joy names and actual source identities confirmed by owner.
 - [ ] Captions based on final verified speech; licensed/original audio; sensible phone-speaker mix.
 - [ ] Final owner approval on footage, graphic details, date/time, music and appearance permissions.
 
