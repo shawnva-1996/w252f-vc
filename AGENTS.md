@@ -16,3 +16,16 @@ code here that calls the Gemini API.
 - Never turn on billing or use paid keys to get past a quota without the owner's OK. Never print, log or commit key values.
 - Reference implementation: `shawnva-1996/shawnlemuel.ai` → `pipeline/ep03_scroll_movie/tools/gemini_pool.py` (`models` command +
   automatic model fallback).
+- **`limit: 0` means never, not "later" (18 Nov 2026).** A 429 whose message says `limit: 0` is a model the free tier does not
+  allow at all, so it will not clear tomorrow. On the owner's free-tier keys that is every **image** model (`gemini-3-pro-image`,
+  `nano-banana-pro-preview`, `gemini-nano-banana-2.1`, `gemini-3.1-flash-image`, `gemini-2.5-flash-image` and their previews)
+  and `gemini-4-argon` / `gemini-4-carbon`. Skip such a model at once instead of rotating keys on it. Image generation needs a
+  billed key: ask the owner first.
+- **Test the whole list, not only Flash, and rank strongest first.** On 18 Nov 2026 `gemini-4-hydrogen` answered on 4 of 6 keys
+  and `gemini-3-flash-preview` on 6 of 6, while `gemini-3.5`–`3.8-flash` and `gemini-flash-latest` returned 503 or timed out.
+  Use the strongest model that answers today (4.x > 3.x pro > flash > lite), never lite first.
+- **Every call gets a timeout (60–150 s).** A call that runs longer has probably stalled: abandon it and rotate to the next key
+  or model instead of waiting.
+- **Check what a model claims.** Gemini said it was "100% confident" a praise song was CityAlight's "What a Friend"; a web
+  search showed it was Elevation Worship's "Been So Good". Confirm identifications (songs, people, quotes, facts) with a second
+  source before using them.
