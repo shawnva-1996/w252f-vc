@@ -1,9 +1,17 @@
 ## CURRENT STATUS — ACTUAL DRIVE VIDEO REVIEW (2026-11-14)
-- **Four actual MP4s are RECEIVED and visually reviewed:** [P04 cake](https://drive.google.com/file/d/18aQcldUeKPAc8CpYB0L3zH3FgppYLHUd/view), [P05A gifts](https://drive.google.com/file/d/16wCuP0LnyuGOpghutQ7Kqp3x3W_7tm1j/view), [P05B continuation](https://drive.google.com/file/d/18d5hJ9QX_x6THzQxo-Oa6bvr0UaDW4fr/view), [P06 microphone](https://drive.google.com/file/d/1bzuG2vK1FfKDijO1ZsB2nKStebpyWfDY/view). Each ~10.03s at 360×640 24fps. Do not claim the complete 90s master exists.
+- **Six actual MP4s are RECEIVED and visually reviewed:** [P04 cake](https://drive.google.com/file/d/18aQcldUeKPAc8CpYB0L3zH3FgppYLHUd/view), [P05A gifts](https://drive.google.com/file/d/16wCuP0LnyuGOpghutQ7Kqp3x3W_7tm1j/view), [P05B continuation](https://drive.google.com/file/d/18d5hJ9QX_x6THzQxo-Oa6bvr0UaDW4fr/view), [P06 microphone](https://drive.google.com/file/d/1bzuG2vK1FfKDijO1ZsB2nKStebpyWfDY/view). Each ~10.03s at 360×640 24fps. **Plus P01 (gifts) and P07 (dance) generated 19 Nov and uploaded to Drive 19 Nov ~10:13 (folder 1w6XDHaDKkQ_kPIzWxChT8bBBN202KXpg; P01 1BDIRlrdlL_WDlc59Bo0nJgpFs5e-cLVy, P07 16pMDRnq7MqMtqsJv0zedAo74ZW2G9xJ2).** Do not claim the complete 90s master exists.
 - **Current director's script:** [DIRECTORS_SCRIPT_V1.md](DIRECTORS_SCRIPT_V1.md) — final TC 00:00–01:30, actual footage placement, all ten December names/dates, complete proposed Kuya Taglish lines, musical/emotional arc.
 - **Observed source inventory and rough trim points:** [RENDERED_CLIPS_MANIFEST_2026-11-14.md](RENDERED_CLIPS_MANIFEST_2026-11-14.md). Full visual frames were sampled; source audio not audited.
-- **Still needed:** P07 real rehearsal video, genuine family/fellowship greeting footage P14, actual Gemini TTS audio, music rights/cleared music, Remotion montage and all edits, Catherine date resolution. November list still not received.
+- **Still needed:** P07 real rehearsal video, P14 replacement — no real messages from home coming (placeholder stands until Shawn picks one), actual Gemini TTS audio, music rights/cleared music, Remotion montage and all edits. **UPDATE 2026-11-19 ~10:20 (owner): Sabel's photo supplied; Charie (Nov 19) and Naung (Nov 13) birthdays confirmed; Catherine Dec 18 confirmed — all 13 birthdays now confirmed, November photo coverage 3 of 3.**
 - **The four accepted source clips should not be re-rendered for the first rough cut.** Build the edit with available footage and placeholders.
+
+## SILENT ANIMATIC STAGED — 2026-11-19 (LOCAL ONLY, NOT PUSHED)
+- **File:** `birthday-teaser-nov-dec-animatic-2026-11-19.mp4` (staged under `~/workspace/w252f-teaser/birthday-teaser/`), **99.0 seconds, 1080×1920, silent** (no narrator audio, no music — per DIRECTORS_SCRIPT_V1 handoff step 1: build a silent animatic).
+- **Structure:** 90.0s December animatic per DIRECTORS_SCRIPT_V1 (P01–P15) **+ 9.0s November reveal block** (Sabel / Charie / Naung, 3s each) inserted before the December reveals. The December counter stays 2/10 → 10/10 as scripted; November is a separate block.
+- **Black-screen placeholders:** P07 (no rehearsal footage), P14 (no family messages collected). Sabel and Naung both have photos now (supplied 19 Nov) — their cards can be re-cut with the real photos. Each placeholder carries on-screen text describing what is supposed to happen there.
+- **OWNER CORRECTIONS — 2026-11-19 ~10:16 (group segments + format):** every group shows its people — when the video names a group (N4, W2, Hope, Love — the cell group names), ALL that group's birthday celebrants appear as animated versions accurate to how they look, not just W2; show the people instead of props (Love = people, not karaoke; N4 = people, not cake). Everything 16:9: existing 9:16 Flow footage stays for now and will be re-generated in 16:9 when Flow credits reset; NEW Flow videos must be landscape (16:9). Flow clips P01 + P07 uploaded to Drive 19 Nov ~10:13 and approved for use in the video.
+- **Not pushed to GitHub, not published — owner review pending.**
+- **16:9 REBUILD — 2026-11-19 (LOCAL ONLY, NOT PUSHED):** per owner's correction 19 Nov ~01:46 SGT (the teaser will play on a big-screen projector on the day itself), rebuilt as `birthday-teaser-nov-dec-animatic-16x9-2026-11-19.mp4`, **99.0 seconds, 1920×1080, 30 fps, silent**. Same segment map, timings and .srt as the 9:16 v1; photo cards re-animated per the Mission Pasko production script (video-tool animation for 6 cards, script-directed slide-in for the other 5 — see BUILD_NOTES.md). Portrait Flow clips presented with blurred-fill sidebars, never stretched or hard-cropped. The 9:16 v1 file is left untouched as the superseded version. **This supersedes the 14 Nov 9:16 owner lock below — the projector format is now 16:9.**
 
 
 ## LATEST REFERENCE-PHOTO CLARIFICATION — 2026-11-14
@@ -33,17 +41,17 @@ User clarified that Teaser 3 P02 successfully used Monica's original photo. For 
 - Four Flow source MP4s have now been uploaded by user and visually reviewed. Gemini TTS WAV/MP3 and mixed rough cut have **not** been verified or generated.
 - Source portraits stay in Google Drive; we never commit personal images.
 
-**Status:** FOUR SOURCE CLIPS RECEIVED + DIRECTOR SCRIPT V1; 90-second final edit not rendered or published  
+**Status:** FOUR SOURCE CLIPS RECEIVED + DIRECTOR SCRIPT V1; November list received 2026-11-19; silent animatic staged locally (see ANIMATIC note below); 90-second final edit not rendered or published  
 **Last reviewed:** 2026-11-14 (Singapore)  
 **Owner brief:** W2 × N4 × Sunday Group birthday celebration, **Paskong Pinoy Remix**.  
-**Final deliverable:** one **90-second, 9:16 vertical (1080×1920 composition) MP4**, for event playback in a portrait-safe PowerPoint layout. Source Flow clips are 360p drafts; output quality/upscale must be verified. This birthday film is separate from the 58-second vertical *Teaser 3*.
+**Final deliverable:** one **99-second, 16:9 landscape (1920×1080 composition) MP4** (90 s December + 9 s November block), for event playback on a big-screen projector. **CORRECTED 2026-11-19 (owner, ~01:46 SGT): supersedes the 9:16 vertical lock of 14 Nov.** Source Flow clips are 360p drafts; output quality/upscale must be verified. This birthday film is separate from the 58-second vertical *Teaser 3*.
 
 ## Creative decision
 Working title: **MISSION PASKO: THE BIRTHDAY HOUSEMATES**.
 
 Premise: An unseen, disembodied **Kuya-style Filipino narrator** gives the housemates a Christmas birthday mission. Funny tasks and quick reveals introduce **every December celebrant**. An unexpected, heartfelt transition brings genuine messages from family/friends. Land with a joyous all-ten mosaic.
 
-Tonality: **warm, positive, funny, Taglish, Singapore-Filipino/OFW relatable, affectionate**. All jokes should be with the celebrants, not at their expense; no invented intimate facts, caricatured accents, or overly sentimental guilt. The December roster is complete, November is pending.
+Tonality: **warm, positive, funny, Taglish, Singapore-Filipino/OFW relatable, affectionate**. All jokes should be with the celebrants, not at their expense; no invented intimate facts, caricatured accents, or overly sentimental guilt. The December roster is complete; the November roster was received 2026-11-19 (3 celebrants — see above).
 
 **Narrator:** **audio-only/bodiless**. No actor or face representing Kuya. Do not reproduce/clone the actual television host/Big Brother voice. Consider licensed, original Filipino TTS via ElevenLabs or Gemini TTS. See [PRODUCTION.md](PRODUCTION.md).
 
@@ -53,7 +61,7 @@ Tonality: **warm, positive, funny, Taglish, Singapore-Filipino/OFW relatable, af
 - User-supplied one-page **November & December Birthday** PDF (photo in conversation). It calls for landscape, Paskong Pinoy Remix, cheerful Christmas birthday music and a short clip. It appears to contain a conflicting `90mins` transcription; **owner clearly specified 90 seconds** and that explicit instruction controls.
 - December source roster: **N4:** Doc Bing (Dec 20), Ally (Dec 6); **W2:** Ate Joy (Dec 4), Kuya John (Dec 27); **Sunday Love:** Catherine (Dec 18), Susie (Dec 24); **Sunday Hope:** Sheinna May (Dec 2), Rea (Dec 4), Juvelyn (Dec 17), Hanny (Dec 27).
 - **Sunday Faith:** no birthday celebrants in supplied document.
-- **November:** not yet supplied; source document displays headings but no named celebrants. **Pending, do not invent.**
+- **November — RECEIVED 2026-11-19, CONFIRMED 2026-11-19 ~10:20 (owner message):** Group Hope: **Sabel — Nov 17** (photo supplied 19 Nov); N4: **Charie — Nov 19**, **Naung — Nov 13**; Group Faith: no celebrants; Group Love: no celebrants; W2: none. **'Sunday' = the grouping for Faith, Hope and Love** (the Sunday cell groups), as opposed to N4 and W2. Group membership (all 13): N4 = Charie, Naung, Doc Bing, Ally; W2 = Ate Joy, Kuya John; Sunday Hope = Sabel, Sheinna May, Rea, Juvelyn, Hanny; Sunday Love = Catherine, Susie; Sunday Faith = none. Full roster and photo status in [CAST_ASSET_MANIFEST.md](CAST_ASSET_MANIFEST.md).
 - December portrait collection (owner-uploaded): https://drive.google.com/drive/folders/1TOi8K_7LHbyw4rhBp-8chj791yDhtdYU
 - [CAST_ASSET_MANIFEST.md](CAST_ASSET_MANIFEST.md): 12 verified photos covering all 10 December members.
 - [STORYBOARD_V1.md](STORYBOARD_V1.md): 90-second creative beat sheet, draft narrator cues and coverage map.
@@ -62,11 +70,12 @@ Tonality: **warm, positive, funny, Taglish, Singapore-Filipino/OFW relatable, af
 
 ## Current facts and uncertainties
 1. **12 photographs** currently appear directly in the Google Drive folder and map by filename to **all ten** December celebrants. Ate Joy and Kuya John have 2 photos each.
-2. **Catherine date conflict:** PDF roster says **Dec 18**; Drive filename is **`catherine_dec_16.JPG`**. Display **Dec 18 provisionally from the source PDF**, flag for owner confirmation; do not silently change to Dec 16.
+2. **Catherine date RESOLVED 2026-11-19 ~10:20 (owner): Dec 18 confirmed.** PDF roster says Dec 18; Drive filename is `catherine_dec_16.JPG` (filename is wrong — display Dec 18).
 3. Birthdays and image-to-person identity are inferred from filenames and the supplied list; validate matching faces/persons and use permission/consent before animation.
 4. Family testimony footage, rehearsal footage, spoken script, music licence and final use/distribution scope are **not yet confirmed**.
 5. The Google Drive folder was observed on 2026-11-14 with an **anyone-with-link writer** permission. This is an asset-safety concern; owner should restrict to editors rather than broad edit access. **We have not changed its permissions.**
 6. **Do not commit private portraits, raw videos, family messages or copyrighted music into GitHub.** Keep media in approved storage and reference them in docs; commit only planning metadata/scripts.
+7. **November photos — COMPLETE 2026-11-19 ~10:20 (3 of 3):** Charie has two photos — `n4_charie.jpeg` (folder 'teaser 3') plus a duplicate copy in folder 'Untitled collection-2', and a studio portrait `n4_charie_portrait.jpeg` (folder 'teaser 3', supplied 19 Nov via WhatsApp). **Naung: photo supplied 19 Nov** — `n4_naung.jpeg` (folder 'teaser 3', supplied 19 Nov via WhatsApp). **Sabel: photo supplied 19 Nov** — `sabel.png` (folder 'teaser 3', supplied 19 Nov via WhatsApp, Drive id 1U4OZ6wN6EqN5HTYHukv8uNCHfNKX8TQA). No November photos in the 'Birthday Video' folder. All three November celebrants now have photos; their black-screen placeholder cards can be re-cut with the real photos. Do not invent photos.
 
 ## Production direction inherited from project sources
 - Same-family methodology from [Teaser 3](../Teaser%203/README.md): identity always from the original user-provided photograph, stable wardrobe/visual continuity, consent, simple model-facing prompts, cost-aware independent pickups.
@@ -74,12 +83,13 @@ Tonality: **warm, positive, funny, Taglish, Singapore-Filipino/OFW relatable, af
 - No rendering without owner-approved screenplay/storyboard, per related repository production rules.
 
 ## Next actions
-1. Confirm Catherine's date (Dec 18 roster vs Dec 16 filename).
+1. ~~Confirm Catherine's date (Dec 18 roster vs Dec 16 filename).~~ **RESOLVED 19 Nov ~10:20 — owner confirmed Dec 18.**
 2. Approve or revise [STORYBOARD_V1.md](STORYBOARD_V1.md), the first draft of Mission Pasko.
 3. Select original licensed **narrator voice** and approved music route; test one 5–8s Tagalog/Taglish sample.
 4. Ask family/friends for voluntary 5–8s genuine birthday voice/video submissions, if feasible, with consent for event screening.
 5. Review original photo quality and member permission for Remotion identity/photo cards; use those photos in Flow only if permitted by member consent and the active mode.
 6. Generate only the essential, approved comedic pickups; use Remotion for name/date reveals (avoid ten expensive portrait animations by default).
-7. Assemble, QC, then play in PowerPoint; November material remains pending and can be added later if owner requests a combined cut.
+7. Assemble, QC, then play in PowerPoint; **November material complete 2026-11-19 ~10:20 — all 13 birthdays confirmed, all 13 photos found; combined November+December silent animatic staged locally (see ANIMATIC note below). Re-cut the November block with the real photos (Sabel, Naung) and rework the group segments so each group shows ALL its celebrants as animated versions accurate to how they look (owner correction 19 Nov ~10:16).**
+8. ~~November gaps: collect Sabel's photo and Charie/Naung birthdays; re-cut the November block with real photos when they arrive (Naung's card can be re-cut now that his photo is supplied).~~ **CLOSED 19 Nov ~10:20 — all supplied/confirmed. Re-cut the November block with the real photos (Sabel, Naung, Charie).**
 
 **Source clips were uploaded and visually inspected (P04/P05A/P05B/P06); no edited 90s final, licensed music or generated narrator audio is claimed.**
